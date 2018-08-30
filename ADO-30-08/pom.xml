@@ -1,13 +1,59 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>br.senac.tads.pi3b</groupId>
-    <artifactId>ADO-30-08</artifactId>
+    <groupId>br.senac.tads.pi3b.ado</groupId>
+    <artifactId>ado-pi3</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>jar</packaging>
+    <organization>
+        <name>senac TADS ado dia 30-08</name>    
+    </organization>
+    <developers>
+    <developer>
+        <id>marcosa</id>
+        
+        <name>Marcos Sá</name>
+    </developer>  
+        <developer>
+        <id>Lucas</id>
+        
+        <name>Lucas Santiago</name>
+    </developer>   
+        <developer>
+        <id>ang </id>
+        
+        <name>angelo</name>
+    </developer>   
+        <developer>
+        <id>Mu</id>
+        
+        <name>Murilo</name>
+    </developer>   
+        <developer>
+        <id>Fe</id>
+        
+        <name>Fernando</name>
+    </developer>     
+    </developers>    
+    
+    
+    
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
     </properties>
+    <dependencies>
+    <dependency>
+        <!-- Baixar arquivo do java.doc !-->
+        <artifactId> mysql-connector-java</artifactId>
+        <groupId>mysql</groupId>
+        <version>5.1.46</version>    
+
+    </dependency>   
+    </dependencies>
+    
+    
 </project>
+
+
