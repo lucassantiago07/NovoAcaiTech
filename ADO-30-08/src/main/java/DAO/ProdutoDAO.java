@@ -14,20 +14,21 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import Connection.Conexao;
 import Data.ProdutoData;
+import java.sql.Statement;
+
 /**
  *
  * @author lucas.ssantos57
  */
 public class ProdutoDAO {
-    
-   public void incluirProduto(ProdutoData p) throws ClassNotFoundException, SQLException{
-       
-       String querySql = "INSERT INTO PRODUTO (NOME,DESCRICAO,PRECO_COMPRA,PRECO_VENDA,QUANTIDADE) VALUES (?,?,?,?,?)";
-       
+
+    public void incluirProduto(ProdutoData p) throws ClassNotFoundException, SQLException {
+
+        String querySql = "INSERT INTO PRODUTO (NOME,DESCRICAO,PRECO_COMPRA,PRECO_VENDA,QUANTIDADE) VALUES (?,?,?,?,?)";
+
         //Cria conexão com banco de dados
         Connection connection = new Conexao().obterConexao();
-        
-        
+
         //Prepara a query
         PreparedStatement pstmt = connection.prepareStatement(querySql);
         //Captura campos e seta na query
@@ -36,23 +37,30 @@ public class ProdutoDAO {
         pstmt.setFloat(3, p.getPrecoCompra());
         pstmt.setFloat(4, p.getPrecoVenda());
         pstmt.setInt(5, p.getQuantidade());
-       //pstmt.setDate(6, p.getDataCadastro());
-       
+        //pstmt.setDate(6, p.getDataCadastro());
+
         pstmt.executeUpdate();
-        connection.close();    
-       
-   }
-   
-   public void consultarProduto(){
-       
-   }
-   
-   public void alterarProduto(){
-       
-   }
-   
-   public void excluirProduto(){
-       
-   }
-    
+        connection.close();
+
+    }
+
+    public void consultarProduto() {
+
+    }
+
+    public void alterarProduto() {
+
+    }
+
+    public void excluirProduto(Integer id) throws ClassNotFoundException, SQLException {
+        try{
+        Connection conn = new Conexao().obterConexao();
+        Statement st = conn.createStatement();
+        st.executeUpdate("DELETE FROM PRODUTO WHERE (id=?)");
+        conn.close();
+        }catch(Exception e){
+            System.out.println("Erro ao excluir");
+        }
+    }
+
 }

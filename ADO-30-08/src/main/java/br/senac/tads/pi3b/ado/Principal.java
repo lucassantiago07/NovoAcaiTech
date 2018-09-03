@@ -24,7 +24,7 @@ import java.util.Scanner;
  */
 public class Principal {
     
-    public static void main(String[] args) throws ClassNotFoundException, SQLException {
+    public void main(String[] args) throws ClassNotFoundException, SQLException {
         
         Scanner sc = new Scanner(System.in);
         
