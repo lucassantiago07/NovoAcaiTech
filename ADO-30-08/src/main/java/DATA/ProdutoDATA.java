@@ -5,29 +5,21 @@
  */
 package DATA;
 
-import java.sql.Date;
+import java.sql.Timestamp;
+import java.time.Instant;
 
 /**
  *
  * @author lucas.ssantos57
  */
 public class ProdutoDATA {
-    
+
     private String Nome;
     private String Descricao;
     private float PrecoCompra;
     private float PrecoVenda;
     private int Quantidade;
     private int Id;
-    private Date DataCadastro;
-
-    public Date getDataCadastro() {
-        return DataCadastro;
-    }
-
-    public void setDataCadastro(Date DataCadastro) {
-        this.DataCadastro = DataCadastro;
-    }
 
     public ProdutoDATA() {
     }
@@ -36,16 +28,16 @@ public class ProdutoDATA {
         return Nome;
     }
 
+    public void setNome(String Nome) {
+        this.Nome = Nome;
+    }
+
     public int getId() {
         return Id;
     }
 
     public void setId(int Id) {
         this.Id = Id;
-    }
-
-    public void setNome(String Nome) {
-        this.Nome = Nome;
     }
 
     public String getDescricao() {
@@ -79,7 +71,9 @@ public class ProdutoDATA {
     public void setQuantidade(int Quantidade) {
         this.Quantidade = Quantidade;
     }
-    
-    
-    
+
+    public Timestamp getDataCadastro() {
+        return Timestamp.from(Instant.now());
+    }
+
 }

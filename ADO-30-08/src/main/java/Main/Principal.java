@@ -19,6 +19,7 @@ public class Principal {
             System.out.println("2 - INCLUIR PRODUTOS");
             System.out.println("3 - EXCLUIR PRODUTOS");
             System.out.println("4 - ALTERAR PRODUTOS");
+            System.out.println("0 - SAIR DA APLICAÇÃO");
             System.out.println("--------------------");
 
             System.out.println("Digite a opção desejada: ");
@@ -36,6 +37,9 @@ public class Principal {
                 }
                 case 4: {
                     alterarProduto();
+                }
+                case 0: {
+                    break;
                 }
 
             }
@@ -124,9 +128,10 @@ public class Principal {
             
             /*
             
-            Completar o método
+                Completar Método
             
             */
+            
         } catch (Exception e) {
             System.out.println("Erro alterarProduto()");
         }
