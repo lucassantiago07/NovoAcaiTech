@@ -5,6 +5,7 @@
  */
 package DATA;
 
+import java.sql.Date;
 import java.sql.Timestamp;
 import java.time.Instant;
 
@@ -20,6 +21,7 @@ public class ProdutoDATA {
     private float PrecoVenda;
     private int Quantidade;
     private int Id;
+    private Timestamp DataCadastro;
 
     public ProdutoDATA() {
     }
@@ -73,7 +75,12 @@ public class ProdutoDATA {
     }
 
     public Timestamp getDataCadastro() {
-        return Timestamp.from(Instant.now());
+        return DataCadastro;
     }
-
+    
+    public void setDataCadastro(Timestamp DataCadastro){
+        this.DataCadastro = DataCadastro;
+    }
+ 
+    
 }

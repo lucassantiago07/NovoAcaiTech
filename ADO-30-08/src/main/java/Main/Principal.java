@@ -87,7 +87,7 @@ public class Principal {
             ProdutoDAO pDAO = new ProdutoDAO();
             pDAO.incluirProduto(p);
         } catch (Exception e) {
-            System.out.println("Erro excluirProduto()");
+            System.out.println("Erro ao inserir produto()");
         }
 
     }
@@ -112,12 +112,8 @@ public class Principal {
             Scanner sc = new Scanner(System.in);
 
             ProdutoDAO pDAO = new ProdutoDAO();
-
-            /*
-
-            PENDENTE.
-
-             */
+            exibeProdutosDisponivelParaAlterar();
+            
         } catch (Exception e) {
             System.out.println("Erro listarProdutos()");
         }
@@ -146,15 +142,18 @@ public class Principal {
             Scanner sc = new Scanner(System.in);
             ProdutoDAO pDAO = new ProdutoDAO();
             List<ProdutoDATA> produtosList = pDAO.exibeProdutosDisponivelParaAlterar();
-            /* Arrumar a impressão */
+            System.out.println("--------------------------------------");
+            System.out.println("LISTANDO OS PRODUTOS");
+            System.out.println("--------------------------------------");
             for (ProdutoDATA p : produtosList) {
-                System.out.print(p.getId());  
-                System.out.print(p.getNome()); 
-                System.out.print(p.getDescricao()); 
-                System.out.print(p.getPrecoCompra()); 
-                System.out.print(p.getPrecoVenda()); 
-                System.out.print(p.getQuantidade()); 
-                System.out.print(p.getDataCadastro()); 
+                System.out.println("ID: "+p.getId());  
+                System.out.println("Nome do Produto: "+p.getNome()); 
+                System.out.println("Descrição: "+p.getDescricao()); 
+                System.out.println("Preço da compra: "+p.getPrecoCompra()); 
+                System.out.println("Preço da venda: "+p.getPrecoVenda()); 
+                System.out.println("Quantidade do produto: "+p.getQuantidade()); 
+                System.out.println("Data do cadastro: "+p.getDataCadastro()); 
+                System.out.println("------------------------------------");
             }
         } catch (Exception e) {
             System.out.println("Erro listarProdutos()");

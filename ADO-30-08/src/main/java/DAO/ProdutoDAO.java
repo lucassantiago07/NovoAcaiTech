@@ -121,8 +121,7 @@ public class ProdutoDAO {
             p.setPrecoCompra(rs.getFloat("PRECO_COMPRA"));
             p.setPrecoVenda(rs.getFloat("PRECO_VENDA"));
             p.setQuantidade(rs.getInt("QUANTIDADE"));
-            //p.setDataCadastro(rs.getDate("DT_CADASTRO"));
-
+            p.setDataCadastro(rs.getTimestamp("DT_CADASTRO"));
             produtosList.add(p);
         }
 
