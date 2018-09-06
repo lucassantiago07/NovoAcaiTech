@@ -10,8 +10,12 @@ import java.util.Scanner;
 
 public class Principal {
 
-    public void main(String[] args) throws ClassNotFoundException, SQLException {
+    public static void main(String[] args) throws ClassNotFoundException, SQLException {
+        int opcao =0;   
         try {
+            
+            do{
+             
             Scanner sc = new Scanner(System.in);
 
             System.out.println("--------------------");
@@ -23,30 +27,36 @@ public class Principal {
             System.out.println("--------------------");
 
             System.out.println("Digite a opção desejada: ");
-            int opcao = sc.nextInt();
+            opcao = sc.nextInt();
 
             switch (opcao) {
                 case 1: {
                     listarProdutos();
+                    break;
                 }
                 case 2: {
                     incluirProduto();
+                    break;
                 }
                 case 3: {
                     excluirProduto();
+                    break;
                 }
                 case 4: {
                     alterarProduto();
-                }
-                case 0: {
                     break;
                 }
-
+                default: 
+                    System.out.println("Digite uma opção válida");
+                    break; 
             }
+            
+            }
+            while (opcao !=0);
         } catch (Exception e) {
             System.out.println("Erro main()");
         }
-
+       System.out.println("Você saiu do programa");
     }
 
     private static void incluirProduto() throws ClassNotFoundException, SQLException {
@@ -86,7 +96,7 @@ public class Principal {
         try {
             Scanner sc = new Scanner(System.in);
 
-            System.out.println("Digite o ID do produto: ");
+            System.out.println("Digite o ID do produto para excluir: ");
             Integer id = sc.nextInt();
 
             ProdutoDAO pDAO = new ProdutoDAO();

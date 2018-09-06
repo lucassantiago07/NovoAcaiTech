@@ -13,7 +13,7 @@ public class ProdutoDAO {
 
     public void incluirProduto(ProdutoDATA p) throws ClassNotFoundException, SQLException {
         try {
-            String querySql = "INSERT INTO PRODUTO (NOME,DESCRICAO,PRECO_COMPRA,PRECO_VENDA,QUANTIDADE,DT_CADASTRO) VALUES (?,?,?,?,?,?)";
+            String querySql = "INSERT INTO PRODUTO (NOME,DESCRICAO,PRECO_COMPRA,PRECO_VENDA,QUANTIDADE) VALUES (?,?,?,?,?)";
 
             //Cria conexão com banco de dados
             Connection connection = new Conexao().obterConexao();
@@ -26,7 +26,7 @@ public class ProdutoDAO {
             pstmt.setFloat(3, p.getPrecoCompra());
             pstmt.setFloat(4, p.getPrecoVenda());
             pstmt.setInt(5, p.getQuantidade());
-            pstmt.setDate(6, p.getDataCadastro());
+            //pstmt.setDate(6, p.getDataCadastro());
 
             pstmt.executeUpdate();
             connection.close();
@@ -56,23 +56,15 @@ public class ProdutoDAO {
         }
     }
 
-    public void alterarProduto(ProdutoDATA p,Integer Id) {
+    public void alterarProduto() {
         try {
-            String querySql = "UPDATE PRODUTO SET (NOME = ?,DESCRIÇÃO = ?,PRECO_COMPRA = ?,PRECO_VENDA = ?,QUANTIDADE = ?,DT_CADASTRO = ?) "
-                    + "WHERE (ID = ?)";
+            String querySql = "";
 
             //Cria conexão com banco de dados
             Connection connection = new Conexao().obterConexao();
 
             //Prepara a query
             PreparedStatement pstmt = connection.prepareStatement(querySql);
-            pstmt.setString(1, p.getNome());
-            pstmt.setString(2, p.getDescricao());
-            pstmt.setString(3, p.getPrecoCompra);
-            pstmt.setString(4, p.getPrecoVenda());
-            pstmt.setString(5, p.getQuantidade());
-            pstmt.setString(6, p.getDataCadastro());
-            pstmt.setString(7, p.getId());
 
         } catch (ClassNotFoundException | SQLException e) {
             System.out.println("Erro ao alterar o produto");
@@ -129,7 +121,7 @@ public class ProdutoDAO {
             p.setPrecoCompra(rs.getFloat("PRECO_COMPRA"));
             p.setPrecoVenda(rs.getFloat("PRECO_VENDA"));
             p.setQuantidade(rs.getInt("QUANTIDADE"));
-            p.setDataCadastro(rs.getDate("DT_CADASTRO"));
+            //p.setDataCadastro(rs.getDate("DT_CADASTRO"));
 
             produtosList.add(p);
         }
