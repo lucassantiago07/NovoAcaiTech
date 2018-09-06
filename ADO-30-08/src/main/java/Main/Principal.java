@@ -135,19 +135,13 @@ public class Principal {
 
             System.out.println("Digite o ID do produto a ser alterado: ");
             Integer id = sc.nextInt();
-            
             /*
-            
                 Completar Método
-            
             */
-            
         } catch (Exception e) {
             System.out.println("Erro alterarProduto()");
         }
-
     }
-
     private static void exibeProdutosDisponivelParaAlterar() throws ClassNotFoundException, SQLException {
         try {
             Scanner sc = new Scanner(System.in);
@@ -156,7 +150,6 @@ public class Principal {
 
             List<ProdutoDATA> produtosList = pDAO.exibeProdutosDisponivelParaAlterar();
 
-            
             /* Arrumar a impressão */
             for (ProdutoDATA p : produtosList) {
                 System.out.print(p.getId());  
@@ -174,4 +167,6 @@ public class Principal {
 
     }
 
+ 
+    
 }
