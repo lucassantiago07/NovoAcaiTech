@@ -129,7 +129,6 @@ public class Principal {
             Scanner sc = new Scanner(System.in);
 
             ProdutoDAO pDAO = new ProdutoDAO();
-
             // Para exibir os produtos cadastrados.
             exibeProdutosDisponivelParaAlterar();
 
@@ -145,11 +144,8 @@ public class Principal {
     private static void exibeProdutosDisponivelParaAlterar() throws ClassNotFoundException, SQLException {
         try {
             Scanner sc = new Scanner(System.in);
-
             ProdutoDAO pDAO = new ProdutoDAO();
-
             List<ProdutoDATA> produtosList = pDAO.exibeProdutosDisponivelParaAlterar();
-
             /* Arrumar a impressão */
             for (ProdutoDATA p : produtosList) {
                 System.out.print(p.getId());  
@@ -160,13 +156,8 @@ public class Principal {
                 System.out.print(p.getQuantidade()); 
                 System.out.print(p.getDataCadastro()); 
             }
-
         } catch (Exception e) {
             System.out.println("Erro listarProdutos()");
         }
-
     }
-
- 
-    
 }
