@@ -100,9 +100,7 @@ public class Principal {
         } catch (Exception e) {
             System.out.println("Erro excluirProduto()");
         }
-
     }
-
     private static void listarProdutos() throws ClassNotFoundException, SQLException {
         try {
             Scanner sc = new Scanner(System.in);
