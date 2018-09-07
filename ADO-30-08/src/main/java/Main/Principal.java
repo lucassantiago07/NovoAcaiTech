@@ -111,7 +111,6 @@ public class Principal {
         } catch (Exception e) {
             System.out.println("Erro listarProdutos()");
         }
-
     }
 
     private static void alterarProduto() throws ClassNotFoundException, SQLException {
