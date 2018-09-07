@@ -89,16 +89,12 @@ public class Principal {
         } catch (Exception e) {
             System.out.println("Erro ao inserir produto()");
         }
-
     }
-
     private static void excluirProduto() throws ClassNotFoundException, SQLException {
         try {
             Scanner sc = new Scanner(System.in);
-
             System.out.println("Digite o ID do produto para excluir: ");
             Integer id = sc.nextInt();
-
             ProdutoDAO pDAO = new ProdutoDAO();
             pDAO.excluirProduto(id);
         } catch (Exception e) {
