@@ -52,8 +52,7 @@
 
     </dependency>   
     </dependencies>
-    
-    
+    <name>ado-pi3</name>
 </project>
 
 

@@ -56,15 +56,20 @@ public class ProdutoDAO {
         }
     }
 
-    public void alterarProduto() {
+    public void alterarProduto(ProdutoDATA p) {
         try {
-            String querySql = "";
+            String querySql = "UPDATE PRODUTO SET (NOME = ?,DESCRICAO = ?,PRECO_COMPRA = ?,PRECO_VENDA = ?,QUANTIDADE = ?) WHERE Id = ?";
 
             //Cria conexão com banco de dados
             Connection connection = new Conexao().obterConexao();
-
+            
             //Prepara a query
             PreparedStatement pstmt = connection.prepareStatement(querySql);
+            pstmt.setString(1, p.getNome());
+            pstmt.setString(2, p.getDescricao());
+            pstmt.setFloat(3, p.getPrecoCompra());
+            pstmt.setFloat(4, p.getPrecoVenda());
+            pstmt.setInt(5, p.getQuantidade());
 
         } catch (ClassNotFoundException | SQLException e) {
             System.out.println("Erro ao alterar o produto");
@@ -121,7 +126,8 @@ public class ProdutoDAO {
             p.setPrecoCompra(rs.getFloat("PRECO_COMPRA"));
             p.setPrecoVenda(rs.getFloat("PRECO_VENDA"));
             p.setQuantidade(rs.getInt("QUANTIDADE"));
-            p.setDataCadastro(rs.getTimestamp("DT_CADASTRO"));
+            //p.setDataCadastro(rs.getDate("DT_CADASTRO"));
+
             produtosList.add(p);
         }
 
