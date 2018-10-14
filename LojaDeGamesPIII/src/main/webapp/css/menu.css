@@ -1,0 +1,31 @@
+.imagemlogo
+{
+	width:100%;
+}
+.corpoimagem
+{
+	width:10%;
+}
+.informacoessobrefuncionario
+{
+	text-align:center;
+	font-size: 14px;
+	width: 30%;
+	margin-right:0%; 
+   
+}
+.navbar 
+{
+	
+    padding-top: 0px;
+}
+.rodape
+{
+	background-color:purple;
+	color:white;
+	margin-top:2%;
+}
+.imagemsuporte
+{
+	width:2%;
+}

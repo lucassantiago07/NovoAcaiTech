@@ -1,2 +1,0 @@
-# AcaiTech-
-ADO1
