@@ -4,17 +4,5 @@
     <welcome-file>view/login.jsp</welcome-file>
 </welcome-file-list>   
 
-    <servlet>
-        <servlet-name>incluirProduto</servlet-name>
-        <servlet-class>Controller.incluirProduto</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>incluirProduto</servlet-name>
-        <url-pattern>/incluirProduto</url-pattern>
-    </servlet-mapping>
-    <session-config>
-        <session-timeout>
-            30
-        </session-timeout>
-    </session-config>
+    
 </web-app>
