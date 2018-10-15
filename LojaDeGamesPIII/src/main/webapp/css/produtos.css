@@ -28,3 +28,11 @@
 	margin-bottom:3%;
 	margin-top:3%;
 }
+.btnCadastrar
+{
+    margin-bottom: 2%;
+    margin-top: 2%;
+    background-color: purple;
+    color:white;
+    float:right;
+}
