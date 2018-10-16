@@ -157,7 +157,7 @@
             </tbody>
          </table>
          <div class="row">
-             <button type="button" class="btn btn-primary" href="#">Voltar</button>
+             <button type="button" class="btn btn-primary btnCadastrar" href="#">Cadastrar um novo produto</button>
 
          </div>
       </div>

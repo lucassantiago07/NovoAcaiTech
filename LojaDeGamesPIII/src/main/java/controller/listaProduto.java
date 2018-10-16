@@ -1,6 +1,8 @@
 package controller;
 
+import controller.*;
 import data.ProdutoData;
+import dao.ProdutoDAO;
 import dao.ProdutoDAO;
 import java.io.IOException;
 import java.sql.Timestamp;
@@ -30,7 +32,7 @@ import javax.servlet.http.HttpServletResponse;
 
 
 @WebServlet(name = "incluirProduto", urlPatterns = {"/incluirProduto"})
-public class incluirProduto extends HttpServlet {
+public class listaProduto extends HttpServlet {
 
  
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
