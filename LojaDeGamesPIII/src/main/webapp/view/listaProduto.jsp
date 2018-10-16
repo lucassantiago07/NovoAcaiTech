@@ -157,7 +157,8 @@
             </tbody>
          </table>
          <div class="row">
-            <button type="button" class="btn btn-light btnCadastrar" data-toggle="modal" data-target="#exampleModalLong">Cadastrar um novo produto</button>
+             <button type="button" class="btn btn-primary" href="#">Voltar</button>
+
          </div>
       </div>
               <!-- Inicio Footer -->
