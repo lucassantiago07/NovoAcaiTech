@@ -70,7 +70,9 @@ public class ProdutoDAO {
             Connection connection = new ConnectionFactory().getConnection();
             Statement stmt = connection.createStatement();
 
-            ResultSet rs = stmt.executeQuery("SELECT * FROM `produto` WHERE  nome LIKE '%"+descricaoProduto+"%' AND descricao LIKE '%"+descricaoProduto+"%'");
+            ResultSet rs = stmt.executeQuery("SELECT * FROM `produto` WHERE  NOME LIKE '%"+descricaoProduto+"%' OR DESCRICAO LIKE '%"+descricaoProduto+"%'");
+            
+            System.out.println("SELECT * FROM `produto` WHERE  NOME LIKE '%"+descricaoProduto+"%' OR DESCRICAO LIKE '%"+descricaoProduto+"%'");
 
             while (rs.next()) {               
                 ProdutoData p = new ProdutoData();

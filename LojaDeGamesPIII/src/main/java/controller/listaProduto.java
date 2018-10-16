@@ -18,29 +18,27 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet(name = "listaProduto", urlPatterns = {"/listaProduto"})
 public class listaProduto extends HttpServlet {
 
- 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        ProdutoDAO produtos = new ProdutoDAO();
-
         String descricaoProduto = request.getParameter("descricaoProduto");
-        
-        if (descricaoProduto == null) {     
-            
-             List<ProdutoData> lista = produtos.getProdutos();
-            request.setAttribute("lista", lista);
-             
-        } else {
-            
+
+        if (descricaoProduto == null) {
+
+            ProdutoDAO produtos = new ProdutoDAO();
+
             List<ProdutoData> lista = produtos.getProdutos();
-            lista = produtos.getProdutoByDescricao(descricaoProduto);
+
             request.setAttribute("lista", lista);
-          
+        } else {
+            ProdutoDAO produtos = new ProdutoDAO();
+
+            List<ProdutoData> lista = produtos.getProdutoByDescricao(descricaoProduto);
+
+            request.setAttribute("lista", lista);
         }
-  
+
     }
+
 }
-
-

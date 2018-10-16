@@ -10,8 +10,9 @@
 <!DOCTYPE html>
 <html>
    <head>
+       <jsp:include page="/listaProduto" />
       <meta charset="UTF-8">
-      <jsp:include page="/listaProduto" />
+      
       <title>AcaiTech Sistema - Destaques</title>
       <link type="text/css" href="${pageContext.request.contextPath}/css/bootstrap.css" rel="stylesheet" />
       <script src="${pageContext.request.contextPath}/js/jquery-3.3.1.js"></script>
@@ -60,10 +61,10 @@
       <!-- Fim Separador -->
       <!-- inicio Busca jogos estoque -->
       <div class="container corpodecampos">
-         <form name="formularioBusca" id="formularioBusca" action="${pageContext.request.contextPath}/listaProduto" method="post">
+         <form name="formularioBusca" id="formularioBusca" action="${pageContext.request.contextPath}/listaProduto" method="get">
             <div class="row">
                <h3>Estoque Atual</h3>
-               <input class=" form-control mr-sm-2 descricaoProduto" name="descricaoProduto"  type="search" placeholder="Digite o nome do jogo,fornecedor, ano de lançamento, plataforma, ..etc" aria-label="Search" style="width:90%">
+               <input class=" form-control mr-sm-2 descricaoProduto" name="descricaoProduto"  type="search" placeholder="Digite o nome do jogo,fornecedor, ano de lançamento, plataforma, ..etc" aria-label="Search" style="width:90%" onsubmit="yourJsFunction();return false">
                <button type="submit" class="btn btn-light">Buscar</button>
             </div>
          </form>
@@ -86,6 +87,7 @@
             </thead>
             <tbody>
                <tr>
+                   
                </tr>
                <c:forEach var="produto" items="${lista}">
                   <tr>
