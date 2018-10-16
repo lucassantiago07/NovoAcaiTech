@@ -64,7 +64,7 @@
          <form name="formularioBusca" id="formularioBusca" action="${pageContext.request.contextPath}/listaProduto" method="get">
             <div class="row">
                <h3>Estoque Atual</h3>
-               <input class=" form-control mr-sm-2 descricaoProduto" name="descricaoProduto"  type="search" placeholder="Digite o nome do jogo,fornecedor, ano de lançamento, plataforma, ..etc" aria-label="Search" style="width:90%" onsubmit="yourJsFunction();return false">
+               <input class=" form-control mr-sm-2 descricaoProduto" name="descricaoProduto"  type="search" placeholder="Digite o nome do jogo,fornecedor, ano de lançamento, plataforma, ..etc" aria-label="Search" style="width:90%" >
                <button type="submit" class="btn btn-light">Buscar</button>
             </div>
          </form>
