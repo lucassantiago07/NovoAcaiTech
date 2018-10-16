@@ -52,6 +52,12 @@
       </div>
       <!-- Fim Carrocel -->
       
+            <!-- Inicio Separador -->
+      <nav class="navbar navbar-light separadorcarrocel">
+        
+      </nav>
+      <!-- Fim Separador -->
+      
       <!-- Inicio Corpo De Campo -->
       <div class="container corpodecampos">
           

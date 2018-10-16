@@ -27,6 +27,8 @@
          <button type="button" class="btn btn-primary btnSair">Sair</button>
       </nav>
       <!-- Fim Menu -->
+      
+      
       <!-- Inicio Carrocel -->
       <div id="carouselExampleControls" class="carousel slide" data-ride="carousel" data-interval="2500">
          <div class="carousel-inner">
@@ -49,16 +51,26 @@
          <span class="sr-only">Next</span>
          </a>
       </div>
+            <!-- Fim Carrocel -->
+            
+            
+      <!-- Inicio Separador -->
+      <nav class="navbar navbar-light separadorcarrocel">
+        
+      </nav>
+      <!-- Fim Separador -->
+            
+            
       <!-- inicio Busca jogos estoque -->
-      <div class="buscajogoscorpo">
-         <h3>Estoque Atual</h3>
-         <form class="form-inline buscajogos">
+      <div class="container corpodecampos">         
+         <form class="form-inline">
+             <h3>Estoque Atual</h3>
             <input class=" form-control mr-sm-2 " type="search" placeholder="Digite o nome do jogo,fornecedor, ano de lançamento, plataforma, ..etc" aria-label="Search" style="width:90%">
             <button type="submit" class="btn btn-light">Buscar</button>
          </form>
       </div>
       <!-- fim Busca jogos estoque-->
-      <!-- Fim Carrocel -->
+
       <div class="container corpodecampos">
          <table class="table table-striped">
             <thead>

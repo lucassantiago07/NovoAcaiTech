@@ -14,51 +14,18 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 
-
-// ----------------------------------------------------------
-//
-//
-//
-//
-//                AJUSTAR!!!!!!!
-//         APENAS EXEMPLO. PARA AJUDAR
-//
-//
-//
-//
-//
-// ----------------------------------------------------------
-
-
-
-@WebServlet(name = "incluirProduto", urlPatterns = {"/incluirProduto"})
+@WebServlet(name = "listaProduto", urlPatterns = {"/listaProduto"})
 public class listaProduto extends HttpServlet {
 
  
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-            ProdutoData p = new ProdutoData();
-            
-            
-            Timestamp dataDeHoje = new Timestamp(System.currentTimeMillis());
-            //formatar: String date = new SimpleDateFormat("dd/MM/yyyy").format(timestamp.getTime());
-            p.setDataCadastro(dataDeHoje);
-            
-            p.setNome(request.getParameter(""));
-            p.setDescricao(request.getParameter(""));
-            p.setPrecoDeCusto(Float.parseFloat(request.getParameter("")));
-            p.setPrecoDeVenda(Float.parseFloat(request.getParameter("")));
-            p.setEstoque(Integer.parseInt(request.getParameter("")));   
-            int IdCategoria = Integer.parseInt(request.getParameter(""));
-            
-            ProdutoDAO dao = new ProdutoDAO();
-            
-            dao.cadastraProduto(p,IdCategoria);
-  
+            String descricaoProduto = request.getParameter("descricaoProduto");
+        
             request.setAttribute("retorno", "Mensagem de retorno pode ser variavel");
             
-            request.getRequestDispatcher("view/produtos.jsp").forward(request, response);
+            request.getRequestDispatcher("view/listaProduto.jsp").forward(request, response);
     }
 
  

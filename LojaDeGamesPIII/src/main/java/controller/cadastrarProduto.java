@@ -13,23 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 
 
 
-// ----------------------------------------------------------
-//
-//
-//
-//
-//                AJUSTAR!!!!!!!
-//         APENAS EXEMPLO. PARA AJUDAR
-//
-//
-//
-//
-//
-// ----------------------------------------------------------
-
-
-
-@WebServlet(name = "incluirProduto", urlPatterns = {"/incluirProduto"})
+@WebServlet(name = "cadastrarProduto", urlPatterns = {"/cadastrarProduto"})
 public class cadastrarProduto extends HttpServlet {
 
  
@@ -56,7 +40,7 @@ public class cadastrarProduto extends HttpServlet {
   
             request.setAttribute("retorno", "Mensagem de retorno pode ser variavel");
             
-            request.getRequestDispatcher("view/produtos.jsp").forward(request, response);
+            request.getRequestDispatcher("view/listaProduto.jsp").forward(request, response);
     }
 
  
