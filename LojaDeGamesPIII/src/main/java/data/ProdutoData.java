@@ -4,21 +4,6 @@ import java.sql.Timestamp;
 
 public class ProdutoData {
     
-    
-// ----------------------------------------------------------
-//
-//
-//
-//
-//                AJUSTAR!!!!!!!
-//         APENAS EXEMPLO. PARA AJUDAR
-//
-//
-//
-//
-//
-// ----------------------------------------------------------
-
 
 
     private int Id;
@@ -141,7 +126,4 @@ public class ProdutoData {
     public void setDataCadastro(Timestamp DataCadastro) {
         this.DataCadastro = DataCadastro;
     }
-
-   
-
 }

@@ -63,7 +63,7 @@
           
           <h3>Cadastrar Produto</h3>
           
-      <form>
+      <form name="formularioProduto" id="formularioProduto" action="${pageContext.request.contextPath}/cadastrarProduto" method="post">
          
          <div class="form-group">
             <label>Nome do Produto</label>
@@ -84,16 +84,20 @@
          <div class="form-group">
             <label>Categoria</label>
             <select class="form-control" id="categoria" name="categoria">
-               <option>1</option>
-               <option>2</option>
-               <option>3</option>
-               <option>4</option>
-               <option>5</option>
+               <option value="1">1</option>
+               <option value="2">2</option>
+               <option value="3">3</option>
+               <option value="4">4</option>
+               <option value="5">5</option>
             </select>
          </div>
          <div class="form-group">
             <label>Quantidade</label>
             <input class="form-control" id="quantidade" name="quantidade"></input>
+         </div>
+                   <div class="form-group">
+            <label>Descrição</label>
+            <textarea class="form-control" id="descricao" name="descricao"></textarea>
          </div>
            <button type="button" class="btn btn-primary" href="#">Voltar</button>
            <button type="submit" class="btn btn-primary">Enviar</button>

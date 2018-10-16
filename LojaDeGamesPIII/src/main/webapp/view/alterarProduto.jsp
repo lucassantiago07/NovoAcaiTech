@@ -95,6 +95,10 @@
             <label>Quantidade</label>
             <input class="form-control" id="quantidade" name="quantidade"></input>
          </div>
+                      <div class="form-group">
+            <label>Descrição</label>
+            <textarea class="form-control" id="descricao" name="descricao"></textarea>
+         </div>
           <button type="button" class="btn btn-primary" href="#">Voltar</button>
            <button type="submit" class="btn btn-primary">Enviar</button>
       </form>

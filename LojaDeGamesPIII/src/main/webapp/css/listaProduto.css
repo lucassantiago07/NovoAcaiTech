@@ -38,11 +38,15 @@
 }
 .corpodecampos
 {
- width: 70%;
+ width: 90%;
  margin-top: 2%;
  margin-bottom: 2%;
 }
 .separadorcarrocel
 {
     background-color: purple;
+}
+.descricaoProduto
+{
+    width: 80%;
 }
