@@ -4,10 +4,12 @@
    Author     : angelo.xavier
 --%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
     <head>
-         <jsp:include page="/capturaProduto" />
+        <jsp:include page="/capturaProduto" />
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta charset="UTF-8">
         <title>AcaiTech Sistema - Alterar Produtos</title>
@@ -67,6 +69,12 @@
             <form name="formularioProduto" id="formularioProduto" action="${pageContext.request.contextPath}/alterarProduto" method="post">
 
                 <div class="form-group">
+                    <label>Identificador do Produto:</label>
+                    <input class="form-control" id="id" name="id" value="${produto.id}" readonly="readonly"></input>
+                </div>
+
+
+                <div class="form-group">
                     <label>Nome do Produto</label>
                     <input class="form-control" id="nomeProduto" name="nomeProduto" value="${produto.nome}"></input>
                 </div>
@@ -108,12 +116,14 @@
                     <label>Descrição</label>
                     <textarea class="form-control" id="descricao" name="descricao" value="${produto.descricao}"></textarea>
                 </div>
-               
-                
-                <c:if test = "${not empty retorno}">
-                     <h5>Retorno: ${retorno}</h5>
-                </c:if>
-      
+
+                <c:if test="${not empty retorno}">
+                    <script type="text/javascript">
+                        alert("Produto cadastrado!");
+                    </script>
+                </c:if>              
+
+
                 <button type="button" class="btn btn-primary" href="#">Voltar</button>
                 <button type="submit" class="btn btn-primary">Enviar</button>
             </form>

@@ -4,6 +4,8 @@
    Author     : angelo.xavier
 --%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -13,7 +15,9 @@
         <link type="text/css" href="${pageContext.request.contextPath}/css/bootstrap.css" rel="stylesheet" />
         <script src="${pageContext.request.contextPath}/js/jquery-3.3.1.js"></script>
         <script src="${pageContext.request.contextPath}/js/bootstrap.js"></script>
+        <script src="${pageContext.request.contextPath}/js/formatterdinheiro.js"></script>
     </head>
+
     <!-- Inicio Menu -->
     <nav class="navbar navbar-light bg-light">
         <div class="corpoimagem">
@@ -27,6 +31,7 @@
         <button type="button" class="btn btn-primary btnSair">Sair</button>
     </nav>
     <!-- Fim Menu -->
+
     <body>
         <!-- Inicio Carrocel -->
         <div id="carouselExampleControls" class="carousel slide" data-ride="carousel" data-interval="2500">
@@ -67,55 +72,70 @@
 
                 <div class="form-group">
                     <label>Nome do Produto</label>
-                    <input class="form-control" id="nomeProduto" name="nomeProduto"></input>
+                    <input class="form-control" id="nomeProduto" name="nomeProduto" maxlength="25" required></input>
                 </div>
                 <div class="form-group">
                     <label>Preço De Venda</label>
-                    <input class="form-control" id="precoVenda" name="precoVenda"></input>
+                    <div class="input-group mb-2">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">R$</div>
+                        </div>
+                        <input type="Text" class="form-control"  id="precoVenda" name="precoVenda" size="10" maxlength="10" onkeydown="FormataMoeda(this, 10, event)" onkeypress="return maskKeyPress(event)" required />
+
+                    </div>
                 </div>
                 <div class="form-group">
                     <label>Preço De Custo</label>
-                    <input class="form-control" id="precoCusto" name="precoCusto"></input>
+                    <div class="input-group mb-2">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">R$</div>
+                        </div>
+                        <input type="Text" class="form-control"  id="precoCusto" name="precoCusto" size="10" maxlength="10" onkeydown="FormataMoeda(this, 10, event)" onkeypress="return maskKeyPress(event)" required />
+                    </div>
                 </div>
                 <div class="form-group">
                     <label>Fornecedor</label>
-                    <input class="form-control" id="fornecedor" name="fornecedor"></input>
+                    <input class="form-control" id="fornecedor" name="fornecedor" maxlength="25" required></input>
                 </div>
                 <div class="form-group">
                     <label>Plataforma</label>
-                    <input class="form-control" id="plataforma" name="plataforma"></input>
+                    <input class="form-control" id="plataforma" name="plataforma" maxlength="25" required></input>
                 </div>
                 <div class="form-group">
                     <label>Ano de lançamento</label>
-                    <input class="form-control" id="anolancamento" name="anolancamento"></input>
+                    <input type="text" class="form-control" id="anolancamento" name="anolancamento" onkeypress='validate(event)' maxlength="4" required></input>
                 </div>
                 <div class="form-group">
                     <label>Categoria</label>
-                    <select class="form-control" id="categoria" name="categoria">
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
+                    <select class="form-control" id="categoria" name="categoria" required>
+                        <option value="1">Ação</option>
+                        <option value="2">Corrida</option>
+                        <option value="3">Tiro</option>
+                        <option value="4">RPG</option>
+                        <option value="5">Estratégia</option>
                     </select>
                 </div>
                 <div class="form-group">
                     <label>Quantidade</label>
-                    <input class="form-control" id="estoque" name="estoque"></input>
+                    <input type="text" class="form-control" id="estoque" name="estoque" onkeypress='validate(event)' maxlength="4" required></input>
                 </div>
                 <div class="form-group">
                     <label>Descrição</label>
-                    <textarea class="form-control" id="descricao" name="descricao"></textarea>
+                    <textarea class="form-control" id="descricao" name="descricao" rows="2"></textarea>
                 </div>
-               
-                
-                <c:if test = "${not empty retorno}">
-                     <h5>Retorno: ${retorno}</h5>
-                </c:if>
-      
+
+
+
+
                 <button type="button" class="btn btn-primary" href="#">Voltar</button>
                 <button type="submit" class="btn btn-primary">Enviar</button>
             </form>
+
+            <c:if test="${not empty retorno}">
+                <script type="text/javascript">
+                    alert("Produto cadastrado!");
+                </script>
+            </c:if>  
         </div>
 
 

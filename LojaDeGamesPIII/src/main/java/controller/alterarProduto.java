@@ -15,15 +15,13 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet(name = "alterarProduto", urlPatterns = {"/alterarProduto"})
 public class alterarProduto extends HttpServlet {
 
-    @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
         ProdutoDAO dao = new ProdutoDAO();
         ProdutoData p = new ProdutoData();
-
-        System.out.println(request.getParameter("nomeProduto"));
-
+        
+        p.setId(Integer.parseInt(request.getParameter("id")));
         p.setNome(request.getParameter("nomeProduto"));
         p.setPrecoDeVenda(Float.parseFloat(request.getParameter("precoVenda")));
         p.setPrecoDeCusto(Float.parseFloat(request.getParameter("precoCusto")));
@@ -34,8 +32,8 @@ public class alterarProduto extends HttpServlet {
         p.setDescricao(request.getParameter("descricao"));
         p.setPlataforma(request.getParameter("plataforma"));
 
-        //dao.alterarProduto(p);
-        request.setAttribute("retorno", "Mensagem de retorno pode ser variavel");
+        dao.alterarProduto(p);
+        request.setAttribute("retorno", "OK");
 
         request.getRequestDispatcher("view/alterarProduto.jsp").forward(request, response);
     }

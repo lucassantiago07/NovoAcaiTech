@@ -154,8 +154,6 @@ public class ProdutoDAO {
             pstmtProduto.setInt(11, p.getId());
 
             pstmtProduto.executeUpdate();
-            
-            System.out.println(altProduto);
 
             connection.close();
         } catch (SQLException | ClassNotFoundException ex) {
