@@ -9,6 +9,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.Timestamp;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class ProdutoDAO {
     
@@ -112,6 +114,31 @@ public class ProdutoDAO {
             System.out.println("Erro no banco de dados " + e);
         }
         return id;
+    }
+    
+    public void alterarProduto(ProdutoData p, int IdCategoria){
+        
+        try{
+            Connection connection = new ConnectionFactory().getConnection();
+            
+            String altProduto = "UPDATE produto SET NOME = ?, CATEGORIA = ?, PLATAFORMA = ?, DESCRICAO = ?, PRECO_COMPRA = ?, PRECO_VENDA = ?, ANO_LANCAMENTO = ?, QUANTIDADE = ?, DT_CADASTRO = ? WHERE ID = ?";
+            PreparedStatement ps = connection.prepareStatement(altProduto);
+            ps.setString(1, p.getNome());
+            ps.setInt(2, p.getCategoria());
+            ps.setString(3, p.getPlataforma());
+            ps.setString(4, p.getDescricao());
+            ps.setFloat(5, p.getPrecoDeCusto());
+            ps.setFloat(6, p.getPrecoDeVenda());
+            ps.setInt(7, p.getAnoLancamento());
+            ps.setInt(8, p.getEstoque());
+            ps.setTimestamp(9, p.getDataCadastro());
+            ps.setInt(10, p.getId());
+            ps.executeUpdate();
+            
+            connection.close();
+        } catch (SQLException | ClassNotFoundException ex) {
+            System.out.println("Erro no banco de dados" + ex);
+        }
     }
 
 
