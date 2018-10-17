@@ -8,6 +8,7 @@
 <html>
    <head>
       <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <jsp:include page="/alterarProduto" />
       <meta charset="UTF-8">
       <title>AcaiTech Sistema - Alterar Produtos</title>
       <link type="text/css" href="${pageContext.request.contextPath}/css/bootstrap.css" rel="stylesheet" />
@@ -67,23 +68,23 @@
          
          <div class="form-group">
             <label>Nome do Produto</label>
-            <input class="form-control" id="nomeProduto" name="nomeProduto"></input>
+            <input class="form-control" id="nomeProduto" name="nomeProduto" value="${produto.nome}"></input>
          </div>
          <div class="form-group">
             <label>Preço De Venda</label>
-            <input class="form-control" id="precoVenda" name="precoVenda"></input>
+            <input class="form-control" id="precoVenda" name="precoVenda" value="${produto.precoDeVenda}"></input>
          </div>
          <div class="form-group">
             <label>Preço De Custo</label>
-            <input class="form-control" id="precoCusto" name="precoCusto"></input>
+            <input class="form-control" id="precoCusto" name="precoCusto" value="${produto.precoDeCusto}"></input>
          </div>
          <div class="form-group">
             <label>Fornecedor</label>
-            <input class="form-control" id="fornecedor" name="fornecedor"></input>
+            <input class="form-control" id="fornecedor" name="fornecedor" value="${produto.nome}"></input>
          </div>
          <div class="form-group">
             <label>Categoria</label>
-            <select class="form-control" id="categoria" name="categoria">
+            <select class="form-control" id="categoria" name="categoria" value="${produto.nome}">
                <option>1</option>
                <option>2</option>
                <option>3</option>
@@ -93,11 +94,11 @@
          </div>
          <div class="form-group">
             <label>Quantidade</label>
-            <input class="form-control" id="quantidade" name="quantidade"></input>
+            <input class="form-control" id="quantidade" name="quantidade" value="${produto.nome}"></input>
          </div>
                       <div class="form-group">
             <label>Descrição</label>
-            <textarea class="form-control" id="descricao" name="descricao"></textarea>
+            <textarea class="form-control" id="descricao" name="descricao" value="${produto.descricao}"></textarea>
          </div>
           <button type="button" class="btn btn-primary" href="#">Voltar</button>
            <button type="submit" class="btn btn-primary">Enviar</button>

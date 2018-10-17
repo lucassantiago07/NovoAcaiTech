@@ -20,9 +20,9 @@ public class alterarProduto extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-            String idProduto = request.getParameter("ID");
+            String idProduto = request.getParameter("idProduto");
         
-            request.setAttribute("retorno", "Mensagem de retorno pode ser variavel");
+            request.setAttribute("retorno", "Falta capturar informação do produto id: "+idProduto);
             
             request.getRequestDispatcher("view/listaProduto.jsp").forward(request, response);
     }
