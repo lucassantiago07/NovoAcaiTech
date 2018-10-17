@@ -33,16 +33,18 @@ public class cadastrarProduto extends HttpServlet {
             p.setDescricao(request.getParameter("descricao"));
             p.setPrecoDeCusto(Float.parseFloat(request.getParameter("precoCusto")));
             p.setPrecoDeVenda(Float.parseFloat(request.getParameter("precoVenda")));
-            p.setEstoque(Integer.parseInt(request.getParameter("quantidade")));   
+            p.setEstoque(Integer.parseInt(request.getParameter("estoque")));   
             p.setPlataforma(request.getParameter("plataforma"));
             p.setAnoLancamento(Integer.parseInt(request.getParameter("anolancamento")));
-            int IdCategoria = Integer.parseInt(request.getParameter("categoria"));
+            p.setEstoque(Integer.parseInt(request.getParameter("categoria")));
+            p.setFornecedor(request.getParameter("fornecedor"));
+            
             
             ProdutoDAO dao = new ProdutoDAO();
             
-            dao.cadastraProduto(p,IdCategoria);
+            dao.cadastraProduto(p);
   
-            request.setAttribute("retorno", "Mensagem de retorno pode ser variavel");
+            request.setAttribute("retorno", "OK");
             
             request.getRequestDispatcher("view/cadastrarProduto.jsp").forward(request, response);
     }

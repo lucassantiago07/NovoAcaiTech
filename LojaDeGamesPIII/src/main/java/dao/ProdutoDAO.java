@@ -14,22 +14,22 @@ import java.util.logging.Logger;
 
 public class ProdutoDAO {
 
-    public void cadastraProduto(ProdutoData p, int IdCategoria) {
+    public void cadastraProduto(ProdutoData p) {
         try {
             Connection connection = new ConnectionFactory().getConnection();
 
-            String sqlProduto = "INSERT INTO `produto`(`NOME`, `DESCRICAO`, `PRECO_COMPRA`, `PRECO_VENDA`, `QUANTIDADE`, `DT_CADASTRO`,`CATEGORIA`,`PLATAFORMA`,`ANO_LANCAMENTO`,`FORNECEDOR`) VALUES (?,?,?,?,?,?,?,?,?,?)";
+            String sqlProduto = "INSERT INTO `produto`(`nome`, `categoria`, `plataforma`, `fornecedor`, `descricao`, `preco_compra`, `preco_venda`, `ano_lancamento`, `estoque`, `dt_cadastro`) VALUES (?,?,?,?,?,?,?,?,?,?)";
             PreparedStatement pstmtProduto = connection.prepareStatement(sqlProduto);
             pstmtProduto.setString(1, p.getNome());
-            pstmtProduto.setString(2, p.getDescricao());
-            pstmtProduto.setFloat(3, p.getPrecoDeCusto());
-            pstmtProduto.setFloat(4, p.getPrecoDeVenda());
-            pstmtProduto.setInt(5, p.getEstoque());
-            pstmtProduto.setTimestamp(6, p.getDataCadastro());
-            pstmtProduto.setInt(7, p.getCategoria());
-            pstmtProduto.setString(8, p.getPlataforma());
-            pstmtProduto.setInt(9, p.getAnoLancamento());
-            pstmtProduto.setString(10, p.getFornecedor());
+            pstmtProduto.setInt(2, p.getCategoria());
+            pstmtProduto.setString(3, p.getPlataforma());
+            pstmtProduto.setString(4, p.getFornecedor());
+            pstmtProduto.setString(5, p.getDescricao());
+            pstmtProduto.setFloat(6, p.getPrecoDeCusto());
+            pstmtProduto.setFloat(7, p.getPrecoDeVenda());
+            pstmtProduto.setInt(8, p.getAnoLancamento());
+            pstmtProduto.setInt(9, p.getEstoque());
+            pstmtProduto.setTimestamp(10, p.getDataCadastro());
             pstmtProduto.executeUpdate();
 
             connection.close();
@@ -54,11 +54,12 @@ public class ProdutoDAO {
                 p.setDescricao(rs.getString("DESCRICAO"));
                 p.setPrecoDeCusto(rs.getFloat("PRECO_COMPRA"));
                 p.setPrecoDeVenda(rs.getFloat("PRECO_VENDA"));
-                p.setEstoque(rs.getInt("QUANTIDADE"));
+                p.setEstoque(rs.getInt("ESTOQUE"));
                 p.setDataCadastro(rs.getTimestamp("DT_CADASTRO"));
                 p.setCategoria(rs.getInt("CATEGORIA"));
                 p.setAnoLancamento(rs.getInt("ANO_LANCAMENTO"));
                 p.setFornecedor(rs.getString("FORNECEDOR"));
+                p.setPlataforma(rs.getString("PLATAFORMA"));
                 listaProdutos.add(p);
 
             }
@@ -87,11 +88,13 @@ public class ProdutoDAO {
                 p.setDescricao(rs.getString("DESCRICAO"));
                 p.setPrecoDeCusto(rs.getFloat("PRECO_COMPRA"));
                 p.setPrecoDeVenda(rs.getFloat("PRECO_VENDA"));
-                p.setEstoque(rs.getInt("QUANTIDADE"));
+                p.setEstoque(rs.getInt("ESTOQUE"));
                 p.setDataCadastro(rs.getTimestamp("DT_CADASTRO"));
                 p.setCategoria(rs.getInt("CATEGORIA"));
                 p.setAnoLancamento(rs.getInt("ANO_LANCAMENTO"));
                 p.setFornecedor(rs.getString("FORNECEDOR"));
+                p.setPlataforma(rs.getString("PLATAFORMA"));
+                System.out.println(rs.getString("PLATAFORMA"));
                 listaProdutos.add(p);
 
             }
@@ -103,21 +106,32 @@ public class ProdutoDAO {
         return listaProdutos;
     }
 
-    public int getMaxId() {
+    public ProdutoData getProdutoById(int idProduto) {
         ProdutoData p = new ProdutoData();
-        int id = 0;
         try {
             Connection connection = new ConnectionFactory().getConnection();
             Statement stmt = connection.createStatement();
-            ResultSet rs = stmt.executeQuery("SELECT MAX(ID) AS ID FROM `produto`");
+
+            ResultSet rs = stmt.executeQuery("SELECT * FROM `produto` where id = " + idProduto);
             while (rs.next()) {
-                id = rs.getInt("ID");
+                p.setId(rs.getInt("ID"));
+                p.setNome(rs.getString("NOME"));
+                p.setDescricao(rs.getString("DESCRICAO"));
+                p.setPrecoDeCusto(rs.getFloat("PRECO_COMPRA"));
+                p.setPrecoDeVenda(rs.getFloat("PRECO_VENDA"));
+                p.setEstoque(rs.getInt("ESTOQUE"));
+                p.setDataCadastro(rs.getTimestamp("DT_CADASTRO"));
+                p.setCategoria(rs.getInt("CATEGORIA"));
+                p.setAnoLancamento(rs.getInt("ANO_LANCAMENTO"));
+                p.setFornecedor(rs.getString("FORNECEDOR"));
+                p.setPlataforma(rs.getString("PLATAFORMA"));
+                System.out.println(rs.getString("DESCRICAO"));
             }
             connection.close();
         } catch (SQLException | ClassNotFoundException e) {
             System.out.println("Erro no banco de dados " + e);
         }
-        return id;
+        return p;
     }
 
     public void alterarProduto(ProdutoData p) {
@@ -125,7 +139,7 @@ public class ProdutoDAO {
         try {
             Connection connection = new ConnectionFactory().getConnection();
 
-            String altProduto = "UPDATE `produto` SET `nome`=?,`categoria`=?,`plataforma`=[value-4],`fornecedor`=[value-5],`descricao`=[value-6],`preco_compra`=[value-7],`preco_venda`=[value-8],`ano_lancamento`=[value-9],`quantidade`=[value-10],`dt_cadastro`=[value-11] WHERE `id`= ?";
+            String altProduto = "UPDATE `produto` SET `nome`=?,`categoria`=?,`plataforma`=?,`fornecedor`=?,`descricao`=?,`preco_compra`=?,`preco_venda`=?,`ano_lancamento`=?,`estoque`=?,`dt_cadastro`=? WHERE `id`= ?";
             PreparedStatement pstmtProduto = connection.prepareStatement(altProduto);
             pstmtProduto.setString(1, p.getNome());
             pstmtProduto.setInt(2, p.getCategoria());
@@ -140,6 +154,8 @@ public class ProdutoDAO {
             pstmtProduto.setInt(11, p.getId());
 
             pstmtProduto.executeUpdate();
+            
+            System.out.println(pstmtProduto.getUpdateCount());
 
             connection.close();
         } catch (SQLException | ClassNotFoundException ex) {

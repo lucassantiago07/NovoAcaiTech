@@ -64,7 +64,7 @@
 
             <h3>Alterar Produto</h3>
 
-            <form>
+            <form name="formularioAlterarProduto" id="formularioAlterarProduto" action="${pageContext.request.contextPath}/alterarProduto" method="post">
 
                 <div class="form-group">
                     <label>Nome do Produto</label>
@@ -83,29 +83,39 @@
                     <input class="form-control" id="fornecedor" name="fornecedor" value="${produto.fornecedor}"></input>
                 </div>
                 <div class="form-group">
-                    <label>Categoria</label>
-                    <select class="form-control" id="categoria" name="categoria" value="${produto.categoria}">
-                        <option>1</option>
-                        <option>2</option>
-                        <option>3</option>
-                        <option>4</option>
-                        <option>5</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label>Quantidade</label>
-                    <input class="form-control" id="quantidade" name="quantidade" value="${produto.quantidade}"></input>
+                    <label>Plataforma</label>
+                    <input class="form-control" id="plataforma" name="plataforma" value="${produto.plataforma}"></input>
                 </div>
                 <div class="form-group">
                     <label>Ano de lançamento</label>
-                    <input class="form-control" id="anolancamento" name="anolancamento" value="${produto.anolancamento}"></input>
+                    <input class="form-control" id="anolancamento" name="anolancamento" value="${produto.anoLancamento}"></input>
+                </div>
+                <div class="form-group">
+                    <label>Categoria</label>
+                    <select class="form-control" id="categoria" name="categoria" value="${produto.categoria}">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Quantidade Estoque</label>
+                    <input class="form-control" id="estoque" name="estoque" value="${produto.estoque}"></input>
                 </div>
                 <div class="form-group">
                     <label>Descrição</label>
-                    <textarea class="form-control" id="descricao" name="descricao" value="${produto.descricao}"></textarea>
+                    <textarea class="form-control" id="descricao" name="descricao" value="${produto.descricao}">${produto.descricao}</textarea>
                 </div>
-                <button type="button" class="btn btn-primary" href="#">Voltar</button>
-                <button type="submit" class="btn btn-primary">Alterar Produto</button>
+
+
+                <c:if test = "${not empty retorno}">
+                    <h5>Retorno: ${retorno}</h5>
+                </c:if>
+
+                <button type="button" class="btn btn-primary" href="${pageContext.request.contextPath}/view/listaProduto.jsp">Voltar</button>
+                <button type="submit" class="btn btn-primary">Alterar produto</button>
             </form>
         </div>
 

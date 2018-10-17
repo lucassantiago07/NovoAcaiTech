@@ -101,7 +101,7 @@
                 </div>
                 <div class="form-group">
                     <label>Quantidade</label>
-                    <input class="form-control" id="quantidade" name="quantidade"></input>
+                    <input class="form-control" id="estoque" name="estoque"></input>
                 </div>
                 <div class="form-group">
                     <label>Descrição</label>

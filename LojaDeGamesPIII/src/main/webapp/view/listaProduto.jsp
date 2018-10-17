@@ -105,7 +105,7 @@
                                 <td>${produto.estoque}</td>
                                 <td>${produto.fornecedor}</td>
                                 <td>${produto.dataCadastro}</td>
-                                <td><a href="/alterarProduto.jsp?idProduto=${produto.id}">Editar</a></td>
+                                <td><a href="${pageContext.request.contextPath}/view/alterarProduto.jsp?idProduto=${produto.id}">Editar</a></td>
                             </tr>
                         </c:forEach>
                     </c:if>
@@ -124,7 +124,7 @@
                                 <td>${produto.estoque}</td>
                                 <td>${produto.fornecedor}</td>
                                 <td>${produto.dataCadastro}</td>
-                                <td><a href="/alterarProduto.jsp?idProduto=${produto.id}">Editar</a></td>
+                                <td><a href="${pageContext.request.contextPath}/view/alterarProduto.jsp?idProduto=${produto.id}">Editar</a></td>
                             </tr>
                         </c:forEach>
                     </c:if>
