@@ -41,7 +41,7 @@ public class listaProduto extends HttpServlet {
 
         request.setAttribute("listaComFiltro", listaComFiltro);
         
-        System.out.println(listaComFiltro);
+        //System.out.println(listaComFiltro);
 
         request.getRequestDispatcher("view/listaProduto.jsp").forward(request, response);
     }

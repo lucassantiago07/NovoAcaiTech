@@ -7,8 +7,8 @@
 <!DOCTYPE html>
 <html>
     <head>
+         <jsp:include page="/capturaProduto" />
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <jsp:include page="/alterarProduto" />
         <meta charset="UTF-8">
         <title>AcaiTech Sistema - Alterar Produtos</title>
         <link type="text/css" href="${pageContext.request.contextPath}/css/bootstrap.css" rel="stylesheet" />
@@ -64,7 +64,7 @@
 
             <h3>Alterar Produto</h3>
 
-            <form name="formularioAlterarProduto" id="formularioAlterarProduto" action="${pageContext.request.contextPath}/alterarProduto" method="post">
+            <form name="formularioProduto" id="formularioProduto" action="${pageContext.request.contextPath}/alterarProduto" method="post">
 
                 <div class="form-group">
                     <label>Nome do Produto</label>
@@ -101,21 +101,21 @@
                     </select>
                 </div>
                 <div class="form-group">
-                    <label>Quantidade Estoque</label>
+                    <label>Quantidade</label>
                     <input class="form-control" id="estoque" name="estoque" value="${produto.estoque}"></input>
                 </div>
                 <div class="form-group">
                     <label>Descrição</label>
-                    <textarea class="form-control" id="descricao" name="descricao" value="${produto.descricao}">${produto.descricao}</textarea>
+                    <textarea class="form-control" id="descricao" name="descricao" value="${produto.descricao}"></textarea>
                 </div>
-
-
+               
+                
                 <c:if test = "${not empty retorno}">
-                    <h5>Retorno: ${retorno}</h5>
+                     <h5>Retorno: ${retorno}</h5>
                 </c:if>
-
-                <button type="button" class="btn btn-primary" href="${pageContext.request.contextPath}/view/listaProduto.jsp">Voltar</button>
-                <button type="submit" class="btn btn-primary">Alterar produto</button>
+      
+                <button type="button" class="btn btn-primary" href="#">Voltar</button>
+                <button type="submit" class="btn btn-primary">Enviar</button>
             </form>
         </div>
 
@@ -130,7 +130,7 @@
 
 
         <link type="text/css" href="${pageContext.request.contextPath}/css/script.css" rel="stylesheet" />
-        <link type="text/css" href="${pageContext.request.contextPath}/css/alterarProduto.css" rel="stylesheet" />
+        <link type="text/css" href="${pageContext.request.contextPath}/css/cadastrarProduto.css" rel="stylesheet" />
         <link type="text/css" href="${pageContext.request.contextPath}/css/menu.css" rel="stylesheet" />
         <script src="${pageContext.request.contextPath}/js/gradiente.js"></script>
     </body>

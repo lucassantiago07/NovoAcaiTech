@@ -111,7 +111,6 @@ public class ProdutoDAO {
         try {
             Connection connection = new ConnectionFactory().getConnection();
             Statement stmt = connection.createStatement();
-
             ResultSet rs = stmt.executeQuery("SELECT * FROM `produto` where id = " + idProduto);
             while (rs.next()) {
                 p.setId(rs.getInt("ID"));
@@ -137,7 +136,8 @@ public class ProdutoDAO {
     public void alterarProduto(ProdutoData p) {
 
         try {
-            Connection connection = new ConnectionFactory().getConnection();
+            Connection connection;
+            connection = new ConnectionFactory().getConnection();
 
             String altProduto = "UPDATE `produto` SET `nome`=?,`categoria`=?,`plataforma`=?,`fornecedor`=?,`descricao`=?,`preco_compra`=?,`preco_venda`=?,`ano_lancamento`=?,`estoque`=?,`dt_cadastro`=? WHERE `id`= ?";
             PreparedStatement pstmtProduto = connection.prepareStatement(altProduto);
@@ -155,7 +155,7 @@ public class ProdutoDAO {
 
             pstmtProduto.executeUpdate();
             
-            System.out.println(pstmtProduto.getUpdateCount());
+            System.out.println(altProduto);
 
             connection.close();
         } catch (SQLException | ClassNotFoundException ex) {
