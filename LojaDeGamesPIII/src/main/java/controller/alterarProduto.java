@@ -20,17 +20,17 @@ public class alterarProduto extends HttpServlet {
 
         ProdutoDAO dao = new ProdutoDAO();
         ProdutoData p = new ProdutoData();
-        
+
         p.setId(Integer.parseInt(request.getParameter("id")));
         p.setNome(request.getParameter("nomeProduto"));
-        p.setPrecoDeVenda(Float.parseFloat(request.getParameter("precoVenda")));
-        p.setPrecoDeCusto(Float.parseFloat(request.getParameter("precoCusto")));
-        p.setFornecedor(request.getParameter("fornecedor"));
-        p.setCategoria(Integer.parseInt(request.getParameter("categoria")));
-        p.setEstoque(Integer.parseInt(request.getParameter("estoque")));
-        p.setAnoLancamento(Integer.parseInt(request.getParameter("anolancamento")));
         p.setDescricao(request.getParameter("descricao"));
+        p.setPrecoDeCusto(Float.parseFloat(request.getParameter("precoCusto").replace(",", ".").replace(".", "")));
+        p.setPrecoDeVenda(Float.parseFloat(request.getParameter("precoVenda").replace(",", ".").replace(".", "")));
+        p.setEstoque(Integer.parseInt(request.getParameter("estoque")));
         p.setPlataforma(request.getParameter("plataforma"));
+        p.setAnoLancamento(Integer.parseInt(request.getParameter("anolancamento")));
+        p.setEstoque(Integer.parseInt(request.getParameter("categoria")));
+        p.setFornecedor(request.getParameter("fornecedor"));
 
         dao.alterarProduto(p);
         request.setAttribute("retorno", "OK");

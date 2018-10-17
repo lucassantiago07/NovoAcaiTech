@@ -80,7 +80,7 @@
                         <div class="input-group-prepend">
                             <div class="input-group-text">R$</div>
                         </div>
-                        <input type="Text" class="form-control"  id="precoVenda" name="precoVenda" size="10" maxlength="10" onkeydown="FormataMoeda(this, 10, event)" onkeypress="return maskKeyPress(event)" required />
+                        <input type="Text" class="form-control"  id="precoVenda" name="precoVenda" size="4" maxlength="5" onkeydown="FormataMoeda(this, 10, event)" onkeypress="return maskKeyPress(event)" required />
 
                     </div>
                 </div>
@@ -90,7 +90,7 @@
                         <div class="input-group-prepend">
                             <div class="input-group-text">R$</div>
                         </div>
-                        <input type="Text" class="form-control"  id="precoCusto" name="precoCusto" size="10" maxlength="10" onkeydown="FormataMoeda(this, 10, event)" onkeypress="return maskKeyPress(event)" required />
+                        <input type="Text" class="form-control"  id="precoCusto" name="precoCusto" size="4" maxlength="5" onkeydown="FormataMoeda(this, 10, event)" onkeypress="return maskKeyPress(event)" required />
                     </div>
                 </div>
                 <div class="form-group">
@@ -103,7 +103,7 @@
                 </div>
                 <div class="form-group">
                     <label>Ano de lançamento</label>
-                    <input type="text" class="form-control" id="anolancamento" name="anolancamento" onkeypress='validate(event)' maxlength="4" required></input>
+                    <input type="text" class="form-control" id="anolancamento" name="anolancamento" onkeypress='validate(event)' maxlength="5" required></input>
                 </div>
                 <div class="form-group">
                     <label>Categoria</label>
@@ -117,16 +117,12 @@
                 </div>
                 <div class="form-group">
                     <label>Quantidade</label>
-                    <input type="text" class="form-control" id="estoque" name="estoque" onkeypress='validate(event)' maxlength="4" required></input>
+                    <input type="text" class="form-control" id="estoque" name="estoque" onkeypress='validate(event)' maxlength="5" required></input>
                 </div>
                 <div class="form-group">
                     <label>Descrição</label>
                     <textarea class="form-control" id="descricao" name="descricao" rows="2"></textarea>
                 </div>
-
-
-
-
                 <button type="button" class="btn btn-primary" href="#">Voltar</button>
                 <button type="submit" class="btn btn-primary">Enviar</button>
             </form>
