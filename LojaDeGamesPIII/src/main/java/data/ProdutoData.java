@@ -10,6 +10,7 @@ public class ProdutoData {
     private String Nome; 
     private String Descricao; 
     private String Plataforma; 
+    private String Fornecedor; 
     private float PrecoDeCusto; 
     private float PrecoDeVenda;
     private int Categoria;
@@ -155,5 +156,19 @@ public class ProdutoData {
      */
     public void setAnoLancamento(int AnoLancamento) {
         this.AnoLancamento = AnoLancamento;
+    }
+
+    /**
+     * @return the Fornecedor
+     */
+    public String getFornecedor() {
+        return Fornecedor;
+    }
+
+    /**
+     * @param Fornecedor the Fornecedor to set
+     */
+    public void setFornecedor(String Fornecedor) {
+        this.Fornecedor = Fornecedor;
     }
 }

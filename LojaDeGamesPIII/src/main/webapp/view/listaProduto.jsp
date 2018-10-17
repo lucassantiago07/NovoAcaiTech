@@ -80,6 +80,7 @@
                         <th scope="col">Preço De Custo</th>
                         <th scope="col">Fornecedor</th>
                         <th scope="col">Categoria</th>
+                        <th scope="col">Ano de lançamento</th>
                         <th scope="col">Quantidade em estoque</th>
                         <th scope="col">Fornecedor</th>
                         <th scope="col">Data de Cadastro</th>
@@ -100,6 +101,7 @@
                                 <td>${produto.precoDeCusto}</td>
                                 <td>${produto.precoDeVenda}</td>
                                 <td>${produto.categoria}</td>
+                                <td>${produto.anoLancamento}</td>
                                 <td>${produto.estoque}</td>
                                 <td>${produto.fornecedor}</td>
                                 <td>${produto.dataCadastro}</td>
@@ -118,9 +120,11 @@
                                 <td>${produto.precoDeCusto}</td>
                                 <td>${produto.precoDeVenda}</td>
                                 <td>${produto.categoria}</td>
+                                <td>${produto.anoLancamento}</td>
                                 <td>${produto.estoque}</td>
+                                <td>${produto.fornecedor}</td>
                                 <td>${produto.dataCadastro}</td>
-                                <td><a href="#">Editar</a></td>
+                                <td><a href="/alterarProduto.jsp?idProduto=${produto.id}">Editar</a></td>
                             </tr>
                         </c:forEach>
                     </c:if>
