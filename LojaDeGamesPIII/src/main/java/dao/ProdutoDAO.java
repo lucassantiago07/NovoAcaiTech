@@ -16,7 +16,7 @@ public class ProdutoDAO {
         try {            
             Connection connection = new ConnectionFactory().getConnection();
             
-            String sqlProduto = "INSERT INTO `produto`(`NOME`, `DESCRICAO`, `PRECO_COMPRA`, `PRECO_VENDA`, `QUANTIDADE`, `DT_CADASTRO`,`CATEGORIA`) VALUES (?,?,?,?,?,?,?)";
+            String sqlProduto = "INSERT INTO `produto`(`NOME`, `DESCRICAO`, `PRECO_COMPRA`, `PRECO_VENDA`, `QUANTIDADE`, `DT_CADASTRO`,`CATEGORIA`,`PLATAFORMA`,`ANO_LANCAMENTO`) VALUES (?,?,?,?,?,?,?,?,?)";
             PreparedStatement pstmtProduto = connection.prepareStatement(sqlProduto);
             pstmtProduto.setString(1, p.getNome());
             pstmtProduto.setString(2, p.getDescricao());
@@ -25,6 +25,8 @@ public class ProdutoDAO {
             pstmtProduto.setInt(5, p.getEstoque());
             pstmtProduto.setTimestamp(6, p.getDataCadastro());  
             pstmtProduto.setInt(7, p.getCategoria());
+            pstmtProduto.setString(8, p.getPlataforma());
+            pstmtProduto.setInt(9, p.getAnoLancamento());
             pstmtProduto.executeUpdate();
 
             connection.close();
@@ -40,7 +42,7 @@ public class ProdutoDAO {
         try {
             Connection connection = new ConnectionFactory().getConnection();
             Statement stmt = connection.createStatement();
-            ResultSet rs = stmt.executeQuery("SELECT * FROM `produto`");
+            ResultSet rs = stmt.executeQuery("SELECT * FROM `produto` order by id desc");
             
             while (rs.next()) {
                 ProdutoData p = new ProdutoData();
@@ -70,7 +72,7 @@ public class ProdutoDAO {
             Connection connection = new ConnectionFactory().getConnection();
             Statement stmt = connection.createStatement();
 
-            ResultSet rs = stmt.executeQuery("SELECT * FROM `produto` WHERE  NOME LIKE '%"+descricaoProduto+"%' OR DESCRICAO LIKE '%"+descricaoProduto+"%'");
+            ResultSet rs = stmt.executeQuery("SELECT * FROM `produto` WHERE  NOME LIKE '%"+descricaoProduto+"%' OR DESCRICAO LIKE '%"+descricaoProduto+"%' OR PLATAFORMA LIKE '%"+descricaoProduto+"%'");
             
             System.out.println("SELECT * FROM `produto` WHERE  NOME LIKE '%"+descricaoProduto+"%' OR DESCRICAO LIKE '%"+descricaoProduto+"%'");
 

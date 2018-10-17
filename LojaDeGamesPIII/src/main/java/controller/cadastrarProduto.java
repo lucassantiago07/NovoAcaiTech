@@ -19,9 +19,7 @@ public class cadastrarProduto extends HttpServlet {
  
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
-    
-        
+
             ProdutoData p = new ProdutoData();            
             
             Timestamp dataDeHoje = new Timestamp(System.currentTimeMillis());
@@ -35,6 +33,8 @@ public class cadastrarProduto extends HttpServlet {
             p.setPrecoDeCusto(Float.parseFloat(request.getParameter("precoCusto")));
             p.setPrecoDeVenda(Float.parseFloat(request.getParameter("precoVenda")));
             p.setEstoque(Integer.parseInt(request.getParameter("quantidade")));   
+            p.setPlataforma(request.getParameter("plataforma"));
+            p.setAnoLancamento(Integer.parseInt(request.getParameter("anolancamento")));
             int IdCategoria = Integer.parseInt(request.getParameter("categoria"));
             
             ProdutoDAO dao = new ProdutoDAO();
@@ -43,7 +43,7 @@ public class cadastrarProduto extends HttpServlet {
   
             request.setAttribute("retorno", "Mensagem de retorno pode ser variavel");
             
-            request.getRequestDispatcher("view/listaProduto.jsp").forward(request, response);
+            request.getRequestDispatcher("view/cadastrarProduto.jsp").forward(request, response);
     }
 
  

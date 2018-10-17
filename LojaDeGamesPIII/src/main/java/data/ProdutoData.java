@@ -9,9 +9,11 @@ public class ProdutoData {
     private int Id;
     private String Nome; 
     private String Descricao; 
+    private String Plataforma; 
     private float PrecoDeCusto; 
     private float PrecoDeVenda;
     private int Categoria;
+    private int AnoLancamento;
     private int Estoque;
     private Timestamp DataCadastro;
 
@@ -125,5 +127,33 @@ public class ProdutoData {
      */
     public void setDataCadastro(Timestamp DataCadastro) {
         this.DataCadastro = DataCadastro;
+    }
+
+    /**
+     * @return the Plataforma
+     */
+    public String getPlataforma() {
+        return Plataforma;
+    }
+
+    /**
+     * @param Plataforma the Plataforma to set
+     */
+    public void setPlataforma(String Plataforma) {
+        this.Plataforma = Plataforma;
+    }
+
+    /**
+     * @return the AnoLancamento
+     */
+    public int getAnoLancamento() {
+        return AnoLancamento;
+    }
+
+    /**
+     * @param AnoLancamento the AnoLancamento to set
+     */
+    public void setAnoLancamento(int AnoLancamento) {
+        this.AnoLancamento = AnoLancamento;
     }
 }
