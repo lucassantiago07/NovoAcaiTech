@@ -22,23 +22,28 @@ public class listaProduto extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
+        ProdutoDAO produtos = new ProdutoDAO();
+
+        List<ProdutoData> lista = produtos.getProdutos();
+
+        request.setAttribute("lista", lista);
+
+    }
+     @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+
         String descricaoProduto = request.getParameter("descricaoProduto");
 
-        if (descricaoProduto == null) {
+        ProdutoDAO produtos = new ProdutoDAO();
 
-            ProdutoDAO produtos = new ProdutoDAO();
+        List<ProdutoData> listaComFiltro = produtos.getProdutoByDescricao(descricaoProduto);
 
-            List<ProdutoData> lista = produtos.getProdutos();
+        request.setAttribute("listaComFiltro", listaComFiltro);
+        
+        System.out.println(listaComFiltro);
 
-            request.setAttribute("lista", lista);
-        } else {
-            ProdutoDAO produtos = new ProdutoDAO();
-
-            List<ProdutoData> lista = produtos.getProdutoByDescricao(descricaoProduto);
-
-            request.setAttribute("lista", lista);
-        }
-
+        request.getRequestDispatcher("view/listaProduto.jsp").forward(request, response);
     }
 
 }
