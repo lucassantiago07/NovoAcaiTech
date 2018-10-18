@@ -28,7 +28,7 @@
             <span class="filialfuncionario">Filial Amazonia</span>  ●
             <span><a href="#">Sair</a></span>
         </div>
-        <button type="button" class="btn btn-primary btnSair">Sair</button>
+       <button type="button" class="btn btn-primary btnSair" onclick="window.location.href = '${pageContext.request.contextPath}'">Sair</button>
     </nav>
     <!-- Fim Menu -->
 
@@ -123,7 +123,6 @@
                     <label>Descrição</label>
                     <input class="form-control" id="descricao" maxlength="40" name="descricao"></input>
                 </div>
-                <button type="button" class="btn btn-primary" href="#">Voltar</button>
                 <button type="submit" class="btn btn-primary">Enviar</button>
             </form>
 
