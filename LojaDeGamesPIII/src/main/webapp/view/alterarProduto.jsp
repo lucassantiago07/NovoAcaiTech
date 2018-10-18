@@ -16,8 +16,7 @@
         <link type="text/css" href="${pageContext.request.contextPath}/css/bootstrap.css" rel="stylesheet" />
         <script src="${pageContext.request.contextPath}/js/jquery-3.3.1.js"></script>
         <script src="${pageContext.request.contextPath}/js/bootstrap.js"></script>
-        <script src="${pageContext.request.contextPath}/js/formatterdinheiro.js"></script>
-
+        <script src="${pageContext.request.contextPath}/js/validanumero.js"></script>
     </head>
     <!-- Inicio Menu -->
     <nav class="navbar navbar-light bg-light">
@@ -79,7 +78,7 @@
 
                 <div class="form-group">
                     <label>Nome do Produto</label>
-                    <input class="form-control" id="nomeProduto" value="${produto.nome}" name="nomeProduto" maxlength="25" required></input>
+                    <input class="form-control" id="nomeProduto" value="${produto.nome}" name="nomeProduto" maxlength="20" required></input>
                 </div>
                 <div class="form-group">
                     <label>Preço De Venda</label>
@@ -87,7 +86,7 @@
                         <div class="input-group-prepend">
                             <div class="input-group-text">R$</div>
                         </div>
-                        <input type="Text" class="form-control"  id="precoVenda" name="precoVenda" size="4" maxlength="5" onkeypress='validate(event);' value="${produto.precoDeVenda}" required />
+                        <input type="Text" class="form-control"  id="precoVenda" name="precoVenda" size="4" maxlength="5" onkeypress="return isNumberKey(event)"  value="${produto.precoDeVenda}" required />
 
                     </div>
                 </div>
@@ -97,18 +96,18 @@
                         <div class="input-group-prepend">
                             <div class="input-group-text">R$</div>
                         </div>
-                        <input type="Text" class="form-control"  id="precoCusto" name="precoCusto" size="4" maxlength="5" onkeypress='validate(event);' value="${produto.precoDeCusto}" required />
+                        <input type="Text" class="form-control"  id="precoCusto" name="precoCusto" size="4" maxlength="5" onkeypress="return isNumberKey(event)" value="${produto.precoDeCusto}" required />
 
 
                     </div>
                 </div>
                 <div class="form-group">
                     <label>Fornecedor</label>
-                    <input class="form-control" id="fornecedor" name="fornecedor" maxlength="25" value="${produto.fornecedor}" required></input>
+                    <input class="form-control" id="fornecedor" name="fornecedor" maxlength="20" value="${produto.fornecedor}" required></input>
                 </div>
                 <div class="form-group">
                     <label>Plataforma</label>
-                    <input class="form-control" id="plataforma" name="plataforma" maxlength="25" value="${produto.plataforma}" required></input>
+                    <input class="form-control" id="plataforma" name="plataforma" maxlength="20" value="${produto.plataforma}" required></input>
                 </div>
                 <div class="form-group">
                     <label>Ano de lançamento</label>
@@ -130,20 +129,21 @@
                 </div>
                 <div class="form-group">
                     <label>Descrição</label>
-                    <textarea class="form-control" id="descricao" name="descricao" rows="2"></textarea>
+                    <input class="form-control" id="descricao" name="descricao" maxlength="40" value="${produto.descricao}"></input>
                 </div>
                 <button type="button" class="btn btn-primary" href="#">Voltar</button>
                 <button type="submit" class="btn btn-primary">Enviar</button>
             </form>
 
             <c:if test="${not empty produto.id}">
-              
+
             </c:if>
         </div>
 
-        <c:if test="${not empty retorno}">
+        <c:if test="${not empty retornoAlteracao}">
             <script type="text/javascript">
                 alert("Produto alterado!");
+                window.location.href = '${pageContext.request.contextPath}/view/listaProduto.jsp'
             </script>
         </c:if>  
 

@@ -24,8 +24,6 @@ public class cadastrarProduto extends HttpServlet {
         //tentei formatar, não testado String date = new SimpleDateFormat("dd/MM/yyyy").format(Timestamp.from(Instant.now()));
         p.setDataCadastro(dataDeHoje);
 
-        System.out.println();
-        System.out.println();
         
         p.setNome(request.getParameter("nomeProduto"));
         p.setDescricao(request.getParameter("descricao"));
@@ -35,6 +33,8 @@ public class cadastrarProduto extends HttpServlet {
         p.setPlataforma(request.getParameter("plataforma"));
         p.setAnoLancamento(Integer.parseInt(request.getParameter("anolancamento")));
         p.setEstoque(Integer.parseInt(request.getParameter("categoria")));
+        
+        System.out.println("Categoriaxxxxxx: "+ request.getParameter("categoria"));
         p.setFornecedor(request.getParameter("fornecedor"));
 
         ProdutoDAO dao = new ProdutoDAO();

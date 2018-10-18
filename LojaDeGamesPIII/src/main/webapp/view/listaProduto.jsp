@@ -62,7 +62,7 @@
         <!-- Fim Separador -->
         <!-- inicio Busca jogos estoque -->
         <div class="container corpodecampos">
-            <form name="formularioBusca" id="formularioBusca" action="${pageContext.request.contextPath}/listaProduto" method="post">
+            <form name="formularioBusca" id="formularioBusca" action="${pageContext.request.contextPath}/listaProdutoComFiltro" method="get">
                 <div class="row">
                     <h3>Estoque Atual</h3>
                     <input class=" form-control mr-sm-2 descricaoProduto" name="descricaoProduto"  type="search" placeholder="Digite o nome do jogo,fornecedor, ano de lançamento, plataforma, ..etc" aria-label="Search" style="width:90%">
@@ -71,71 +71,88 @@
             </form>
         </div>
         <!-- fim Busca jogos estoque-->
-        <div class="container corpodecampos overflow-x:auto;">
-            <table class="table table-sm">
-                <thead>
-                    <tr>
-                        <th scope="col">Identificador</th>
-                        <th scope="col">Produto</th>
-                        <th scope="col">Preço De Venda</th>
-                        <th scope="col">Preço De Custo</th>
-                        <th scope="col">Fornecedor</th>
-                        <th scope="col">Categoria</th>
-                        <th scope="col">Ano de lançamento</th>
-                        <th scope="col">Quantidade em estoque</th>
-                        <th scope="col">Fornecedor</th>
-                        <th scope="col">Data de Cadastro</th>
-                        <th scope="col">Editar</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
+        <div class="corpotabela">
+            <div class="">
+                <table class="table table-sm">
+                    <thead>
+                        <tr>
+                            <th scope="col">ID</th>
+                            <th scope="col">Produto</th>
+                            <th scope="col">Preço De Venda</th>
+                            <th scope="col">Preço De Custo</th>
+                            <th scope="col">Fornecedor</th>
+                            <th scope="col">Categoria</th>
+                            <th scope="col">Lançamento</th>
+                            <th scope="col">Qtd de estoque</th>
+                            <th scope="col">Data de Cadastro</th>
+                            <th scope="col">Editar</th>
+                            <th scope="col">Excluir</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Lista para itens com filtros -->
+                        <c:if test="${not empty listaComFiltro}">
+                            <c:forEach var="produto" items="${listaComFiltro}">
+                                <tr>
+                                    <td>${produto.id}</td>
+                                    <td>${produto.nome}</td>
+                                    <td>${produto.precoDeCusto}</td>
+                                    <td>${produto.precoDeVenda}</td>
+                                    <td>${produto.fornecedor}</td>
+                                    <td>${produto.categoria}</td>
+                                    <td>${produto.anoLancamento}</td>
+                                    <td>${produto.estoque}</td>                                
+                                    <td>${produto.dataCadastro}</td>
+                                    <td><a href="${pageContext.request.contextPath}/view/alterarProduto.jsp?idProduto=${produto.id}">Editar</a></td>
+                                    <td><a href="${pageContext.request.contextPath}/excluirProduto?idProduto=${produto.id}">Excluir</a></td>
+                                </tr>
+                            </c:forEach>
 
-                    </tr>
-                    <!-- Lista para itens com filtros -->
+
+                        </c:if>
+                        <!-- Fim Lista para itens com filtros -->
+                        <!-- Lista para itens sem filtros -->
+                        <c:if test="${empty listaComFiltro}">
+                            <c:forEach var="produto" items="${lista}">
+                                <tr class="">
+                                    <td>${produto.id}</td>
+                                    <td>${produto.nome}</td>
+                                    <td>${produto.precoDeCusto}</td>
+                                    <td>${produto.precoDeVenda}</td>
+                                    <td>${produto.fornecedor}</td>
+                                    
+                                    <c:if test="${produto.categoria == 0}">
+                                        <td>Ação</td>
+                                    </c:if>
+                                    <c:if test="${produto.categoria == 2}">
+                                        <td>Corrida</td>
+                                    </c:if>
+                                    <c:if test="${produto.categoria == 3}">
+                                        <td>Tiro</td>
+                                    </c:if>
+                                    <c:if test="${produto.categoria == 4}">
+                                        <td>RPG</td>
+                                    </c:if>
+                                    <c:if test="${produto.categoria == 5}">
+                                        <td>Estratégia</td>
+                                    </c:if>
+                                    <td>${produto.anoLancamento}</td>
+                                    <td>${produto.estoque}</td>                                
+                                    <td>${produto.dataCadastro}</td>
+                                    <td><a href="${pageContext.request.contextPath}/view/alterarProduto.jsp?idProduto=${produto.id}">Editar</a></td>
+                                    <td><a href="${pageContext.request.contextPath}/excluirProduto?idProduto=${produto.id}">Excluir</a></td></tr>
+                                </c:forEach>
+                            </c:if>
+                        <!-- Fim Lista para itens sem filtros -->
+                    </tbody>
+                </table>
+                <div class="row">
+                    <button type="submit" class="btn btn-primary btnCadastrar" onclick="window.location.href = '${pageContext.request.contextPath}/view/cadastrarProduto.jsp'">Cadastrar um novo produto</button>
                     <c:if test="${not empty listaComFiltro}">
-                        <c:forEach var="produto" items="${listaComFiltro}">
-                            <tr>
-                                <td class="">${produto.id}</td>
-                                <td>${produto.nome}</td>
-                                <td>${produto.descricao}</td>
-                                <td class="precoDeCusto">${produto.precoDeCusto}</td>
-                                <td class="precoDeVenda">${produto.precoDeVenda}</td>
-                                <td>${produto.categoria}</td>
-                                <td>${produto.anoLancamento}</td>
-                                <td>${produto.estoque}</td>
-                                <td>${produto.fornecedor}</td>
-                                <td>${produto.dataCadastro}</td>
-                                <td><a href="${pageContext.request.contextPath}/view/alterarProduto.jsp?idProduto=${produto.id}">Editar</a></td>
-                            </tr>
-                        </c:forEach>
-
+                        <button type="submit" class="btn btn-primary btnVoltar" onclick="window.location.href = '${pageContext.request.contextPath}/view/listaProduto.jsp'">Voltar</button>
 
                     </c:if>
-                    <!-- Fim Lista para itens com filtros -->
-                    <!-- Lista para itens sem filtros -->
-                    <c:if test="${empty listaComFiltro}">
-                        <c:forEach var="produto" items="${lista}">
-                            <tr class="">
-                                <td>${produto.id}</td>
-                                <td>${produto.nome}</td>
-                                <td>${produto.descricao}</td>
-                                <td>${produto.precoDeCusto}</td>
-                                <td>${produto.precoDeVenda}</td>
-                                <td>${produto.categoria}</td>
-                                <td>${produto.anoLancamento}</td>
-                                <td>${produto.estoque}</td>
-                                <td>${produto.fornecedor}</td>
-                                <td>${produto.dataCadastro}</td>
-                                <td><a href="${pageContext.request.contextPath}/view/alterarProduto.jsp?idProduto=${produto.id}">Editar</a></td>
-                            </tr>
-                        </c:forEach>
-                    </c:if>
-                    <!-- Fim Lista para itens sem filtros -->
-                </tbody>
-            </table>
-            <div class="row">
-                <button type="button" class="btn btn-primary btnCadastrar" href="cadastrarProduto.jsp">Cadastrar um novo produto</button>
+                </div>
             </div>
         </div>
         <!-- Inicio Footer -->
@@ -149,7 +166,7 @@
         <link type="text/css" href="${pageContext.request.contextPath}/css/listaProduto.css" rel="stylesheet" />
         <link type="text/css" href="${pageContext.request.contextPath}/css/menu.css" rel="stylesheet" />
         <script src="${pageContext.request.contextPath}/js/gradiente.js"></script>
-        <script type="text/javascript">
+        <!--<script type="text/javascript">
 
             var table = $('table');
 
@@ -163,5 +180,6 @@
                 }
             });
 
-        </script>
+        </script>-->
+
     </body>

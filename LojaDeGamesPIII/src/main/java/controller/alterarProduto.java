@@ -5,6 +5,7 @@ import data.ProdutoData;
 import dao.ProdutoDAO;
 import dao.ProdutoDAO;
 import java.io.IOException;
+import javax.servlet.RequestDispatcher;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -29,13 +30,19 @@ public class alterarProduto extends HttpServlet {
         p.setEstoque(Integer.parseInt(request.getParameter("estoque")));
         p.setPlataforma(request.getParameter("plataforma"));
         p.setAnoLancamento(Integer.parseInt(request.getParameter("anolancamento")));
-        p.setEstoque(Integer.parseInt(request.getParameter("categoria")));
+        p.setEstoque(Integer.parseInt(request.getParameter("estoque")));
         p.setFornecedor(request.getParameter("fornecedor"));
+        p.setCategoria(Integer.parseInt(request.getParameter("categoria")));
+
+        System.out.println("setCategoria: " + Integer.parseInt(request.getParameter("categoria")));
 
         dao.alterarProduto(p);
-        request.setAttribute("retorno", "OK");
+        request.setAttribute("retornoAlteracao", "OK");
 
-        request.getRequestDispatcher("view/alterarProduto.jsp").forward(request, response);
+        //response.sendRedirect();
+        RequestDispatcher requestDispatcher;
+        requestDispatcher = request.getRequestDispatcher("/view/alterarProduto.jsp");
+        requestDispatcher.forward(request, response);
     }
 
 }

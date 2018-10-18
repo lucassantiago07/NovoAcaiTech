@@ -22,6 +22,7 @@ public class ProdutoDAO {
             PreparedStatement pstmtProduto = connection.prepareStatement(sqlProduto);
             pstmtProduto.setString(1, p.getNome());
             pstmtProduto.setInt(2, p.getCategoria());
+            System.out.println("Categoria DAO: " + p.getCategoria());
             pstmtProduto.setString(3, p.getPlataforma());
             pstmtProduto.setString(4, p.getFornecedor());
             pstmtProduto.setString(5, p.getDescricao());
@@ -59,6 +60,7 @@ public class ProdutoDAO {
                 p.setCategoria(rs.getInt("CATEGORIA"));
                 p.setAnoLancamento(rs.getInt("ANO_LANCAMENTO"));
                 p.setFornecedor(rs.getString("FORNECEDOR"));
+                
                 p.setPlataforma(rs.getString("PLATAFORMA"));
                 listaProdutos.add(p);
 
@@ -94,7 +96,7 @@ public class ProdutoDAO {
                 p.setAnoLancamento(rs.getInt("ANO_LANCAMENTO"));
                 p.setFornecedor(rs.getString("FORNECEDOR"));
                 p.setPlataforma(rs.getString("PLATAFORMA"));
-                System.out.println(rs.getString("PLATAFORMA"));
+
                 listaProdutos.add(p);
 
             }

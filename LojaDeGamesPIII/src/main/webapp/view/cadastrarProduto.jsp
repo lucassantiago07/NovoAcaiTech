@@ -15,7 +15,7 @@
         <link type="text/css" href="${pageContext.request.contextPath}/css/bootstrap.css" rel="stylesheet" />
         <script src="${pageContext.request.contextPath}/js/jquery-3.3.1.js"></script>
         <script src="${pageContext.request.contextPath}/js/bootstrap.js"></script>
-        <script src="${pageContext.request.contextPath}/js/formatterdinheiro.js"></script>
+        <script src="${pageContext.request.contextPath}/js/validanumero.js"></script>
     </head>
 
     <!-- Inicio Menu -->
@@ -72,7 +72,7 @@
 
                 <div class="form-group">
                     <label>Nome do Produto</label>
-                    <input class="form-control" id="nomeProduto" name="nomeProduto" maxlength="25" required></input>
+                    <input class="form-control" id="nomeProduto" name="nomeProduto" maxlength="20" required></input>
                 </div>
                 <div class="form-group">
                     <label>Preço De Venda</label>
@@ -80,7 +80,7 @@
                         <div class="input-group-prepend">
                             <div class="input-group-text">R$</div>
                         </div>
-                        <input type="Text" class="form-control"  id="precoVenda" name="precoVenda" size="4" maxlength="5"  required />
+                        <input type="Text" class="form-control"  id="precoVenda" name="precoVenda" size="4" maxlength="5"  onkeypress="return isNumberKey(event)" required />
 
                     </div>
                 </div>
@@ -90,20 +90,20 @@
                         <div class="input-group-prepend">
                             <div class="input-group-text">R$</div>
                         </div>
-                        <input type="Text" class="form-control"  id="precoCusto" name="precoCusto" size="4" maxlength="5"  required />
+                        <input type="Text" class="form-control"  id="precoCusto" name="precoCusto" size="4" maxlength="5"  onkeypress="return isNumberKey(event)"required />
                     </div>
                 </div>
                 <div class="form-group">
                     <label>Fornecedor</label>
-                    <input class="form-control" id="fornecedor" name="fornecedor" maxlength="25" required></input>
+                    <input class="form-control" id="fornecedor" name="fornecedor" maxlength="20" required></input>
                 </div>
                 <div class="form-group">
                     <label>Plataforma</label>
-                    <input class="form-control" id="plataforma" name="plataforma" maxlength="25" required></input>
+                    <input class="form-control" id="plataforma" name="plataforma" maxlength="20" required></input>
                 </div>
                 <div class="form-group">
                     <label>Ano de lançamento</label>
-                    <input type="text" class="form-control" id="anolancamento" name="anolancamento" onkeypress='validate(event)' maxlength="5" required></input>
+                    <input type="text" class="form-control" id="anolancamento" name="anolancamento" onkeypress="return isNumberKey(event)" maxlength="5" required></input>
                 </div>
                 <div class="form-group">
                     <label>Categoria</label>
@@ -117,11 +117,11 @@
                 </div>
                 <div class="form-group">
                     <label>Quantidade</label>
-                    <input type="text" class="form-control" id="estoque" name="estoque" onkeypress='validate(event)' maxlength="5" required></input>
+                    <input type="text" class="form-control" id="estoque" name="estoque" onkeypress="return isNumberKey(event)" maxlength="5" required></input>
                 </div>
                 <div class="form-group">
                     <label>Descrição</label>
-                    <textarea class="form-control" id="descricao" name="descricao" rows="2"></textarea>
+                    <input class="form-control" id="descricao" maxlength="40" name="descricao"></input>
                 </div>
                 <button type="button" class="btn btn-primary" href="#">Voltar</button>
                 <button type="submit" class="btn btn-primary">Enviar</button>
@@ -130,6 +130,7 @@
             <c:if test="${not empty retorno}">
                 <script type="text/javascript">
                     alert("Produto cadastrado!");
+                    window.location.href = '${pageContext.request.contextPath}/view/listaProduto.jsp'
                 </script>
             </c:if>  
         </div>

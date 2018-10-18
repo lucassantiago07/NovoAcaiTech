@@ -28,22 +28,8 @@ public class listaProduto extends HttpServlet {
 
         request.setAttribute("lista", lista);
 
-    }
-     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+ 
 
-        String descricaoProduto = request.getParameter("descricaoProduto");
-
-        ProdutoDAO produtos = new ProdutoDAO();
-
-        List<ProdutoData> listaComFiltro = produtos.getProdutoByDescricao(descricaoProduto);
-
-        request.setAttribute("listaComFiltro", listaComFiltro);
-        
-        //System.out.println(listaComFiltro);
-
-        request.getRequestDispatcher("view/listaProduto.jsp").forward(request, response);
     }
 
 }
