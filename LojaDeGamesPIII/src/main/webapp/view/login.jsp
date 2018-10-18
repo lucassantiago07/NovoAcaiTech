@@ -37,8 +37,8 @@
 
                         <div class="" style="text-align: center; margin-top: 2%;">
                             <h4 style="color:red"> Entrega 18/10/2018 - CRUD de Produto </h4>
-                            <button type="submit" class="btn btn-primary">Cadastrar um produto</button>
-                            <button type="submit" class="btn btn-primary">Listar os produtos cadastrados</button>
+                            <button type="submit" class="btn btn-primary" onclick="window.location.href = '${pageContext.request.contextPath}/view/cadastrarProduto.jsp'">Cadastrar um produto</button>
+                            <button type="submit" class="btn btn-primary" onclick="window.location.href = '${pageContext.request.contextPath}/view/listaProduto.jsp'">Listar os produtos cadastrados</button>
                         </div>
                     </div>
 
