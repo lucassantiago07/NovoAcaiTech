@@ -17,6 +17,7 @@
         <link type="text/css" href="${pageContext.request.contextPath}/css/bootstrap.css" rel="stylesheet" />
         <script src="${pageContext.request.contextPath}/js/jquery-3.3.1.js"></script>
         <script src="${pageContext.request.contextPath}/js/bootstrap.js"></script>
+        <script src="${pageContext.request.contextPath}/js/formatterdinheiro.js"></script>
     </head>
     <body>
         <!-- Inicio Menu -->
@@ -70,8 +71,8 @@
             </form>
         </div>
         <!-- fim Busca jogos estoque-->
-        <div class="container corpodecampos">
-            <table class="table table-striped">
+        <div class="container corpodecampos overflow-x:auto;">
+            <table class="table table-sm">
                 <thead>
                     <tr>
                         <th scope="col">Identificador</th>
@@ -95,11 +96,11 @@
                     <c:if test="${not empty listaComFiltro}">
                         <c:forEach var="produto" items="${listaComFiltro}">
                             <tr>
-                                <td>${produto.id}</td>
+                                <td class="">${produto.id}</td>
                                 <td>${produto.nome}</td>
                                 <td>${produto.descricao}</td>
-                                <td>${produto.precoDeCusto}</td>
-                                <td>${produto.precoDeVenda}</td>
+                                <td class="precoDeCusto">${produto.precoDeCusto}</td>
+                                <td class="precoDeVenda">${produto.precoDeVenda}</td>
                                 <td>${produto.categoria}</td>
                                 <td>${produto.anoLancamento}</td>
                                 <td>${produto.estoque}</td>
@@ -108,12 +109,14 @@
                                 <td><a href="${pageContext.request.contextPath}/view/alterarProduto.jsp?idProduto=${produto.id}">Editar</a></td>
                             </tr>
                         </c:forEach>
+
+
                     </c:if>
                     <!-- Fim Lista para itens com filtros -->
                     <!-- Lista para itens sem filtros -->
                     <c:if test="${empty listaComFiltro}">
                         <c:forEach var="produto" items="${lista}">
-                            <tr>
+                            <tr class="">
                                 <td>${produto.id}</td>
                                 <td>${produto.nome}</td>
                                 <td>${produto.descricao}</td>
@@ -146,4 +149,19 @@
         <link type="text/css" href="${pageContext.request.contextPath}/css/listaProduto.css" rel="stylesheet" />
         <link type="text/css" href="${pageContext.request.contextPath}/css/menu.css" rel="stylesheet" />
         <script src="${pageContext.request.contextPath}/js/gradiente.js"></script>
+        <script type="text/javascript">
+
+            var table = $('table');
+
+            $(table).each(function () {
+                var $tds = $(this).find('td');
+                if ($tds.length != 0) {
+                    var $currText = $tds.eq(2).text();
+                    console.log($currText);
+                    var $currText = $tds.eq(3).text();
+                    console.log($currText);
+                }
+            });
+
+        </script>
     </body>

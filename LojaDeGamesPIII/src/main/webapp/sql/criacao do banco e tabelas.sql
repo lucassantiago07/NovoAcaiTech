@@ -12,8 +12,8 @@ CREATE TABLE lojadegames.produto
      descricao      VARCHAR(1000) NULL, 
      preco_compra   INT DEFAULT 0,  
      preco_venda    INT DEFAULT 0,  
-     ano_lancamento INT  NULL, 
-     estoque     INT DEFAULT 0, 
+     ano_lancamento INT NULL, 
+     estoque        INT DEFAULT 0, 
      dt_cadastro    TIMESTAMP NULL, 
      CONSTRAINT pk_produto PRIMARY KEY (id) 
   ); 

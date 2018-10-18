@@ -80,7 +80,7 @@
                         <div class="input-group-prepend">
                             <div class="input-group-text">R$</div>
                         </div>
-                        <input type="Text" class="form-control"  id="precoVenda" name="precoVenda" size="4" maxlength="5" onkeydown="FormataMoeda(this, 10, event)" onkeypress="return maskKeyPress(event)" required />
+                        <input type="Text" class="form-control"  id="precoVenda" name="precoVenda" size="4" maxlength="5"  required />
 
                     </div>
                 </div>
@@ -90,7 +90,7 @@
                         <div class="input-group-prepend">
                             <div class="input-group-text">R$</div>
                         </div>
-                        <input type="Text" class="form-control"  id="precoCusto" name="precoCusto" size="4" maxlength="5" onkeydown="FormataMoeda(this, 10, event)" onkeypress="return maskKeyPress(event)" required />
+                        <input type="Text" class="form-control"  id="precoCusto" name="precoCusto" size="4" maxlength="5"  required />
                     </div>
                 </div>
                 <div class="form-group">

@@ -137,22 +137,15 @@
             </form>
 
             <c:if test="${not empty produto.id}">
-                <script type="text/javascript">
-                    var precoCusto = $("#precoCusto").val();
-                    var precoVenda = $("#precoVenda").val();
-
-                    if (precoCusto != "")
-                    {
-                        $("#precoCusto").val(numeroParaMoeda(precoCusto));
-                    }
-
-                    if (precoVenda != "")
-                    {
-                        $("#precoVenda").val(numeroParaMoeda(precoVenda));
-                    }
-                </script>
+              
             </c:if>
         </div>
+
+        <c:if test="${not empty retorno}">
+            <script type="text/javascript">
+                alert("Produto alterado!");
+            </script>
+        </c:if>  
 
 
         <!-- Inicio Footer -->
