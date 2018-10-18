@@ -34,6 +34,7 @@ function FormataMoeda(campo, tammax, teclapres, caracter)
     } else
     {
         var tecla = teclapres.keyCode;
+        console.log(teclapres.keyCode);
     }
 
     if (caracter == null || caracter == "undefined")

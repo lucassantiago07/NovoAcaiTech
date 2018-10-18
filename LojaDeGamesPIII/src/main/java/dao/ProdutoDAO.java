@@ -52,8 +52,8 @@ public class ProdutoDAO {
                 p.setId(rs.getInt("ID"));
                 p.setNome(rs.getString("NOME"));
                 p.setDescricao(rs.getString("DESCRICAO"));
-                p.setPrecoDeCusto(rs.getFloat("PRECO_COMPRA"));
-                p.setPrecoDeVenda(rs.getFloat("PRECO_VENDA"));
+                p.setPrecoDeCusto(rs.getInt("PRECO_COMPRA"));
+                p.setPrecoDeVenda(rs.getInt("PRECO_VENDA"));
                 p.setEstoque(rs.getInt("ESTOQUE"));
                 p.setDataCadastro(rs.getTimestamp("DT_CADASTRO"));
                 p.setCategoria(rs.getInt("CATEGORIA"));
@@ -86,8 +86,8 @@ public class ProdutoDAO {
                 p.setId(rs.getInt("ID"));
                 p.setNome(rs.getString("NOME"));
                 p.setDescricao(rs.getString("DESCRICAO"));
-                p.setPrecoDeCusto(rs.getFloat("PRECO_COMPRA"));
-                p.setPrecoDeVenda(rs.getFloat("PRECO_VENDA"));
+                p.setPrecoDeCusto(rs.getInt("PRECO_COMPRA"));
+                p.setPrecoDeVenda(rs.getInt("PRECO_VENDA"));
                 p.setEstoque(rs.getInt("ESTOQUE"));
                 p.setDataCadastro(rs.getTimestamp("DT_CADASTRO"));
                 p.setCategoria(rs.getInt("CATEGORIA"));
@@ -116,8 +116,8 @@ public class ProdutoDAO {
                 p.setId(rs.getInt("ID"));
                 p.setNome(rs.getString("NOME"));
                 p.setDescricao(rs.getString("DESCRICAO"));
-                p.setPrecoDeCusto(rs.getFloat("PRECO_COMPRA"));
-                p.setPrecoDeVenda(rs.getFloat("PRECO_VENDA"));
+                p.setPrecoDeCusto(rs.getInt("PRECO_COMPRA"));
+                p.setPrecoDeVenda(rs.getInt("PRECO_VENDA"));
                 p.setEstoque(rs.getInt("ESTOQUE"));
                 p.setDataCadastro(rs.getTimestamp("DT_CADASTRO"));
                 p.setCategoria(rs.getInt("CATEGORIA"));

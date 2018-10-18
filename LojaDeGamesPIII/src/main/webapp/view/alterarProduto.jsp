@@ -74,6 +74,9 @@
                     <label>Identificador do Produto:</label>
                     <input class="form-control" id="id" name="id" value="${produto.id}" readonly="readonly"></input>
                 </div>
+
+
+
                 <div class="form-group">
                     <label>Nome do Produto</label>
                     <input class="form-control" id="nomeProduto" value="${produto.nome}" name="nomeProduto" maxlength="25" required></input>
@@ -95,6 +98,8 @@
                             <div class="input-group-text">R$</div>
                         </div>
                         <input type="Text" class="form-control"  id="precoCusto" name="precoCusto" size="4" maxlength="10" onkeydown="FormataMoeda(this, 10, event)" onkeypress="return maskKeyPress(event)" value="${produto.precoDeCusto}" required />
+
+
                     </div>
                 </div>
                 <div class="form-group">
@@ -130,6 +135,15 @@
                 <button type="button" class="btn btn-primary" href="#">Voltar</button>
                 <button type="submit" class="btn btn-primary">Enviar</button>
             </form>
+
+            <c:if test="${not empty produto.id}">
+                <h1>ok</h1>
+                <script type="text/javascript">
+                    console.log($("#precoCusto").val());
+                    console.log(FormataMoeda($("#precoCusto").val(), 10, 1));
+
+                </script>
+            </c:if>
         </div>
 
 

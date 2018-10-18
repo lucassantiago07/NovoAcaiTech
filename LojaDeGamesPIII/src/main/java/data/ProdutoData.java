@@ -11,8 +11,8 @@ public class ProdutoData {
     private String Descricao; 
     private String Plataforma; 
     private String Fornecedor; 
-    private float PrecoDeCusto; 
-    private float PrecoDeVenda;
+    private int PrecoDeCusto; 
+    private int PrecoDeVenda;
     private int Categoria;
     private int AnoLancamento;
     private int Estoque;
@@ -61,30 +61,58 @@ public class ProdutoData {
     }
 
     /**
+     * @return the Plataforma
+     */
+    public String getPlataforma() {
+        return Plataforma;
+    }
+
+    /**
+     * @param Plataforma the Plataforma to set
+     */
+    public void setPlataforma(String Plataforma) {
+        this.Plataforma = Plataforma;
+    }
+
+    /**
+     * @return the Fornecedor
+     */
+    public String getFornecedor() {
+        return Fornecedor;
+    }
+
+    /**
+     * @param Fornecedor the Fornecedor to set
+     */
+    public void setFornecedor(String Fornecedor) {
+        this.Fornecedor = Fornecedor;
+    }
+
+    /**
      * @return the PrecoDeCusto
      */
-    public float getPrecoDeCusto() {
+    public int getPrecoDeCusto() {
         return PrecoDeCusto;
     }
 
     /**
      * @param PrecoDeCusto the PrecoDeCusto to set
      */
-    public void setPrecoDeCusto(float PrecoDeCusto) {
+    public void setPrecoDeCusto(int PrecoDeCusto) {
         this.PrecoDeCusto = PrecoDeCusto;
     }
 
     /**
      * @return the PrecoDeVenda
      */
-    public float getPrecoDeVenda() {
+    public int getPrecoDeVenda() {
         return PrecoDeVenda;
     }
 
     /**
      * @param PrecoDeVenda the PrecoDeVenda to set
      */
-    public void setPrecoDeVenda(float PrecoDeVenda) {
+    public void setPrecoDeVenda(int PrecoDeVenda) {
         this.PrecoDeVenda = PrecoDeVenda;
     }
 
@@ -100,6 +128,20 @@ public class ProdutoData {
      */
     public void setCategoria(int Categoria) {
         this.Categoria = Categoria;
+    }
+
+    /**
+     * @return the AnoLancamento
+     */
+    public int getAnoLancamento() {
+        return AnoLancamento;
+    }
+
+    /**
+     * @param AnoLancamento the AnoLancamento to set
+     */
+    public void setAnoLancamento(int AnoLancamento) {
+        this.AnoLancamento = AnoLancamento;
     }
 
     /**
@@ -130,45 +172,4 @@ public class ProdutoData {
         this.DataCadastro = DataCadastro;
     }
 
-    /**
-     * @return the Plataforma
-     */
-    public String getPlataforma() {
-        return Plataforma;
-    }
-
-    /**
-     * @param Plataforma the Plataforma to set
-     */
-    public void setPlataforma(String Plataforma) {
-        this.Plataforma = Plataforma;
-    }
-
-    /**
-     * @return the AnoLancamento
-     */
-    public int getAnoLancamento() {
-        return AnoLancamento;
-    }
-
-    /**
-     * @param AnoLancamento the AnoLancamento to set
-     */
-    public void setAnoLancamento(int AnoLancamento) {
-        this.AnoLancamento = AnoLancamento;
-    }
-
-    /**
-     * @return the Fornecedor
-     */
-    public String getFornecedor() {
-        return Fornecedor;
-    }
-
-    /**
-     * @param Fornecedor the Fornecedor to set
-     */
-    public void setFornecedor(String Fornecedor) {
-        this.Fornecedor = Fornecedor;
-    }
 }
