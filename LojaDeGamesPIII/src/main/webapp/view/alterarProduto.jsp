@@ -87,7 +87,7 @@
                         <div class="input-group-prepend">
                             <div class="input-group-text">R$</div>
                         </div>
-                        <input type="Text" class="form-control"  id="precoVenda" name="precoVenda" size="4" maxlength="10" onkeydown="FormataMoeda(this, 10, event)" onkeypress="return maskKeyPress(event)" value="${produto.precoDeVenda}" required />
+                        <input type="Text" class="form-control"  id="precoVenda" name="precoVenda" size="4" maxlength="5" onkeypress='validate(event);' value="${produto.precoDeVenda}" required />
 
                     </div>
                 </div>
@@ -97,7 +97,7 @@
                         <div class="input-group-prepend">
                             <div class="input-group-text">R$</div>
                         </div>
-                        <input type="Text" class="form-control"  id="precoCusto" name="precoCusto" size="4" maxlength="10" onkeydown="FormataMoeda(this, 10, event)" onkeypress="return maskKeyPress(event)" value="${produto.precoDeCusto}" required />
+                        <input type="Text" class="form-control"  id="precoCusto" name="precoCusto" size="4" maxlength="5" onkeypress='validate(event);' value="${produto.precoDeCusto}" required />
 
 
                     </div>
@@ -137,11 +137,19 @@
             </form>
 
             <c:if test="${not empty produto.id}">
-                <h1>ok</h1>
                 <script type="text/javascript">
-                    console.log($("#precoCusto").val());
-                    console.log(FormataMoeda($("#precoCusto").val(), 10, 1));
+                    var precoCusto = $("#precoCusto").val();
+                    var precoVenda = $("#precoVenda").val();
 
+                    if (precoCusto != "")
+                    {
+                        $("#precoCusto").val(numeroParaMoeda(precoCusto));
+                    }
+
+                    if (precoVenda != "")
+                    {
+                        $("#precoVenda").val(numeroParaMoeda(precoVenda));
+                    }
                 </script>
             </c:if>
         </div>
@@ -160,5 +168,7 @@
         <link type="text/css" href="${pageContext.request.contextPath}/css/cadastrarProduto.css" rel="stylesheet" />
         <link type="text/css" href="${pageContext.request.contextPath}/css/menu.css" rel="stylesheet" />
         <script src="${pageContext.request.contextPath}/js/gradiente.js"></script>
+
+
     </body>
 </html>
