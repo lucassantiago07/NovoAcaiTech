@@ -24,17 +24,24 @@ public class cadastrarProduto extends HttpServlet {
         //tentei formatar, não testado String date = new SimpleDateFormat("dd/MM/yyyy").format(Timestamp.from(Instant.now()));
         p.setDataCadastro(dataDeHoje);
 
-        
         p.setNome(request.getParameter("nomeProduto"));
+
         p.setDescricao(request.getParameter("descricao"));
-        p.setPrecoDeCusto(Integer.parseInt(request.getParameter("precoCusto").replace(",", ".").replace(".", "")));
-        p.setPrecoDeVenda(Integer.parseInt(request.getParameter("precoVenda").replace(",", ".").replace(".", "")));
+
+        p.setPrecoDeCusto(Integer.parseInt(request.getParameter("precoCusto")));
+
+        p.setPrecoDeVenda(Integer.parseInt(request.getParameter("precoVenda")));
+
         p.setEstoque(Integer.parseInt(request.getParameter("estoque")));
+
         p.setPlataforma(request.getParameter("plataforma"));
+
         p.setAnoLancamento(Integer.parseInt(request.getParameter("anolancamento")));
-        p.setEstoque(Integer.parseInt(request.getParameter("categoria")));
-        
-       
+
+        p.setCategoria(Integer.parseInt(request.getParameter("categoria")));
+
+        System.out.println("Categoria Servlet: " + request.getParameter("categoria"));
+
         p.setFornecedor(request.getParameter("fornecedor"));
 
         ProdutoDAO dao = new ProdutoDAO();

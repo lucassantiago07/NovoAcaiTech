@@ -93,35 +93,16 @@
                         <!-- Lista para itens com filtros -->
                         <c:if test="${not empty listaComFiltro}">
                             <c:forEach var="produto" items="${listaComFiltro}">
-                                <tr>
-                                    <td>${produto.id}</td>
-                                    <td>${produto.nome}</td>
-                                    <td>${produto.precoDeCusto}</td>
-                                    <td>${produto.precoDeVenda}</td>
-                                    <td>${produto.fornecedor}</td>
-                                    <td>${produto.categoria}</td>
-                                    <td>${produto.anoLancamento}</td>
-                                    <td>${produto.estoque}</td>                                
-                                    <td>${produto.dataCadastro}</td>
-                                    <td><a href="${pageContext.request.contextPath}/view/alterarProduto.jsp?idProduto=${produto.id}">Editar</a></td>
-                                    <td><a href="${pageContext.request.contextPath}/excluirProduto?idProduto=${produto.id}">Excluir</a></td>
-                                </tr>
-                            </c:forEach>
-
-
-                        </c:if>
-                        <!-- Fim Lista para itens com filtros -->
-                        <!-- Lista para itens sem filtros -->
-                        <c:if test="${empty listaComFiltro and not empty lista}">
-                            <c:forEach var="produto" items="${lista}">
                                 <tr class="">
                                     <td>${produto.id}</td>
-                                    <td>${produto.nome}</td>
-                                    <td>${produto.precoDeCusto}</td>
+                                    <td>${produto.nome}</td>                                    
                                     <td>${produto.precoDeVenda}</td>
+                                    <td>${produto.precoDeCusto}</td>
                                     <td>${produto.fornecedor}</td>
 
-                                    <c:if test="${produto.categoria == 0}">
+
+
+                                    <c:if test="${produto.categoria == 1}">
                                         <td>Ação</td>
                                     </c:if>
                                     <c:if test="${produto.categoria == 2}">
@@ -136,6 +117,48 @@
                                     <c:if test="${produto.categoria == 5}">
                                         <td>Estratégia</td>
                                     </c:if>
+                                    <c:if test="${produto.categoria == ''}">
+                                        <td>Não encontrado</td>
+                                    </c:if>
+                                    <td>${produto.anoLancamento}</td>
+                                    <td>${produto.estoque}</td>                                
+                                    <td>${produto.dataCadastro}</td>
+                                    <td><a href="${pageContext.request.contextPath}/view/alterarProduto.jsp?idProduto=${produto.id}">Editar</a></td>
+                                    <td><a href="${pageContext.request.contextPath}/excluirProduto?idProduto=${produto.id}">Excluir</a></td></tr>
+                                </c:forEach>
+
+
+                        </c:if>
+                        <!-- Fim Lista para itens com filtros -->
+                        <!-- Lista para itens sem filtros -->
+                        <c:if test="${empty listaComFiltro and not empty lista}">
+                            <c:forEach var="produto" items="${lista}">
+                                <tr class="">
+                                    <td>${produto.id}</td>
+                                    <td>${produto.nome}</td>                                    
+                                    <td>${produto.precoDeVenda}</td>
+                                    <td>${produto.precoDeCusto}</td>
+                                    <td>${produto.fornecedor}</td>
+
+                                    <c:if test="${produto.categoria == 1}">
+                                        <td>Ação</td>
+                                    </c:if>
+                                    <c:if test="${produto.categoria == 2}">
+                                        <td>Corrida</td>
+                                    </c:if>
+                                    <c:if test="${produto.categoria == 3}">
+                                        <td>Tiro</td>
+                                    </c:if>
+                                    <c:if test="${produto.categoria == 4}">
+                                        <td>RPG</td>
+                                    </c:if>
+                                    <c:if test="${produto.categoria == 5}">
+                                        <td>Estratégia</td>
+                                    </c:if>
+                                    <c:if test="${produto.categoria == ''}">
+                                        <td>Não encontrado</td>
+                                    </c:if>
+
                                     <td>${produto.anoLancamento}</td>
                                     <td>${produto.estoque}</td>                                
                                     <td>${produto.dataCadastro}</td>

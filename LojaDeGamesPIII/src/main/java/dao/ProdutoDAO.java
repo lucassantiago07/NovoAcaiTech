@@ -21,18 +21,17 @@ public class ProdutoDAO {
             String sqlProduto = "INSERT INTO `produto`(`nome`, `categoria`, `plataforma`, `fornecedor`, `descricao`, `preco_compra`, `preco_venda`, `ano_lancamento`, `estoque`, `dt_cadastro`) VALUES (?,?,?,?,?,?,?,?,?,?)";
             PreparedStatement pstmtProduto = connection.prepareStatement(sqlProduto);
             pstmtProduto.setString(1, p.getNome());
-            pstmtProduto.setInt(2, p.getCategoria());
+            pstmtProduto.setInt(2, p.getCategoria());   
             System.out.println("Categoria DAO: " + p.getCategoria());
             pstmtProduto.setString(3, p.getPlataforma());
             pstmtProduto.setString(4, p.getFornecedor());
             pstmtProduto.setString(5, p.getDescricao());
-            pstmtProduto.setFloat(6, p.getPrecoDeCusto());
-            pstmtProduto.setFloat(7, p.getPrecoDeVenda());
+            pstmtProduto.setInt(6, p.getPrecoDeCusto());
+            pstmtProduto.setInt(7, p.getPrecoDeVenda());
             pstmtProduto.setInt(8, p.getAnoLancamento());
             pstmtProduto.setInt(9, p.getEstoque());
             pstmtProduto.setTimestamp(10, p.getDataCadastro());
             pstmtProduto.executeUpdate();
-
             connection.close();
         } catch (SQLException | ClassNotFoundException ex) {
             System.out.println("Erro no banco de dados" + ex);
@@ -81,7 +80,7 @@ public class ProdutoDAO {
 
             ResultSet rs = stmt.executeQuery("SELECT * FROM `produto` WHERE  NOME LIKE '%" + descricaoProduto + "%' OR DESCRICAO LIKE '%" + descricaoProduto + "%' OR PLATAFORMA LIKE '%" + descricaoProduto + "%'");
 
-            System.out.println("SELECT * FROM `produto` WHERE  NOME LIKE '%" + descricaoProduto + "%' OR DESCRICAO LIKE '%" + descricaoProduto + "%'");
+            //System.out.println("SELECT * FROM `produto` WHERE  NOME LIKE '%" + descricaoProduto + "%' OR DESCRICAO LIKE '%" + descricaoProduto + "%'");
 
             while (rs.next()) {
                 ProdutoData p = new ProdutoData();
@@ -141,19 +140,18 @@ public class ProdutoDAO {
             Connection connection;
             connection = new ConnectionFactory().getConnection();
 
-            String altProduto = "UPDATE `produto` SET `nome`=?,`categoria`=?,`plataforma`=?,`fornecedor`=?,`descricao`=?,`preco_compra`=?,`preco_venda`=?,`ano_lancamento`=?,`estoque`=?,`dt_cadastro`=? WHERE `id`= ?";
+            String altProduto = "UPDATE `produto` SET `nome`=?,`categoria`=?,`plataforma`=?,`fornecedor`=?,`descricao`=?,`preco_compra`=?,`preco_venda`=?,`ano_lancamento`=?,`estoque`=? WHERE `id`= ?";
             PreparedStatement pstmtProduto = connection.prepareStatement(altProduto);
             pstmtProduto.setString(1, p.getNome());
             pstmtProduto.setInt(2, p.getCategoria());
             pstmtProduto.setString(3, p.getPlataforma());
             pstmtProduto.setString(4, p.getFornecedor());
             pstmtProduto.setString(5, p.getDescricao());
-            pstmtProduto.setFloat(6, p.getPrecoDeCusto());
-            pstmtProduto.setFloat(7, p.getPrecoDeVenda());
+            pstmtProduto.setInt(6, p.getPrecoDeCusto());
+            pstmtProduto.setInt(7, p.getPrecoDeVenda());
             pstmtProduto.setInt(8, p.getAnoLancamento());
             pstmtProduto.setInt(9, p.getEstoque());
-            pstmtProduto.setTimestamp(10, p.getDataCadastro());
-            pstmtProduto.setInt(11, p.getId());
+            pstmtProduto.setInt(10, p.getId());
 
             pstmtProduto.executeUpdate();
 

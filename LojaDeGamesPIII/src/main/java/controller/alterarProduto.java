@@ -25,8 +25,8 @@ public class alterarProduto extends HttpServlet {
         p.setId(Integer.parseInt(request.getParameter("id")));
         p.setNome(request.getParameter("nomeProduto"));
         p.setDescricao(request.getParameter("descricao"));
-        p.setPrecoDeCusto(Integer.parseInt(request.getParameter("precoCusto").replace(",", ".").replace(".", "")));
-        p.setPrecoDeVenda(Integer.parseInt(request.getParameter("precoVenda").replace(",", ".").replace(".", "")));
+        p.setPrecoDeCusto(Integer.parseInt(request.getParameter("precoCusto")));
+        p.setPrecoDeVenda(Integer.parseInt(request.getParameter("precoVenda")));
         p.setEstoque(Integer.parseInt(request.getParameter("estoque")));
         p.setPlataforma(request.getParameter("plataforma"));
         p.setAnoLancamento(Integer.parseInt(request.getParameter("anolancamento")));

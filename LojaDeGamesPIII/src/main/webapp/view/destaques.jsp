@@ -12,35 +12,35 @@
     <head>
         <meta charset="UTF-8">
         <title>AcaiTech Sistema - Destaques</title>
-        <link type="text/css" href="css/bootstrap.css" rel="stylesheet" />
-        <script src="js/jquery-3.3.1.js"></script>
-        <script src="js/bootstrap.js"></script>
+        <link type="text/css" href="${pageContext.request.contextPath}/css/bootstrap.css" rel="stylesheet" />
+        <script src="${pageContext.request.contextPath}/js/jquery-3.3.1.js"></script>
+        <script src="${pageContext.request.contextPath}/js/bootstrap.js"></script>
     </head>
     <body>
         <!-- Inicio Menu -->
         <nav class="navbar navbar-light bg-light">
             <div class="corpoimagem">
-                <img src="img/logo.png"  class="imagemlogo">
+                <img src="${pageContext.request.contextPath}/img/logo.png"  class="imagemlogo">
             </div>
             <div class="informacoessobrefuncionario">
                 <span class="nomedofuncionario">Fulano de Tal</span> ●
                 <span class="filialfuncionario">Filial Amazonia</span>  ●
                 <span><a href="#">Sair</a></span>
             </div>
-            <button type="button" class="btn btn-primary btnCarrinho">Carrinho <img src="img/carrinho.png"  class="imagemcarrinho"></button>
+            <button type="button" class="btn btn-primary btnCarrinho">Carrinho <img src="${pageContext.request.contextPath}/img/carrinho.png"  class="imagemcarrinho"></button>
         </nav>
         <!-- Fim Menu -->
         <!-- Inicio Carrocel -->
         <div id="carouselExampleControls" class="carousel slide" data-ride="carousel" data-interval="2500">
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img class="d-block w-100" src="img/slide1.jpg" alt="First slide">
+                    <img class="d-block w-100" src="${pageContext.request.contextPath}/img/slide1.jpg" alt="First slide">
                 </div>
                 <div class="carousel-item">
-                    <img class="d-block w-100" src="img/slide2.jpg" alt="Second slide">
+                    <img class="d-block w-100" src="${pageContext.request.contextPath}/img/slide2.jpg" alt="Second slide">
                 </div>
                 <div class="carousel-item" >
-                    <img class="d-block w-100" src="img/slide3.jpg" alt="Third slide">
+                    <img class="d-block w-100" src="${pageContext.request.contextPath}/img/slide3.jpg" alt="Third slide">
                 </div>
             </div>
             <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
@@ -112,7 +112,7 @@
         <div class=" corpodeprodutos container">
             <!-- Inicio Imagem Busca -->
             <div class="destaque">
-                <img src="img/destaque.png"  class="imagemdestaque">
+                <img src="${pageContext.request.contextPath}/img/destaque.png"  class="imagemdestaque">
                 <!--<img src="img/star.png"  class="imagemestrela">
                    <img src="img/star.png"  class="imagemestrela">
                    <img src="img/star.png"  class="imagemestrela">
@@ -123,7 +123,7 @@
             <!-- Inicio Produtos -->
             <div class="row">
                 <div class="card">
-                    <img class="card-img-top" src="img/produto.jpg" alt="Card image cap">
+                    <img class="card-img-top" src="${pageContext.request.contextPath}/img/produto.jpg" alt="Card image cap">
                     <div class="card-body">
                         <h5 class="card-title">Titulo do Jogo</h5>
                         <p class="card-text">Texto explicativo do jogo...</p>
@@ -131,7 +131,7 @@
                     </div>
                 </div>
                 <div class="card">
-                    <img class="card-img-top" src="img/produto.jpg" alt="Card image cap">
+                    <img class="card-img-top" src="${pageContext.request.contextPath}/img/produto.jpg" alt="Card image cap">
                     <div class="card-body">
                         <h5 class="card-title">Titulo do Jogo</h5>
                         <p class="card-text">Texto explicativo do jogo...</p>
@@ -139,7 +139,7 @@
                     </div>
                 </div>
                 <div class="card">
-                    <img class="card-img-top" src="img/produto.jpg" alt="Card image cap">
+                    <img class="card-img-top" src="${pageContext.request.contextPath}/img/produto.jpg" alt="Card image cap">
                     <div class="card-body">
                         <h5 class="card-title">Titulo do Jogo</h5>
                         <p class="card-text">Texto explicativo do jogo...</p>
@@ -147,7 +147,7 @@
                     </div>
                 </div>
                 <div class="card">
-                    <img class="card-img-top" src="img/produto.jpg" alt="Card image cap">
+                    <img class="card-img-top" src="${pageContext.request.contextPath}/img/produto.jpg" alt="Card image cap">
                     <div class="card-body">
                         <h5 class="card-title">Titulo do Jogo</h5>
                         <p class="card-text">Texto explicativo do jogo...</p>
@@ -155,49 +155,7 @@
                     </div>
                 </div>
                 <div class="card">
-                    <img class="card-img-top" src="img/produto.jpg" alt="Card image cap">
-                    <div class="card-body">
-                        <h5 class="card-title">Titulo do Jogo</h5>
-                        <p class="card-text">Texto explicativo do jogo...</p>
-                        <a href="#" class="btn btn-primary">Adicionar ao carrinho</a>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="card">
-                    <img class="card-img-top" src="img/produto.jpg" alt="Card image cap">
-                    <div class="card-body">
-                        <h5 class="card-title">Titulo do Jogo</h5>
-                        <p class="card-text">Texto explicativo do jogo...</p>
-                        <a href="#" class="btn btn-primary">Adicionar ao carrinho</a>
-                    </div>
-                </div>
-                <div class="card">
-                    <img class="card-img-top" src="img/produto.jpg" alt="Card image cap">
-                    <div class="card-body">
-                        <h5 class="card-title">Titulo do Jogo</h5>
-                        <p class="card-text">Texto explicativo do jogo...</p>
-                        <a href="#" class="btn btn-primary">Adicionar ao carrinho</a>
-                    </div>
-                </div>
-                <div class="card">
-                    <img class="card-img-top" src="img/produto.jpg" alt="Card image cap">
-                    <div class="card-body">
-                        <h5 class="card-title">Titulo do Jogo</h5>
-                        <p class="card-text">Texto explicativo do jogo...</p>
-                        <a href="#" class="btn btn-primary">Adicionar ao carrinho</a>
-                    </div>
-                </div>
-                <div class="card">
-                    <img class="card-img-top" src="img/produto.jpg" alt="Card image cap">
-                    <div class="card-body">
-                        <h5 class="card-title">Titulo do Jogo</h5>
-                        <p class="card-text">Texto explicativo do jogo...</p>
-                        <a href="#" class="btn btn-primary">Adicionar ao carrinho</a>
-                    </div>
-                </div>
-                <div class="card">
-                    <img class="card-img-top" src="img/produto.jpg" alt="Card image cap">
+                    <img class="card-img-top" src="${pageContext.request.contextPath}/img/produto.jpg" alt="Card image cap">
                     <div class="card-body">
                         <h5 class="card-title">Titulo do Jogo</h5>
                         <p class="card-text">Texto explicativo do jogo...</p>
@@ -207,7 +165,7 @@
             </div>
             <div class="row">
                 <div class="card">
-                    <img class="card-img-top" src="img/produto.jpg" alt="Card image cap">
+                    <img class="card-img-top" src="${pageContext.request.contextPath}/img/produto.jpg" alt="Card image cap">
                     <div class="card-body">
                         <h5 class="card-title">Titulo do Jogo</h5>
                         <p class="card-text">Texto explicativo do jogo...</p>
@@ -215,7 +173,7 @@
                     </div>
                 </div>
                 <div class="card">
-                    <img class="card-img-top" src="img/produto.jpg" alt="Card image cap">
+                    <img class="card-img-top" src="${pageContext.request.contextPath}/img/produto.jpg" alt="Card image cap">
                     <div class="card-body">
                         <h5 class="card-title">Titulo do Jogo</h5>
                         <p class="card-text">Texto explicativo do jogo...</p>
@@ -223,7 +181,7 @@
                     </div>
                 </div>
                 <div class="card">
-                    <img class="card-img-top" src="img/produto.jpg" alt="Card image cap">
+                    <img class="card-img-top" src="${pageContext.request.contextPath}/img/produto.jpg" alt="Card image cap">
                     <div class="card-body">
                         <h5 class="card-title">Titulo do Jogo</h5>
                         <p class="card-text">Texto explicativo do jogo...</p>
@@ -231,7 +189,7 @@
                     </div>
                 </div>
                 <div class="card">
-                    <img class="card-img-top" src="img/produto.jpg" alt="Card image cap">
+                    <img class="card-img-top" src="${pageContext.request.contextPath}/img/produto.jpg" alt="Card image cap">
                     <div class="card-body">
                         <h5 class="card-title">Titulo do Jogo</h5>
                         <p class="card-text">Texto explicativo do jogo...</p>
@@ -239,7 +197,7 @@
                     </div>
                 </div>
                 <div class="card">
-                    <img class="card-img-top" src="img/produto.jpg" alt="Card image cap">
+                    <img class="card-img-top" src="${pageContext.request.contextPath}/img/produto.jpg" alt="Card image cap">
                     <div class="card-body">
                         <h5 class="card-title">Titulo do Jogo</h5>
                         <p class="card-text">Texto explicativo do jogo...</p>
@@ -249,7 +207,7 @@
             </div>
             <div class="row">
                 <div class="card">
-                    <img class="card-img-top" src="img/produto.jpg" alt="Card image cap">
+                    <img class="card-img-top" src="${pageContext.request.contextPath}/img/produto.jpg" alt="Card image cap">
                     <div class="card-body">
                         <h5 class="card-title">Titulo do Jogo</h5>
                         <p class="card-text">Texto explicativo do jogo...</p>
@@ -257,7 +215,7 @@
                     </div>
                 </div>
                 <div class="card">
-                    <img class="card-img-top" src="img/produto.jpg" alt="Card image cap">
+                    <img class="card-img-top" src="${pageContext.request.contextPath}/img/produto.jpg" alt="Card image cap">
                     <div class="card-body">
                         <h5 class="card-title">Titulo do Jogo</h5>
                         <p class="card-text">Texto explicativo do jogo...</p>
@@ -265,7 +223,7 @@
                     </div>
                 </div>
                 <div class="card">
-                    <img class="card-img-top" src="img/produto.jpg" alt="Card image cap">
+                    <img class="card-img-top" src="${pageContext.request.contextPath}/img/produto.jpg" alt="Card image cap">
                     <div class="card-body">
                         <h5 class="card-title">Titulo do Jogo</h5>
                         <p class="card-text">Texto explicativo do jogo...</p>
@@ -273,7 +231,7 @@
                     </div>
                 </div>
                 <div class="card">
-                    <img class="card-img-top" src="img/produto.jpg" alt="Card image cap">
+                    <img class="card-img-top" src="${pageContext.request.contextPath}/img/produto.jpg" alt="Card image cap">
                     <div class="card-body">
                         <h5 class="card-title">Titulo do Jogo</h5>
                         <p class="card-text">Texto explicativo do jogo...</p>
@@ -281,7 +239,49 @@
                     </div>
                 </div>
                 <div class="card">
-                    <img class="card-img-top" src="img/produto.jpg" alt="Card image cap">
+                    <img class="card-img-top" src="${pageContext.request.contextPath}/img/produto.jpg" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">Titulo do Jogo</h5>
+                        <p class="card-text">Texto explicativo do jogo...</p>
+                        <a href="#" class="btn btn-primary">Adicionar ao carrinho</a>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="card">
+                    <img class="card-img-top" src="${pageContext.request.contextPath}/img/produto.jpg" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">Titulo do Jogo</h5>
+                        <p class="card-text">Texto explicativo do jogo...</p>
+                        <a href="#" class="btn btn-primary">Adicionar ao carrinho</a>
+                    </div>
+                </div>
+                <div class="card">
+                    <img class="card-img-top" src="${pageContext.request.contextPath}/img/produto.jpg" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">Titulo do Jogo</h5>
+                        <p class="card-text">Texto explicativo do jogo...</p>
+                        <a href="#" class="btn btn-primary">Adicionar ao carrinho</a>
+                    </div>
+                </div>
+                <div class="card">
+                    <img class="card-img-top" src="${pageContext.request.contextPath}/img/produto.jpg" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">Titulo do Jogo</h5>
+                        <p class="card-text">Texto explicativo do jogo...</p>
+                        <a href="#" class="btn btn-primary">Adicionar ao carrinho</a>
+                    </div>
+                </div>
+                <div class="card">
+                    <img class="card-img-top" src="${pageContext.request.contextPath}/img/produto.jpg" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">Titulo do Jogo</h5>
+                        <p class="card-text">Texto explicativo do jogo...</p>
+                        <a href="#" class="btn btn-primary">Adicionar ao carrinho</a>
+                    </div>
+                </div>
+                <div class="card">
+                    <img class="card-img-top" src="${pageContext.request.contextPath}/img/produto.jpg" alt="Card image cap">
                     <div class="card-body">
                         <h5 class="card-title">Titulo do Jogo</h5>
                         <p class="card-text">Texto explicativo do jogo...</p>
@@ -295,13 +295,13 @@
         <footer class="rodape page-footer font-small blue">
             <!-- Copyright -->
             <div class="footer-copyright text-center py-3">© 2018 Copyright: [ ACAITECH SISTEMAS OPERACIONAIS LTDA 13.050.544/0001-00 ]
-                <a class="suporte" href="#"> Solicitar Suporte  <img class="imagemsuporte" src="img/suporte.png"></a>
+                <a class="suporte" href="#"> Solicitar Suporte  <img class="imagemsuporte" src="${pageContext.request.contextPath}/img/suporte.png"></a>
             </div>
             <!-- Copyright -->
         </footer>
         <!-- Footer -->
-        <link type="text/css" href="css/script.css" rel="stylesheet" />
-        <link type="text/css" href="css/destaques.css" rel="stylesheet" />
-        <link type="text/css" href="css/menu.css" rel="stylesheet" />
-        <script src="js/gradiente.js"></script>
+        <link type="text/css" href="${pageContext.request.contextPath}/css/script.css" rel="stylesheet" />
+        <link type="text/css" href="${pageContext.request.contextPath}/css/destaques.css" rel="stylesheet" />
+        <link type="text/css" href="${pageContext.request.contextPath}/css/menu.css" rel="stylesheet" />
+        <script src="${pageContext.request.contextPath}/js/gradiente.js"></script>
     </body>
