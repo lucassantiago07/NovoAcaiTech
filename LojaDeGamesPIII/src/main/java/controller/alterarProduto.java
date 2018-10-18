@@ -34,12 +34,9 @@ public class alterarProduto extends HttpServlet {
         p.setFornecedor(request.getParameter("fornecedor"));
         p.setCategoria(Integer.parseInt(request.getParameter("categoria")));
 
-        System.out.println("setCategoria: " + Integer.parseInt(request.getParameter("categoria")));
-
         dao.alterarProduto(p);
         request.setAttribute("retornoAlteracao", "OK");
 
-        //response.sendRedirect();
         RequestDispatcher requestDispatcher;
         requestDispatcher = request.getRequestDispatcher("/view/alterarProduto.jsp");
         requestDispatcher.forward(request, response);

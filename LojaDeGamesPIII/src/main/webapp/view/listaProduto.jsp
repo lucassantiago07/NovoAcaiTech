@@ -112,7 +112,7 @@
                         </c:if>
                         <!-- Fim Lista para itens com filtros -->
                         <!-- Lista para itens sem filtros -->
-                        <c:if test="${empty listaComFiltro}">
+                        <c:if test="${empty listaComFiltro and not empty lista}">
                             <c:forEach var="produto" items="${lista}">
                                 <tr class="">
                                     <td>${produto.id}</td>
@@ -120,7 +120,7 @@
                                     <td>${produto.precoDeCusto}</td>
                                     <td>${produto.precoDeVenda}</td>
                                     <td>${produto.fornecedor}</td>
-                                    
+
                                     <c:if test="${produto.categoria == 0}">
                                         <td>Ação</td>
                                     </c:if>
@@ -154,6 +154,14 @@
                     </c:if>
                 </div>
             </div>
+            <c:if test="${not empty retornoExclusao}">
+                <script type="text/javascript">
+                    alert("Produto excluido com sucesso.");
+                    window.location.href = '${pageContext.request.contextPath}/view/listaProduto.jsp'
+                </script>
+
+            </c:if>
+
         </div>
         <!-- Inicio Footer -->
         <footer class="rodape page-footer font-small blue">

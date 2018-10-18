@@ -60,7 +60,7 @@ public class ProdutoDAO {
                 p.setCategoria(rs.getInt("CATEGORIA"));
                 p.setAnoLancamento(rs.getInt("ANO_LANCAMENTO"));
                 p.setFornecedor(rs.getString("FORNECEDOR"));
-                
+
                 p.setPlataforma(rs.getString("PLATAFORMA"));
                 listaProdutos.add(p);
 
@@ -161,6 +161,21 @@ public class ProdutoDAO {
         } catch (SQLException | ClassNotFoundException ex) {
             System.out.println("Erro no banco de dados" + ex);
         }
+    }
+
+    public void excluirProduto(int id) {
+        try {
+            
+            Connection connection = new ConnectionFactory().getConnection();
+            String sqlProduto = "DELETE FROM PRODUTO WHERE ID = " + id;
+            PreparedStatement pstmtProduto = connection.prepareStatement(sqlProduto);
+            pstmtProduto.executeUpdate();
+            connection.close();
+            
+        } catch (SQLException | ClassNotFoundException ex) {
+            System.out.println("Erro no banco de dados" + ex);
+        }
+
     }
 
 }
