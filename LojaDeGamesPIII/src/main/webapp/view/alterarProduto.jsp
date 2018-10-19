@@ -131,6 +131,7 @@
                     <label>Descrição</label>
                     <input class="form-control" id="descricao" name="descricao" maxlength="40" value="${produto.descricao}"></input>
                 </div>
+                
                 <button type="submit" class="btn btn-primary">Enviar</button>
             </form>
 
