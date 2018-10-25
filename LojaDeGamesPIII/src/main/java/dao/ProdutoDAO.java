@@ -19,6 +19,7 @@ public class ProdutoDAO {
             Connection connection = new ConnectionFactory().getConnection();
 
             String sqlProduto = "INSERT INTO `produto`(`nome`, `categoria`, `plataforma`, `fornecedor`, `descricao`, `preco_compra`, `preco_venda`, `ano_lancamento`, `estoque`, `dt_cadastro`) VALUES (?,?,?,?,?,?,?,?,?,?)";
+            System.out.println(sqlProduto);
             PreparedStatement pstmtProduto = connection.prepareStatement(sqlProduto);
             pstmtProduto.setString(1, p.getNome());
             pstmtProduto.setInt(2, p.getCategoria());   

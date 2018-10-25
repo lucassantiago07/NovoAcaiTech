@@ -85,6 +85,7 @@
                             <th scope="col">Lançamento</th>
                             <th scope="col">Qtd de estoque</th>
                             <th scope="col">Data de Cadastro</th>
+                            <th scope="col">Add. Carrinho</th>
                             <th scope="col">Editar</th>
                             <th scope="col">Excluir</th>
                         </tr>
@@ -123,6 +124,8 @@
                                     <td>${produto.anoLancamento}</td>
                                     <td>${produto.estoque}</td>                                
                                     <td>${produto.dataCadastro}</td>
+
+                                    <td><a href="${pageContext.request.contextPath}/adicionarAoCarrinho?idProduto=${produto.id}">Add. Carrinho</a></td>
                                     <td><a href="${pageContext.request.contextPath}/view/alterarProduto.jsp?idProduto=${produto.id}">Editar</a></td>
                                     <td><a href="${pageContext.request.contextPath}/excluirProduto?idProduto=${produto.id}">Excluir</a></td></tr>
                                 </c:forEach>
@@ -162,6 +165,7 @@
                                     <td>${produto.anoLancamento}</td>
                                     <td>${produto.estoque}</td>                                
                                     <td>${produto.dataCadastro}</td>
+                                    <td><a href="${pageContext.request.contextPath}/adicionarAoCarrinho?idProduto=${produto.id}">Add. Carrinho</a></td>
                                     <td><a href="${pageContext.request.contextPath}/view/alterarProduto.jsp?idProduto=${produto.id}">Editar</a></td>
                                     <td><a href="${pageContext.request.contextPath}/excluirProduto?idProduto=${produto.id}">Excluir</a></td></tr>
                                 </c:forEach>

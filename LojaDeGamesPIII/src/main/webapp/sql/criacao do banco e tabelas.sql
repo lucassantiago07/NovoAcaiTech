@@ -17,3 +17,25 @@ CREATE TABLE lojadegames.produto
      dt_cadastro    TIMESTAMP NULL, 
      CONSTRAINT pk_produto PRIMARY KEY (id) 
   ); 
+
+INSERT INTO `produto` 
+            (`nome`, 
+             `categoria`, 
+             `plataforma`, 
+             `fornecedor`, 
+             `descricao`, 
+             `preco_compra`, 
+             `preco_venda`, 
+             `ano_lancamento`, 
+             `estoque`, 
+             `dt_cadastro`) 
+VALUES      ('Tomb Raider 2', 
+             1, 
+             'PS4', 
+             'Brasil Games', 
+             'Jogo Legal', 
+             125, 
+             180, 
+             2015, 
+             54, 
+             NULL) 
