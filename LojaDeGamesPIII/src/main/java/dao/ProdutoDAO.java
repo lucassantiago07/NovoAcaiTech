@@ -22,7 +22,7 @@ public class ProdutoDAO {
             System.out.println(sqlProduto);
             PreparedStatement pstmtProduto = connection.prepareStatement(sqlProduto);
             pstmtProduto.setString(1, p.getNome());
-            pstmtProduto.setInt(2, p.getCategoria());   
+            pstmtProduto.setInt(2, p.getCategoria());
             System.out.println("Categoria DAO: " + p.getCategoria());
             pstmtProduto.setString(3, p.getPlataforma());
             pstmtProduto.setString(4, p.getFornecedor());
@@ -82,7 +82,6 @@ public class ProdutoDAO {
             ResultSet rs = stmt.executeQuery("SELECT * FROM `produto` WHERE  NOME LIKE '%" + descricaoProduto + "%' OR DESCRICAO LIKE '%" + descricaoProduto + "%' OR PLATAFORMA LIKE '%" + descricaoProduto + "%'");
 
             //System.out.println("SELECT * FROM `produto` WHERE  NOME LIKE '%" + descricaoProduto + "%' OR DESCRICAO LIKE '%" + descricaoProduto + "%'");
-
             while (rs.next()) {
                 ProdutoData p = new ProdutoData();
                 p.setId(rs.getInt("ID"));
@@ -111,11 +110,15 @@ public class ProdutoDAO {
     public ProdutoData getProdutoById(int idProduto) {
         ProdutoData p = new ProdutoData();
         try {
+
             Connection connection = new ConnectionFactory().getConnection();
             Statement stmt = connection.createStatement();
             ResultSet rs = stmt.executeQuery("SELECT * FROM `produto` where id = " + idProduto);
+            
+            
             while (rs.next()) {
                 p.setId(rs.getInt("ID"));
+                System.out.println("ID DB:" + rs.getInt("ID"));
                 p.setNome(rs.getString("NOME"));
                 p.setDescricao(rs.getString("DESCRICAO"));
                 p.setPrecoDeCusto(rs.getInt("PRECO_COMPRA"));
@@ -164,13 +167,13 @@ public class ProdutoDAO {
 
     public void excluirProduto(int id) {
         try {
-            
+
             Connection connection = new ConnectionFactory().getConnection();
             String sqlProduto = "DELETE FROM PRODUTO WHERE ID = " + id;
             PreparedStatement pstmtProduto = connection.prepareStatement(sqlProduto);
             pstmtProduto.executeUpdate();
             connection.close();
-            
+
         } catch (SQLException | ClassNotFoundException ex) {
             System.out.println("Erro no banco de dados" + ex);
         }

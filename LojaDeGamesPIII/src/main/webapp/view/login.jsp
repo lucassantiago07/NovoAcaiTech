@@ -10,6 +10,12 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <!-- temporario -->
+        <jsp:include page="/criaCarrinho" />
+        <script type="text/javascript">
+            alert("Carrinho criado!");
+        </script>
+
         <meta charset="UTF-8">
         <title>AcaiTech Sistema - Login</title>
     </head>
@@ -36,9 +42,9 @@
                         <button type="submit" class="btn btn-primary" disabled>Entrar</button>
 
                         <div class="" style="text-align: center; margin-top: 2%;">
-                            <h4 style="color:red"> Entrega 18/10/2018 - CRUD de Produto </h4>
-                            <button type="button" class="btn btn-primary" onclick="window.location.href = '${pageContext.request.contextPath}/view/cadastrarProduto.jsp'">Cadastrar um produto</button>
-                            <button type="button" class="btn btn-primary" onclick="window.location.href = '${pageContext.request.contextPath}/view/listaProduto.jsp'">Listar os produtos cadastrados</button>
+                            <h4 style="color:red"> Acessar carrinho </h4>
+                            <button type="button" class="btn btn-primary" onclick="window.location.href = '${pageContext.request.contextPath}/view/carrinho.jsp'">Carrinho</button>
+
                         </div>
                     </div>
 

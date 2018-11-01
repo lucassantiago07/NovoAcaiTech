@@ -3,19 +3,18 @@ package data;
 import java.sql.Timestamp;
 
 public class ProdutoData {
-    
-
 
     private int Id;
-    private String Nome; 
-    private String Descricao; 
-    private String Plataforma; 
-    private String Fornecedor; 
-    private int PrecoDeCusto; 
+    private String Nome;
+    private String Descricao;
+    private String Plataforma;
+    private String Fornecedor;
+    private int PrecoDeCusto;
     private int PrecoDeVenda;
     private int Categoria;
     private int AnoLancamento;
     private int Estoque;
+    private int QtdCarrinho;
     private Timestamp DataCadastro;
 
     /**
@@ -170,6 +169,20 @@ public class ProdutoData {
      */
     public void setDataCadastro(Timestamp DataCadastro) {
         this.DataCadastro = DataCadastro;
+    }
+
+    /**
+     * @return the QtdCarrinho
+     */
+    public int getQtdCarrinho() {
+        return QtdCarrinho;
+    }
+
+    /**
+     * @param QtdCarrinho the QtdCarrinho to set
+     */
+    public void setQtdCarrinho(int QtdCarrinho) {
+        this.QtdCarrinho = QtdCarrinho;
     }
 
 }
