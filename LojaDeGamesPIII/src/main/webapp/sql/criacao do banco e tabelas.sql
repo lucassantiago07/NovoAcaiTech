@@ -38,4 +38,16 @@ VALUES      ('Tomb Raider 2',
              180, 
              2015, 
              54, 
-             NULL) 
+             NULL);
+
+create table tbCliente (
+	id bigint not null auto_increment,
+	nome varchar(100) not null,
+	cpf int not null,
+	email varchar(100) not null,
+	endereco varchar(100) not null,
+	cep int not null,
+	telefone int not null,
+	celular int not null,
+    constraint pk_tbCliente primary key(id)
+);

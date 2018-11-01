@@ -1,8 +1,9 @@
 <%-- 
-   Document   : alterarProduto
-   Created on : 16/10/2018, 09:22:17
-   Author     : angelo.xavier
+    Document   : cadastrarCliente
+    Created on : 01/11/2018, 02:21:29
+    Author     : Lucas 
 --%>
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -10,17 +11,19 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <meta charset="UTF-8">
-        <title>AcaiTech Sistema - Cadastrar Produtos</title>
+        <title>AcaiTech Sistema - Cadastrar Cliente</title>
         <link type="text/css" href="${pageContext.request.contextPath}/css/bootstrap.css" rel="stylesheet" />
         <script src="${pageContext.request.contextPath}/js/jquery-3.3.1.js"></script>
         <script src="${pageContext.request.contextPath}/js/bootstrap.js"></script>
         <script src="${pageContext.request.contextPath}/js/validanumero.js"></script>
-        
     </head>
-
-    <!-- Inicio Menu -->
-    <nav class="navbar navbar-light bg-light">
+    
+    
+    
+    <body>
+        
+        <!-- Inicio Menu -->
+        <nav class="navbar navbar-light bg-light">
         <div class="corpoimagem">
             <img src="${pageContext.request.contextPath}/img/logo.png"  class="imagemlogo">
         </div>
@@ -30,10 +33,10 @@
             <span><a href="#">Sair</a></span>
         </div>
        <button type="button" class="btn btn-primary btnSair" onclick="window.location.href = '${pageContext.request.contextPath}'">Sair</button>
-    </nav>
-    <!-- Fim Menu -->
-
-    <body>
+        </nav>
+        <!-- Fim Menu -->
+        
+        
         <!-- Inicio Carrocel -->
         <div id="carouselExampleControls" class="carousel slide" data-ride="carousel" data-interval="2500">
             <div class="carousel-inner">
@@ -57,85 +60,63 @@
             </a>
         </div>
         <!-- Fim Carrocel -->
-
+        
         <!-- Inicio Separador -->
         <nav class="navbar navbar-light separadorcarrocel">
 
         </nav>
         <!-- Fim Separador -->
-
+        
         <!-- Inicio Corpo De Campo -->
         <div class="container corpodecampos">
 
-            <h3>Cadastrar Produto</h3>
+            <h3>Cadastrar Cliente</h3>
 
-            <form name="formularioProduto" id="formularioProduto" action="${pageContext.request.contextPath}/cadastrarProduto" method="post">
+            <form name="formularioCliente" id="formularioProduto" action="${pageContext.request.contextPath}/cadastrarCliente" method="post">
 
                 <div class="form-group">
-                    <label>Nome do Produto</label>
-                    <input class="form-control" id="nomeProduto" name="nomeProduto" maxlength="20" required></input>
+                    <label>Nome</label>
+                    <input class="form-control" id="nomeCliente" name="nomeCliente" maxlength="20" required></input>
                 </div>
                 <div class="form-group">
-                    <label>Preço De Venda</label>
-                    <div class="input-group mb-2">
-                        <div class="input-group-prepend">
-                            <div class="input-group-text">R$</div>
-                        </div>
-                        <input type="Text" class="form-control"  id="precoVenda" name="precoVenda" size="4" maxlength="5"  onkeypress="return isNumberKey(event)" required />
-
-                    </div>
+                    <label>Email</label>
+                    <input class="form-control" id="emailCliente" name="emailCliente" maxlength="20" required></input>
                 </div>
                 <div class="form-group">
-                    <label>Preço De Custo</label>
-                    <div class="input-group mb-2">
-                        <div class="input-group-prepend">
-                            <div class="input-group-text">R$</div>
-                        </div>
-                        <input type="Text" class="form-control"  id="precoCusto" name="precoCusto" size="4" maxlength="5"  onkeypress="return isNumberKey(event)"required />
-                    </div>
+                    <label>CPF</label>
+                    <input type="text" class="form-control" id="cpfCliente" name="cpfCliente" onkeypress="return isNumberKey(event)" maxlength="5" required></input>
                 </div>
                 <div class="form-group">
-                    <label>Fornecedor</label>
-                    <input class="form-control" id="fornecedor" name="fornecedor" maxlength="20" required></input>
+                    <label>Endereço</label>
+                    <input class="form-control" id="endereco" name="endereco" maxlength="20" required></input>
                 </div>
                 <div class="form-group">
-                    <label>Plataforma</label>
-                    <input class="form-control" id="plataforma" name="plataforma" maxlength="20" required></input>
+                    <label>CEP</label>
+                    <input type="text" class="form-control" id="cepCliente" name="cepCliente" onkeypress="return isNumberKey(event)" maxlength="5" required></input>
                 </div>
                 <div class="form-group">
-                    <label>Ano de lançamento</label>
-                    <input type="text" class="form-control" id="anolancamento" name="anolancamento" onkeypress="return isNumberKey(event)" maxlength="5" required></input>
+                    <label>Telefone</label>
+                    <input type="text" class="form-control" id="telefone" name="telefone" onkeypress="return isNumberKey(event)" maxlength="5" required></input>
                 </div>
+                
                 <div class="form-group">
-                    <label>Categoria</label>
-                    <select class="form-control" id="categoria" name="categoria" required>
-                        <option value="1">Ação</option>
-                        <option value="2">Corrida</option>
-                        <option value="3">Tiro</option>
-                        <option value="4">RPG</option>
-                        <option value="5">Estratégia</option>
-                    </select>
+                    <label>Celular</label>
+                    <input type="text" class="form-control" id="celular" name="celular" onkeypress="return isNumberKey(event)" maxlength="5" required></input>
                 </div>
-                <div class="form-group">
-                    <label>Quantidade</label>
-                    <input type="text" class="form-control" id="estoque" name="estoque" onkeypress="return isNumberKey(event)" maxlength="5" required></input>
-                </div>
-                <div class="form-group">
-                    <label>Descrição</label>
-                    <input class="form-control" id="descricao" maxlength="40" name="descricao"></input>
-                </div>
+                
+                
                 <button type="submit" class="btn btn-primary">Enviar</button>
             </form>
 
             <c:if test="${not empty retorno}">
                 <script type="text/javascript">
-                    alert("Produto cadastrado!");
-                    window.location.href = '${pageContext.request.contextPath}/view/listaProduto.jsp'
+                    alert("Cliente cadastrado!");
+                    window.location.href = '${pageContext.request.contextPath}/view/listaCliente.jsp'
                 </script>
             </c:if>  
         </div>
-
-
+            
+            
         <!-- Inicio Footer -->
         <footer class="rodape page-footer font-small blue">
             <div class="footer-copyright text-center py-3">© 2018 Copyright: [ ACAITECH SISTEMAS OPERACIONAIS LTDA 13.050.544/0001-00 ]
@@ -143,8 +124,7 @@
             </div>
         </footer>
         <!-- Fim Footer -->
-
-
+        
         <link type="text/css" href="${pageContext.request.contextPath}/css/script.css" rel="stylesheet" />
         <link type="text/css" href="${pageContext.request.contextPath}/css/cadastrarProduto.css" rel="stylesheet" />
         <link type="text/css" href="${pageContext.request.contextPath}/css/menu.css" rel="stylesheet" />
