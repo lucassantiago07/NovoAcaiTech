@@ -40,7 +40,7 @@ VALUES      ('Tomb Raider 2',
              54, 
              NULL);
 
-create table tbCliente (
+create table lojagegames.cliente (
 	id bigint not null auto_increment,
 	nome varchar(100) not null,
 	cpf int not null,

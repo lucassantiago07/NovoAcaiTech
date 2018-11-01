@@ -1,7 +1,7 @@
 <%-- 
-    Document   : cadastrarCliente
-    Created on : 01/11/2018, 02:21:29
-    Author     : Lucas 
+    Document   : alterarCliente
+    Created on : 01/11/2018, 19:12:44
+    Author     : Fernando Lima Coutinho
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -11,19 +11,15 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>AcaiTech Sistema - Cadastrar Cliente</title>
+        <meta charset="UTF-8">
+        <title>AçaiTech - Alterar Clientes</title>
         <link type="text/css" href="${pageContext.request.contextPath}/css/bootstrap.css" rel="stylesheet" />
         <script src="${pageContext.request.contextPath}/js/jquery-3.3.1.js"></script>
         <script src="${pageContext.request.contextPath}/js/bootstrap.js"></script>
         <script src="${pageContext.request.contextPath}/js/validanumero.js"></script>
     </head>
-    
-    
-    
-    <body>
-        
-        <!-- Inicio Menu -->
-        <nav class="navbar navbar-light bg-light">
+    <!-- Inicio Menu -->
+    <nav class="navbar navbar-light bg-light">
         <div class="corpoimagem">
             <img src="${pageContext.request.contextPath}/img/logo.png"  class="imagemlogo">
         </div>
@@ -32,11 +28,10 @@
             <span class="filialfuncionario">Filial Amazonia</span>  ●
             <span><a href="#">Sair</a></span>
         </div>
-       <button type="button" class="btn btn-primary btnSair" onclick="window.location.href = '${pageContext.request.contextPath}'">Sair</button>
-        </nav>
-        <!-- Fim Menu -->
-        
-        
+        <button type="button" class="btn btn-primary btnSair" onclick="window.location.href = '${pageContext.request.contextPath}'">Sair</button>
+    </nav>
+    <!-- Fim Menu -->
+    <body>
         <!-- Inicio Carrocel -->
         <div id="carouselExampleControls" class="carousel slide" data-ride="carousel" data-interval="2500">
             <div class="carousel-inner">
@@ -60,20 +55,20 @@
             </a>
         </div>
         <!-- Fim Carrocel -->
-        
+
         <!-- Inicio Separador -->
         <nav class="navbar navbar-light separadorcarrocel">
 
         </nav>
         <!-- Fim Separador -->
-        
+
         <!-- Inicio Corpo De Campo -->
         <div class="container corpodecampos">
 
-            <h3>Cadastrar Cliente</h3>
+            <h3>Alterar Cliente</h3>
 
-            <form name="formularioCliente" id="formularioCliente" action="${pageContext.request.contextPath}/cadastrarCliente" method="post">
-
+            <form name="formularioCliente" id="formularioCliente" action="${pageContext.request.contextPath}/alterarCliente" method="post">
+                
                 <div class="form-group">
                     <label>Nome</label>
                     <input class="form-control" id="nomeCliente" name="nomeCliente" maxlength="20" required></input>
@@ -88,7 +83,7 @@
                 </div>
                 <div class="form-group">
                     <label>Endereço</label>
-                    <input class="form-control" id="endereco" name="endereco" maxlength="20" required></input>
+                    <input class="form-control" id="enderecoCliente" name="enderecoCliente" maxlength="20" required></input>
                 </div>
                 <div class="form-group">
                     <label>CEP</label>
@@ -96,12 +91,12 @@
                 </div>
                 <div class="form-group">
                     <label>Telefone</label>
-                    <input type="text" class="form-control" id="telefone" name="telefone" onkeypress="return isNumberKey(event)" maxlength="5" required></input>
+                    <input type="text" class="form-control" id="telefoneCliente" name="telefoneCliente" onkeypress="return isNumberKey(event)" maxlength="5" required></input>
                 </div>
                 
                 <div class="form-group">
                     <label>Celular</label>
-                    <input type="text" class="form-control" id="celular" name="celular" onkeypress="return isNumberKey(event)" maxlength="5" required></input>
+                    <input type="text" class="form-control" id="celularCliente" name="celularCliente" onkeypress="return isNumberKey(event)" maxlength="5" required></input>
                 </div>
                 
                 
@@ -117,7 +112,6 @@
         </div>
         <!-- Fim Corpo De Campo -->
             
-            
         <!-- Inicio Footer -->
         <footer class="rodape page-footer font-small blue">
             <div class="footer-copyright text-center py-3">© 2018 Copyright: [ ACAITECH SISTEMAS OPERACIONAIS LTDA 13.050.544/0001-00 ]
@@ -127,7 +121,7 @@
         <!-- Fim Footer -->
         
         <link type="text/css" href="${pageContext.request.contextPath}/css/script.css" rel="stylesheet" />
-        <link type="text/css" href="${pageContext.request.contextPath}/css/cadastrarCliente.css" rel="stylesheet" />
+        <link type="text/css" href="${pageContext.request.contextPath}/css/alterarCliente.css" rel="stylesheet" />
         <link type="text/css" href="${pageContext.request.contextPath}/css/menu.css" rel="stylesheet" />
         <script src="${pageContext.request.contextPath}/js/gradiente.js"></script>
     </body>
