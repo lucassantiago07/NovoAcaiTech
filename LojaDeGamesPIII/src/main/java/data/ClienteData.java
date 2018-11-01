@@ -10,15 +10,16 @@ package data;
  * @author murilo.aaraujo
  */
 public class ClienteData {
-    private String cpf;
+    
+    private Integer cpf;
     private String endereco;
     private String nome;
     private String email;
-    private String telefone;
+    private Integer telefone;
     private Integer id;
     //private Date datanascimento;
-    private String celular;
-    private String cep;
+    private Integer celular;
+    private Integer cep;
     
     public Integer getId() {
         return id;
@@ -44,35 +45,35 @@ public class ClienteData {
 //        this.datanascimento = datanascimento;
 //    }
     
-    public String getCpf() {
+    public Integer getCpf() {
         return cpf;
     }
 
-    public void setCpf(String cpf) {
+    public void setCpf(Integer cpf) {
         this.cpf = cpf;
     }
     
-    public String getCep() {
+    public Integer getCep() {
         return cep;
     }
 
-    public void setCep(String cep) {
+    public void setCep(Integer cep) {
         this.cep = cep;
     }
     
-     public String getTelefone() {
+     public Integer getTelefone() {
         return telefone;
     }
 
-    public void setTelefone(String telefone) {
+    public void setTelefone(Integer telefone) {
         this.telefone = telefone;
     }
     
-    public String getCelular() {
+    public Integer getCelular() {
         return celular;
     }
 
-    public void setCelular(String celular) {
+    public void setCelular(Integer celular) {
         this.celular = celular;
     }
     
