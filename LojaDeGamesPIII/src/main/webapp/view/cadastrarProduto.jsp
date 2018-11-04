@@ -16,7 +16,7 @@
         <script src="${pageContext.request.contextPath}/js/jquery-3.3.1.js"></script>
         <script src="${pageContext.request.contextPath}/js/bootstrap.js"></script>
         <script src="${pageContext.request.contextPath}/js/validanumero.js"></script>
-        
+
     </head>
 
     <!-- Inicio Menu -->
@@ -29,7 +29,7 @@
             <span class="filialfuncionario">Filial Amazonia</span>  ●
             <span><a href="#">Sair</a></span>
         </div>
-       <button type="button" class="btn btn-primary btnSair" onclick="window.location.href = '${pageContext.request.contextPath}'">Sair</button>
+        <button type="button" class="btn btn-primary btnSair" onclick="window.location.href = '${pageContext.request.contextPath}'">Sair</button>
     </nav>
     <!-- Fim Menu -->
 
@@ -127,12 +127,7 @@
                 <button type="submit" class="btn btn-primary">Enviar</button>
             </form>
 
-            <c:if test="${not empty retorno}">
-                <script type="text/javascript">
-                    alert("Produto cadastrado!");
-                    window.location.href = '${pageContext.request.contextPath}/view/listaProduto.jsp'
-                </script>
-            </c:if>  
+
         </div>
 
 
@@ -149,5 +144,36 @@
         <link type="text/css" href="${pageContext.request.contextPath}/css/cadastrarProduto.css" rel="stylesheet" />
         <link type="text/css" href="${pageContext.request.contextPath}/css/menu.css" rel="stylesheet" />
         <script src="${pageContext.request.contextPath}/js/gradiente.js"></script>
+
+
+        <!-- Modal -->
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Mensagem</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        Produto cadastrado com sucesso!
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--  Captura a variavel de retorno e abre modal-->
+        <c:if test="${not empty retorno}">
+            <script type="text/javascript">
+                        $("#myModal").modal();
+                        $('#myModal').on('hidden.bs.modal', function () {
+                            window.location.href = '${pageContext.request.contextPath}/view/listaCliente.jsp'
+                        })
+            </script>
+        </c:if> 
     </body>
 </html>
