@@ -166,7 +166,7 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        Produto alterado com sucesso!
+                        ${retornoMensagem}
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
@@ -176,7 +176,7 @@
         </div>
 
         <!--  Captura a variavel de retorno e abre modal-->
-        <c:if test="${not empty retornoAlteracao}">
+        <c:if test="${not empty retorno}">
             <script type="text/javascript">
                         $("#myModal").modal();
                         $('#myModal').on('hidden.bs.modal', function () {

@@ -1,5 +1,6 @@
 package controller;
 
+import dao.ClienteDAO;
 import dao.ProdutoDAO;
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -9,18 +10,19 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 @WebServlet(name = "excluirProduto", urlPatterns = {"/excluirProduto"})
-public class excluirProduto extends HttpServlet {
+public class excluirCliente extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        int idProduto = Integer.parseInt(request.getParameter("idProduto"));
+        int idCliente = Integer.parseInt(request.getParameter("idCliente"));
 
-        ProdutoDAO produtos = new ProdutoDAO();
+        ClienteDAO cliente = new ClienteDAO();
 
-        boolean deuCerto = produtos.excluirProduto(idProduto);
+        boolean deuCerto = cliente.excluirCliente(idCliente);
 
+        request.setAttribute("retorno", "ok");
         String MensagemDeRetorno = null;
 
         if (deuCerto == true) {
@@ -29,8 +31,7 @@ public class excluirProduto extends HttpServlet {
             MensagemDeRetorno = "Houve um erro ao alterar o produto: '" + request.getParameter("nomeProduto") + "'.";
         }
         request.setAttribute("retornoMensagem", MensagemDeRetorno);
-
-        request.getRequestDispatcher("view/listaProduto.jsp").forward(request, response);
+        request.getRequestDispatcher("view/listaCliente.jsp").forward(request, response);
     }
 
 }

@@ -33,10 +33,17 @@ public class cadastrarCliente extends HttpServlet {
 
         ClienteDAO dao = new ClienteDAO();
 
-        dao.cadastraCliente(p);
+        boolean deuCerto = dao.cadastraCliente(p);
 
-        request.setAttribute("retorno", "OK");
+        request.setAttribute("retorno", "ok");
+        String MensagemDeRetorno = null;
 
+        if (deuCerto == true) {
+            MensagemDeRetorno = "Cliente: '" + request.getParameter("nomeCliente") + "' alterado com sucesso!";
+        } else {
+            MensagemDeRetorno = "Houve um erro ao alterar o cliente: '" + request.getParameter("nomeCliente") + "'.";
+        }
+        request.setAttribute("retornoMensagem", MensagemDeRetorno);
         request.getRequestDispatcher("view/cadastrarCliente.jsp").forward(request, response);
     }
 }

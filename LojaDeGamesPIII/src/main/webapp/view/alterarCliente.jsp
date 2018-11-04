@@ -1,9 +1,3 @@
-<%-- 
-    Document   : alterarCliente
-    Created on : 01/11/2018, 19:12:44
-    Author     : Fernando Lima Coutinho
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -62,22 +56,10 @@
 
         </nav>
         <!-- Fim Separador -->
-
-
-
-
-
         <!-- Inicio Corpo De Campo -->
         <div class="container corpodecampos">
-
-
             <h3>Alterar Cliente</h3>
-
-
-
             <form name="formularioCliente" id="formularioCliente" action="${pageContext.request.contextPath}/alterarCliente" method="post">
-
-
                 <div class="form-group">
                     <label>Identificador do Cliente</label>
                     <input class="form-control" id="id" name="id" value="${cliente.id}" readonly="readonly"></input>
@@ -152,7 +134,7 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        Cliente alterado com sucesso!
+                        ${retornoMensagem}
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
@@ -162,7 +144,7 @@
         </div>
 
         <!--  Captura a variavel de retorno e abre modal-->
-        <c:if test="${not empty retornoAlteracao}">
+        <c:if test="${not empty retorno}">
             <script type="text/javascript">
                         $("#myModal").modal();
                         $('#myModal').on('hidden.bs.modal', function () {

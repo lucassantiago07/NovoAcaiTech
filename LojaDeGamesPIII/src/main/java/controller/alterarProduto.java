@@ -31,9 +31,19 @@ public class alterarProduto extends HttpServlet {
         p.setFornecedor(request.getParameter("fornecedor"));
         p.setCategoria(Integer.parseInt(request.getParameter("categoria")));
 
-        dao.alterarProduto(p);
-        request.setAttribute("retornoAlteracao", "OK");
+        boolean deuCerto = dao.alterarProduto(p);
 
+        request.setAttribute("retorno", "ok");
+
+        String MensagemDeRetorno = null;
+
+        if (deuCerto == true) {
+            MensagemDeRetorno = "Produto: '" + request.getParameter("nomeProduto") + "' alterado com sucesso!";
+        } else {
+            MensagemDeRetorno = "Houve um erro ao alterar o produto '" + request.getParameter("nomeProduto") + "'.";
+        }
+        request.setAttribute("retornoMensagem", MensagemDeRetorno);
+        
         RequestDispatcher requestDispatcher;
         requestDispatcher = request.getRequestDispatcher("/view/alterarProduto.jsp");
         requestDispatcher.forward(request, response);

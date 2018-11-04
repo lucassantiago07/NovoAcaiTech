@@ -132,7 +132,7 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        Cliente cadastrado com sucesso!
+                        ${retornoMensagem}
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>

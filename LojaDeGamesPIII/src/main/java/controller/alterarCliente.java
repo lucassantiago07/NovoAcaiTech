@@ -28,8 +28,18 @@ public class alterarCliente extends HttpServlet {
         c.setTelefone(request.getParameter("telefoneCliente"));
         c.setCelular(request.getParameter("celularCliente"));
 
-        dao.alterarCliente(c);
-        request.setAttribute("retornoAlteracao", "ok");
+        boolean deuCerto = dao.alterarCliente(c);
+
+        request.setAttribute("retorno", "ok");
+
+        String MensagemDeRetorno = null;
+
+        if (deuCerto == true) {
+            MensagemDeRetorno = "Cliente: '" + request.getParameter("nomeCliente") + "' alterado com sucesso!";
+        } else {
+            MensagemDeRetorno = "Houve um erro ao alterar o cliente '" + request.getParameter("nomeCliente") + "'.";
+        }
+        request.setAttribute("retornoMensagem", MensagemDeRetorno);
 
         RequestDispatcher requestDispatcher;
         requestDispatcher = request.getRequestDispatcher("/view/alterarCliente.jsp");

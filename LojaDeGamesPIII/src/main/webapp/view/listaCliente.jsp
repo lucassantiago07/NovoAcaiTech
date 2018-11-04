@@ -75,7 +75,6 @@
                             <th scope="col">Nome</th>
                             <th scope="col">CPF</th>
                             <th scope="col">Email</th>
-                            <th scope="col">Endereco</th>
                             <th scope="col">CEP</th>
                             <th scope="col">Telefone</th>
                             <th scope="col">Celular</th>
@@ -89,13 +88,12 @@
                             <c:forEach var="Cliente" items="${listaComFiltro}">
                                 <tr class="">
                                     <td>${Cliente.id}</td>
-                                    <td>${Cliente.id}</td>
-                                    <td>${Cliente.id}</td>
-                                    <td>${Cliente.id}</td>
-                                    <td>${Cliente.id}</td>
-                                    <td>${Cliente.id}</td>
-                                    <td>${Cliente.id}</td>
-                                    <td>${Cliente.id}</td>
+                                    <td>${Cliente.nome}</td>
+                                    <td>${Cliente.cpf}</td>
+                                    <td>${Cliente.email}</td>
+                                    <td>${Cliente.cep}</td>
+                                    <td>${Cliente.telefone}</td>
+                                    <td>${Cliente.celular}</td>
                                     <td><a href="${pageContext.request.contextPath}/view/alterarCliente.jsp?idCliente=${Cliente.id}">Editar</a></td>
                                     <td><a href="${pageContext.request.contextPath}/excluirCliente?idCliente=${Cliente.id}">Excluir</a></td></tr>
                                 </c:forEach>
@@ -108,13 +106,13 @@
                             <c:forEach var="Cliente" items="${lista}">
                                 <tr class="">
                                     <td>${Cliente.id}</td>
-                                    <td>${Cliente.id}</td>
-                                    <td>${Cliente.id}</td>
-                                    <td>${Cliente.id}</td>
-                                    <td>${Cliente.id}</td>
-                                    <td>${Cliente.id}</td>
-                                    <td>${Cliente.id}</td>
-                                    <td>${Cliente.id}</td>
+                                    <td>${Cliente.nome}</td>
+                                    <td>${Cliente.cpf}</td>
+                                    <td>${Cliente.email}</td>
+
+                                    <td>${Cliente.cep}</td>
+                                    <td>${Cliente.telefone}</td>
+                                    <td>${Cliente.celular}</td>
                                     <td><a href="${pageContext.request.contextPath}/view/alterarCliente.jsp?idCliente=${Cliente.id}">Editar</a></td>
                                     <td><a href="${pageContext.request.contextPath}/excluirCliente?idCliente=${Cliente.id}">Excluir</a></td></tr>
                                 </c:forEach>

@@ -7,23 +7,19 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.sql.Timestamp;
 import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 public class ProdutoDAO {
 
-    public void cadastraProduto(ProdutoData p) {
+    public boolean cadastraProduto(ProdutoData p) {
+        boolean deuCerto = false;
         try {
             Connection connection = new ConnectionFactory().getConnection();
 
             String sqlProduto = "INSERT INTO `produto`(`nome`, `categoria`, `plataforma`, `fornecedor`, `descricao`, `preco_compra`, `preco_venda`, `ano_lancamento`, `estoque`, `dt_cadastro`) VALUES (?,?,?,?,?,?,?,?,?,?)";
-            System.out.println(sqlProduto);
             PreparedStatement pstmtProduto = connection.prepareStatement(sqlProduto);
             pstmtProduto.setString(1, p.getNome());
             pstmtProduto.setInt(2, p.getCategoria());
-            System.out.println("Categoria DAO: " + p.getCategoria());
             pstmtProduto.setString(3, p.getPlataforma());
             pstmtProduto.setString(4, p.getFornecedor());
             pstmtProduto.setString(5, p.getDescricao());
@@ -33,10 +29,17 @@ public class ProdutoDAO {
             pstmtProduto.setInt(9, p.getEstoque());
             pstmtProduto.setTimestamp(10, p.getDataCadastro());
             pstmtProduto.executeUpdate();
+
+            if (pstmtProduto.getMaxRows() > 0) {
+                deuCerto = true;
+            } else {
+                deuCerto = false;
+            }
             connection.close();
         } catch (SQLException | ClassNotFoundException ex) {
-            System.out.println("Erro no banco de dados" + ex);
+            System.out.println("Erro no banco de dados cadastraProduto: " + ex);
         }
+        return deuCerto;
 
     }
 
@@ -136,8 +139,8 @@ public class ProdutoDAO {
         return p;
     }
 
-    public void alterarProduto(ProdutoData p) {
-
+    public boolean alterarProduto(ProdutoData p) {
+        boolean deuCerto = false;
         try {
             Connection connection;
             connection = new ConnectionFactory().getConnection();
@@ -155,26 +158,40 @@ public class ProdutoDAO {
             pstmtProduto.setInt(9, p.getEstoque());
             pstmtProduto.setInt(10, p.getId());
 
+            if (pstmtProduto.getMaxRows() > 0) {
+                deuCerto = true;
+            } else {
+                deuCerto = false;
+            }
+
             pstmtProduto.executeUpdate();
 
             connection.close();
         } catch (SQLException | ClassNotFoundException ex) {
             System.out.println("Erro no banco de dados" + ex);
         }
+        return deuCerto;
     }
 
-    public void excluirProduto(int id) {
+    public boolean excluirProduto(int id) {
+        boolean deuCerto = false;
         try {
 
             Connection connection = new ConnectionFactory().getConnection();
             String sqlProduto = "DELETE FROM PRODUTO WHERE ID = " + id;
             PreparedStatement pstmtProduto = connection.prepareStatement(sqlProduto);
             pstmtProduto.executeUpdate();
+            if (pstmtProduto.getMaxRows() > 0) {
+                deuCerto = true;
+            } else {
+                deuCerto = false;
+            }
             connection.close();
 
         } catch (SQLException | ClassNotFoundException ex) {
             System.out.println("Erro no banco de dados" + ex);
         }
+        return deuCerto;
 
     }
 

@@ -157,7 +157,7 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        Produto cadastrado com sucesso!
+                        ${retornoMensagem}
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>

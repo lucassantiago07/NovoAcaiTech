@@ -11,12 +11,12 @@ import java.util.ArrayList;
 
 public class ClienteDAO {
 
-    public void cadastraCliente(ClienteData c) {
+    public boolean cadastraCliente(ClienteData c) {
+        boolean deuCerto = false;
         try {
             Connection connection = new ConnectionFactory().getConnection();
 
             String sqlCliente = "INSERT INTO `cliente`(`nome`, `cpf`, `email`, `endereco`, `cep`, `telefone`, `celular`) VALUES (?,?,?,?,?,?,?)";
-            System.out.println(sqlCliente);
             PreparedStatement pstmtCliente = connection.prepareStatement(sqlCliente);
             pstmtCliente.setString(1, c.getNome());
             pstmtCliente.setString(2, c.getCpf());
@@ -26,14 +26,24 @@ public class ClienteDAO {
             pstmtCliente.setString(6, c.getTelefone());
             pstmtCliente.setString(7, c.getCelular());
             pstmtCliente.executeUpdate();
-            connection.close();
-        } catch (SQLException | ClassNotFoundException ex) {
-            System.out.println("Erro no banco de dados" + ex);
-        }
 
+            if (pstmtCliente.getMaxRows() > 0) {
+                deuCerto = true;
+            } else {
+                deuCerto = false;
+            }
+
+            connection.close();
+
+        } catch (SQLException | ClassNotFoundException ex) {
+            System.out.println("Erro no banco de dados cadastraCliente: " + ex);
+            deuCerto = false;
+        }
+        return deuCerto;
     }
 
-    public void alterarCliente(ClienteData c) {
+    public boolean alterarCliente(ClienteData c) {
+        boolean deuCerto = false;
         try {
             Connection connection = new ConnectionFactory().getConnection();
 
@@ -48,11 +58,20 @@ public class ClienteDAO {
             pstmtCliente.setString(7, c.getCelular());
             pstmtCliente.setInt(8, c.getId());
             pstmtCliente.executeUpdate();
+
+            if (pstmtCliente.getMaxRows() > 0) {
+                deuCerto = true;
+            } else {
+                deuCerto = false;
+            }
+
             connection.close();
 
         } catch (SQLException | ClassNotFoundException ex) {
-            System.out.println("Erro no banco de dados" + ex);
+            System.out.println("Erro no banco de dados alterarCliente:" + ex);
+            deuCerto = false;
         }
+        return deuCerto;
     }
 
     public ArrayList<ClienteData> getClientes() {
@@ -77,7 +96,7 @@ public class ClienteDAO {
             }
             connection.close();
         } catch (SQLException | ClassNotFoundException e) {
-            System.out.println("Erro no banco de dados " + e);
+            System.out.println("Erro no banco de dados getClientes:" + e);
         }
 
         return listaCliente;
@@ -105,7 +124,7 @@ public class ClienteDAO {
             }
             connection.close();
         } catch (SQLException | ClassNotFoundException e) {
-            System.out.println("Erro no banco de dados " + e);
+            System.out.println("Erro no banco de dados getClienteByNome: " + e);
         }
 
         return listaCliente;
@@ -134,24 +153,32 @@ public class ClienteDAO {
             }
             connection.close();
         } catch (SQLException | ClassNotFoundException e) {
-            System.out.println("Erro no banco de dados " + e);
+            System.out.println("Erro no banco de dados getClienteById:" + e);
         }
 
         return c;
     }
 
-    public void excluirCliente(int id) {
+    public boolean excluirCliente(int id) {
+        boolean deuCerto = false;
         try {
 
             Connection connection = new ConnectionFactory().getConnection();
             String sqlCliente = "DELETE FROM CLIENTE WHERE ID = " + id;
             PreparedStatement pstmtCliente = connection.prepareStatement(sqlCliente);
             pstmtCliente.executeUpdate();
+
+            if (pstmtCliente.getMaxRows() > 0) {
+                deuCerto = true;
+            } else {
+                deuCerto = false;
+            }
             connection.close();
 
         } catch (SQLException | ClassNotFoundException ex) {
-            System.out.println("Erro no banco de dados" + ex);
+            System.out.println("Erro no banco de dados excluirCliente: " + ex);
         }
+        return deuCerto;
 
     }
 

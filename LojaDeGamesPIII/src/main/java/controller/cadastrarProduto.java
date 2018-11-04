@@ -46,10 +46,17 @@ public class cadastrarProduto extends HttpServlet {
 
         ProdutoDAO dao = new ProdutoDAO();
 
-        dao.cadastraProduto(p);
+        boolean deuCerto = dao.cadastraProduto(p);
 
-        request.setAttribute("retorno", "OK");
+        request.setAttribute("retorno", "ok");
+        String MensagemDeRetorno = null;
 
+        if (deuCerto == true) {
+            MensagemDeRetorno = "Produto: '" + request.getParameter("nomeProduto") + "' alterado com sucesso!";
+        } else {
+            MensagemDeRetorno = "Houve um erro ao alterar o produto: '" + request.getParameter("nomeProduto") + "'.";
+        }
+        request.setAttribute("retornoMensagem", MensagemDeRetorno);
         request.getRequestDispatcher("view/cadastrarProduto.jsp").forward(request, response);
     }
 
