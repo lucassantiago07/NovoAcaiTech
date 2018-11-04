@@ -1,37 +1,35 @@
-<%-- 
-   Document   : alterarProduto
-   Created on : 16/10/2018, 09:22:17
-   Author     : angelo.xavier
---%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
     <head>
-        <jsp:include page="/capturaProduto" />
+        <jsp:include page="/capturaFuncionario" />
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <meta charset="UTF-8">
-        <title>AcaiTech Sistema - Alterar Produtos</title>
+        <title>AcaiTech Sistema - Alterar Funcionario</title>
         <link type="text/css" href="${pageContext.request.contextPath}/css/bootstrap.css" rel="stylesheet" />
         <script src="${pageContext.request.contextPath}/js/jquery-3.3.1.js"></script>
         <script src="${pageContext.request.contextPath}/js/bootstrap.js"></script>
         <script src="${pageContext.request.contextPath}/js/validanumero.js"></script>
     </head>
-    <!-- Inicio Menu -->
-    <nav class="navbar navbar-light bg-light">
-        <div class="corpoimagem">
-            <img src="${pageContext.request.contextPath}/img/logo.png"  class="imagemlogo">
-        </div>
-        <div class="informacoessobrefuncionario">
-            <span class="nomedofuncionario">Fulano de Tal</span> ●
-            <span class="filialfuncionario">Filial Amazonia</span>  ●
-            <span><a href="#">Sair</a></span>
-        </div>
-        <button type="button" class="btn btn-primary btnSair" onclick="window.location.href = '${pageContext.request.contextPath}'">Sair</button>
-    </nav>
-    <!-- Fim Menu -->
+
     <body>
+
+        <!-- Inicio Menu -->
+        <nav class="navbar navbar-light bg-light">
+            <div class="corpoimagem">
+                <img src="${pageContext.request.contextPath}/img/logo.png"  class="imagemlogo">
+            </div>
+            <div class="informacoessobrefuncionario">
+                <span class="nomedofuncionario">Fulano de Tal</span> ●
+                <span class="filialfuncionario">Filial Amazonia</span>  ●
+                <span><a href="#">Sair</a></span>
+            </div>
+            <button type="button" class="btn btn-primary btnSair" onclick="window.location.href = '${pageContext.request.contextPath}'">Sair</button>
+        </nav>
+        <!-- Fim Menu -->
+
+
         <!-- Inicio Carrocel -->
         <div id="carouselExampleControls" class="carousel slide" data-ride="carousel" data-interval="2500">
             <div class="carousel-inner">
@@ -65,80 +63,66 @@
         <!-- Inicio Corpo De Campo -->
         <div class="container corpodecampos">
 
-            <h3>Alterar Produto</h3>
+            <h3>Alterar Funcionario</h3>
 
-            <form name="formularioProduto" id="formularioProduto" action="${pageContext.request.contextPath}/alterarProduto" method="post">
-
+            <form name="formularioFuncionario" id="formularioFuncionario" action="${pageContext.request.contextPath}/cadastrarFuncionario" method="post">
                 <div class="form-group">
-                    <label>Identificador do Produto:</label>
-                    <input class="form-control" id="id" name="id" value="${produto.id}" readonly="readonly"></input>
-                </div>
-
-
-
-                <div class="form-group">
-                    <label>Nome do Produto</label>
-                    <input class="form-control" id="nomeProduto" value="${produto.nome}" name="nomeProduto" maxlength="20" required></input>
+                    <label>Identificador do Funcionario</label>
+                    <input class="form-control" id="id" name="id" value="${funcionario.id}" readonly="readonly"></input>
                 </div>
                 <div class="form-group">
-                    <label>Preço De Venda</label>
-                    <div class="input-group mb-2">
-                        <div class="input-group-prepend">
-                            <div class="input-group-text">R$</div>
-                        </div>
-                        <input type="Text" class="form-control"  id="precoVenda" name="precoVenda" size="4" maxlength="5" onkeypress="return isNumberKey(event)"  value="${produto.precoDeVenda}" required />
-
-                    </div>
+                    <label>Nome</label>
+                    <input class="form-control" id="nomeFuncionario" name="nomeFuncionario" value="${funcionario.nome}" maxlength="50" required></input>
+                </div>             
+                <div class="form-group">
+                    <label>CPF</label>
+                    <input type="text" class="form-control" id="cpfFuncionario" name="cpfFuncionario" value="${funcionario.cpf}" onkeypress="return isNumberKey(event)" maxlength="11" required></input>
                 </div>
                 <div class="form-group">
-                    <label>Preço De Custo</label>
-                    <div class="input-group mb-2">
-                        <div class="input-group-prepend">
-                            <div class="input-group-text">R$</div>
-                        </div>
-                        <input type="Text" class="form-control"  id="precoCusto" name="precoCusto" size="4" maxlength="5" onkeypress="return isNumberKey(event)" value="${produto.precoDeCusto}" required />
-
-
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label>Fornecedor</label>
-                    <input class="form-control" id="fornecedor" name="fornecedor" maxlength="20" value="${produto.fornecedor}" required></input>
-                </div>
-                <div class="form-group">
-                    <label>Plataforma</label>
-                    <input class="form-control" id="plataforma" name="plataforma" maxlength="20" value="${produto.plataforma}" required></input>
-                </div>
-                <div class="form-group">
-                    <label>Ano de lançamento</label>
-                    <input type="text" class="form-control" id="anolancamento" name="anolancamento" onkeypress='validate(event)' maxlength="4" value="${produto.anoLancamento}" required></input>
-                </div>
-                <div class="form-group">
-                    <label>Categoria</label>
-                    <select class="form-control" id="categoria" name="categoria" value="${produto.categoria}" required>
-                        <option value="1">Ação</option>
-                        <option value="2">Corrida</option>
-                        <option value="3">Tiro</option>
-                        <option value="4">RPG</option>
-                        <option value="5">Estratégia</option>
+                    <label>Filial</label>
+                    <select class="form-control" id="filial" name="filial" value="${funcionario.filial}" required>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
                     </select>
                 </div>
                 <div class="form-group">
-                    <label>Quantidade</label>
-                    <input type="text" class="form-control" id="estoque" name="estoque" onkeypress='validate(event)' maxlength="4" value="${produto.estoque}" required></input>
+                    <label>Cargo</label>
+                    <select class="form-control" id="cargo" name="cargo" value="${funcionario.cargo}" required>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    </select>
                 </div>
                 <div class="form-group">
-                    <label>Descrição</label>
-                    <input class="form-control" id="descricao" name="descricao" maxlength="40" value="${produto.descricao}"></input>
+                    <label>Endereço</label>
+                    <input class="form-control" id="endereco" name="endereco" maxlength="50" value="${funcionario.endereco}" required></input>
                 </div>
+                <div class="form-group">
+                    <label>CEP</label>
+                    <input type="text" class="form-control" id="cepFuncionario" name="cepFuncionario" onkeypress="return isNumberKey(event)" value="${funcionario.cep}" maxlength="8" required></input>
+                </div>
+                <div class="form-group">
+                    <label>Telefone</label>
+                    <input type="text" class="form-control" id="telefone" name="telefone" onkeypress="return isNumberKey(event)" value="${funcionario.telefone}" maxlength="11" required></input>
+                </div>
+
+                <div class="form-group">
+                    <label>Celular</label>
+                    <input type="text" class="form-control" id="celular" name="celular" onkeypress="return isNumberKey(event)" value="${funcionario.celular}" maxlength="11" required></input>
+                </div>
+
 
                 <button type="submit" class="btn btn-primary">Enviar</button>
             </form>
 
 
         </div>
-
-
+        <!-- Fim Corpo De Campo -->
 
 
         <!-- Inicio Footer -->
@@ -149,18 +133,18 @@
         </footer>
         <!-- Fim Footer -->
 
-
         <link type="text/css" href="${pageContext.request.contextPath}/css/script.css" rel="stylesheet" />
-        <link type="text/css" href="${pageContext.request.contextPath}/css/cadastrarProduto.css" rel="stylesheet" />
+        <link type="text/css" href="${pageContext.request.contextPath}/css/cadastrarFuncionario.css" rel="stylesheet" />
         <link type="text/css" href="${pageContext.request.contextPath}/css/menu.css" rel="stylesheet" />
         <script src="${pageContext.request.contextPath}/js/gradiente.js"></script>
+
 
         <!-- Modal -->
         <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                         <h5 class="modal-title" id="exampleModalLabel"><img src="${pageContext.request.contextPath}/img/logo.png"  class="imagemlogomodal" style="width:20%;"> </h5>
+                        <h5 class="modal-title" id="exampleModalLabel"><img src="${pageContext.request.contextPath}/img/logo.png"  class="imagemlogomodal" style="width:20%;"> </h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -180,11 +164,9 @@
             <script type="text/javascript">
                         $("#myModal").modal();
                         $('#myModal').on('hidden.bs.modal', function () {
-                            window.location.href = '${pageContext.request.contextPath}/view/listaCliente.jsp'
+                            window.location.href = '${pageContext.request.contextPath}/view/listaFuncionario.jsp'
                         })
             </script>
         </c:if> 
-
-
     </body>
 </html>

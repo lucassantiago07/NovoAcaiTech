@@ -1,8 +1,4 @@
-<%-- 
-   Document   : produtos
-   Created on : 14/10/2018, 12:07:28
-   Author     : angelo.xavier
---%>
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
@@ -181,13 +177,7 @@
                     </c:if>
                 </div>
             </div>
-            <c:if test="${not empty retornoExclusao}">
-                <script type="text/javascript">
-                    alert("Produto excluido com sucesso.");
-                    window.location.href = '${pageContext.request.contextPath}/view/listaProduto.jsp'
-                </script>
 
-            </c:if>
 
         </div>
         <!-- Inicio Footer -->
@@ -201,20 +191,33 @@
         <link type="text/css" href="${pageContext.request.contextPath}/css/listaProduto.css" rel="stylesheet" />
         <link type="text/css" href="${pageContext.request.contextPath}/css/menu.css" rel="stylesheet" />
         <script src="${pageContext.request.contextPath}/js/gradiente.js"></script>
-        <!--<script type="text/javascript">
+        <!-- Modal -->
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel"><img src="${pageContext.request.contextPath}/img/logo.png"  class="imagemlogomodal" style="width:20%;"> </h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        ${retornoMensagem}
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-            var table = $('table');
-
-            $(table).each(function () {
-                var $tds = $(this).find('td');
-                if ($tds.length != 0) {
-                    var $currText = $tds.eq(2).text();
-                    console.log($currText);
-                    var $currText = $tds.eq(3).text();
-                    console.log($currText);
-                }
-            });
-
-        </script>-->
-
+        <!--  Captura a variavel de retorno e abre modal-->
+        <c:if test="${not empty retorno}">
+            <script type="text/javascript">
+                            $("#myModal").modal();
+                            $('#myModal').on('hidden.bs.modal', function () {
+                                window.location.href = '${pageContext.request.contextPath}/view/listaCliente.jsp'
+                            })
+            </script>
+        </c:if> 
     </body>

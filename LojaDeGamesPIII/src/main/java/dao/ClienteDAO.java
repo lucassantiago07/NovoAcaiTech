@@ -168,6 +168,8 @@ public class ClienteDAO {
             PreparedStatement pstmtCliente = connection.prepareStatement(sqlCliente);
             int deuCertoSQL = pstmtCliente.executeUpdate();
 
+            
+
             if (deuCertoSQL == 1) {
                 deuCerto = true;
             } else {

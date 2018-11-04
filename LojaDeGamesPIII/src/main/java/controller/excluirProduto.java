@@ -1,6 +1,7 @@
 package controller;
 
 import dao.ProdutoDAO;
+import data.ProdutoData;
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -19,14 +20,16 @@ public class excluirProduto extends HttpServlet {
 
         ProdutoDAO produtos = new ProdutoDAO();
 
+        ProdutoData produtoSendoExcluido = produtos.getProdutoById(idProduto);
+
         boolean deuCerto = produtos.excluirProduto(idProduto);
 
         String MensagemDeRetorno = null;
 
         if (deuCerto == true) {
-            MensagemDeRetorno = "Produto: '" + request.getParameter("nomeProduto") + "' alterado com sucesso!";
+            MensagemDeRetorno = "Produto: '" + produtoSendoExcluido.getNome() + "' alterado com sucesso!";
         } else {
-            MensagemDeRetorno = "Houve um erro ao alterar o produto: '" + request.getParameter("nomeProduto") + "'.";
+            MensagemDeRetorno = "Houve um erro ao alterar o produto: '" + produtoSendoExcluido.getNome() + "'.";
         }
         request.setAttribute("retornoMensagem", MensagemDeRetorno);
 

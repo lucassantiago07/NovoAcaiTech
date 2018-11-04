@@ -6,9 +6,9 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <jsp:include page="/listaCliente" />
+        <jsp:include page="/listaFuncionario" />
         <meta charset="UTF-8">
-        <title>AcaiTech Sistema - Lista de cleintes</title>
+        <title>AcaiTech Sistema - Lista de Funcionarios</title>
         <link type="text/css" href="${pageContext.request.contextPath}/css/bootstrap.css" rel="stylesheet" />
         <script src="${pageContext.request.contextPath}/js/jquery-3.3.1.js"></script>
         <script src="${pageContext.request.contextPath}/js/bootstrap.js"></script>
@@ -57,10 +57,10 @@
         <!-- Fim Separador -->
         <!-- inicio Busca jogos estoque -->
         <div class="container corpodecampos">
-            <form name="formularioBusca" id="formularioBusca" action="${pageContext.request.contextPath}/listaClienteComFiltro" method="get">
+            <form name="formularioBusca" id="formularioBusca" action="${pageContext.request.contextPath}/listaFuncionarioComFiltro" method="get">
                 <div class="row">
-                    <h3>Clientes cadastrados</h3>
-                    <input class=" form-control mr-sm-2 descricaoCliente" name="nome"  type="search" placeholder="Digite o nome do cliente" aria-label="Search" style="width:90%">
+                    <h3>Funcionarios cadastrados</h3>
+                    <input class=" form-control mr-sm-2 descricaoFuncionario" name="nome"  type="search" placeholder="Digite o nome do Funcionario" aria-label="Search" style="width:90%">
                     <button type="submit" class="btn btn-light">Buscar</button>
                 </div>
             </form>
@@ -74,8 +74,8 @@
                             <th scope="col">ID</th>
                             <th scope="col">Nome</th>
                             <th scope="col">CPF</th>
-                            <th scope="col">Email</th>
-                            <th scope="col">CEP</th>
+                            <th scope="col">Filial</th>
+                            <th scope="col">Cargo</th>
                             <th scope="col">Telefone</th>
                             <th scope="col">Celular</th>
                             <th scope="col">Editar</th>
@@ -85,17 +85,17 @@
                     <tbody>
                         <!-- Lista para itens com filtros -->
                         <c:if test="${not empty listaComFiltro}">
-                            <c:forEach var="Cliente" items="${listaComFiltro}">
+                            <c:forEach var="Funcionario" items="${listaComFiltro}">
                                 <tr class="">
-                                    <td>${Cliente.id}</td>
-                                    <td>${Cliente.nome}</td>
-                                    <td>${Cliente.cpf}</td>
-                                    <td>${Cliente.email}</td>
-                                    <td>${Cliente.cep}</td>
-                                    <td>${Cliente.telefone}</td>
-                                    <td>${Cliente.celular}</td>
-                                    <td><a href="${pageContext.request.contextPath}/view/alterarCliente.jsp?idCliente=${Cliente.id}">Editar</a></td>
-                                    <td><a href="${pageContext.request.contextPath}/excluirCliente?idCliente=${Cliente.id}">Excluir</a></td></tr>
+                                    <td>${Funcionario.id}</td>
+                                    <td>${Funcionario.nome}</td>
+                                    <td>${Funcionario.cpf}</td>
+                                    <td>${Funcionario.filial}</td>
+                                    <td>${Funcionario.cargo}</td>
+                                    <td>${Funcionario.telefone}</td>
+                                    <td>${Funcionario.celular}</td>
+                                    <td><a href="${pageContext.request.contextPath}/view/alterarFuncionario.jsp?idFuncionario=${Funcionario.id}">Editar</a></td>
+                                    <td><a href="${pageContext.request.contextPath}/excluirFuncionario?idFuncionario=${Funcionario.id}">Excluir</a></td></tr>
                                 </c:forEach>
 
 
@@ -103,27 +103,26 @@
                         <!-- Fim Lista para itens com filtros -->
                         <!-- Lista para itens sem filtros -->
                         <c:if test="${empty listaComFiltro and not empty lista}">
-                            <c:forEach var="Cliente" items="${lista}">
+                            <c:forEach var="Funcionario" items="${lista}">
                                 <tr class="">
-                                    <td>${Cliente.id}</td>
-                                    <td>${Cliente.nome}</td>
-                                    <td>${Cliente.cpf}</td>
-                                    <td>${Cliente.email}</td>
-
-                                    <td>${Cliente.cep}</td>
-                                    <td>${Cliente.telefone}</td>
-                                    <td>${Cliente.celular}</td>
-                                    <td><a href="${pageContext.request.contextPath}/view/alterarCliente.jsp?idCliente=${Cliente.id}">Editar</a></td>
-                                    <td><a href="${pageContext.request.contextPath}/excluirCliente?idCliente=${Cliente.id}">Excluir</a></td></tr>
+                                    <td>${Funcionario.id}</td>
+                                    <td>${Funcionario.nome}</td>
+                                    <td>${Funcionario.cpf}</td>
+                                    <td>${Funcionario.filial}</td>
+                                    <td>${Funcionario.cargo}</td>
+                                    <td>${Funcionario.telefone}</td>
+                                    <td>${Funcionario.celular}</td>
+                                    <td><a href="${pageContext.request.contextPath}/view/alterarFuncionario.jsp?idFuncionario=${Funcionario.id}">Editar</a></td>
+                                    <td><a href="${pageContext.request.contextPath}/excluirFuncionario?idFuncionario=${Funcionario.id}">Excluir</a></td></tr>
                                 </c:forEach>
                             </c:if>
                         <!-- Fim Lista para itens sem filtros -->
                     </tbody>
                 </table>
                 <div class="row">
-                    <button type="submit" class="btn btn-primary btnCadastrar" onclick="window.location.href = '${pageContext.request.contextPath}/view/cadastrarCliente.jsp'">Cadastrar um novo Cliente</button>
+                    <button type="submit" class="btn btn-primary btnCadastrar" onclick="window.location.href = '${pageContext.request.contextPath}/view/cadastrarFuncionario.jsp'">Cadastrar um novo Funcionario</button>
                     <c:if test="${not empty listaComFiltro}">
-                        <button type="submit" class="btn btn-primary btnVoltar" onclick="window.location.href = '${pageContext.request.contextPath}/view/listaCliente.jsp'">Voltar</button>
+                        <button type="submit" class="btn btn-primary btnVoltar" onclick="window.location.href = '${pageContext.request.contextPath}/view/listaFuncionario.jsp'">Voltar</button>
 
                     </c:if>
                 </div>
@@ -139,7 +138,7 @@
         </footer>
         <!-- Fim Footer -->
         <link type="text/css" href="${pageContext.request.contextPath}/css/script.css" rel="stylesheet" />
-        <link type="text/css" href="${pageContext.request.contextPath}/css/listaCliente.css" rel="stylesheet" />
+        <link type="text/css" href="${pageContext.request.contextPath}/css/listaFuncionario.css" rel="stylesheet" />
         <link type="text/css" href="${pageContext.request.contextPath}/css/menu.css" rel="stylesheet" />
         <script src="${pageContext.request.contextPath}/js/gradiente.js"></script>
         <!-- Modal -->
@@ -167,7 +166,7 @@
             <script type="text/javascript">
                             $("#myModal").modal();
                             $('#myModal').on('hidden.bs.modal', function () {
-                                window.location.href = '${pageContext.request.contextPath}/view/listaCliente.jsp'
+                                window.location.href = '${pageContext.request.contextPath}/view/listaFuncionario.jsp'
                             })
             </script>
         </c:if> 

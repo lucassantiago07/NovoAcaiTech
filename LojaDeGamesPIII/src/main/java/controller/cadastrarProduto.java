@@ -52,7 +52,7 @@ public class cadastrarProduto extends HttpServlet {
         String MensagemDeRetorno = null;
 
         if (deuCerto == true) {
-            MensagemDeRetorno = "Produto: '" + request.getParameter("nomeProduto") + "' cadastrado com sucesso!";
+            MensagemDeRetorno = "Produto: '" + request.getParameter("nomeProduto") + "'  cadastrado com sucesso!";
         } else {
             MensagemDeRetorno = "Houve um erro ao cadastrar o produto: '" + request.getParameter("nomeProduto") + "'.";
         }
