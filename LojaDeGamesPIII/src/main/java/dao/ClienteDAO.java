@@ -19,12 +19,12 @@ public class ClienteDAO {
             System.out.println(sqlCliente);
             PreparedStatement pstmtCliente = connection.prepareStatement(sqlCliente);
             pstmtCliente.setString(1, c.getNome());
-            pstmtCliente.setInt(2, c.getCpf());
+            pstmtCliente.setString(2, c.getCpf());
             pstmtCliente.setString(3, c.getEmail());
             pstmtCliente.setString(4, c.getEndereco());
-            pstmtCliente.setInt(5, c.getCep());
-            pstmtCliente.setInt(6, c.getTelefone());
-            pstmtCliente.setInt(7, c.getCelular());
+            pstmtCliente.setString(5, c.getCep());
+            pstmtCliente.setString(6, c.getTelefone());
+            pstmtCliente.setString(7, c.getCelular());
             pstmtCliente.executeUpdate();
             connection.close();
         } catch (SQLException | ClassNotFoundException ex) {
@@ -40,12 +40,12 @@ public class ClienteDAO {
             String sqlCliente = "UPDATE `cliente` SET `nome`=?, `cpf`=?, `email`=?, `endereco`=?, `cep`=?, `telefone`=?, `celular`=?) WHERE `id`=?";
             PreparedStatement pstmtCliente = connection.prepareStatement(sqlCliente);
             pstmtCliente.setString(1, c.getNome());
-            pstmtCliente.setInt(2, c.getCpf());
+            pstmtCliente.setString(2, c.getCpf());
             pstmtCliente.setString(3, c.getEmail());
             pstmtCliente.setString(4, c.getEndereco());
-            pstmtCliente.setInt(5, c.getCep());
-            pstmtCliente.setInt(6, c.getTelefone());
-            pstmtCliente.setInt(7, c.getCelular());
+            pstmtCliente.setString(5, c.getCep());
+            pstmtCliente.setString(6, c.getTelefone());
+            pstmtCliente.setString(7, c.getCelular());
             pstmtCliente.setInt(8, c.getId());
             pstmtCliente.executeUpdate();
             connection.close();
@@ -66,12 +66,12 @@ public class ClienteDAO {
                 ClienteData c = new ClienteData();
                 c.setId(rs.getInt("ID"));
                 c.setNome(rs.getString("NOME"));
-                c.setCelular(Integer.parseInt(rs.getString("CELULAR")));
-                c.setCep(Integer.parseInt(rs.getString("CEP")));
-                c.setCpf(Integer.parseInt(rs.getString("CPF")));
+                c.setCelular(rs.getString("CELULAR"));
+                c.setCep(rs.getString("CEP"));
+                c.setCpf((rs.getString("CPF")));
                 c.setEmail(rs.getString("EMAIL"));
                 c.setEndereco(rs.getString("ENDERECO"));
-                c.setTelefone(Integer.parseInt(rs.getString("TELEFONE")));
+                c.setTelefone(rs.getString("TELEFONE"));
                 listaCliente.add(c);
 
             }
@@ -94,12 +94,12 @@ public class ClienteDAO {
                 ClienteData c = new ClienteData();
                 c.setId(rs.getInt("ID"));
                 c.setNome(rs.getString("NOME"));
-                c.setCelular(Integer.parseInt(rs.getString("CELULAR")));
-                c.setCep(Integer.parseInt(rs.getString("CEP")));
-                c.setCpf(Integer.parseInt(rs.getString("CPF")));
+                c.setCelular(rs.getString("CELULAR"));
+                c.setCep(rs.getString("CEP"));
+                c.setCpf(rs.getString("CPF"));
                 c.setEmail(rs.getString("EMAIL"));
                 c.setEndereco(rs.getString("ENDERECO"));
-                c.setTelefone(Integer.parseInt(rs.getString("TELEFONE")));
+                c.setTelefone(rs.getString("TELEFONE"));
                 listaCliente.add(c);
 
             }
@@ -124,12 +124,12 @@ public class ClienteDAO {
                 c.setId(rs.getInt("ID"));
 
                 c.setNome(rs.getString("NOME"));
-                c.setCelular(Integer.parseInt(rs.getString("CELULAR")));
-                c.setCep(Integer.parseInt(rs.getString("CEP")));
-                c.setCpf(Integer.parseInt(rs.getString("CPF")));
+                c.setCelular(rs.getString("CELULAR"));
+                c.setCep(rs.getString("CEP"));
+                c.setCpf(rs.getString("CPF"));
                 c.setEmail(rs.getString("EMAIL"));
                 c.setEndereco(rs.getString("ENDERECO"));
-                c.setTelefone(Integer.parseInt(rs.getString("TELEFONE")));
+                c.setTelefone(rs.getString("TELEFONE"));
 
             }
             connection.close();

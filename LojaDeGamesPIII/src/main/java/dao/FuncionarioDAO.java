@@ -16,13 +16,13 @@ public class FuncionarioDAO {
             System.out.println(sqlFuncionario);
             PreparedStatement pstmtFuncionario = connection.prepareStatement(sqlFuncionario);
             pstmtFuncionario.setString(1, f.getNome());
-            pstmtFuncionario.setInt(2, f.getCpf());
+            pstmtFuncionario.setString(2, f.getCpf());
             pstmtFuncionario.setInt(3, f.getFilial());
             pstmtFuncionario.setString(4, f.getCargo());
             pstmtFuncionario.setString(5, f.getEndereco());
-            pstmtFuncionario.setInt(6, f.getCep());
-            pstmtFuncionario.setInt(7, f.getTelefone());
-            pstmtFuncionario.setInt(8, f.getCelular());
+            pstmtFuncionario.setString(6, f.getCep());
+            pstmtFuncionario.setString(7, f.getTelefone());
+            pstmtFuncionario.setString(8, f.getCelular());
             pstmtFuncionario.executeUpdate();
             connection.close();
         } catch (SQLException | ClassNotFoundException ex) {
@@ -38,13 +38,13 @@ public class FuncionarioDAO {
             String sqlFuncionario = "UPDATE `funcionario` SET `nome`=?,`cpf`=?,`filial`=?,`cargo`=?,`endereco`=?,`cep`=?,`telefone`=?,`celular`=? WHERE `id`=?";
             PreparedStatement pstmtFuncionario = connection.prepareStatement(sqlFuncionario);
             pstmtFuncionario.setString(1, f.getNome());
-            pstmtFuncionario.setInt(2, f.getCpf());
+            pstmtFuncionario.setString(2, f.getCpf());
             pstmtFuncionario.setInt(3, f.getFilial());
             pstmtFuncionario.setString(4, f.getCargo());
             pstmtFuncionario.setString(5, f.getEndereco());
-            pstmtFuncionario.setInt(6, f.getCep());
-            pstmtFuncionario.setInt(7, f.getTelefone());
-            pstmtFuncionario.setInt(8, f.getCelular());
+            pstmtFuncionario.setString(6, f.getCep());
+            pstmtFuncionario.setString(7, f.getTelefone());
+            pstmtFuncionario.setString(8, f.getCelular());
             pstmtFuncionario.setInt(9, f.getId());
             pstmtFuncionario.executeUpdate();
             connection.close();

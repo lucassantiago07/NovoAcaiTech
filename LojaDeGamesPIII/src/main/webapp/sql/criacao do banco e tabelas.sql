@@ -52,6 +52,22 @@ create table lojadegames.cliente (
     constraint pk_tbCliente primary key(id)
 );
 
+INSERT INTO `cliente` 
+            (`nome`, 
+             `cpf`, 
+             `email`, 
+             `endereco`, 
+             `cep`, 
+             `telefone`, 
+             `celular`) 
+VALUES      ('Benevenuto Daciolo Fonseca dos Santos', 
+             42888041832, 
+             'daciolo@gmail.com', 
+             'Rua Hugo DAntola, 95 - Lapa de Baixo - São Paulo', 
+             05762221, 
+             1158621242, 
+             11964549502) 
+
 
 create table lojadegames.funcionario (
 	id bigint not null auto_increment,

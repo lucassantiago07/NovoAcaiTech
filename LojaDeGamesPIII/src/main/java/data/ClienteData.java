@@ -1,96 +1,128 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package data;
 
-/**
- *
- * @author murilo.aaraujo
- */
+import java.math.BigInteger;
+
 public class ClienteData {
-    
-    private Integer cpf;
+
+    private String cpf;
     private String endereco;
     private String nome;
     private String email;
-    private Integer telefone;
+    private String telefone;
     private Integer id;
-    //private Date datanascimento;
-    private Integer celular;
-    private Integer cep;
-    
-    public Integer getId() {
-        return id;
+    private String celular;
+    private String cep;
+
+    /**
+     * @return the cpf
+     */
+    public String getCpf() {
+        return cpf;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    /**
+     * @param cpf the cpf to set
+     */
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
     }
-    
+
+    /**
+     * @return the endereco
+     */
+    public String getEndereco() {
+        return endereco;
+    }
+
+    /**
+     * @param endereco the endereco to set
+     */
+    public void setEndereco(String endereco) {
+        this.endereco = endereco;
+    }
+
+    /**
+     * @return the nome
+     */
     public String getNome() {
         return nome;
     }
 
+    /**
+     * @param nome the nome to set
+     */
     public void setNome(String nome) {
         this.nome = nome;
     }
-    
-//     public Date getDataNascimento() {
-//        return datanascimento;
-//    }
-//
-//    public void setDataNascimento(Date datanascimento) {
-//        this.datanascimento = datanascimento;
-//    }
-    
-    public Integer getCpf() {
-        return cpf;
-    }
 
-    public void setCpf(Integer cpf) {
-        this.cpf = cpf;
-    }
-    
-    public Integer getCep() {
-        return cep;
-    }
-
-    public void setCep(Integer cep) {
-        this.cep = cep;
-    }
-    
-     public Integer getTelefone() {
-        return telefone;
-    }
-
-    public void setTelefone(Integer telefone) {
-        this.telefone = telefone;
-    }
-    
-    public Integer getCelular() {
-        return celular;
-    }
-
-    public void setCelular(Integer celular) {
-        this.celular = celular;
-    }
-    
+    /**
+     * @return the email
+     */
     public String getEmail() {
         return email;
     }
 
+    /**
+     * @param email the email to set
+     */
     public void setEmail(String email) {
         this.email = email;
     }
-    
-    public String getEndereco(){
-        return endereco;
-    }
-    
-    public void setEndereco(String endereco){
-        this.endereco = endereco;
-    }
-}
 
+    /**
+     * @return the telefone
+     */
+    public String getTelefone() {
+        return telefone;
+    }
+
+    /**
+     * @param telefone the telefone to set
+     */
+    public void setTelefone(String telefone) {
+        this.telefone = telefone;
+    }
+
+    /**
+     * @return the id
+     */
+    public Integer getId() {
+        return id;
+    }
+
+    /**
+     * @param id the id to set
+     */
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    /**
+     * @return the celular
+     */
+    public String getCelular() {
+        return celular;
+    }
+
+    /**
+     * @param celular the celular to set
+     */
+    public void setCelular(String celular) {
+        this.celular = celular;
+    }
+
+    /**
+     * @return the cep
+     */
+    public String getCep() {
+        return cep;
+    }
+
+    /**
+     * @param cep the cep to set
+     */
+    public void setCep(String cep) {
+        this.cep = cep;
+    }
+
+}

@@ -32,11 +32,11 @@ public class alterarCliente extends HttpServlet {
         c.setId(Integer.parseInt(request.getParameter("id")));
         c.setNome(request.getParameter("nomeCliente"));
         c.setEmail(request.getParameter("emailCliente"));
-        c.setCpf(Integer.parseInt(request.getParameter("cpfCliente")));
+        c.setCpf(request.getParameter("cpfCliente"));
         c.setEndereco(request.getParameter("enderecoCliente"));
-        c.setCep(Integer.parseInt(request.getParameter("cepCliente")));
-        c.setTelefone(Integer.parseInt(request.getParameter("telefoneCliente")));
-        c.setCelular(Integer.parseInt(request.getParameter("celularCliente")));
+        c.setCep(request.getParameter("cepCliente"));
+        c.setTelefone(request.getParameter("telefoneCliente"));
+        c.setCelular(request.getParameter("celularCliente"));
 
         dao.alterarCliente(c);
         request.setAttribute("retornoAlteracao", "ok");

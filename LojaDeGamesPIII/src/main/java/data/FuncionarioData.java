@@ -1,16 +1,18 @@
 package data;
 
+import java.math.BigInteger;
+
 public class FuncionarioData {
 
     private Integer id;
     private String nome;
-    private Integer cpf;
+    private String cpf;
     private Integer filial;
     private String cargo;
     private String endereco;
-    private Integer cep;
-    private Integer telefone;
-    private Integer celular;
+    private String cep;
+    private String telefone;
+    private String celular;
 
     /**
      * @return the id
@@ -43,14 +45,14 @@ public class FuncionarioData {
     /**
      * @return the cpf
      */
-    public Integer getCpf() {
+    public String getCpf() {
         return cpf;
     }
 
     /**
      * @param cpf the cpf to set
      */
-    public void setCpf(Integer cpf) {
+    public void setCpf(String cpf) {
         this.cpf = cpf;
     }
 
@@ -99,42 +101,42 @@ public class FuncionarioData {
     /**
      * @return the cep
      */
-    public Integer getCep() {
+    public String getCep() {
         return cep;
     }
 
     /**
      * @param cep the cep to set
      */
-    public void setCep(Integer cep) {
+    public void setCep(String cep) {
         this.cep = cep;
     }
 
     /**
      * @return the telefone
      */
-    public Integer getTelefone() {
+    public String getTelefone() {
         return telefone;
     }
 
     /**
      * @param telefone the telefone to set
      */
-    public void setTelefone(Integer telefone) {
+    public void setTelefone(String telefone) {
         this.telefone = telefone;
     }
 
     /**
      * @return the celular
      */
-    public Integer getCelular() {
+    public String getCelular() {
         return celular;
     }
 
     /**
      * @param celular the celular to set
      */
-    public void setCelular(Integer celular) {
+    public void setCelular(String celular) {
         this.celular = celular;
     }
 
