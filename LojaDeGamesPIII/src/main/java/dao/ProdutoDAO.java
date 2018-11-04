@@ -114,11 +114,9 @@ public class ProdutoDAO {
             Connection connection = new ConnectionFactory().getConnection();
             Statement stmt = connection.createStatement();
             ResultSet rs = stmt.executeQuery("SELECT * FROM `produto` where id = " + idProduto);
-            
-            
+
             while (rs.next()) {
                 p.setId(rs.getInt("ID"));
-                System.out.println("ID DB:" + rs.getInt("ID"));
                 p.setNome(rs.getString("NOME"));
                 p.setDescricao(rs.getString("DESCRICAO"));
                 p.setPrecoDeCusto(rs.getInt("PRECO_COMPRA"));
@@ -129,7 +127,7 @@ public class ProdutoDAO {
                 p.setAnoLancamento(rs.getInt("ANO_LANCAMENTO"));
                 p.setFornecedor(rs.getString("FORNECEDOR"));
                 p.setPlataforma(rs.getString("PLATAFORMA"));
-                System.out.println(rs.getString("DESCRICAO"));
+
             }
             connection.close();
         } catch (SQLException | ClassNotFoundException e) {
