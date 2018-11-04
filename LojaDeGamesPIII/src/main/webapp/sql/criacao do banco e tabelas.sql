@@ -15,7 +15,7 @@ CREATE TABLE lojadegames.produto
      ano_lancamento INT DEFAULT 0,  
      estoque        INT DEFAULT 0, 
      dt_cadastro    TIMESTAMP NULL, 
-     CONSTRAINT pk_produto PRIMARY KEY (id) 
+     CONSTRAINT pk_tbProduto PRIMARY KEY (id) 
   ); 
 
 INSERT INTO `produto` 
@@ -40,14 +40,28 @@ VALUES      ('Tomb Raider 2',
              54, 
              NULL);
 
-create table lojagegames.cliente (
+create table lojadegames.cliente (
 	id bigint not null auto_increment,
 	nome varchar(100) not null,
 	cpf int not null,
-	email varchar(100) not null,
-	endereco varchar(100) not null,
-	cep int not null,
-	telefone int not null,
-	celular int not null,
+	email varchar(100) null,
+	endereco varchar(100) null,
+	cep int  null,
+	telefone int null,
+	celular int null,
     constraint pk_tbCliente primary key(id)
+);
+
+
+create table lojadegames.funcionario (
+	id bigint not null auto_increment,
+	nome varchar(100) not null,
+	cpf int not null,
+        filial int not null,
+	cargo varchar(100)  null,
+	endereco varchar(100)  null,        
+	cep int  null,
+	telefone int  null,
+	celular int  null,
+    constraint pk_tbFuncionario primary key(id)
 );

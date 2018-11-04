@@ -19,9 +19,11 @@ public class adicionarAoCarrinho extends HttpServlet {
 
         if (request.getParameter("idProduto") != null) {
 
-            //Recupera todas informações do produto
+            
             ProdutoDAO dao = new ProdutoDAO();
             ProdutoData p = new ProdutoData();
+            
+            //Recupera todas informações do produto
             p = dao.getProdutoById(Integer.parseInt(request.getParameter("idProduto")));
 
             if (p.getId() > 0) {
