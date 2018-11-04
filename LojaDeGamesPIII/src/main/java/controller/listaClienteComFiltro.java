@@ -1,12 +1,8 @@
 package controller;
 
-import controller.*;
 import data.ClienteData;
 import dao.ClienteDAO;
-import dao.ClienteDAO;
 import java.io.IOException;
-import java.sql.Timestamp;
-import java.text.SimpleDateFormat;
 import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;

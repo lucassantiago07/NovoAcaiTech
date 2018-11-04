@@ -131,21 +131,14 @@
                     <label>Descrição</label>
                     <input class="form-control" id="descricao" name="descricao" maxlength="40" value="${produto.descricao}"></input>
                 </div>
-                
+
                 <button type="submit" class="btn btn-primary">Enviar</button>
             </form>
 
-            <c:if test="${not empty produto.id}">
 
-            </c:if>
         </div>
 
-        <c:if test="${not empty retornoAlteracao}">
-            <script type="text/javascript">
-                alert("Produto alterado!");
-                window.location.href = '${pageContext.request.contextPath}/view/listaProduto.jsp'
-            </script>
-        </c:if>  
+
 
 
         <!-- Inicio Footer -->
@@ -161,6 +154,36 @@
         <link type="text/css" href="${pageContext.request.contextPath}/css/cadastrarProduto.css" rel="stylesheet" />
         <link type="text/css" href="${pageContext.request.contextPath}/css/menu.css" rel="stylesheet" />
         <script src="${pageContext.request.contextPath}/js/gradiente.js"></script>
+
+        <!-- Modal -->
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Mensagem</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        Produto alterado com sucesso!
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--  Captura a variavel de retorno e abre modal-->
+        <c:if test="${not empty retornoAlteracao}">
+            <script type="text/javascript">
+                        $("#myModal").modal();
+                        $('#myModal').on('hidden.bs.modal', function () {
+                            window.location.href = '${pageContext.request.contextPath}/view/listaCliente.jsp'
+                        })
+            </script>
+        </c:if> 
 
 
     </body>

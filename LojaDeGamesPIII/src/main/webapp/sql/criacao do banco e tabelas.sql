@@ -43,12 +43,12 @@ VALUES      ('Tomb Raider 2',
 create table lojadegames.cliente (
 	id bigint not null auto_increment,
 	nome varchar(100) not null,
-	cpf int not null,
+	cpf varchar(100) not null,
 	email varchar(100) null,
 	endereco varchar(100) null,
 	cep int  null,
-	telefone int null,
-	celular int null,
+	telefone varchar(100) null,
+	celular varchar(100) null,
     constraint pk_tbCliente primary key(id)
 );
 
@@ -61,12 +61,12 @@ INSERT INTO `cliente`
              `telefone`, 
              `celular`) 
 VALUES      ('Benevenuto Daciolo Fonseca dos Santos', 
-             42888041832, 
+             '42888041832', 
              'daciolo@gmail.com', 
              'Rua Hugo DAntola, 95 - Lapa de Baixo - São Paulo', 
              05762221, 
-             1158621242, 
-             11964549502) 
+             '1158621242', 
+             '11964549502') 
 
 
 create table lojadegames.funcionario (

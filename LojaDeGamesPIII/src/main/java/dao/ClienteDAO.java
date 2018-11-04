@@ -37,7 +37,7 @@ public class ClienteDAO {
         try {
             Connection connection = new ConnectionFactory().getConnection();
 
-            String sqlCliente = "UPDATE `cliente` SET `nome`=?, `cpf`=?, `email`=?, `endereco`=?, `cep`=?, `telefone`=?, `celular`=?) WHERE `id`=?";
+            String sqlCliente = "UPDATE `cliente` SET `nome`=?, `cpf`=?, `email`=?, `endereco`=?, `cep`=?, `telefone`=?, `celular`=? WHERE `id`=?";
             PreparedStatement pstmtCliente = connection.prepareStatement(sqlCliente);
             pstmtCliente.setString(1, c.getNome());
             pstmtCliente.setString(2, c.getCpf());

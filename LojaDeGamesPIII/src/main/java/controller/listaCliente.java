@@ -23,6 +23,8 @@ public class listaCliente extends HttpServlet {
 
         request.setAttribute("lista", lista);
 
+        
+
     }
 
 }
