@@ -72,11 +72,11 @@
                 </div>
                 <div class="form-group">
                     <label>Nome</label>
-                    <input class="form-control" id="nomeFuncionario" name="nomeFuncionario" value="${funcionario.nome}" maxlength="50" required></input>
+                    <input class="form-control" id="nomeFuncionario" value="${funcionario.nome}" name="nomeFuncionario" value="${funcionario.nome}" maxlength="50" required></input>
                 </div>             
                 <div class="form-group">
                     <label>CPF</label>
-                    <input type="text" class="form-control" id="cpfFuncionario" name="cpfFuncionario" value="${funcionario.cpf}" onkeypress="return isNumberKey(event)" maxlength="11" required></input>
+                    <input type="text" class="form-control" id="cpfFuncionario" value="${funcionario.cpf}" name="cpfFuncionario" value="${funcionario.cpf}" onkeypress="return isNumberKey(event)" maxlength="11" required></input>
                 </div>
                 <div class="form-group">
                     <label>Filial</label>

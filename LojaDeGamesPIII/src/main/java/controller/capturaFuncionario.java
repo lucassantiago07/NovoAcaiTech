@@ -24,7 +24,7 @@ public class capturaFuncionario extends HttpServlet {
 
         FuncionarioData f = Funcionarios.getFuncionarioById(Integer.parseInt(idFuncionario));
 
-        request.setAttribute("Funcionario", f);
+        request.setAttribute("funcionario", f);
 
         //request.getRequestDispatcher("view/listaProduto.jsp").forward(request, response);
     }
