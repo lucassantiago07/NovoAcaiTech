@@ -28,9 +28,9 @@ public class ProdutoDAO {
             pstmtProduto.setInt(8, p.getAnoLancamento());
             pstmtProduto.setInt(9, p.getEstoque());
             pstmtProduto.setTimestamp(10, p.getDataCadastro());
-            pstmtProduto.executeUpdate();
+            int deuCertoSQL = pstmtProduto.executeUpdate();
 
-            if (pstmtProduto.getMaxRows() > 0) {
+            if (deuCertoSQL == 1) {
                 deuCerto = true;
             } else {
                 deuCerto = false;
@@ -158,17 +158,17 @@ public class ProdutoDAO {
             pstmtProduto.setInt(9, p.getEstoque());
             pstmtProduto.setInt(10, p.getId());
 
-            if (pstmtProduto.getMaxRows() > 0) {
+            int deuCertoSQL = pstmtProduto.executeUpdate();
+
+            if (deuCertoSQL == 1) {
                 deuCerto = true;
             } else {
                 deuCerto = false;
             }
 
-            pstmtProduto.executeUpdate();
-
             connection.close();
         } catch (SQLException | ClassNotFoundException ex) {
-            System.out.println("Erro no banco de dados" + ex);
+            System.out.println("Erro no banco de dados alterarProduto: " + ex);
         }
         return deuCerto;
     }
@@ -180,8 +180,10 @@ public class ProdutoDAO {
             Connection connection = new ConnectionFactory().getConnection();
             String sqlProduto = "DELETE FROM PRODUTO WHERE ID = " + id;
             PreparedStatement pstmtProduto = connection.prepareStatement(sqlProduto);
-            pstmtProduto.executeUpdate();
-            if (pstmtProduto.getMaxRows() > 0) {
+
+            int deuCertoSQL = pstmtProduto.executeUpdate();
+
+            if (deuCertoSQL == 1) {
                 deuCerto = true;
             } else {
                 deuCerto = false;
@@ -189,7 +191,7 @@ public class ProdutoDAO {
             connection.close();
 
         } catch (SQLException | ClassNotFoundException ex) {
-            System.out.println("Erro no banco de dados" + ex);
+            System.out.println("Erro no banco de dados excluirProduto: " + ex);
         }
         return deuCerto;
 

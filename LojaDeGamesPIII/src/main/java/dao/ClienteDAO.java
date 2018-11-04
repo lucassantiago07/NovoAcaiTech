@@ -25,9 +25,9 @@ public class ClienteDAO {
             pstmtCliente.setString(5, c.getCep());
             pstmtCliente.setString(6, c.getTelefone());
             pstmtCliente.setString(7, c.getCelular());
-            pstmtCliente.executeUpdate();
+            int deuCertoSQL = pstmtCliente.executeUpdate();
 
-            if (pstmtCliente.getMaxRows() > 0) {
+            if (deuCertoSQL == 1) {
                 deuCerto = true;
             } else {
                 deuCerto = false;
@@ -57,9 +57,9 @@ public class ClienteDAO {
             pstmtCliente.setString(6, c.getTelefone());
             pstmtCliente.setString(7, c.getCelular());
             pstmtCliente.setInt(8, c.getId());
-            pstmtCliente.executeUpdate();
+            int deuCertoSQL = pstmtCliente.executeUpdate();
 
-            if (pstmtCliente.getMaxRows() > 0) {
+            if (deuCertoSQL == 1) {
                 deuCerto = true;
             } else {
                 deuCerto = false;
@@ -166,9 +166,9 @@ public class ClienteDAO {
             Connection connection = new ConnectionFactory().getConnection();
             String sqlCliente = "DELETE FROM CLIENTE WHERE ID = " + id;
             PreparedStatement pstmtCliente = connection.prepareStatement(sqlCliente);
-            pstmtCliente.executeUpdate();
+            int deuCertoSQL = pstmtCliente.executeUpdate();
 
-            if (pstmtCliente.getMaxRows() > 0) {
+            if (deuCertoSQL == 1) {
                 deuCerto = true;
             } else {
                 deuCerto = false;
