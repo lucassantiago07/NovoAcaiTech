@@ -11,35 +11,35 @@ import javax.servlet.http.HttpServletResponse;
 
 @WebServlet(name = "cadastrarFuncionario", urlPatterns = {"/cadastrarFuncionario"})
 public class cadastrarFuncionario extends HttpServlet {
-    
+
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
+
         FuncionarioData r = new FuncionarioData();
-        
+
         r.setNome(request.getParameter("nomeFuncionario"));
-        
+
         r.setCpf(request.getParameter("cpfFuncionario"));
-        
+
         r.setEndereco(request.getParameter("endereco"));
-        
+
         r.setCep(request.getParameter("cepFuncionario"));
-        
+
         r.setTelefone(request.getParameter("telefone"));
-        
+
         r.setCelular(request.getParameter("celular"));
-        
+
         r.setCargo(request.getParameter("cargo"));
-        
+
         r.setFilial(Integer.parseInt(request.getParameter("filial")));
-        
+
         FuncionarioDAO dao = new FuncionarioDAO();
-        
+
         boolean deuCerto = dao.cadastraFuncionario(r);
-        
+
         request.setAttribute("retorno", "ok");
         String MensagemDeRetorno = null;
-        
+
         if (deuCerto == true) {
             MensagemDeRetorno = "Funcionario: '" + request.getParameter("nomeFuncionario") + "' cadastrado com sucesso!";
         } else {

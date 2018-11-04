@@ -66,7 +66,7 @@ VALUES      ('Benevenuto Daciolo Fonseca dos Santos',
              'Rua Hugo DAntola, 95 - Lapa de Baixo - São Paulo', 
              05762221, 
              '1158621242', 
-             '11964549502') 
+             '11964549502');
 
 
 create table lojadegames.funcionario (
@@ -78,6 +78,6 @@ create table lojadegames.funcionario (
 	endereco varchar(100)  null,        
 	cep int  null,
 	telefone int  null,
-	celular int  null,
+	celular varchar(100)  null,
     constraint pk_tbFuncionario primary key(id)
 );
