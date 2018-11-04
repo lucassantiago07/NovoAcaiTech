@@ -1,7 +1,7 @@
 package controller;
 
-import data.ProdutoData;
-import dao.ProdutoDAO;
+import data.ClienteData;
+import dao.ClienteDAO;
 import java.io.IOException;
 import java.util.List;
 import javax.servlet.ServletException;
@@ -10,20 +10,18 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet(name = "listaProduto", urlPatterns = {"/listaProduto"})
-public class listaProduto extends HttpServlet {
+@WebServlet(name = "listaCliente", urlPatterns = {"/listaCliente"})
+public class listaCliente extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        ProdutoDAO produtos = new ProdutoDAO();
+        ClienteDAO Clientes = new ClienteDAO();
 
-        List<ProdutoData> lista = produtos.getProdutos();
+        List<ClienteData> lista = Clientes.getClientes();
 
         request.setAttribute("lista", lista);
-
- 
 
     }
 
