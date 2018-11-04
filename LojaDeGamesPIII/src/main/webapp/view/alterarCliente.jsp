@@ -7,7 +7,7 @@
         <jsp:include page="/capturaCliente" />
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta charset="UTF-8">
-        <title>AçaiTech - Alterar Clientes</title>
+        <title>AçaiTech - Alterar Clientess</title>
         <link type="text/css" href="${pageContext.request.contextPath}/css/bootstrap.css" rel="stylesheet" />
         <script src="${pageContext.request.contextPath}/js/jquery-3.3.1.js"></script>
         <script src="${pageContext.request.contextPath}/js/bootstrap.js"></script>
