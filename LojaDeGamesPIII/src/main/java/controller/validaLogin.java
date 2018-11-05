@@ -3,6 +3,8 @@ package controller;
 import dao.FuncionarioDAO;
 import data.FuncionarioData;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -16,6 +18,8 @@ public class validaLogin extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
+        String retorno = "/view/login.jsp";;
+
         if ((request.getParameter("usuario") != null) || (request.getParameter("senha") != null)) {
 
             FuncionarioDAO fdao = new FuncionarioDAO();
@@ -23,6 +27,7 @@ public class validaLogin extends HttpServlet {
             FuncionarioData f = fdao.verificaLogin(request.getParameter("usuario"), request.getParameter("senha"));
 
             if (f.getNome() != null) {
+                retorno = "/view/index.jsp";
                 HttpSession session = request.getSession();
                 session.setAttribute("getCargo", f.getCargo());
                 session.setAttribute("getCelular", f.getCelular());
@@ -33,10 +38,13 @@ public class validaLogin extends HttpServlet {
                 session.setAttribute("getId", f.getId());
                 session.setAttribute("getNome", f.getNome());
                 session.setAttribute("getNome", f.getTelefone());
+                Date data = new Date();
+                SimpleDateFormat formatador = new SimpleDateFormat("dd/MM/yyyy");
+                session.setAttribute("getData", formatador.format(data));
 
             }
-
         }
+        request.getServletContext().getRequestDispatcher(retorno).forward(request, response);
 
     }
 
