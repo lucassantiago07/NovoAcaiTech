@@ -18,13 +18,18 @@
             <div class="corpoimagem">
                 <img src="${pageContext.request.contextPath}/img/logo.png"  class="imagemlogo">
             </div>
+            
+            
             <div class="informacoessobrefuncionario">
                 <span class="nomedofuncionario">${sessionScope.getNome}</span> ●
                 <span class="filialfuncionario">${sessionScope.getFilial}</span>  ●
                 <span class="cargofuncionario">${sessionScope.getCargo}</span>  ●
                 <span class="datafuncionario">${sessionScope.getData}</span>  
             </div>
-            <button type="button" class="btn btn-primary btnSair" onclick="window.location.href = '${pageContext.request.contextPath}'">Sair</button>
+            <form action="${pageContext.request.contextPath}/sairLogin" method="post">
+                <button type="button" class="btn btn-primary btnSair">Sair</button>
+            </form>
+
         </nav>
         <!-- Fim Menu -->
         <!-- Inicio Carrocel -->
@@ -54,8 +59,16 @@
         </nav>
         <!-- Fim Separador -->
 
-        <div class="container">
+        <div class="container corpodeopcoes">
             <h3>Sistema em desenvolvimento.</h3>
+            <h6><i>Opções disponiveis:</i></h6>
+            <div class="row btnopcoes"><button type="button" class="btn btn-primary btnSair" onclick="window.location.href = '${pageContext.request.contextPath}/view/cadastrarProduto.jsp'">Cadastrar um produto</button></div> 
+            <div class="row btnopcoes"><button type="button" class="btn btn-primary btnSair" onclick="window.location.href = '${pageContext.request.contextPath}/view/listaProduto.jsp'">Listagem de produto +(Alterar/Excluir)</button></div> 
+            <div class="row btnopcoes"><button type="button" class="btn btn-primary btnSair" onclick="window.location.href = '${pageContext.request.contextPath}/view/cadastrarCliente.jsp'">Cadastrar um cliente</button></div> 
+            <div class="row btnopcoes"><button type="button" class="btn btn-primary btnSair" onclick="window.location.href = '${pageContext.request.contextPath}/view/listaCliente.jsp'">Listagem de cliente +(Alterar/Excluir)</button></div> 
+            <div class="row btnopcoes"><button type="button" class="btn btn-primary btnSair" onclick="window.location.href = '${pageContext.request.contextPath}/view/cadastrarFuncionario.jsp'">Cadastrar um funcionario</button></div> 
+            <div class="row btnopcoes"><button type="button" class="btn btn-primary btnSair" onclick="window.location.href = '${pageContext.request.contextPath}/view/listaFuncionario.jsp'">Listagem de funcionario +(Alterar/Excluir)</button></div> 
+            <div class="row btnopcoes"><button type="button" class="btn btn-primary btnSair" onclick="window.location.href = '${pageContext.request.contextPath}/view/carrinho.jsp">Pré Carrinho</button></div>
         </div>
 
         <!-- inicio Footer -->

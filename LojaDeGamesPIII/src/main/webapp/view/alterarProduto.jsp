@@ -23,12 +23,18 @@
         <div class="corpoimagem">
             <img src="${pageContext.request.contextPath}/img/logo.png"  class="imagemlogo">
         </div>
+
+
         <div class="informacoessobrefuncionario">
-            <span class="nomedofuncionario">Fulano de Tal</span> ●
-            <span class="filialfuncionario">Filial Amazonia</span>  ●
-            <span><a href="#">Sair</a></span>
+            <span class="nomedofuncionario">${sessionScope.getNome}</span> ●
+            <span class="filialfuncionario">${sessionScope.getFilial}</span>  ●
+            <span class="cargofuncionario">${sessionScope.getCargo}</span>  ●
+            <span class="datafuncionario">${sessionScope.getData}</span>  
         </div>
-        <button type="button" class="btn btn-primary btnSair" onclick="window.location.href = '${pageContext.request.contextPath}'">Sair</button>
+        <form action="${pageContext.request.contextPath}/sairLogin" method="post">
+            <button type="button" class="btn btn-primary btnSair">Sair</button>
+        </form>
+
     </nav>
     <!-- Fim Menu -->
     <body>
@@ -160,7 +166,7 @@
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                         <h5 class="modal-title" id="exampleModalLabel"><img src="${pageContext.request.contextPath}/img/logo.png"  class="imagemlogomodal" style="width:20%;"> </h5>
+                        <h5 class="modal-title" id="exampleModalLabel"><img src="${pageContext.request.contextPath}/img/logo.png"  class="imagemlogomodal" style="width:20%;"> </h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>

@@ -25,9 +25,19 @@
             <img src="${pageContext.request.contextPath}/img/logo.png"  class="imagemlogo">
         </div>
         <div class="informacoessobrefuncionario">
-            <span class="nomedofuncionario">Fulano de Tal</span> ●
-            <span class="filialfuncionario">Filial Amazonia</span>  ●
-            <span><a href="#">Sair</a></span>
+            
+            
+             <div class="informacoessobrefuncionario">
+                <span class="nomedofuncionario">${sessionScope.getNome}</span> ●
+                <span class="filialfuncionario">${sessionScope.getFilial}</span>  ●
+                <span class="cargofuncionario">${sessionScope.getCargo}</span>  ●
+                <span class="datafuncionario">${sessionScope.getData}</span>  
+            </div>
+            <form action="${pageContext.request.contextPath}/sairLogin" method="post">
+                <button type="button" class="btn btn-primary btnSair">Sair</button>
+            </form>
+                
+                
         </div>
         <button type="button" class="btn btn-primary btnSair" onclick="window.location.href = '${pageContext.request.contextPath}'">Sair</button>
     </nav>
