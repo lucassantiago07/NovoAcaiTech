@@ -18,7 +18,15 @@ public class validaLogin extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        String retorno = "/view/login.jsp";;
+        String retorno = "/view/login.jsp";
+
+        boolean deuCerto = false;
+        String nome = null;
+        String MensagemDeRetorno = null;
+
+        Date data = new Date();
+        SimpleDateFormat formatador = new SimpleDateFormat("dd/MM/yyyy");
+        String dataAtual = formatador.format(data);
 
         if ((request.getParameter("usuario") != null) || (request.getParameter("senha") != null)) {
 
@@ -38,12 +46,21 @@ public class validaLogin extends HttpServlet {
                 session.setAttribute("getId", f.getId());
                 session.setAttribute("getNome", f.getNome());
                 session.setAttribute("getNome", f.getTelefone());
-                Date data = new Date();
-                SimpleDateFormat formatador = new SimpleDateFormat("dd/MM/yyyy");
-                session.setAttribute("getData", formatador.format(data));
-
+                session.setAttribute("getData", dataAtual);
+                nome = f.getNome();
+                deuCerto = true;
             }
         }
+
+        request.setAttribute("retorno", "ok");
+
+        if (deuCerto == true) {
+            MensagemDeRetorno = "Seja bem vindo(a) " + nome + "! " + dataAtual + "";
+        } else {
+            MensagemDeRetorno = "Não foi possível efetuar o login.";
+        }
+        request.setAttribute("retornoMensagem", MensagemDeRetorno);
+
         request.getServletContext().getRequestDispatcher(retorno).forward(request, response);
 
     }
