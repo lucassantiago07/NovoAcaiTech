@@ -10,11 +10,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <!-- temporario -->
-        <jsp:include page="/criaCarrinho" />
-        <script type="text/javascript">
-            alert("Carrinho criado!");
-        </script>
+        
 
         <meta charset="UTF-8">
         <title>AcaiTech Sistema - Login</title>

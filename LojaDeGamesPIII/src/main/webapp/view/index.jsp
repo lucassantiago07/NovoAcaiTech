@@ -6,6 +6,9 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <!-- temporario -->
+        <jsp:include page="/criaCarrinho" />
+
         <meta charset="UTF-8">
         <title>AcaiTech Sistema - Index</title>
         <link type="text/css" href="${pageContext.request.contextPath}/css/bootstrap.css" rel="stylesheet" />
@@ -18,8 +21,8 @@
             <div class="corpoimagem">
                 <img src="${pageContext.request.contextPath}/img/logo.png"  class="imagemlogo">
             </div>
-            
-            
+
+
             <div class="informacoessobrefuncionario">
                 <span class="nomedofuncionario">${sessionScope.getNome}</span> ●
                 <span class="filialfuncionario">${sessionScope.getFilial}</span>  ●
@@ -97,6 +100,8 @@
                     </div>
                     <div class="modal-body">
                         ${retornoMensagem}
+                        
+                        ++Carrinho criado!
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>

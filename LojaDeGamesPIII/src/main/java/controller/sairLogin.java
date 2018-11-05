@@ -30,7 +30,8 @@ public class sairLogin extends HttpServlet {
         session.setAttribute("getTelefone", null);
         session.setAttribute("getData", null);
 
-        response.sendRedirect("./view/login.jsp");
+        
+        request.getServletContext().getRequestDispatcher("/view/login.jsp").forward(request, response);
 
     }
 
