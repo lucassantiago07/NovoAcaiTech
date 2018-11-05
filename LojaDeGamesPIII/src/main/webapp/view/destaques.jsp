@@ -31,7 +31,7 @@
                 <span class="datafuncionario">${sessionScope.getData}</span>  
             </div>
             <form action="${pageContext.request.contextPath}/sairLogin" method="post">
-                <button type="button" class="btn btn-primary btnSair">Sair</button>
+                <button type="submit" class="btn btn-primary btnSair">Sair</button>
             </form>
 
         </nav>

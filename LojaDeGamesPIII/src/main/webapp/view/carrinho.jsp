@@ -1,8 +1,4 @@
-<%-- 
-   Document   : carrinho
-   Created on : 16/10/2018, 09:22:17
-   Author     : angelo.xavier
---%>
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -34,7 +30,7 @@
                 <span class="datafuncionario">${sessionScope.getData}</span>  
             </div>
             <form action="${pageContext.request.contextPath}/sairLogin" method="post">
-                <button type="button" class="btn btn-primary btnSair">Sair</button>
+                <button type="submit" class="btn btn-primary btnSair">Sair</button>
             </form>
                 
                 
