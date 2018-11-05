@@ -1,5 +1,7 @@
 package controller;
 
+import dao.FuncionarioDAO;
+import data.FuncionarioData;
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -15,8 +17,25 @@ public class validaLogin extends HttpServlet {
             throws ServletException, IOException {
 
         if ((request.getParameter("usuario") != null) || (request.getParameter("senha") != null)) {
-            HttpSession session = request.getSession();
-            session.setAttribute("usuarioLogado", request.getParameter("usuario"));
+
+            FuncionarioDAO fdao = new FuncionarioDAO();
+
+            FuncionarioData f = fdao.verificaLogin(request.getParameter("usuario"), request.getParameter("senha"));
+
+            if (f.getNome() != null) {
+                HttpSession session = request.getSession();
+                session.setAttribute("getCargo", f.getCargo());
+                session.setAttribute("getCelular", f.getCelular());
+                session.setAttribute("getCep", f.getCep());
+                session.setAttribute("getCpf", f.getCpf());
+                session.setAttribute("getEndereco", f.getEndereco());
+                session.setAttribute("getFilial", f.getFilial());
+                session.setAttribute("getId", f.getId());
+                session.setAttribute("getNome", f.getNome());
+                session.setAttribute("getNome", f.getTelefone());
+
+            }
+
         }
 
     }

@@ -41,6 +41,34 @@ public class FuncionarioDAO {
         return deuCerto;
     }
 
+    public FuncionarioData verificaLogin(String nome, String senha) {
+        FuncionarioData f = new FuncionarioData();
+        try {
+
+            Connection connection = new ConnectionFactory().getConnection();
+            Statement stmt = connection.createStatement();
+            ResultSet rs = stmt.executeQuery("SELECT * FROM `Funcionario` WHERE NOME = '" + nome + "' AND SENHA = '" + senha + "'");
+
+            while (rs.next()) {
+                f.setId(rs.getInt("ID"));
+                f.setNome(rs.getString("NOME"));
+                f.setCelular(rs.getString("CELULAR"));
+                f.setCep(rs.getString("CEP"));
+                f.setCpf(rs.getString("CPF"));
+                f.setCargo(rs.getString("CARGO"));
+                f.setFilial(Integer.parseInt(rs.getString("FILIAL")));
+                f.setEndereco(rs.getString("ENDERECO"));
+                f.setTelefone(rs.getString("TELEFONE"));
+
+            }
+            connection.close();
+        } catch (SQLException | ClassNotFoundException e) {
+            System.out.println("Erro no banco de dados verificaLogin:" + e);
+        }
+
+        return f;
+    }
+
     public boolean alterarFuncionario(FuncionarioData f) {
         boolean deuCerto = false;
         try {
