@@ -6,6 +6,9 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <c:if test="${empty sessionScope.getNome}">
+            <c:redirect url = "/expulsarDaPaginaSemLogar"/>
+        </c:if>
         <jsp:include page="/listaProduto" />
         <meta charset="UTF-8">
 

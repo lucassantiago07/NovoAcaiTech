@@ -4,6 +4,9 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <c:if test="${empty sessionScope.getNome}">
+            <c:redirect url = "/expulsarDaPaginaSemLogar"/>
+        </c:if>
         <jsp:include page="/capturaFuncionario" />
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>AcaiTech Sistema - Alterar Funcionario</title>
@@ -20,8 +23,8 @@
             <div class="corpoimagem">
                 <img src="${pageContext.request.contextPath}/img/logo.png"  class="imagemlogo">
             </div>
-            
-             <div class="informacoessobrefuncionario">
+
+            <div class="informacoessobrefuncionario">
                 <span class="nomedofuncionario">${sessionScope.getNome}</span> ●
                 <span class="filialfuncionario">${sessionScope.getFilial}</span>  ●
                 <span class="cargofuncionario">${sessionScope.getCargo}</span>  ●

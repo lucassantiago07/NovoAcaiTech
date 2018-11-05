@@ -4,6 +4,9 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <c:if test="${empty sessionScope.getNome}">
+            <c:redirect url = "/expulsarDaPaginaSemLogar"/>
+        </c:if>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>AcaiTech Sistema - Cadastrar Cliente</title>
         <link type="text/css" href="${pageContext.request.contextPath}/css/bootstrap.css" rel="stylesheet" />

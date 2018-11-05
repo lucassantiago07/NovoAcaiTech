@@ -4,6 +4,9 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <c:if test="${empty sessionScope.getNome}">
+            <c:redirect url = "/expulsarDaPaginaSemLogar"/>
+        </c:if>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>AcaiTech Sistema - Cadastrar Funcionario</title>
         <link type="text/css" href="${pageContext.request.contextPath}/css/bootstrap.css" rel="stylesheet" />
@@ -16,12 +19,12 @@
 
         <!-- Inicio Menu -->
         <nav class="navbar navbar-light bg-light">
-            
+
             <div class="corpoimagem">
                 <img src="${pageContext.request.contextPath}/img/logo.png"  class="imagemlogo">
             </div>
-            
-           <div class="informacoessobrefuncionario">
+
+            <div class="informacoessobrefuncionario">
                 <span class="nomedofuncionario">${sessionScope.getNome}</span> ●
                 <span class="filialfuncionario">${sessionScope.getFilial}</span>  ●
                 <span class="cargofuncionario">${sessionScope.getCargo}</span>  ●
@@ -30,7 +33,7 @@
             <form action="${pageContext.request.contextPath}/sairLogin" method="post">
                 <button type="submit" class="btn btn-primary btnSair">Sair</button>
             </form>
-        
+
         </nav>
         <!-- Fim Menu -->
 

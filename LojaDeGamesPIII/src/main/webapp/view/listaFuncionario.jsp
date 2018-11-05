@@ -6,6 +6,9 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <c:if test="${empty sessionScope.getNome}">
+            <c:redirect url = "/expulsarDaPaginaSemLogar"/>
+        </c:if>
         <jsp:include page="/listaFuncionario" />
         <meta charset="UTF-8">
         <title>AcaiTech Sistema - Lista de Funcionarios</title>

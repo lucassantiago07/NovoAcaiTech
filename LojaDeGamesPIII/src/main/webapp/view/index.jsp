@@ -6,9 +6,11 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <c:if test="${empty sessionScope.getNome}">
+            <c:redirect url = "/expulsarDaPaginaSemLogar"/>
+        </c:if>
         <!-- temporario -->
         <jsp:include page="/criaCarrinho" />
-
         <meta charset="UTF-8">
         <title>AcaiTech Sistema - Index</title>
         <link type="text/css" href="${pageContext.request.contextPath}/css/bootstrap.css" rel="stylesheet" />
@@ -100,7 +102,7 @@
                     </div>
                     <div class="modal-body">
                         ${retornoMensagem}
-                        
+
                         ++Carrinho criado!
                     </div>
                     <div class="modal-footer">

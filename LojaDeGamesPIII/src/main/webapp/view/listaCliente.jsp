@@ -6,6 +6,9 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <c:if test="${empty sessionScope.getNome}">
+            <c:redirect url = "/expulsarDaPaginaSemLogar"/>
+        </c:if>
         <jsp:include page="/listaCliente" />
         <meta charset="UTF-8">
         <title>AcaiTech Sistema - Lista de cleintes</title>
@@ -30,7 +33,7 @@
             <form action="${pageContext.request.contextPath}/sairLogin" method="post">
                 <button type="submit" class="btn btn-primary btnSair">Sair</button>
             </form>
-        
+
         </nav>
         <!-- Fim Menu -->
         <!-- Inicio Carrocel -->

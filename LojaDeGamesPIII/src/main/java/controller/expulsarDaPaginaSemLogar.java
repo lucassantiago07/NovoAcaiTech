@@ -12,10 +12,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-@WebServlet(name = "sairLogin", urlPatterns = {"/sairLogin"})
-public class sairLogin extends HttpServlet {
+@WebServlet(name = "expulsarDaPaginaSemLogar", urlPatterns = {"/expulsarDaPaginaSemLogar"})
+public class expulsarDaPaginaSemLogar extends HttpServlet {
 
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
         HttpSession session = request.getSession();
@@ -30,10 +30,14 @@ public class sairLogin extends HttpServlet {
         session.setAttribute("getTelefone", null);
         session.setAttribute("getData", null);
 
-        
+        request.setAttribute("retorno", "ok");
+
+        String MensagemDeRetorno = "Seu acesso à página solicitado não foi permitido pois você não está logado no sistema.";
+
+        request.setAttribute("retornoMensagem", MensagemDeRetorno);
+
         request.getServletContext().getRequestDispatcher("/view/login.jsp").forward(request, response);
 
     }
-    
 
 }
