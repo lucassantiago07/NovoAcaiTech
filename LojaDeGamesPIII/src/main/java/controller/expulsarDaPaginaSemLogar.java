@@ -30,9 +30,9 @@ public class expulsarDaPaginaSemLogar extends HttpServlet {
         session.setAttribute("getTelefone", null);
         session.setAttribute("getData", null);
 
-        request.setAttribute("retorno", "ok");
+        request.setAttribute("retorno", "expulsar");
 
-        String MensagemDeRetorno = "Seu acesso à página solicitado não foi permitido pois você não está logado no sistema.";
+        String MensagemDeRetorno = "Seu acesso à página solicitada não foi permitido pois você não está logado no sistema.";
 
         request.setAttribute("retornoMensagem", MensagemDeRetorno);
 

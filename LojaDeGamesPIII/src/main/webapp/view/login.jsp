@@ -10,7 +10,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        
+
 
         <meta charset="UTF-8">
         <title>AcaiTech Sistema - Login</title>
@@ -74,12 +74,22 @@
         </div>
 
         <!--  Captura a variavel de retorno e abre modal-->
-        <c:if test="${not empty retorno}">
+        <c:if test="${retorno == 'ok'}">
             <script type="text/javascript">
-            $("#myModal").modal();
-            $('#myModal').on('hidden.bs.modal', function () {
-                window.location.href = '${pageContext.request.contextPath}/view/listaCliente.jsp'
-            })
+                $("#myModal").modal();
+                $('#myModal').on('hidden.bs.modal', function () {
+                    window.location.href = '${pageContext.request.contextPath}/view/index.jsp'
+                })
+            </script>
+        </c:if> 
+
+        <c:if test="${retorno == 'expulsar'}">
+
+            <script type="text/javascript">
+                $("#myModal").modal();
+                $('#myModal').on('hidden.bs.modal', function () {
+                    window.location.href = '${pageContext.request.contextPath}'
+                })
             </script>
         </c:if> 
     </body>
