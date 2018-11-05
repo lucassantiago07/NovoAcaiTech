@@ -1,0 +1,81 @@
+.btnCarrinho
+{
+    background-color:purple;
+    width:10%;
+}
+.imagemcarrinho
+{
+    width:25%;
+}
+.buscajogos
+{
+    width:80%;
+    margin-left:10%;
+    margin-top:1%;
+}
+.buscagames
+{
+    margin-left:20%;
+    margin-top:2%;
+
+}
+.destaque
+{
+
+    width:60%;
+    margin-left:18%;
+}
+.imagemestrela
+{
+    width:10%;
+}
+.imagemdestaque
+{
+    width:100%;
+}
+.imagecard
+{
+    width:50%;
+}
+.card
+{
+    margin-left:0.5%;
+    margin-top:1%;
+    width: 19%;
+}
+
+.suporte
+{
+
+}
+.corpodeprodutos
+{
+    margin-bottom:2%;
+}
+
+.dropdown
+{
+    margin-left:15%;
+}
+.itemdelista
+{
+    margin-left:4%;
+}
+.plataforma
+{
+    margin-left:20%;
+}
+.categoriadojogo,.anodelancamento
+{
+    margin-left:4%;
+}
+.filtros
+{
+    background-color:purple;
+    padding-bottom:8px;
+}
+
+.separadorcarrocel
+{
+    background-color: purple;
+}

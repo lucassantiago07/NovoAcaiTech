@@ -20,10 +20,11 @@
             </div>
             <div class="informacoessobrefuncionario">
                 <span class="nomedofuncionario">${sessionScope.getNome}</span> ●
-                <span class="filialfuncionario">Filial Amazonia</span>  ●
-                <span><a href="#">Sair</a></span>
+                <span class="filialfuncionario">${sessionScope.getFilial}</span>  ●
+                <span class="cargofuncionario">${sessionScope.getCargo}</span>  ●
+                <span class="datafuncionario">${sessionScope.getData}</span>  
             </div>
-            <button type="button" class="btn btn-primary btnCarrinho">Carrinho <img src="${pageContext.request.contextPath}/img/carrinho.png"  class="imagemcarrinho"></button>
+            <button type="button" class="btn btn-primary btnSair" onclick="window.location.href = '${pageContext.request.contextPath}'">Sair</button>
         </nav>
         <!-- Fim Menu -->
         <!-- Inicio Carrocel -->
@@ -48,6 +49,14 @@
                 <span class="sr-only">Next</span>
             </a>
         </div>
+        <!-- Inicio Separador -->
+        <nav class="navbar navbar-light separadorcarrocel">
+        </nav>
+        <!-- Fim Separador -->
+
+        <div class="container">
+            <h3>Sistema em desenvolvimento.</h3>
+        </div>
 
         <!-- inicio Footer -->
         <footer class="rodape page-footer font-small blue">
@@ -56,9 +65,41 @@
             </div>           
         </footer>
         <!-- Fim Footer -->
-        
+
         <link type="text/css" href="${pageContext.request.contextPath}/css/script.css" rel="stylesheet" />
         <link type="text/css" href="${pageContext.request.contextPath}/css/index.css" rel="stylesheet" />
         <link type="text/css" href="${pageContext.request.contextPath}/css/menu.css" rel="stylesheet" />
         <script src="${pageContext.request.contextPath}/js/gradiente.js"></script>
+
+
+        <!-- Modal -->
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel"><img src="${pageContext.request.contextPath}/img/logo.png"  class="imagemlogomodal" style="width:20%;"> </h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        ${retornoMensagem}
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--  Captura a variavel de retorno e abre modal-->
+        <c:if test="${not empty retorno}">
+            <script type="text/javascript">
+                $("#myModal").modal();
+                $('#myModal').on('hidden.bs.modal', function () {
+                    window.location.href = '${pageContext.request.contextPath}/view/index.jsp'
+                })
+            </script>
+        </c:if> 
+
     </body>

@@ -15,7 +15,7 @@ import javax.servlet.http.HttpSession;
 @WebServlet(name = "validaLogin", urlPatterns = {"/validaLogin"})
 public class validaLogin extends HttpServlet {
 
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
         String retorno = "/view/login.jsp";
@@ -25,14 +25,19 @@ public class validaLogin extends HttpServlet {
         String MensagemDeRetorno = null;
 
         Date data = new Date();
-        SimpleDateFormat formatador = new SimpleDateFormat("dd/MM/yyyy");
+        SimpleDateFormat formatador = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
         String dataAtual = formatador.format(data);
+        
+        System.out.println(request.getParameter("usuario"));
+        System.out.println(request.getParameter("senha"));
 
         if ((request.getParameter("usuario") != null) || (request.getParameter("senha") != null)) {
 
             FuncionarioDAO fdao = new FuncionarioDAO();
 
             FuncionarioData f = fdao.verificaLogin(request.getParameter("usuario"), request.getParameter("senha"));
+            
+            System.out.println(f.getNome());
 
             if (f.getNome() != null) {
                 retorno = "/view/index.jsp";
@@ -45,7 +50,7 @@ public class validaLogin extends HttpServlet {
                 session.setAttribute("getFilial", f.getFilial());
                 session.setAttribute("getId", f.getId());
                 session.setAttribute("getNome", f.getNome());
-                session.setAttribute("getNome", f.getTelefone());
+                session.setAttribute("getTelefone", f.getTelefone());
                 session.setAttribute("getData", dataAtual);
                 nome = f.getNome();
                 deuCerto = true;

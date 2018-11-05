@@ -28,16 +28,16 @@
 
 
             <div id="parent">
-                <form id="form_login" action="/validaLogin" method="post">
+                <form id="form_login" action="${pageContext.request.contextPath}/validaLogin" method="post">
                     <div class="corpologin" style="margin-top:17%;">
 
                         <div class="form-group">
                             <label for="exampleInputEmail1">Úsuario</label>
-                            <input type="email" class="form-control" id="" aria-describedby="emailHelp" placeholder="" >
+                            <input type="text" class="form-control" id="" aria-describedby="emailHelp" placeholder="" name="usuario">
                         </div>
                         <div class="form-group">
                             <label for="exampleInputPassword1">Senha</label>
-                            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="" >
+                            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="" name="senha">
                         </div>
                         <button type="submit" class="btn btn-primary">Entrar</button>
 
@@ -50,7 +50,7 @@
         </div>
         <script src="js/jquery-3.3.1.js"></script>
         <script src="js/bootstrap.js"></script>
-        <script src="js/background-video.js"></script>
+        <!--<script src="js/background-video.js"></script>-->
         <link type="text/css" href="css/background-video.css" rel="stylesheet" />      
         <link type="text/css" href="css/bootstrap.css" rel="stylesheet" />
         <link type="text/css" href="css/script.css" rel="stylesheet" />

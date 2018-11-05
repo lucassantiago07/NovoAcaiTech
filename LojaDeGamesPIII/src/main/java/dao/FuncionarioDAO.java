@@ -47,7 +47,10 @@ public class FuncionarioDAO {
 
             Connection connection = new ConnectionFactory().getConnection();
             Statement stmt = connection.createStatement();
-            ResultSet rs = stmt.executeQuery("SELECT * FROM `Funcionario` WHERE NOME = '" + nome + "' AND SENHA = '" + senha + "'");
+            String sql = "SELECT * FROM `Funcionario` WHERE USUARIO = '" + nome + "' AND SENHA = '" + senha + "'";
+            ResultSet rs = stmt.executeQuery(sql);
+            
+            System.out.println(sql);
 
             while (rs.next()) {
                 f.setId(rs.getInt("ID"));
@@ -59,7 +62,6 @@ public class FuncionarioDAO {
                 f.setFilial(Integer.parseInt(rs.getString("FILIAL")));
                 f.setEndereco(rs.getString("ENDERECO"));
                 f.setTelefone(rs.getString("TELEFONE"));
-
             }
             connection.close();
         } catch (SQLException | ClassNotFoundException e) {
