@@ -32,12 +32,13 @@
                 <span class="cargofuncionario">${sessionScope.getCargo}</span>  ●
                 <span class="datafuncionario">${sessionScope.getData}</span>  
             </div>
-            <div class="row">
-                <form action="${pageContext.request.contextPath}/sairLogin" method="post">
-                    <button type="button" class="btn btn-primary btnCarrinho" ><a style="color:white;" href="${pageContext.request.contextPath}/view/destaques.jsp">Carrinho</a></button>
-                    <button type="submit" class="btn btn-primary btnSair">Sair</button>
-                </form>
-            </div>
+
+            <form action="${pageContext.request.contextPath}/sairLogin" method="post">
+                <a style="color:white;" href="${pageContext.request.contextPath}/view/carrinho.jsp">
+                    <button type="button" class="btn btn-primary" ><img  src="${pageContext.request.contextPath}/img/carrinho.png"  style="width: 25px;"> Carrinho</button>
+                </a>
+                <button type="submit" class="btn btn-primary btnSair">Sair</button>
+            </form>
 
         </nav>
         <!-- Fim Menu -->
