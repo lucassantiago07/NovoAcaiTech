@@ -21,7 +21,7 @@
     <!-- Inicio Menu -->
     <nav class="navbar navbar-light bg-light">
         <div class="corpoimagem">
-            <img src="${pageContext.request.contextPath}/img/logo.png"  class="imagemlogo">
+            <a href="index.jsp"><img  src="${pageContext.request.contextPath}/img/logo.png"  class="imagemlogo"></a>
         </div>
 
 
@@ -30,11 +30,14 @@
             <span class="filialfuncionario">${sessionScope.getFilial}</span>  ●
             <span class="cargofuncionario">${sessionScope.getCargo}</span>  ●
             <span class="datafuncionario">${sessionScope.getData}</span>  
-        </div>
-        <form action="${pageContext.request.contextPath}/sairLogin" method="post">
-            <button type="submit" class="btn btn-primary btnSair">Sair</button>
-        </form>
 
+        </div>
+        <div class="row">
+            <form action="${pageContext.request.contextPath}/sairLogin" method="post">
+                <button type="button" class="btn btn-primary btnCarrinho" ><a style="color:white;" href="${pageContext.request.contextPath}/view/destaques.jsp">Carrinho</a></button>
+                <button type="submit" class="btn btn-primary btnSair">Sair</button>
+            </form>
+        </div>
     </nav>
     <!-- Fim Menu -->
     <body>

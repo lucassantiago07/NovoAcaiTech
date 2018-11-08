@@ -17,13 +17,14 @@
         <script src="${pageContext.request.contextPath}/js/bootstrap.js"></script>
         <script src="${pageContext.request.contextPath}/js/validanumero.js"></script>
     </head>
-    <!-- Inicio Menu -->
-    <nav class="navbar navbar-light bg-light">
-        <div class="corpoimagem">
-            <img src="${pageContext.request.contextPath}/img/logo.png"  class="imagemlogo">
-        </div>
-        <div class="informacoessobrefuncionario">
 
+    <body>
+        <!-- Inicio Menu -->
+        <nav class="navbar navbar-light bg-light">
+
+            <div class="corpoimagem">
+                <a href="index.jsp"><img  src="${pageContext.request.contextPath}/img/logo.png"  class="imagemlogo"></a>
+            </div>
 
             <div class="informacoessobrefuncionario">
                 <span class="nomedofuncionario">${sessionScope.getNome}</span> ●
@@ -31,16 +32,15 @@
                 <span class="cargofuncionario">${sessionScope.getCargo}</span>  ●
                 <span class="datafuncionario">${sessionScope.getData}</span>  
             </div>
-            <form action="${pageContext.request.contextPath}/sairLogin" method="post">
-                <button type="submit" class="btn btn-primary btnSair">Sair</button>
-            </form>
+            <div class="row">
+                <form action="${pageContext.request.contextPath}/sairLogin" method="post">
+                    <button type="button" class="btn btn-primary btnCarrinho" ><a style="color:white;" href="${pageContext.request.contextPath}/view/destaques.jsp">Carrinho</a></button>
+                    <button type="submit" class="btn btn-primary btnSair">Sair</button>
+                </form>
+            </div>
 
-
-        </div>
-        <button type="button" class="btn btn-primary btnSair" onclick="window.location.href = '${pageContext.request.contextPath}'">Sair</button>
-    </nav>
-    <!-- Fim Menu -->
-    <body>
+        </nav>
+        <!-- Fim Menu -->
         <!-- Inicio Carrocel -->
         <div id="carouselExampleControls" class="carousel slide" data-ride="carousel" data-interval="2500">
             <div class="carousel-inner">
@@ -74,12 +74,9 @@
         <div class="container corpodecampos">
 
             <h3>Carrinho</h3>
-            <div class="row" style="margin-top: 2%;margin-bottom: 2%;">
 
-                <i style="margin-bottom:  2%; color:red">Clique no botão abaixo para adicionar um item ao carrinho, não esqueça de cadastrar no banco. Use o Script na base SQL do projeto.</i></br>
-                <a href="http://localhost:8080/LojaDeGamesPIII/adicionarAoCarrinho?idProduto=1"><i>Adicionar produto ID: 1</i></a>
-                <a href="http://localhost:8080/LojaDeGamesPIII/adicionarAoCarrinho?idProduto=2"><i>Adicionar produto ID: 2</i></a>
-            </div>
+            <h6 class="avisodecarrinho" style="margin-top: 2%"></h6>
+
 
             <table class="table table-sm" id="tablecarrinho">
                 <thead>
@@ -112,34 +109,51 @@
                     </c:if>
 
 
+
+
                 </tbody>
             </table>
 
 
 
 
-            <div class="row">
+
+            <div class="row" style="margin-top: 6%;">
                 <div class="corpoinformacoesdocliente col-4">
                     <div class="informacoesdocliente">
-                        <label>Nome do cliente: </label>  
-                        <input type="text" class="form-control form-control-sm "  value="abc" readonly="readonly"></input>
-                        <label>CPF: </label>  
-                        <input type="text" class="form-control form-control-sm "   value="abc" readonly="readonly"></input>
-                        <label>Cliente desde de: </label>  
-                        <input type="text" class="form-control form-control-sm "   value="abc"  readonly="readonly"></input>
+                        <label style="margin-top: 2%">Nome do cliente: </label>  
+                        <input type="text" class="form-control form-control-sm "  value="" readonly="readonly"></input>
+                        <label style="margin-top: 2%">CPF: </label>  
+                        <input type="text" class="form-control form-control-sm "   value="" readonly="readonly"></input>
+                        <label style="margin-top: 2%">Cliente desde de: </label>  
+                        <input type="text" class="form-control form-control-sm "   value=""  readonly="readonly"></input>
+
+                        <form action="${pageContext.request.contextPath}/view/destaques.jsp" method="post">
+                            <button type="submit" class="btn btn-primary  btnContinuar">Continuar comprando</button>
+                        </form>
+
+
                     </div>
                 </div>
                 <div class="corpoinformacoessobrepreco col-8">
                     <div class="informacoessobrepreco">
-                        <label>SubTotal: </label>  
+                        <label style="margin-top: 2%">SubTotal: </label>  
                         <input type="text"  pattern="([0-9]|[0-9]|[0-9])" class="form-control form-control-sm "  id="subtotal" readonly="readonly"></input>
-                        <label>Desconto: </label>  
+                        <label style="margin-top: 2%">Desconto: </label>  
                         <input type="text" maxlength="2" max="20" pattern="([0-9]|[0-9]|[0-9])"class="form-control form-control-sm "   id="desconto"  value="2" ></input>
-                        <label>Valor total: </label>  
+                        <label style="margin-top: 2%">Valor total: </label>  
                         <input type="text"  pattern="([0-9]|[0-9]|[0-9])" class="form-control form-control-sm "   id="valortotal" readonly="readonly"></input>
+
+                        <form action="${pageContext.request.contextPath}/finalizarVenda" method="post">
+                            <button type="submit" class="btn btn-primary btnSair btnFinalizar">Finalizar venda</button>
+                        </form>
                     </div>
+
+
                 </div>               
             </div>
+
+
         </div>
 
         <!-- Inicio Footer -->
@@ -156,6 +170,34 @@
         <link type="text/css" href="${pageContext.request.contextPath}/css/menu.css" rel="stylesheet" />
         <script src="${pageContext.request.contextPath}/js/gradiente.js"></script>
         <script src="${pageContext.request.contextPath}/js/carrinho.js"></script>
+
+        <!-- Modal -->
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel"><img src="${pageContext.request.contextPath}/img/logo.png"  class="imagemlogomodal" style="width:20%;"> </h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        Não foram adicionados produtos ao carrinho.
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--  Captura a variavel de retorno e abre modal-->
+        <c:if test="${empty listaProdutos}">
+            <script type="text/javascript">
+                $(".avisodecarrinho").text("Não existem produtos adicionados ao carrinho.")
+            </script>
+        </c:if> 
+
 
     </body>
 </html>

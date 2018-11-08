@@ -21,7 +21,7 @@
         <!-- Inicio Menu -->
         <nav class="navbar navbar-light bg-light">
             <div class="corpoimagem">
-                <img src="${pageContext.request.contextPath}/img/logo.png"  class="imagemlogo">
+                <img href="index.jsp" src="${pageContext.request.contextPath}/img/logo.png"  class="imagemlogo">
             </div>
 
 
@@ -31,9 +31,12 @@
                 <span class="cargofuncionario">${sessionScope.getCargo}</span>  ●
                 <span class="datafuncionario">${sessionScope.getData}</span>  
             </div>
-            <form action="${pageContext.request.contextPath}/sairLogin" method="post">
-                <button type="submit" class="btn btn-primary btnSair">Sair</button>
-            </form>
+            <div class="row">
+                <form action="${pageContext.request.contextPath}/sairLogin" method="post">
+                    <button type="button" class="btn btn-primary btnCarrinho" ><a style="color:white;" href="${pageContext.request.contextPath}/view/destaques.jsp">Carrinho</a></button>
+                    <button type="submit" class="btn btn-primary btnSair">Sair</button>
+                </form>
+            </div>
 
         </nav>
         <!-- Fim Menu -->
@@ -73,7 +76,7 @@
             <div class="row btnopcoes"><button type="button" class="btn btn-primary btnSair" onclick="window.location.href = '${pageContext.request.contextPath}/view/listaCliente.jsp'">Listagem de cliente +(Alterar/Excluir)</button></div> 
             <div class="row btnopcoes"><button type="button" class="btn btn-primary btnSair" onclick="window.location.href = '${pageContext.request.contextPath}/view/cadastrarFuncionario.jsp'">Cadastrar um funcionario</button></div> 
             <div class="row btnopcoes"><button type="button" class="btn btn-primary btnSair" onclick="window.location.href = '${pageContext.request.contextPath}/view/listaFuncionario.jsp'">Listagem de funcionario +(Alterar/Excluir)</button></div> 
-            <div class="row btnopcoes"><button type="button" class="btn btn-primary btnSair" onclick="window.location.href = '${pageContext.request.contextPath}/view/carrinho.jsp">Pré Carrinho</button></div>
+            <div class="row btnopcoes"><button type="button" class="btn btn-primary btnSair" onclick="window.location.href = '${pageContext.request.contextPath}/view/carrinho.jsp'">Pré Carrinho</button></div>
         </div>
 
         <!-- inicio Footer -->

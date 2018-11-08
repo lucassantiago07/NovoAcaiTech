@@ -21,7 +21,7 @@
         <!-- Inicio Menu -->
         <nav class="navbar navbar-light bg-light">
             <div class="corpoimagem">
-                <img src="${pageContext.request.contextPath}/img/logo.png"  class="imagemlogo">
+                <a href="index.jsp"><img  src="${pageContext.request.contextPath}/img/logo.png"  class="imagemlogo"></a>
             </div>
             <div class="informacoessobrefuncionario">
                 <span class="nomedofuncionario">${sessionScope.getNome}</span> ●
@@ -29,9 +29,12 @@
                 <span class="cargofuncionario">${sessionScope.getCargo}</span>  ●
                 <span class="datafuncionario">${sessionScope.getData}</span>  
             </div>
-            <form action="${pageContext.request.contextPath}/sairLogin" method="post">
-                <button type="submit" class="btn btn-primary btnSair">Sair</button>
-            </form>
+            <div class="row">
+                <form action="${pageContext.request.contextPath}/sairLogin" method="post">
+                    <button type="button" class="btn btn-primary btnCarrinho" ><a style="color:white;" href="${pageContext.request.contextPath}/view/destaques.jsp">Carrinho</a></button>
+                    <button type="submit" class="btn btn-primary btnSair">Sair</button>
+                </form>
+            </div>
 
         </nav>
         <!-- Fim Menu -->
@@ -148,6 +151,8 @@
         <link type="text/css" href="${pageContext.request.contextPath}/css/listaFuncionario.css" rel="stylesheet" />
         <link type="text/css" href="${pageContext.request.contextPath}/css/menu.css" rel="stylesheet" />
         <script src="${pageContext.request.contextPath}/js/gradiente.js"></script>
+
+
         <!-- Modal -->
         <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">

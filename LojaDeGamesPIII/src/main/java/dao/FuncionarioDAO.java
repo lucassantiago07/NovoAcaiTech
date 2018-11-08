@@ -16,7 +16,7 @@ public class FuncionarioDAO {
         try {
             Connection connection = new ConnectionFactory().getConnection();
 
-            String sqlFuncionario = "INSERT INTO `funcionario`(`nome`, `cpf`, `filial`, `cargo`, `endereco`, `cep`, `telefone`, `celular`) VALUES (?,?,?,?,?,?,?,?)";
+            String sqlFuncionario = "INSERT INTO `funcionario`(`nome`, `cpf`, `filial`, `cargo`, `endereco`, `cep`, `telefone`, `celular`,`usuario`,`senha`) VALUES (?,?,?,?,?,?,?,?,?,?)";
             System.out.println(sqlFuncionario);
             PreparedStatement pstmtFuncionario = connection.prepareStatement(sqlFuncionario);
             pstmtFuncionario.setString(1, f.getNome());
@@ -27,6 +27,8 @@ public class FuncionarioDAO {
             pstmtFuncionario.setString(6, f.getCep());
             pstmtFuncionario.setString(7, f.getTelefone());
             pstmtFuncionario.setString(8, f.getCelular());
+            pstmtFuncionario.setString(9, f.getCpf());
+            pstmtFuncionario.setString(10, f.getCpf());
             int deuCertoSQL = pstmtFuncionario.executeUpdate();
 
             if (deuCertoSQL == 1) {
