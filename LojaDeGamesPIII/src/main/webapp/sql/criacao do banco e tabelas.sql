@@ -1,6 +1,8 @@
 DROP DATABASE lojadegames; 
 
-CREATE DATABASE lojadegames; 
+CREATE DATABASE lojadegames;
+
+use lojadegames; 
 
 CREATE TABLE lojadegames.produto 
   ( 
@@ -73,11 +75,11 @@ CREATE TABLE lojadegames.funcionario
   ( 
      id       BIGINT NOT NULL auto_increment, 
      nome     VARCHAR(100) NOT NULL, 
-     cpf      INT NOT NULL, 
+     cpf      VARCHAR(100) NULL, 
      filial   INT NOT NULL, 
      cargo    VARCHAR(100) NULL, 
      endereco VARCHAR(100) NULL, 
-     cep      INT NULL, 
+     cep      VARCHAR(100) NULL, 
      telefone INT NULL, 
      celular  VARCHAR(100) NULL, 
      usuario  VARCHAR(100) NULL, 
@@ -105,4 +107,4 @@ VALUES      ('SANTOS LIMA',
              '1156235423', 
              '11964549507', 
              'santos', 
-             '123') 
+             '123');

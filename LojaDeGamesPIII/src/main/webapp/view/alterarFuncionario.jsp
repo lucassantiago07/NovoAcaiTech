@@ -72,7 +72,7 @@
 
             <h3>Alterar Funcionario</h3>
 
-            <form name="formularioFuncionario" id="formularioFuncionario" action="${pageContext.request.contextPath}/cadastrarFuncionario" method="post">
+            <form name="formularioFuncionario" id="formularioFuncionario" action="${pageContext.request.contextPath}/alterarFuncionario" method="post">
                 <div class="form-group">
                     <label>Identificador do Funcionario</label>
                     <input class="form-control" id="id" name="id" value="${funcionario.id}" readonly="readonly"></input>

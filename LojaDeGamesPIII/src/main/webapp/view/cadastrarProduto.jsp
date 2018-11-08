@@ -179,7 +179,7 @@
             <script type="text/javascript">
                         $("#myModal").modal();
                         $('#myModal').on('hidden.bs.modal', function () {
-                            window.location.href = '${pageContext.request.contextPath}/view/listaCliente.jsp'
+                            window.location.href = '${pageContext.request.contextPath}/view/listaProduto.jsp'
                         })
             </script>
         </c:if> 
