@@ -1,9 +1,3 @@
-<%-- 
-    Document   : login
-    Created on : 14/10/2018, 12:07:05
-    Author     : angelo.xavier
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>

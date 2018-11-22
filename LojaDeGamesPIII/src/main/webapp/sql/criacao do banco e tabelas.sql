@@ -1,8 +1,8 @@
 DROP DATABASE lojadegames; 
 
-CREATE DATABASE lojadegames;
+CREATE DATABASE lojadegames; 
 
-use lojadegames; 
+USE lojadegames; 
 
 CREATE TABLE lojadegames.produto 
   ( 
@@ -107,4 +107,23 @@ VALUES      ('SANTOS LIMA',
              '1156235423', 
              '11964549507', 
              'santos', 
-             '123');
+             '123'); 
+
+CREATE TABLE lojadegames.venda 
+  ( 
+     id               BIGINT NOT NULL auto_increment, 
+     id_cliente       INT NOT NULL, 
+     data_da_venda    TIMESTAMP NULL, 
+     valortotal       INT NOT NULL, 
+     CONSTRAINT pk_tbvenda PRIMARY KEY(id) 
+  ); 
+
+CREATE TABLE lojadegames.produtos_da_venda 
+  ( 
+     id             BIGINT NOT NULL auto_increment, 
+     nome_produto   VARCHAR(100) NOT NULL, 
+     quantidade     INT NOT NULL, 
+     id_venda INT NOT NULL, 
+     preco_unitario VARCHAR(100) NULL
+     CONSTRAINT pk_produtosdavenda PRIMARY KEY(id) 
+  ); 
