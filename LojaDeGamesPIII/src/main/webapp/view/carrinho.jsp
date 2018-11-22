@@ -1,11 +1,9 @@
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
     <head>
-
         <c:if test="${empty sessionScope.getNome}">
             <c:redirect url = "/expulsarDaPaginaSemLogar"/>
         </c:if>
@@ -17,29 +15,24 @@
         <script src="${pageContext.request.contextPath}/js/bootstrap.js"></script>
         <script src="${pageContext.request.contextPath}/js/validanumero.js"></script>
     </head>
-
     <body>
         <!-- Inicio Menu -->
         <nav class="navbar navbar-light bg-light">
-
             <div class="corpoimagem">
                 <a href="index.jsp"><img  src="${pageContext.request.contextPath}/img/logo.png"  class="imagemlogo"></a>
             </div>
-
             <div class="informacoessobrefuncionario">
                 <span class="nomedofuncionario">${sessionScope.getNome}</span> ●
                 <span class="filialfuncionario">${sessionScope.getFilial}</span>  ●
                 <span class="cargofuncionario">${sessionScope.getCargo}</span>  ●
                 <span class="datafuncionario">${sessionScope.getData}</span>  
             </div>
-
             <form action="${pageContext.request.contextPath}/sairLogin" method="post">
                 <a style="color:white;" href="${pageContext.request.contextPath}/view/carrinho.jsp">
                     <button type="button" class="btn btn-primary" >Carrinho</button>
                 </a>
                 <button type="submit" class="btn btn-primary btnSair">Sair</button>
             </form>
-
         </nav>
         <!-- Fim Menu -->
         <!-- Inicio Carrocel -->
@@ -65,20 +58,14 @@
             </a>
         </div>
         <!-- Fim Carrocel -->
-
         <!-- Inicio Separador -->
         <nav class="navbar navbar-light separadorcarrocel">
         </nav>
         <!-- Fim Separador -->
-
         <!-- Inicio Corpo De Campo -->
         <div class="container corpodecampos">
-
             <h3>Carrinho</h3>
-
             <h6 class="avisodecarrinho" style="margin-top: 2%"></h6>
-
-
             <table class="table table-sm" id="tablecarrinho">
                 <thead>
                     <tr>
@@ -97,46 +84,42 @@
                         <c:forEach var="produto" items="${listaProdutos}">
                             <tr class="">
                                 <td>${produto.id}</td>
-                                <td>${produto.nome}</td>     
-                                <td>${produto.estoque}</td>   
+                                <td>${produto.nome}</td>
+                                <td>${produto.estoque}</td>
                                 <td><input type="number" class="form-control form-control-sm qtdCarrinho" value="${produto.qtdCarrinho}" max="${produto.estoque}"></input></td>
-                                <td>${produto.precoDeVenda}</td>  
-                                <td type="number">${produto.precoDeVenda * produto.qtdCarrinho}</td> 
-                                <td><a href="#">Remover</a></td> 
+                                <td>${produto.precoDeVenda}</td>
+                                <td type="number">${produto.precoDeVenda * produto.qtdCarrinho}</td>
+                                <td><a href="#">Remover</a></td>
                             </tr>
                         </c:forEach>
-
-
                     </c:if>
-
-
-
-
                 </tbody>
             </table>
-
-
-
-
-
-            <div class="row" style="margin-top: 6%;">
-                <div class="corpoinformacoesdocliente col-4">
+            <div class="row">
+                <div class="col-4">
                     <div class="informacoesdocliente">
                         <label style="margin-top: 2%">Nome do cliente: </label>  
-                        <input type="text" class="form-control form-control-sm "  value="" readonly="readonly"></input>
+                        <input type="text" class="form-control form-control-sm "   value="${nomeCliente}" readonly="readonly"></input>
                         <label style="margin-top: 2%">CPF: </label>  
-                        <input type="text" class="form-control form-control-sm "   value="" readonly="readonly"></input>
-                        <label style="margin-top: 2%">Cliente desde de: </label>  
-                        <input type="text" class="form-control form-control-sm "   value=""  readonly="readonly"></input>
-
+                        <input type="text" class="form-control form-control-sm "   value="${cpfCliente}" readonly="readonly"></input>
+                        <label style="margin-top: 2%">Contato: </label>  
+                        <input type="text" class="form-control form-control-sm "   value="${celularCliente}"  readonly="readonly"></input>
                         <form action="${pageContext.request.contextPath}/view/destaques.jsp" method="post">
-                            <button type="submit" class="btn btn-primary  btnContinuar">Continuar comprando</button>
+                            <button type="submit" class="btn btn-primary btnContinuar">Continuar comprando</button>
                         </form>
-
-
                     </div>
                 </div>
-                <div class="corpoinformacoessobrepreco col-8">
+                <div class="col-4">
+                    <div class="informacoessobrepreco">
+                        <label style="margin-top: 2%">CPF do Cliente: </label>  
+
+                        <form action="${pageContext.request.contextPath}/getClienteParaVenda" method="post">
+                            <input type="text"  class="form-control form-control-sm" name="cpfCliente" maxlength="11" onkeypress="return isNumberKey(event)" required></input>
+                            <button type="submit" class="btn btn-primary btnGeral">Buscar Cliente</button>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-4">
                     <div class="informacoessobrepreco">
                         <label style="margin-top: 2%">SubTotal: </label>  
                         <input type="text"  pattern="([0-9]|[0-9]|[0-9])" class="form-control form-control-sm "  id="subtotal" readonly="readonly"></input>
@@ -144,19 +127,13 @@
                         <input type="text" maxlength="2" max="20" pattern="([0-9]|[0-9]|[0-9])"class="form-control form-control-sm "   id="desconto"  value="2" ></input>
                         <label style="margin-top: 2%">Valor total: </label>  
                         <input type="text"  pattern="([0-9]|[0-9]|[0-9])" class="form-control form-control-sm "   id="valortotal" readonly="readonly"></input>
-
                         <form action="${pageContext.request.contextPath}/finalizarVenda" method="post">
-                            <button type="submit" class="btn btn-primary btnSair btnFinalizar">Finalizar venda</button>
+                            <button type="submit" class="btn btn-primary btnGeral btnFinalizar">Finalizar venda</button>
                         </form>
                     </div>
-
-
-                </div>               
+                </div>
             </div>
-
-
         </div>
-
         <!-- Inicio Footer -->
         <footer class="rodape page-footer font-small blue">
             <div class="footer-copyright text-center py-3">© 2018 Copyright: [ ACAITECH SISTEMAS OPERACIONAIS LTDA 13.050.544/0001-00 ]
@@ -164,14 +141,11 @@
             </div>
         </footer>
         <!-- Fim Footer -->
-
-
         <link type="text/css" href="${pageContext.request.contextPath}/css/script.css" rel="stylesheet" />
         <link type="text/css" href="${pageContext.request.contextPath}/css/carrinho.css" rel="stylesheet" />
         <link type="text/css" href="${pageContext.request.contextPath}/css/menu.css" rel="stylesheet" />
         <script src="${pageContext.request.contextPath}/js/gradiente.js"></script>
         <script src="${pageContext.request.contextPath}/js/carrinho.js"></script>
-
         <!-- Modal -->
         <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
@@ -183,7 +157,12 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        Não foram adicionados produtos ao carrinho.
+                        ${retornoMensagem}<br>
+                        Deseja cadastrar um cliente?
+                        <div class="container corpobtnCadastrarCliente">
+                            <button type="button" class="btn btn-primary btnCadastrarCliente" onclick="window.location.href = '${pageContext.request.contextPath}/view/cadastrarCliente.jsp'">Sim</button>
+                            <button type="button" class="btn btn-primary btnCadastrarCliente" onclick="window.location.href = '${pageContext.request.contextPath}/view/carrinho.jsp'">Não</button>
+                        </div>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
@@ -191,14 +170,22 @@
                 </div>
             </div>
         </div>
-
         <!--  Captura a variavel de retorno e abre modal-->
         <c:if test="${empty listaProdutos}">
             <script type="text/javascript">
                 $(".avisodecarrinho").text("Não existem produtos adicionados ao carrinho.")
             </script>
+        </c:if>
+
+
+        <!--  Captura a variavel de retorno e abre modal-->
+        <c:if test="${not empty retorno}">
+            <script type="text/javascript">
+                $("#myModal").modal();
+                $('#myModal').on('hidden.bs.modal', function () {
+                    window.location.href = '${pageContext.request.contextPath}/view/carrinho.jsp'
+                })
+            </script>
         </c:if> 
-
-
     </body>
 </html>

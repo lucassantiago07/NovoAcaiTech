@@ -75,14 +75,23 @@ table
     width: 70px;
 }
 
-.btnFinalizar
-{
-    margin-top: 10%;
-    float:right;
-}
 .btnContinuar
 {
     margin-top: 5%;
-    float:left;
-
+    background-color: red;
+}
+.btnGeral
+{
+    margin-top: 5%;
+    background-color: purple;
+}
+.corpobtnCadastrarCliente
+{
+    margin-top: 2%;
+}
+.btnFinalizar
+{
+    margin-top: 7%;
+    background-color: lime;
+    color:black;
 }

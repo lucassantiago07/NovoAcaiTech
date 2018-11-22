@@ -10,9 +10,11 @@
 <!DOCTYPE html>
 <html>
     <head>
+       
         <c:if test="${empty sessionScope.getNome}">
             <c:redirect url = "/expulsarDaPaginaSemLogar"/>
         </c:if>
+        <jsp:include page="/listaProduto" />
         <meta charset="UTF-8">
         <title>AcaiTech Sistema - Destaques</title>
         <link type="text/css" href="${pageContext.request.contextPath}/css/bootstrap.css" rel="stylesheet" />
@@ -124,189 +126,51 @@
  </div>
          </div>-->
 
-
+        
         <!-- Fim Busca Jogos -->
         <div class=" corpodeprodutos container">
-            <!-- Inicio Imagem Busca -->
+
             <div class="destaque">
                 <img src="${pageContext.request.contextPath}/img/destaque.png"  class="imagemdestaque">
-                <!--<img src="img/star.png"  class="imagemestrela">
-                   <img src="img/star.png"  class="imagemestrela">
-                   <img src="img/star.png"  class="imagemestrela">
-                   <img src="img/star.png"  class="imagemestrela">
-                   <img src="img/star.png"  class="imagemestrela">-->
+
             </div>
-            <!-- Fim Imagem Busca -->
-            <!-- Inicio Produtos -->
+
             <div class="row">
-                <div class="card">
-                    <img class="card-img-top" src="${pageContext.request.contextPath}/img/produto.jpg" alt="Card image cap">
-                    <div class="card-body">
-                        <h5 class="card-title">Titulo do Jogo</h5>
-                        <p class="card-text">Texto explicativo do jogo...</p>
-                        <a href="#" class="btn btn-primary">Adicionar ao carrinho</a>
-                    </div>
-                </div>
-                <div class="card">
-                    <img class="card-img-top" src="${pageContext.request.contextPath}/img/produto.jpg" alt="Card image cap">
-                    <div class="card-body">
-                        <h5 class="card-title">Titulo do Jogo</h5>
-                        <p class="card-text">Texto explicativo do jogo...</p>
-                        <a href="#" class="btn btn-primary">Adicionar ao carrinho</a>
-                    </div>
-                </div>
-                <div class="card">
-                    <img class="card-img-top" src="${pageContext.request.contextPath}/img/produto.jpg" alt="Card image cap">
-                    <div class="card-body">
-                        <h5 class="card-title">Titulo do Jogo</h5>
-                        <p class="card-text">Texto explicativo do jogo...</p>
-                        <a href="#" class="btn btn-primary">Adicionar ao carrinho</a>
-                    </div>
-                </div>
-                <div class="card">
-                    <img class="card-img-top" src="${pageContext.request.contextPath}/img/produto.jpg" alt="Card image cap">
-                    <div class="card-body">
-                        <h5 class="card-title">Titulo do Jogo</h5>
-                        <p class="card-text">Texto explicativo do jogo...</p>
-                        <a href="#" class="btn btn-primary">Adicionar ao carrinho</a>
-                    </div>
-                </div>
-                <div class="card">
-                    <img class="card-img-top" src="${pageContext.request.contextPath}/img/produto.jpg" alt="Card image cap">
-                    <div class="card-body">
-                        <h5 class="card-title">Titulo do Jogo</h5>
-                        <p class="card-text">Texto explicativo do jogo...</p>
-                        <a href="#" class="btn btn-primary">Adicionar ao carrinho</a>
-                    </div>
-                </div>
+
+                <c:if test="${ not empty lista}">
+                    <c:forEach var="produto" items="${lista}">
+                        <div class="card">
+                            <img class="card-img-top" src="${pageContext.request.contextPath}/img/${produto.categoria}.png">
+                            <div class="card-body">
+                                <h5 class="card-title">${produto.nome}</h5>
+                                <p class="card-text descricoes">${produto.descricao}</p>
+                                <p class="card-text"> R$:  ${produto.precoDeVenda}</p>
+
+                                <c:if test="${produto.categoria == 1}">
+                                    <p>Ação</p>
+                                </c:if>
+                                <c:if test="${produto.categoria == 2}">
+                                    <p>Corrida</p>
+                                </c:if>
+                                <c:if test="${produto.categoria == 3}">
+                                    <p>Tiro</p>
+                                </c:if>
+                                <c:if test="${produto.categoria == 4}">
+                                    <p>RPG</p>
+                                </c:if>
+                                <c:if test="${produto.categoria == 5}">
+                                    <p>Estratégia</p>
+                                </c:if>
+                                <c:if test="${produto.categoria == ''}">
+                                    <p>Não encontrado</p>
+                                </c:if>
+
+                                <a href="${pageContext.request.contextPath}/adicionarAoCarrinho?idProduto=${produto.id}">Add. Carrinho</a> 
+                            </div>
+                        </div>
+                    </c:forEach>
+                </c:if>
             </div>
-            <div class="row">
-                <div class="card">
-                    <img class="card-img-top" src="${pageContext.request.contextPath}/img/produto.jpg" alt="Card image cap">
-                    <div class="card-body">
-                        <h5 class="card-title">Titulo do Jogo</h5>
-                        <p class="card-text">Texto explicativo do jogo...</p>
-                        <a href="#" class="btn btn-primary">Adicionar ao carrinho</a>
-                    </div>
-                </div>
-                <div class="card">
-                    <img class="card-img-top" src="${pageContext.request.contextPath}/img/produto.jpg" alt="Card image cap">
-                    <div class="card-body">
-                        <h5 class="card-title">Titulo do Jogo</h5>
-                        <p class="card-text">Texto explicativo do jogo...</p>
-                        <a href="#" class="btn btn-primary">Adicionar ao carrinho</a>
-                    </div>
-                </div>
-                <div class="card">
-                    <img class="card-img-top" src="${pageContext.request.contextPath}/img/produto.jpg" alt="Card image cap">
-                    <div class="card-body">
-                        <h5 class="card-title">Titulo do Jogo</h5>
-                        <p class="card-text">Texto explicativo do jogo...</p>
-                        <a href="#" class="btn btn-primary">Adicionar ao carrinho</a>
-                    </div>
-                </div>
-                <div class="card">
-                    <img class="card-img-top" src="${pageContext.request.contextPath}/img/produto.jpg" alt="Card image cap">
-                    <div class="card-body">
-                        <h5 class="card-title">Titulo do Jogo</h5>
-                        <p class="card-text">Texto explicativo do jogo...</p>
-                        <a href="#" class="btn btn-primary">Adicionar ao carrinho</a>
-                    </div>
-                </div>
-                <div class="card">
-                    <img class="card-img-top" src="${pageContext.request.contextPath}/img/produto.jpg" alt="Card image cap">
-                    <div class="card-body">
-                        <h5 class="card-title">Titulo do Jogo</h5>
-                        <p class="card-text">Texto explicativo do jogo...</p>
-                        <a href="#" class="btn btn-primary">Adicionar ao carrinho</a>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="card">
-                    <img class="card-img-top" src="${pageContext.request.contextPath}/img/produto.jpg" alt="Card image cap">
-                    <div class="card-body">
-                        <h5 class="card-title">Titulo do Jogo</h5>
-                        <p class="card-text">Texto explicativo do jogo...</p>
-                        <a href="#" class="btn btn-primary">Adicionar ao carrinho</a>
-                    </div>
-                </div>
-                <div class="card">
-                    <img class="card-img-top" src="${pageContext.request.contextPath}/img/produto.jpg" alt="Card image cap">
-                    <div class="card-body">
-                        <h5 class="card-title">Titulo do Jogo</h5>
-                        <p class="card-text">Texto explicativo do jogo...</p>
-                        <a href="#" class="btn btn-primary">Adicionar ao carrinho</a>
-                    </div>
-                </div>
-                <div class="card">
-                    <img class="card-img-top" src="${pageContext.request.contextPath}/img/produto.jpg" alt="Card image cap">
-                    <div class="card-body">
-                        <h5 class="card-title">Titulo do Jogo</h5>
-                        <p class="card-text">Texto explicativo do jogo...</p>
-                        <a href="#" class="btn btn-primary">Adicionar ao carrinho</a>
-                    </div>
-                </div>
-                <div class="card">
-                    <img class="card-img-top" src="${pageContext.request.contextPath}/img/produto.jpg" alt="Card image cap">
-                    <div class="card-body">
-                        <h5 class="card-title">Titulo do Jogo</h5>
-                        <p class="card-text">Texto explicativo do jogo...</p>
-                        <a href="#" class="btn btn-primary">Adicionar ao carrinho</a>
-                    </div>
-                </div>
-                <div class="card">
-                    <img class="card-img-top" src="${pageContext.request.contextPath}/img/produto.jpg" alt="Card image cap">
-                    <div class="card-body">
-                        <h5 class="card-title">Titulo do Jogo</h5>
-                        <p class="card-text">Texto explicativo do jogo...</p>
-                        <a href="#" class="btn btn-primary">Adicionar ao carrinho</a>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="card">
-                    <img class="card-img-top" src="${pageContext.request.contextPath}/img/produto.jpg" alt="Card image cap">
-                    <div class="card-body">
-                        <h5 class="card-title">Titulo do Jogo</h5>
-                        <p class="card-text">Texto explicativo do jogo...</p>
-                        <a href="#" class="btn btn-primary">Adicionar ao carrinho</a>
-                    </div>
-                </div>
-                <div class="card">
-                    <img class="card-img-top" src="${pageContext.request.contextPath}/img/produto.jpg" alt="Card image cap">
-                    <div class="card-body">
-                        <h5 class="card-title">Titulo do Jogo</h5>
-                        <p class="card-text">Texto explicativo do jogo...</p>
-                        <a href="#" class="btn btn-primary">Adicionar ao carrinho</a>
-                    </div>
-                </div>
-                <div class="card">
-                    <img class="card-img-top" src="${pageContext.request.contextPath}/img/produto.jpg" alt="Card image cap">
-                    <div class="card-body">
-                        <h5 class="card-title">Titulo do Jogo</h5>
-                        <p class="card-text">Texto explicativo do jogo...</p>
-                        <a href="#" class="btn btn-primary">Adicionar ao carrinho</a>
-                    </div>
-                </div>
-                <div class="card">
-                    <img class="card-img-top" src="${pageContext.request.contextPath}/img/produto.jpg" alt="Card image cap">
-                    <div class="card-body">
-                        <h5 class="card-title">Titulo do Jogo</h5>
-                        <p class="card-text">Texto explicativo do jogo...</p>
-                        <a href="#" class="btn btn-primary">Adicionar ao carrinho</a>
-                    </div>
-                </div>
-                <div class="card">
-                    <img class="card-img-top" src="${pageContext.request.contextPath}/img/produto.jpg" alt="Card image cap">
-                    <div class="card-body">
-                        <h5 class="card-title">Titulo do Jogo</h5>
-                        <p class="card-text">Texto explicativo do jogo...</p>
-                        <a href="#" class="btn btn-primary">Adicionar ao carrinho</a>
-                    </div>
-                </div>
-            </div>
-            <!-- Fim Produtos -->
         </div>
         <!-- Footer -->
         <footer class="rodape page-footer font-small blue">

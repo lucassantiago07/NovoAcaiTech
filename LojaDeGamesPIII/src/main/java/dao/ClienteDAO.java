@@ -130,6 +130,34 @@ public class ClienteDAO {
         return listaCliente;
     }
 
+    public ClienteData getClienteByCpf(String cpf) {
+        ClienteData c = new ClienteData();
+        try {
+
+            Connection connection = new ConnectionFactory().getConnection();
+            Statement stmt = connection.createStatement();
+            ResultSet rs = stmt.executeQuery("SELECT * FROM `cliente` WHERE CPF = '" + cpf + "'");
+
+            while (rs.next()) {
+                c.setId(rs.getInt("ID"));
+                c.setNome(rs.getString("NOME"));
+                c.setCelular(rs.getString("CELULAR"));
+                c.setCep(rs.getString("CEP"));
+                c.setCpf(rs.getString("CPF"));
+                c.setEmail(rs.getString("EMAIL"));
+                c.setEndereco(rs.getString("ENDERECO"));
+                c.setTelefone(rs.getString("TELEFONE"));
+
+            }
+
+            connection.close();
+        } catch (SQLException | ClassNotFoundException e) {
+            System.out.println("Erro no banco de dados getClienteByCpf:" + e);
+        }
+        System.out.println(c.getCpf());
+        return c;
+    }
+
     public ClienteData getClienteById(Integer id) {
         ClienteData c = new ClienteData();
         try {
@@ -167,8 +195,6 @@ public class ClienteDAO {
             String sqlCliente = "DELETE FROM CLIENTE WHERE ID = " + id;
             PreparedStatement pstmtCliente = connection.prepareStatement(sqlCliente);
             int deuCertoSQL = pstmtCliente.executeUpdate();
-
-            
 
             if (deuCertoSQL == 1) {
                 deuCerto = true;
