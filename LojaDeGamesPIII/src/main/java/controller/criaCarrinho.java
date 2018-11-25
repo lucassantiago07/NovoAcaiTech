@@ -1,12 +1,8 @@
 package controller;
 
-import controller.*;
 import data.ProdutoData;
-import dao.ProdutoDAO;
-import dao.ProdutoDAO;
 import java.io.IOException;
 import java.util.ArrayList;
-import javax.servlet.RequestDispatcher;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;

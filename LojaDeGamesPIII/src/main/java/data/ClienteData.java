@@ -1,7 +1,5 @@
 package data;
 
-import java.math.BigInteger;
-
 public class ClienteData {
 
     private String cpf;

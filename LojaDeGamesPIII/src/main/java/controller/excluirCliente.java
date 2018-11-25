@@ -1,7 +1,6 @@
 package controller;
 
 import dao.ClienteDAO;
-import dao.ProdutoDAO;
 import data.ClienteData;
 import java.io.IOException;
 import javax.servlet.ServletException;

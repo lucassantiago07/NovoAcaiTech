@@ -1,8 +1,6 @@
 package controller;
 
-import controller.*;
 import data.ProdutoData;
-import dao.ProdutoDAO;
 import dao.ProdutoDAO;
 import java.io.IOException;
 

@@ -1,7 +1,6 @@
 package controller;
 
 import dao.FuncionarioDAO;
-import dao.ProdutoDAO;
 import data.FuncionarioData;
 import java.io.IOException;
 import javax.servlet.ServletException;

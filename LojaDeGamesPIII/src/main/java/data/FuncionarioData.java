@@ -1,7 +1,5 @@
 package data;
 
-import java.math.BigInteger;
-
 public class FuncionarioData {
 
     private Integer id;
