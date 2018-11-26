@@ -1,16 +1,9 @@
-<%-- 
-    Document   : destaques
-    Created on : 14/10/2018, 12:06:26
-    Author     : angelo.xavier
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
     <head>
-
         <c:if test="${empty sessionScope.getNome}">
             <c:redirect url = "/expulsarDaPaginaSemLogar"/>
         </c:if>
@@ -27,26 +20,18 @@
             <div class="corpoimagem">
                 <a href="index.jsp"><img  src="${pageContext.request.contextPath}/img/logo.png"  class="imagemlogo"></a>
             </div>
-
-
             <div class="informacoessobrefuncionario">
                 <span class="nomedofuncionario">${sessionScope.getNome}</span> ●
                 <span class="filialfuncionario">${sessionScope.getFilial}</span>  ●
                 <span class="cargofuncionario">${sessionScope.getCargo}</span>  ●
                 <span class="datafuncionario">${sessionScope.getData}</span>  
             </div>
-
-
-
-
             <form action="${pageContext.request.contextPath}/sairLogin" method="post">
                 <a style="color:white;" href="${pageContext.request.contextPath}/view/carrinho.jsp">
                     <button type="button" class="btn btn-primary" >Carrinho</button>
                 </a>
                 <button type="submit" class="btn btn-primary btnSair">Sair</button>
             </form>
-
-
         </nav>
         <!-- Fim Menu -->
         <!-- Inicio Carrocel -->
@@ -78,74 +63,31 @@
                 <input class=" form-control mr-sm-2 " type="search" placeholder="Digite o nome do jogo,fornecedor, ano de lançamento, plataforma, ..etc" aria-label="Search" style="width:90%">
                 <button type="submit" class="btn btn-light">Buscar</button>
             </form>
-
         </nav>
-        <!--
-  <div class="row filtros">
-  <div class="plataforma">
-    <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Plataforma<span class="caret"></span></button>
-    <ul class="dropdown-menu">
-       <li class="dropdown-header">Dropdown header 1</li>
-       <li class="itemdelista"><a href="#">Xbox 360</a></li>
-                   <li class="itemdelista"><a href="#">Xbox ONE</a></li>
-       <li class="itemdelista"><a href="#">PlayStation 2</a></li>
-       <li class="itemdelista"><a href="#">PlayStation 3</a></li>
-                   <li class="itemdelista"><a href="#">PlayStation 4</a></li>
-                   <li class="itemdelista"><a href="#">Nintendo  Wii</a></li>
-                   <li class="itemdelista"><a href="#">Nintendo  3DS </a></li>			   
-                   <li class="itemdelista"><a href="#">Computador</a></li>
-    </ul>
- </div>
-         <div class="categoriadojogo">
-    <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Categoria do jogo<span class="caret"></span></button>
-    <ul class="dropdown-menu">
-       <li class="dropdown-header">Dropdown header 1</li>
-       <li class="itemdelista"><a href="#">Ação</a></li>
-                   <li class="itemdelista"><a href="#">Corrida</a></li>
-       <li class="itemdelista"><a href="#">RPG</a></li>
-       <li class="itemdelista"><a href="#"></a></li>
-                   <li class="itemdelista"><a href="#"></a></li>
-                   <li class="itemdelista"><a href="#"></a></li>
-                   <li class="itemdelista"><a href="#"></a></li>			   
-                   <li class="itemdelista"><a href="#"></a></li>
-    </ul>
- </div>
-                         <div class="anodelancamento">
-    <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Ano de lançamento<span class="caret"></span></button>
-    <ul class="dropdown-menu">
-       <li class="dropdown-header">Dropdown header 1</li>
-       <li class="itemdelista"><a href="#">2010</a></li>
-                   <li class="itemdelista"><a href="#">2009</a></li>
-       <li class="itemdelista"><a href="#">2005</a></li>
-       <li class="itemdelista"><a href="#"></a></li>
-                   <li class="itemdelista"><a href="#"></a></li>
-                   <li class="itemdelista"><a href="#"></a></li>
-                   <li class="itemdelista"><a href="#"></a></li>			   
-                   <li class="itemdelista"><a href="#"></a></li>
-    </ul>
- </div>
-         </div>-->
-
-
         <!-- Fim Busca Jogos -->
         <div class=" corpodeprodutos container">
-
             <div class="destaque">
                 <img src="${pageContext.request.contextPath}/img/destaque.png"  class="imagemdestaque">
-
             </div>
-
             <div class="row">
-
                 <c:if test="${ not empty lista}">
                     <c:forEach var="produto" items="${lista}">
                         <div class="card">
-                            <img class="card-img-top" src="${pageContext.request.contextPath}/img/${produto.categoria}.png">
+                            <a href="${pageContext.request.contextPath}/view/exibeProduto.jsp?idProduto=?${produto.id}">
+                                <img class="card-img-top" src="${pageContext.request.contextPath}/img/${produto.categoria}.png">
+                            </a>
                             <div class="card-body">
-                                <h5 class="card-title">${produto.nome}</h5>
-                                <p class="card-text descricoes">${produto.descricao}</p>
-                                <p class="card-text"> R$:  ${produto.precoDeVenda}</p>
-
+                                <a href="${pageContext.request.contextPath}/view/exibeProduto.jsp?idProduto=?${produto.id}">
+                                    <h5 class="card-title">${produto.nome}</h5>
+                                </a>
+                                <p style="color:black;" class="card-text descricoes">${produto.descricao}</p>
+                                <p class="card-text">  
+                                    
+                                    <h5>
+                                        R$: ${produto.precoDeVenda}
+                                    </h5>
+                                </p>
+                                Categoria:
                                 <c:if test="${produto.categoria == 1}">
                                     <p>Ação</p>
                                 </c:if>
@@ -164,13 +106,12 @@
                                 <c:if test="${produto.categoria == ''}">
                                     <p>Não encontrado</p>
                                 </c:if>
-                                
+                                <div class="addCarrinhoDiv">    
+                                    <img  src="${pageContext.request.contextPath}/img/carrinho.png"  class="imagemstar">
+                                    <a style="color:white;" href="${pageContext.request.contextPath}/adicionarAoCarrinho?idProduto=${produto.id}">Add. Carrinho</a> 
+                                </div>
                             </div>
-                            <div class="addCarrinhoDiv">       
-                                <a href="${pageContext.request.contextPath}/adicionarAoCarrinho?idProduto=${produto.id}">Add. Carrinho</a> 
-                            </div>  
                         </div>
-
                     </c:forEach>
                 </c:if>
             </div>
@@ -189,3 +130,4 @@
         <link type="text/css" href="${pageContext.request.contextPath}/css/menu.css" rel="stylesheet" />
         <script src="${pageContext.request.contextPath}/js/gradiente.js"></script>
     </body>
+</html>
