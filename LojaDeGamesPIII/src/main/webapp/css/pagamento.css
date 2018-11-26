@@ -1,0 +1,120 @@
+.btnSair
+{
+    background-color:purple;
+}
+.btnProdutos
+{
+    float:right;
+    margin-left:35%;
+}
+.btnClientes
+{
+    float:left;
+    margin-right:35%;
+}
+.btnClientes,.btnProdutos
+{
+    margin-top:1%;
+}
+.navbarbotoes
+{
+    background-color:purple;
+    margin-bottom:2%;
+}
+.buscajogoscorpo
+{
+    width:60%;
+    margin-left:20%;
+    margin-bottom:3%;
+    margin-top:3%;
+}
+.btnCadastrar
+{
+    margin-bottom: 2%;
+    margin-top: 2%;
+    background-color: purple;
+    color:white;
+    float:right;
+}
+.corpodecampos
+{
+    width: 70%;
+    margin-top: 2%;
+    margin-bottom: 2%;
+}
+.separadorcarrocel
+{
+    background-color: purple;
+}
+.qtdCarrinho
+{
+    width: 100px;
+}
+table
+{
+    text-align: center;
+}
+.informacoesdocliente
+{
+
+}
+.informacoessobrepreco
+{
+    float:right;
+
+}
+.qtdDesconto{
+    width: 70px;
+}
+.qtdValorTotal
+{
+    width: 70px;
+}
+.valorsubtotal
+{
+    width: 70px;
+}
+
+.btnContinuar
+{
+    margin-top: 5%;
+    background-color: red;
+}
+.btnGeral
+{
+    margin-top: 5%;
+    background-color: purple;
+}
+.corpobtnCadastrarCliente
+{
+    margin-top: 2%;
+}
+.btnFinalizar
+{
+    margin-top: 7%;
+    background-color: lime;
+    color:black;
+}
+.imagemcarrinho
+{
+    width: 15px;
+}
+.corpopagamento
+{
+    border: 2px solid purple;
+    border-radius: 10px;
+}
+.titulocorpopagamento
+{
+    margin-top: 2%;
+}
+.corpopagamento
+{
+    margin-left: 4%;
+    
+}
+.corpoopcaocartao
+{
+    padding-bottom: 2%;
+    padding-top: 2%;
+}
