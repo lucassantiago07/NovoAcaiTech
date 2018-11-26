@@ -94,20 +94,20 @@
                             </div>
                         </div>
                         <div class="col-8 corpoopcaodinheiro">
-                            <label>Valor em especie: ${teste}</label>
-                            <input type="text" class="form-control" id="valorEmEspecie" name="valorEmEspecie" onkeypress="return isNumberKey(event)" maxlength="20" required></input>
+                            <label>Valor em especie: ${teste}</label>                            
+                            <div class="input-group mb-2 valorEmEspecie">
+                                <input type="text" class="form-control " id="valorEmEspecie" name="valorEmEspecie" onkeypress="return isNumberKey(event)" required></input>
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">R$</div>
+                                </div>
+                            </div>   
+
                         </div>
 
                         <div class="col-8 corpodebotoesfinais">
-                            <div class="">
-
-                                <button class="btn btn-secondary btnCancelar" >Cancelar compra</button>
-
-                                <button class="btn btn-secondary btnVoltaCarrinho" >Voltar ao carrinho</button>
-
-                                <button class="btn btn-secondary btnFinalizarImprimir" >Imprimir recibo e finalizar</button>
-
-                            </div>     
+                            <a href="${pageContext.request.contextPath}/view/destaques.jsp"><button type="button" class="btn btn-secondary btnCancelar" >Cancelar compra</button></a>
+                            <a href="${pageContext.request.contextPath}/view/carrinho.jsp"><button type="button" class="btn btn-secondary btnVoltaCarrinho" >Voltar ao carrinho</button></a>
+                            <a href="${pageContext.request.contextPath}/view/finalizacao.jsp"><button type="button" class="btn btn-secondary btnFinalizarImprimir" >Imprimir recibo e finalizar</button></a>
                         </div>                         
                     </div>
                 </div>
@@ -146,10 +146,10 @@
         </div>
         <c:if test="${not empty retorno}">
             <script type="text/javascript">
-                                $("#myModal").modal();
-                                $('#myModal').on('hidden.bs.modal', function () {
-                                    window.location.href = '${pageContext.request.contextPath}/view/pagamento.jsp'
-                                })
+        $("#myModal").modal();
+        $('#myModal').on('hidden.bs.modal', function () {
+            window.location.href = '${pageContext.request.contextPath}/view/pagamento.jsp'
+        })
             </script>
         </c:if>
     </body>

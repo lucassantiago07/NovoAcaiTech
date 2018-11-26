@@ -129,7 +129,8 @@
                         <label style="margin-top: 2%">CPF do Cliente: </label>  
                         <form action="${pageContext.request.contextPath}/getClienteParaVenda" method="post">
                             <input type="text"  class="form-control form-control-sm" name="cpfCliente" maxlength="11" onkeypress="return isNumberKey(event)" required></input>
-                            <button type="submit" class="btn btn-primary btnGeral">Buscar Cliente</button>
+                            <button type="submit" class="btn btn-primary btnGeral">Buscar Cliente</button></br>
+                            <a style="margin-top: 2%;" href="${pageContext.request.contextPath}/view/cadastrarCliente.jsp"><i>Trata-se de um cliente novo</i></a>
                         </form>
                     </div>
                 </div>

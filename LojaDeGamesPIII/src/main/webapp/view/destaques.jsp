@@ -10,7 +10,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-       
+
         <c:if test="${empty sessionScope.getNome}">
             <c:redirect url = "/expulsarDaPaginaSemLogar"/>
         </c:if>
@@ -126,7 +126,7 @@
  </div>
          </div>-->
 
-        
+
         <!-- Fim Busca Jogos -->
         <div class=" corpodeprodutos container">
 
@@ -164,10 +164,13 @@
                                 <c:if test="${produto.categoria == ''}">
                                     <p>Não encontrado</p>
                                 </c:if>
-
-                                <a href="${pageContext.request.contextPath}/adicionarAoCarrinho?idProduto=${produto.id}">Add. Carrinho</a> 
+                                
                             </div>
+                            <div class="addCarrinhoDiv">       
+                                <a href="${pageContext.request.contextPath}/adicionarAoCarrinho?idProduto=${produto.id}">Add. Carrinho</a> 
+                            </div>  
                         </div>
+
                     </c:forEach>
                 </c:if>
             </div>

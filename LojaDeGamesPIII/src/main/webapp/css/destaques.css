@@ -80,3 +80,7 @@
     text-overflow: ellipsis;
     white-space: nowrap;
 }
+.addCarrinhoDiv
+{
+    background-color: red;
+}
