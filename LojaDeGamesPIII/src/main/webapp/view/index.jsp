@@ -96,7 +96,7 @@
             <c:redirect url = "/expulsarDaPaginaSemLogar"/>
         </c:if>
         <!-- temporario -->
-        <jsp:include page="/criaCarrinho" />
+        
         <meta charset="UTF-8">
         <title>AcaiTech Sistema - Index</title>
         <link type="text/css" href="${pageContext.request.contextPath}/css/bootstrap.css" rel="stylesheet" />

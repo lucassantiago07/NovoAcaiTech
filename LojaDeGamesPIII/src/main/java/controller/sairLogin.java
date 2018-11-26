@@ -25,6 +25,9 @@ public class sairLogin extends HttpServlet {
         session.setAttribute("getNome", null);
         session.setAttribute("getTelefone", null);
         session.setAttribute("getData", null);
+        session.setAttribute("listaProdutos", null);
+        
+        request.setAttribute("sairLogin", "sairLogin");
 
         
         request.getServletContext().getRequestDispatcher("/view/login.jsp").forward(request, response);

@@ -5,7 +5,7 @@
 <html>
     <head>
 
-
+        <jsp:include page="/criaCarrinho" />
         <meta charset="UTF-8">
         <title>AcaiTech Sistema - Login</title>
     </head>
@@ -84,6 +84,14 @@
                 $('#myModal').on('hidden.bs.modal', function () {
                     window.location.href = '${pageContext.request.contextPath}'
                 })
+            </script>
+        </c:if> 
+
+
+        <!--  Quando clica em sair ele ajusta para apontar para pagina de login -->
+        <c:if test="${not empty sairLogin}">
+            <script type="text/javascript">
+                window.location.href = '${pageContext.request.contextPath}'
             </script>
         </c:if> 
     </body>

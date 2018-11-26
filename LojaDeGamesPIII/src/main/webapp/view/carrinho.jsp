@@ -92,13 +92,13 @@
                                     <td>${produto.qtdCarrinho}</td>
                                     <td>                           
                                         <c:if test="${produto.estoque != produto.qtdCarrinho}">
-                                            <a href="${pageContext.request.contextPath}/adicionarAoCarrinho?idProduto=${produto.id}">+</a>                                         
+                                            <a href="${pageContext.request.contextPath}/adicionarAoCarrinho?idProduto=${produto.id}"><img  src="${pageContext.request.contextPath}/img/add.png"  style="width: 35px;"></a>                                         
                                         </c:if>
                                         </a>
                                     </td>
                                     <td>
                                         <c:if test="${produto.qtdCarrinho >= 2}">
-                                            <a href="${pageContext.request.contextPath}/diminuiQtdCarrinho?idProduto=${produto.id}">-</a>                                       
+                                            <a href="${pageContext.request.contextPath}/diminuiQtdCarrinho?idProduto=${produto.id}"><img  src="${pageContext.request.contextPath}/img/remove.png"  style="width: 35px;"></a>                                       
                                         </c:if>
                                     </td>
                                     <td>${produto.precoDeVenda}</td>
@@ -120,7 +120,7 @@
                         <label style="margin-top: 2%">Contato: </label>  
                         <input type="text" class="form-control form-control-sm "   value="${celularCliente}"  readonly="readonly"></input>
                         <form action="${pageContext.request.contextPath}/view/destaques.jsp" method="post">
-                            <button type="submit" class="btn btn-primary btnContinuar">Continuar comprando</button>
+                            <button type="button" class="btn btn-primary btnContinuar"> <a href="${pageContext.request.contextPath}/view/destaques.jsp" style="color:white">Continuar comprando</a> </button>
                         </form>
                     </div>
                 </div>
