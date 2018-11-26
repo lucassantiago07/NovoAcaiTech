@@ -21,7 +21,7 @@ public class criaCarrinho extends HttpServlet {
          HttpSession session = request.getSession();
          session.setAttribute("listaProdutos", listaProdutos);
          
-         System.out.println("CRIADO:"+listaProdutos);
+         System.out.println("Login efetuado e carrinho criado:"+listaProdutos);
 
         
     }

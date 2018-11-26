@@ -2,6 +2,10 @@ console.log("JS CARRINHO ACIONADO!");
 
 GetCellValues();
 
+var Estoque    = document.getElementById("tablecarrinho").rows[1].cells[2].innerHTML;
+var Quantidade = document.getElementById("tablecarrinho").rows[1].cells[3].innerHTML;
+
+
 function GetCellValues() {
 
     var tamanhoDaTable = $('#tablecarrinho tr').length;
@@ -10,7 +14,7 @@ function GetCellValues() {
 
     for (i = 1; i <= tamanhoDaTable - 1; i++)
     {
-        total = parseInt($('#tablecarrinho').find("tr:eq(" + i + ")").find("td:eq(5)").html());
+        total = parseInt($('#tablecarrinho').find("tr:eq(" + i + ")").find("td:eq(7)").html());
         subTotal = subTotal + total;
     }
 

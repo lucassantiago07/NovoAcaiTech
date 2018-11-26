@@ -155,7 +155,7 @@
         </div>
         <div class="container corpodeopcoesmenus">
             <div class="row">
-                <a href="${pageContext.request.contextPath}/view/destaques.jsp'">
+                <a href="${pageContext.request.contextPath}/view/destaques.jsp">
                     <div class="box" style="background-color:black;">
                         <img src="${pageContext.request.contextPath}/img/destaques.png" style="width:100%;margin-left: 2%;margin-top: 8%;">
                         <div class="overbox">
@@ -164,7 +164,7 @@
                         </div>
                     </div>
                 </a>
-                <a href="${pageContext.request.contextPath}/view/cadastrarProduto.jsp'">
+                <a href="${pageContext.request.contextPath}/view/cadastrarProduto.jsp">
                     <div class="box" style="background-color:red;">
                         <img src="${pageContext.request.contextPath}/img/cadastrarProduto.png" style="width:50%;margin-left: 25%;margin-top: 15%;">
                         <div class="overbox">
@@ -173,7 +173,7 @@
                         </div>
                     </div>
                 </a>
-                <a href="${pageContext.request.contextPath}/view/listaProduto.jsp'">
+                <a href="${pageContext.request.contextPath}/view/listaProduto.jsp">
                     <div class="box" style="background-color:yellow;">
                         <img src="${pageContext.request.contextPath}/img/listaProduto.png" style="width:50%;margin-left: 25%;margin-top: 15%;">
                         <div class="overbox">
@@ -185,7 +185,7 @@
 
             </div>
             <div class="row">
-                <a href="${pageContext.request.contextPath}/view/cadastrarCliente.jsp'">
+                <a href="${pageContext.request.contextPath}/view/cadastrarCliente.jsp">
                     <div class="box" style="background-color:orange;">
                         <img src="${pageContext.request.contextPath}/img/cadastrarCliente.png" style="width:50%;margin-left: 25%;margin-top: 15%;">
                         <div class="overbox">
@@ -196,7 +196,7 @@
                 </a>
 
 
-                <a href="${pageContext.request.contextPath}/view/listaCliente.jsp'">
+                <a href="${pageContext.request.contextPath}/view/listaCliente.jsp">
                     <div class="box" style="background-color:lawngreen;">
                         <img src="${pageContext.request.contextPath}/img/listaCliente.png" style="width:50%;margin-left: 25%;margin-top: 15%;">
                         <div class="overbox">
@@ -205,7 +205,7 @@
                         </div>
                     </div>
                 </a>
-                <a href="${pageContext.request.contextPath}/view/cadastrarFuncionario.jsp'">
+                <a href="${pageContext.request.contextPath}/view/cadastrarFuncionario.jsp">
                     <div class="box" style="background-color:purple;">
                         <img src="${pageContext.request.contextPath}/img/cadastrarFuncionario.png" style="width:50%;margin-left: 25%;margin-top: 15%;">
                         <div class="overbox">
@@ -216,7 +216,7 @@
                 </a>
             </div>
             <div class="row">
-                <a href="${pageContext.request.contextPath}/view/listaFuncionario.jsp'">
+                <a href="${pageContext.request.contextPath}/view/listaFuncionario.jsp">
                     <div class="box" style="background-color:aqua;">
                         <img src="${pageContext.request.contextPath}/img/listaFuncionario.png" style="width:50%;margin-left: 25%;margin-top: 15%;">
                         <div class="overbox">
@@ -227,7 +227,7 @@
                 </a>
 
 
-                <a href="${pageContext.request.contextPath}/view/carrinho.jsp'">
+                <a href="${pageContext.request.contextPath}/view/carrinho.jsp">
                     <div class="box" style="background-color:royalblue;">
                         <img src="${pageContext.request.contextPath}/img/carrinho.png" style="width:50%;margin-left: 25%;margin-top: 15%;">
                         <div class="overbox">
@@ -261,7 +261,6 @@
                     </div>
                     <div class="modal-body">
                         ${retornoMensagem}
-                        ++Carrinho criado!
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>

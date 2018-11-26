@@ -73,6 +73,8 @@
                         <th scope="col">Produto</th>
                         <th scope="col">Estoque</th>
                         <th scope="col">Quantidade</th>
+                        <th scope="col"></th>
+                        <th scope="col"></th>
                         <th scope="col">Preço Unitario</th>
                         <th scope="col">Preço Total</th>
                         <th scope="col"></th>
@@ -83,13 +85,26 @@
                     <c:if test="${not empty listaProdutos}">
                         <c:forEach var="produto" items="${listaProdutos}">
                             <tr class="">
-                                <td>${produto.id}</td>
-                                <td>${produto.nome}</td>
-                                <td>${produto.estoque}</td>
-                                <td><input type="number" class="form-control form-control-sm qtdCarrinho" value="${produto.qtdCarrinho}" max="${produto.estoque}"></input></td>
-                                <td>${produto.precoDeVenda}</td>
-                                <td type="number">${produto.precoDeVenda * produto.qtdCarrinho}</td>
-                                <td><a href="#">Remover</a></td>
+                                <c:if test="${produto.qtdCarrinho >0}">
+                                    <td>${produto.id}</td>
+                                    <td>${produto.nome}</td>
+                                    <td>${produto.estoque}</td>
+                                    <td>${produto.qtdCarrinho}</td>
+                                    <td>                           
+                                        <c:if test="${produto.estoque != produto.qtdCarrinho}">
+                                            <a href="${pageContext.request.contextPath}/adicionarAoCarrinho?idProduto=${produto.id}">+</a>                                         
+                                        </c:if>
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <c:if test="${produto.qtdCarrinho >= 2}">
+                                            <a href="${pageContext.request.contextPath}/diminuiQtdCarrinho?idProduto=${produto.id}">-</a>                                       
+                                        </c:if>
+                                    </td>
+                                    <td>${produto.precoDeVenda}</td>
+                                    <td type="number">${produto.precoDeVenda * produto.qtdCarrinho}</td>
+                                    <td>  <a href="${pageContext.request.contextPath}/removeDoCarrinho?idProduto=${produto.id}">Remover</a>  </td>
+                                </c:if>
                             </tr>
                         </c:forEach>
                     </c:if>
@@ -112,7 +127,6 @@
                 <div class="col-4">
                     <div class="informacoessobrepreco">
                         <label style="margin-top: 2%">CPF do Cliente: </label>  
-
                         <form action="${pageContext.request.contextPath}/getClienteParaVenda" method="post">
                             <input type="text"  class="form-control form-control-sm" name="cpfCliente" maxlength="11" onkeypress="return isNumberKey(event)" required></input>
                             <button type="submit" class="btn btn-primary btnGeral">Buscar Cliente</button>
@@ -176,8 +190,6 @@
                 $(".avisodecarrinho").text("Não existem produtos adicionados ao carrinho.")
             </script>
         </c:if>
-
-
         <!--  Captura a variavel de retorno e abre modal-->
         <c:if test="${not empty retorno}">
             <script type="text/javascript">
@@ -186,6 +198,6 @@
                     window.location.href = '${pageContext.request.contextPath}/view/carrinho.jsp'
                 })
             </script>
-        </c:if> 
+        </c:if>
     </body>
 </html>
