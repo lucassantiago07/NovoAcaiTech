@@ -57,44 +57,62 @@
                 <span class="sr-only">Next</span>
             </a>
         </div>
-
         <nav class="navbar navbar-light separadorcarrocel">
         </nav>
-
-        <div class="container">
-            <div class="row">
-                <div class="col-8 titulocorpopagamento">
-
-                    <h3> Pagamento </h3>
-
+        <form method="POST" action="${pageContext.request.contextPath}/finalizarVenda">
+            <div class="container">
+                <div class="row">
+                    <div class="col-8 titulocorpopagamento">
+                        <h3> Pagamento </h3>
+                    </div>
                 </div>
-            </div>
-
-            <div class="row">
-                <div class="col-12 corpopagamento">
-
-
-                    <div class="col-8 corpoopcaocartao">   
-                        <h4>Total: ${teste}</h4>
-                        <label>Em até:</label>
-                        <input type="number" class="form-control" id="vezesCartao" name="vezesCartao" onkeypress="return isNumberKey(event)" maxlength="2"  required>x</input>
-                        <label>Número do comprovante:</label>
-                        <input type="text" class="form-control" id="numeroComprovante" name="numeroComprovante" onkeypress="return isNumberKey(event)" maxlength="20" required></input>
-                        <div class="form-group">
-                            <label>Bandeira</label>
-                            <select class="form-control" id="bandeira" name="bandeira" required>
-                                <option value="VISA">VISA</option>
-                                <option value="MASTERCARD">MASTERCARD</option>
-                                <option value="OUTROS">OUTROS</option>
-                            </select>
+                <div class="row">
+                    <div class="col-12 corpopagamento">
+                        <div class="col-8 corpovalortotal">
+                            <h4>Total: ${teste}</h4>
                         </div>
+
+                        <div class="col-8 corpoopcaocartao">
+
+                            <label>Em até:</label>
+                            <div class="input-group mb-2 vezesCartao">
+
+                                <input type="number" class="form-control " id="vezesCartao" name="vezesCartao" onkeypress="return isNumberKey(event)" max="12"  required></input>
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">X</div>
+                                </div>
+                            </div>                            
+                            <label>Número do comprovante:</label>
+                            <input type="text" class="form-control" id="numeroComprovante" name="numeroComprovante" onkeypress="return isNumberKey(event)" maxlength="20" required></input>
+                            <div class="form-group">
+                                <label>Bandeira</label>
+                                <select class="form-control" id="bandeira" name="bandeira" required>
+                                    <option value="VISA">VISA</option>
+                                    <option value="MASTERCARD">MASTERCARD</option>
+                                    <option value="OUTROS">OUTROS</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-8 corpoopcaodinheiro">
+                            <label>Valor em especie: ${teste}</label>
+                            <input type="text" class="form-control" id="valorEmEspecie" name="valorEmEspecie" onkeypress="return isNumberKey(event)" maxlength="20" required></input>
+                        </div>
+
+                        <div class="col-8 corpodebotoesfinais">
+                            <div class="">
+
+                                <button class="btn btn-secondary btnCancelar" >Cancelar compra</button>
+
+                                <button class="btn btn-secondary btnVoltaCarrinho" >Voltar ao carrinho</button>
+
+                                <button class="btn btn-secondary btnFinalizarImprimir" >Imprimir recibo e finalizar</button>
+
+                            </div>     
+                        </div>                         
                     </div>
                 </div>
             </div>
-
-
-        </div>
-
+        </form>
         <!-- Inicio Footer -->
         <footer class="rodape page-footer font-small blue">
             <div class="footer-copyright text-center py-3">© 2018 Copyright: [ ACAITECH SISTEMAS OPERACIONAIS LTDA 13.050.544/0001-00 ]
@@ -102,7 +120,6 @@
             </div>
         </footer>
         <!-- Fim Footer -->
-
         <link type="text/css" href="${pageContext.request.contextPath}/css/script.css" rel="stylesheet" />
         <link type="text/css" href="${pageContext.request.contextPath}/css/pagamento.css" rel="stylesheet" />
         <link type="text/css" href="${pageContext.request.contextPath}/css/menu.css" rel="stylesheet" />
@@ -127,13 +144,12 @@
                 </div>
             </div>
         </div>
-
         <c:if test="${not empty retorno}">
             <script type="text/javascript">
-                            $("#myModal").modal();
-                            $('#myModal').on('hidden.bs.modal', function () {
-                                window.location.href = '${pageContext.request.contextPath}/view/pagamento.jsp'
-                            })
+                                $("#myModal").modal();
+                                $('#myModal').on('hidden.bs.modal', function () {
+                                    window.location.href = '${pageContext.request.contextPath}/view/pagamento.jsp'
+                                })
             </script>
         </c:if>
     </body>
