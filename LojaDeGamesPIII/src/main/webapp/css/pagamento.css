@@ -149,6 +149,10 @@ table
 {
     width: 35%;
 }
+#valorParcela
+{
+    width: 25%;
+}
 .btnFinalizarImprimir
 {
     background-color: greenyellow;

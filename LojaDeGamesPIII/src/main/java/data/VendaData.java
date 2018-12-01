@@ -12,6 +12,10 @@ public class VendaData {
     private String valorTotal;
     private String subTotal;
     private String desconto;
+    private String vezesCartao;
+    private String numeroComprovante;
+    private String bandeira;
+    private String valorEmEspecie;
     private Timestamp DataDaVenda;
     private ArrayList<ProdutoData> listaDeProtudosDaVenda;
 
@@ -143,6 +147,62 @@ public class VendaData {
 
     public void setFilial(Object attribute) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    /**
+     * @return the vezesCartao
+     */
+    public String getVezesCartao() {
+        return vezesCartao;
+    }
+
+    /**
+     * @param vezesCartao the vezesCartao to set
+     */
+    public void setVezesCartao(String vezesCartao) {
+        this.vezesCartao = vezesCartao;
+    }
+
+    /**
+     * @return the numeroComprovante
+     */
+    public String getNumeroComprovante() {
+        return numeroComprovante;
+    }
+
+    /**
+     * @param numeroComprovante the numeroComprovante to set
+     */
+    public void setNumeroComprovante(String numeroComprovante) {
+        this.numeroComprovante = numeroComprovante;
+    }
+
+    /**
+     * @return the bandeira
+     */
+    public String getBandeira() {
+        return bandeira;
+    }
+
+    /**
+     * @param bandeira the bandeira to set
+     */
+    public void setBandeira(String bandeira) {
+        this.bandeira = bandeira;
+    }
+
+    /**
+     * @return the valorEmEspecie
+     */
+    public String getValorEmEspecie() {
+        return valorEmEspecie;
+    }
+
+    /**
+     * @param valorEmEspecie the valorEmEspecie to set
+     */
+    public void setValorEmEspecie(String valorEmEspecie) {
+        this.valorEmEspecie = valorEmEspecie;
     }
 
 }

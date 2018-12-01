@@ -4,9 +4,8 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <c:if test="${empty sessionScope.getNome}">
-            <c:redirect url = "/expulsarDaPaginaSemLogar"/>
-        </c:if>
+
+
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta charset="UTF-8">
         <title>AcaiTech Sistema - Carrinho</title>
@@ -69,15 +68,15 @@
                 <div class="row">
                     <div class="col-12 corpopagamento">
                         <div class="col-8 corpovalortotal">
-                            <h4>Total: ${teste}</h4>
+                            <h4>Total: ${valorTotal}</h4>
+                            <input type="text" id="valorTotal"  class="valorTotal" name="valorTotal" value="${valorTotal}" style="visibility: hidden;"></input>
                         </div>
 
                         <div class="col-8 corpoopcaocartao">
 
-                            <label>Em até:</label>
-                            <div class="input-group mb-2 vezesCartao">
-
-                                <input type="number" class="form-control " id="vezesCartao" name="vezesCartao" onkeypress="return isNumberKey(event)" max="12"  required></input>
+                            <label>Parcelamento (Em até 12X):</label>
+                            <div class="input-group mb-2 vezesCartao">                              
+                                <input type="number" class="form-control " id="vezesCartao" name="vezesCartao" value="10" onkeypress="return isNumberKey(event)" max="12"  required></input>
                                 <div class="input-group-prepend">
                                     <div class="input-group-text">X</div>
                                 </div>
@@ -92,22 +91,24 @@
                                     <option value="OUTROS">OUTROS</option>
                                 </select>
                             </div>
+                            <label>Valor parcela:</label>
+                            <input type="text" class="form-control" id="valorParcela" class="valorParcela" name="valorParcela" readonly="readonly"></input>
                         </div>
                         <div class="col-8 corpoopcaodinheiro">
-                            <label>Valor em especie: ${teste}</label>                            
+                            <label>Valor em especie:</label>                            
                             <div class="input-group mb-2 valorEmEspecie">
-                                <input type="text" class="form-control " id="valorEmEspecie" name="valorEmEspecie" onkeypress="return isNumberKey(event)" required></input>
+                                <input type="text" class="form-control " id="valorEmEspecie" class="valorEmEspecie" name="valorEmEspecie" onkeypress="return isNumberKey(event)"></input>
                                 <div class="input-group-prepend">
                                     <div class="input-group-text">R$</div>
                                 </div>
                             </div>   
-
+                            <span class="avisovalor">Valor em especie maior que o valor de compra!</span>
                         </div>
 
                         <div class="col-8 corpodebotoesfinais">
                             <a href="${pageContext.request.contextPath}/view/destaques.jsp"><button type="button" class="btn btn-secondary btnCancelar" >Cancelar compra</button></a>
                             <a href="${pageContext.request.contextPath}/view/carrinho.jsp"><button type="button" class="btn btn-secondary btnVoltaCarrinho" >Voltar ao carrinho</button></a>
-                            <a href="${pageContext.request.contextPath}/view/finalizacao.jsp"><button type="button" class="btn btn-secondary btnFinalizarImprimir" >Imprimir recibo e finalizar</button></a>
+                            <a href="${pageContext.request.contextPath}/view/finalizacao.jsp"><button type="submit" class="btn btn-secondary btnFinalizarImprimir" >Imprimir recibo e finalizar</button></a>
                         </div>                         
                     </div>
                 </div>
@@ -146,10 +147,10 @@
         </div>
         <c:if test="${not empty retorno}">
             <script type="text/javascript">
-        $("#myModal").modal();
-        $('#myModal').on('hidden.bs.modal', function () {
-            window.location.href = '${pageContext.request.contextPath}/view/pagamento.jsp'
-        })
+                                    $("#myModal").modal();
+                                    $('#myModal').on('hidden.bs.modal', function () {
+                                        window.location.href = '${pageContext.request.contextPath}/view/pagamento.jsp'
+                                    })
             </script>
         </c:if>
     </body>
