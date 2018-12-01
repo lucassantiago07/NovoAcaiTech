@@ -1,4 +1,22 @@
-$(".avisovalor").css('visibility', 'hidden');
+$("#avisovalor").css('visibility', 'hidden');
+
+
+$("#cartao").attr('checked', false);
+$("#vezesCartao").prop("disabled", true);
+$("#vezesCartao").prop('required', false);
+
+$("#numeroComprovante").prop("disabled", true);
+$("#numeroComprovante").prop('required', false);
+
+$("#valorParcela").prop("disabled", true);
+$("#valorParcela").prop('required', false);
+
+$("#bandeira").prop("disabled", true);
+$("#bandeira").prop('required', false);
+
+$("#valorEmEspecie").prop("disabled", true);
+$("#valorEmEspecie").prop('required', false);
+
 
 
 $("[type='number']").keypress(function (evt) {
@@ -33,20 +51,15 @@ $('body').on('change', '#valorEmEspecie', function () {
 
     console.log(valorEmEspecie);
     console.log(valorTotal);
-    
-    if (valorEmEspecie > valorTotal)
-    {
-        $(".avisovalor").css('visibility', 'visible');
-    }
 
-    if (valorEmEspecie < valorTotal)
+    if (valorTotal < valorEmEspecie)
     {
-        $(".btnFinalizarImprimir").attr("disable", "disable");
-       
+        $("#avisovalor").css('visibility', 'visible');
+        $(".btnFinalizarImprimir").prop("disabled", true);
     } else
     {
-        $(".avisovalor").css('visibility', 'hidden');
-        $(".btnFinalizarImprimir").attr("enable", "enable");
+        $("#avisovalor").css('visibility', 'hidden');
+        $(".btnFinalizarImprimir").prop("disabled", false);
         $(".valorTotal").val(valorTotal - valorEmEspecie);
     }
 
@@ -54,4 +67,69 @@ $('body').on('change', '#valorEmEspecie', function () {
 
 $('body').on('keypress', '#valorEmEspecie', function () {
     $(this).click();
+});
+
+$('body').on('click', '#cartao', function () {
+
+    retornocheckbox = $(this).is(':checked');
+
+    console.log(retornocheckbox);
+
+    if (retornocheckbox == false)
+    {
+        $("#vezesCartao").prop("disabled", true);
+        $("#vezesCartao").prop('required', false);
+
+        $("#numeroComprovante").prop("disabled", true);
+        $("#numeroComprovante").prop('required', false);
+
+        $("#valorParcela").prop("disabled", true);
+        $("#valorParcela").prop('required', false);
+
+        $("#bandeira").prop("disabled", true);
+        $("#bandeira").prop('required', false);
+
+
+    } else
+    {
+        $("#vezesCartao").prop("disabled", false);
+        $("#vezesCartao").prop('required', true);
+
+        $("#numeroComprovante").prop("disabled", false);
+        $("#numeroComprovante").prop('required', true);
+
+        $("#valorParcela").prop("disabled", false);
+        $("#valorParcela").prop('required', true);
+
+        $("#bandeira").prop("disabled", false);
+        $("#bandeira").prop('required', true);
+    }
+
+
+});
+
+$('body').on('click', '#dinheiro', function () {
+
+    retornocheckbox = $(this).is(':checked');
+
+    if (retornocheckbox == false)
+    {
+        $("#valorEmEspecie").prop("disabled", true);
+        $("#valorEmEspecie").prop('required', false);
+
+
+
+
+    } else
+    {
+        $("#valorEmEspecie").prop("disabled", false);
+        $("#valorEmEspecie").prop('required', true);
+    }
+
+
+});
+
+$(".btnFinalizarImprimir").keypress(function (evt) {
+    
+    
 });

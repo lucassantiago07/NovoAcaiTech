@@ -171,3 +171,8 @@ table
 {
     width: 30%;
 }
+
+#cartao,#dinheiro
+{
+    margin-bottom:2%;
+}

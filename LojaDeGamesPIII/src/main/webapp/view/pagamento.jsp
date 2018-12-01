@@ -68,21 +68,25 @@
                 <div class="row">
                     <div class="col-12 corpopagamento">
                         <div class="col-8 corpovalortotal">
-                            <h4>Total: ${valorTotal}</h4>
-                            <input type="text" id="valorTotal"  class="valorTotal" name="valorTotal" value="${valorTotal}" style="visibility: hidden;"></input>
+                            <h4>Total:</h4>
+                            <input type="text" id="valorTotalDaCompraSemAlterar"  class="valorTotalDaCompraSemAlterar form-control" name="valorTotalDaCompraSemAlterar" value="${valorTotal}" style="visibility: visible;" readonly="readonly"></input>
+
+                            <h6 style="margin-top: 1%;"> Sub Total / Restante </h6>
+                            <input type="text" id="valorTotal"  class="valorTotal form-control" name="valorTotal" value="${valorTotal}" style="visibility: visible;" readonly="readonly"></input>
+
                         </div>
 
                         <div class="col-8 corpoopcaocartao">
-
+                            <input type="checkbox" id="cartao" name="cartao" value="Pagamento em cartao">Pagamento em cartão<br>
                             <label>Parcelamento (Em até 12X):</label>
                             <div class="input-group mb-2 vezesCartao">                              
-                                <input type="number" class="form-control " id="vezesCartao" name="vezesCartao" value="10" onkeypress="return isNumberKey(event)" max="12"  required></input>
+                                <input type="number" class="form-control " id="vezesCartao" name="vezesCartao" value="10" onkeypress="return isNumberKey(event)" max="12" ></input>
                                 <div class="input-group-prepend">
                                     <div class="input-group-text">X</div>
                                 </div>
                             </div>                            
                             <label>Número do comprovante:</label>
-                            <input type="text" class="form-control" id="numeroComprovante" name="numeroComprovante" onkeypress="return isNumberKey(event)" maxlength="20" required></input>
+                            <input type="text" class="form-control" id="numeroComprovante" name="numeroComprovante" onkeypress="return isNumberKey(event)" maxlength="20"></input>
                             <div class="form-group">
                                 <label>Bandeira</label>
                                 <select class="form-control" id="bandeira" name="bandeira" required>
@@ -95,14 +99,16 @@
                             <input type="text" class="form-control" id="valorParcela" class="valorParcela" name="valorParcela" readonly="readonly"></input>
                         </div>
                         <div class="col-8 corpoopcaodinheiro">
-                            <label>Valor em especie:</label>                            
+                            <input type="checkbox" id="dinheiro" name="dinheiro" value="Pagamento em dinheiro">Pagamento em dinheiro<br>
+                            <label>Valor em especie:</label>    
+
                             <div class="input-group mb-2 valorEmEspecie">
                                 <input type="text" class="form-control " id="valorEmEspecie" class="valorEmEspecie" name="valorEmEspecie" onkeypress="return isNumberKey(event)"></input>
                                 <div class="input-group-prepend">
                                     <div class="input-group-text">R$</div>
                                 </div>
                             </div>   
-                            <span class="avisovalor">Valor em especie maior que o valor de compra!</span>
+                            <span id="avisovalor" style="color:red"><b>Valor em especie maior que o valor de compra!</b></span>
                         </div>
 
                         <div class="col-8 corpodebotoesfinais">
