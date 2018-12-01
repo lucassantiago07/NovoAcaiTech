@@ -15,35 +15,52 @@ public class VendaDAO {
 
     public boolean cadastraVenda(VendaData c) {
         boolean deuCerto = false;
-        try {
-            Connection connection = new ConnectionFactory().getConnection();
 
-            String sqlVenda = "INSERT INTO `venda`(`id_cliente`, `data_da_venda`, `valortotal`) VALUES (?,?,?,?)";
-            PreparedStatement pstmtVenda = connection.prepareStatement(sqlVenda);
-            pstmtVenda.setInt(1, c.getIdCliente());
-            pstmtVenda.setTimestamp(2, c.getDataDaVenda());
-            pstmtVenda.setInt(3, c.getValorTotal());
-            int IdVenda = pstmtVenda.executeUpdate(sqlVenda, Statement.RETURN_GENERATED_KEYS);
+        System.out.println(c.getDataDaVenda());
+        System.out.println(c.getDesconto());
+        //System.out.println(c.getId());
+        System.out.println(c.getIdCliente());
+        System.out.println(c.getIdVendedor());
+        //System.out.println(c.getListaDeProtudosDaVenda());
+        System.out.println(c.getSubTotal());
+        System.out.println(c.getValorTotal());
 
-            for (ProdutosDaVendaData p : c.getListaDeProtudosDaVenda()) {
+        if (false) {
+            System.out.println("entrou");
+            try {
 
-                String sqlVendaProdutos = "INSERT INTO `produtos_da_venda`(`nome_produto`,`quantidade`, `preco_unitario`,`id_venda`) VALUES (?,?,?,?)";
-                PreparedStatement pstmtVendaProdutos = connection.prepareStatement(sqlVendaProdutos);
-                pstmtVendaProdutos.setString(1, p.getNomeProduto());
-                pstmtVendaProdutos.setInt(2, p.getQuantidade());
-                pstmtVendaProdutos.setInt(3, p.getPrecoUnitario());
-                pstmtVendaProdutos.setInt(4, IdVenda);
-                pstmtVendaProdutos.executeUpdate();
+                Connection connection = new ConnectionFactory().getConnection();
 
+                String sqlVenda = "INSERT INTO `venda`(`id_cliente`, `data_da_venda`, `valortotal`) VALUES (?,?,?,?)";
+                PreparedStatement pstmtVenda = connection.prepareStatement(sqlVenda);
+                pstmtVenda.setString(1, c.getIdCliente());
+                pstmtVenda.setTimestamp(2, c.getDataDaVenda());
+                pstmtVenda.setString(3, c.getValorTotal());
+                int IdVenda = pstmtVenda.executeUpdate(sqlVenda, pstmtVenda.RETURN_GENERATED_KEYS);
+
+                System.out.println("ID VENDA:" + IdVenda);
+
+                for (ProdutoData p : c.getListaDeProtudosDaVenda()) {
+
+                    String sqlVendaProdutos = "INSERT INTO `produtos_da_venda`(`nome_produto`,`quantidade`, `preco_unitario`,`id_venda`) VALUES (?,?,?,?)";
+                    PreparedStatement pstmtVendaProdutos = connection.prepareStatement(sqlVendaProdutos);
+                    pstmtVendaProdutos.setString(1, p.getNome());
+                    pstmtVendaProdutos.setInt(2, p.getQtdCarrinho());
+                    pstmtVendaProdutos.setInt(3, p.getPrecoDeVenda());
+                    pstmtVendaProdutos.setInt(4, IdVenda);
+                    pstmtVendaProdutos.executeUpdate();
+
+                }
+
+                connection.close();
+
+            } catch (SQLException | ClassNotFoundException ex) {
+                System.out.println("Erro no banco de dados cadastraVenda: " + ex);
+                deuCerto = false;
             }
-
-            connection.close();
-
-        } catch (SQLException | ClassNotFoundException ex) {
-            System.out.println("Erro no banco de dados cadastraVenda: " + ex);
-            deuCerto = false;
+            return deuCerto;
         }
-        return deuCerto;
+        return false;
     }
 
     public ArrayList<VendaData> getVendas() {
@@ -55,7 +72,7 @@ public class VendaDAO {
 
             while (rs.next()) {
                 VendaData c = new VendaData();
-                c.setId(rs.getInt("ID"));
+                c.setId(rs.getString("ID"));
                 listaVenda.add(c);
 
             }
@@ -76,7 +93,7 @@ public class VendaDAO {
 
             while (rs.next()) {
                 VendaData c = new VendaData();
-                c.setId(rs.getInt("ID"));
+                c.setId(rs.getString("ID"));
 
                 listaVenda.add(c);
 
@@ -99,7 +116,7 @@ public class VendaDAO {
 
             while (rs.next()) {
 
-                c.setId(rs.getInt("ID"));
+                c.setId(rs.getString("ID"));
 
             }
             connection.close();

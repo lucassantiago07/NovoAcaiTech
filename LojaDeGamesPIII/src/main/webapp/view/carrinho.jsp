@@ -115,11 +115,11 @@
                     <div class="col-4">
                         <div class="informacoesdocliente">
                             <label style="margin-top: 2%">Nome do cliente: </label>  
-                            <input type="text" class="form-control form-control-sm "   value="${sessionScope.nomeCliente}" readonly="readonly"></input>
+                            <input type="text" class="form-control form-control-sm nomeCliente"   value="${sessionScope.nomeCliente}" readonly="readonly"></input>
                             <label style="margin-top: 2%">CPF: </label>  
-                            <input type="text" class="form-control form-control-sm "   value="${sessionScope.cpfCliente}" readonly="readonly"></input>
+                            <input type="text" class="form-control form-control-sm cpfCliente"   value="${sessionScope.cpfCliente}" readonly="readonly"></input>
                             <label style="margin-top: 2%">Contato: </label>  
-                            <input type="text" class="form-control form-control-sm "   value="${sessionScope.celularCliente}"  readonly="readonly"></input>
+                            <input type="text" class="form-control form-control-sm celularCliente"   value="${sessionScope.celularCliente}"  readonly="readonly"></input>
                             <button type="button" class="btn btn-primary btnContinuar"> <a href="${pageContext.request.contextPath}/view/destaques.jsp" style="color:white">Continuar comprando</a> </button>
                         </div>
                     </div>
@@ -138,12 +138,15 @@
                     <div class="col-4">
                         <div class="informacoessobrepreco">
                             <label style="margin-top: 2%">SubTotal: </label>  
-                            <input type="text"  pattern="([0-9]|[0-9]|[0-9])" class="form-control form-control-sm "  id="subtotal" readonly="readonly"></input>
+                            <input type="text"  pattern="([0-9]|[0-9]|[0-9])" class="form-control form-control-sm"  name="subTotal" id="subtotal" readonly="readonly"></input>
+                            
                             <label style="margin-top: 2%">Desconto: </label>  
-                            <input type="text" maxlength="2" max="20" pattern="([0-9]|[0-9]|[0-9])"class="form-control form-control-sm "   id="desconto"  value="2" ></input>
+                            <input type="number" pattern="([0-9]|[0-9]|[0-9])" class="form-control form-control-sm"   name="Desconto" id="desconto"  value="2" maxlength="2" max="20"></input>
+                           
                             <label style="margin-top: 2%">Valor total: </label>  
-                            <input type="text"  pattern="([0-9]|[0-9]|[0-9])" class="form-control form-control-sm "   id="valortotal" readonly="readonly"></input>
-                            <button type="submit"  name="controledeChamadas" value="irPagaPagamento" class="btn btn-primary btnGeral btnFinalizar">Ir para pagamento</button>
+                            <input type="text"  pattern="([0-9]|[0-9]|[0-9])" class="form-control form-control-sm"   name="valorTotal" id="valortotal" readonly="readonly"></input>
+                            
+                            <button type="submit"  name="controledeChamadas" value="irPagaPagamento" class="btn btn-primary btnGeral btnFinalizar" data-toggle="tooltip" data-placement="bottom" title="Pagamento seguir ao pagamento, escolha seu produto e pesquisa um cliente.">Ir para pagamento</button>
                         </div>
                     </div>
                 </div>
@@ -189,7 +192,13 @@
     <c:if test="${empty listaProdutos}">
         <script type="text/javascript">
             $(".avisodecarrinho").text("Não existem produtos adicionados ao carrinho.");
-             $(".btnFinalizar").attr("disabled", "disabled");
+            $(".btnFinalizar").attr("disabled", "disabled");
+            cpfCliente
+        </script>
+    </c:if>
+    <c:if test="${empty cpfCliente}">
+        <script type="text/javascript">
+            $(".btnFinalizar").attr("disabled", "disabled");
         </script>
     </c:if>
     <!--  Captura a variavel de retorno e abre modal-->

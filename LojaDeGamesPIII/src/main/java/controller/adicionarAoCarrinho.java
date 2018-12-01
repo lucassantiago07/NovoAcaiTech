@@ -49,7 +49,7 @@ public class adicionarAoCarrinho extends HttpServlet {
                         produtoExisteNaLista = true;
                     }
 
-                    System.out.println("Existe?: " + produtoExisteNaLista);
+                    //System.out.println("Existe?: " + produtoExisteNaLista);
 
                     if (produtoExisteNaLista) {
                         // Se já existe sai da lista
@@ -100,7 +100,7 @@ public class adicionarAoCarrinho extends HttpServlet {
                     int Id = listaProdutos.get(index).getId();
                     int Estoque = listaProdutos.get(index).getQtdCarrinho();
 
-                    System.out.println("ID: " + Id + " Nome: " + Nome + " Carrinho: " + Estoque);
+                    //System.out.println("ID: " + Id + " Nome: " + Nome + " Carrinho: " + Estoque);
 
                     index++;
 

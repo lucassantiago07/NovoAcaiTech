@@ -5,67 +5,97 @@ import java.util.ArrayList;
 
 public class VendaData {
 
-    private Integer id;
-    private Integer idCliente;
-    private Integer idProdutoVenda;
-    private Integer valorTotal;
+    private String id;
+    private String idCliente;
+    private String idVendedor;
+    private String valorTotal;
+    private String subTotal;
+    private String desconto;
     private Timestamp DataDaVenda;
-    private ArrayList<ProdutosDaVendaData> listaDeProtudosDaVenda;
+    private ArrayList<ProdutoData> listaDeProtudosDaVenda;
 
     /**
      * @return the id
      */
-    public Integer getId() {
+    public String getId() {
         return id;
     }
 
     /**
      * @param id the id to set
      */
-    public void setId(Integer id) {
+    public void setId(String id) {
         this.id = id;
     }
 
     /**
      * @return the idCliente
      */
-    public Integer getIdCliente() {
+    public String getIdCliente() {
         return idCliente;
     }
 
     /**
      * @param idCliente the idCliente to set
      */
-    public void setIdCliente(Integer idCliente) {
+    public void setIdCliente(String idCliente) {
         this.idCliente = idCliente;
     }
 
     /**
-     * @return the idProdutoVenda
+     * @return the idVendedor
      */
-    public Integer getIdProdutoVenda() {
-        return idProdutoVenda;
+    public String getIdVendedor() {
+        return idVendedor;
     }
 
     /**
-     * @param idProdutoVenda the idProdutoVenda to set
+     * @param idVendedor the idVendedor to set
      */
-    public void setIdProdutoVenda(Integer idProdutoVenda) {
-        this.idProdutoVenda = idProdutoVenda;
+    public void setIdVendedor(String idVendedor) {
+        this.idVendedor = idVendedor;
     }
 
     /**
      * @return the valorTotal
      */
-    public Integer getValorTotal() {
+    public String getValorTotal() {
         return valorTotal;
     }
 
     /**
      * @param valorTotal the valorTotal to set
      */
-    public void setValorTotal(Integer valorTotal) {
+    public void setValorTotal(String valorTotal) {
         this.valorTotal = valorTotal;
+    }
+
+    /**
+     * @return the subTotal
+     */
+    public String getSubTotal() {
+        return subTotal;
+    }
+
+    /**
+     * @param subTotal the subTotal to set
+     */
+    public void setSubTotal(String subTotal) {
+        this.subTotal = subTotal;
+    }
+
+    /**
+     * @return the desconto
+     */
+    public String getDesconto() {
+        return desconto;
+    }
+
+    /**
+     * @param desconto the desconto to set
+     */
+    public void setDesconto(String desconto) {
+        this.desconto = desconto;
     }
 
     /**
@@ -85,14 +115,14 @@ public class VendaData {
     /**
      * @return the listaDeProtudosDaVenda
      */
-    public ArrayList<ProdutosDaVendaData> getListaDeProtudosDaVenda() {
+    public ArrayList<ProdutoData> getListaDeProtudosDaVenda() {
         return listaDeProtudosDaVenda;
     }
 
     /**
      * @param listaDeProtudosDaVenda the listaDeProtudosDaVenda to set
      */
-    public void setListaDeProtudosDaVenda(ArrayList<ProdutosDaVendaData> listaDeProtudosDaVenda) {
+    public void setListaDeProtudosDaVenda(ArrayList<ProdutoData> listaDeProtudosDaVenda) {
         this.listaDeProtudosDaVenda = listaDeProtudosDaVenda;
     }
 

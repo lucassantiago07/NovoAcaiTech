@@ -38,8 +38,7 @@ public class cadastrarProduto extends HttpServlet {
 
         p.setCategoria(Integer.parseInt(request.getParameter("categoria")));
 
-        System.out.println("Categoria Servlet: " + request.getParameter("categoria"));
-
+       
         p.setFornecedor(request.getParameter("fornecedor"));
 
         ProdutoDAO dao = new ProdutoDAO();

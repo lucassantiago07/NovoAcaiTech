@@ -29,6 +29,7 @@ public class getClienteParaVenda extends HttpServlet {
             request.setAttribute("retornoMensagem", "Não existe cliente para o CPF informado!");
         } else {
             HttpSession session = request.getSession();
+            session.setAttribute("idCliente", cliente.getId());
             session.setAttribute("nomeCliente", cliente.getNome());
             session.setAttribute("cpfCliente", cliente.getCpf());
             session.setAttribute("celularCliente", cliente.getCelular());
