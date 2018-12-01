@@ -22,9 +22,36 @@ public class VendaDAO {
 
                 Connection connection = new ConnectionFactory().getConnection();
 
-                String sqlVenda = "INSERT INTO `venda`(`bandeira`, `datadavenda`, `desconto`, `filial`, `idcliente`, `idvendedor`, `numerocomprovante`, `subtotal`, `valortotal`, `valoremespecie`, `vezescartao`) VALUES  (?,?,?,?,?,?,?,?,?,?,?)";
+                String sqlVenda = "INSERT INTO\n"
+                        + "  `venda` (\n"
+                        + "    `bandeira`,\n"
+                        + "    `datadavenda`,\n"
+                        + "    `desconto`,\n"
+                        + "    `filial`,\n"
+                        + "    `idcliente`,\n"
+                        + "    `idvendedor`,\n"
+                        + "    `numerocomprovante`,\n"
+                        + "    `subtotal`,\n"
+                        + "    `valortotal`,\n"
+                        + "    `valoremespecie`,\n"
+                        + "    `vezescartao`\n"
+                        + "  )\n"
+                        + "VALUES\n"
+                        + "  ('" + c.getBandeira() + "',"
+                        + "'" + c.getDataDaVenda() + "', "
+                        + "'" + c.getDesconto() + "', "
+                        + "'" + c.getFilial() + "', "
+                        + "'" + c.getIdCliente() + "', "
+                        + "'" + c.getIdVendedor() + "', "
+                        + "'" + c.getNumeroComprovante() + "', "
+                        + "'" + c.getSubTotal() + "', "
+                        + "'" + c.getValorTotal() + "', "
+                        + "'" + c.getValorEmEspecie() + "', "
+                        + "'" + c.getVezesCartao() + "')";
+
+                System.out.println(sqlVenda);
                 PreparedStatement pstmtVenda = connection.prepareStatement(sqlVenda);
-                pstmtVenda.setString(1, c.getBandeira());
+                /* pstmtVenda.setString(1, c.getBandeira());
                 pstmtVenda.setTimestamp(2, c.getDataDaVenda());
                 pstmtVenda.setString(3, c.getDesconto());
                 pstmtVenda.setString(4, c.getFilial());
@@ -34,7 +61,7 @@ public class VendaDAO {
                 pstmtVenda.setString(8, c.getSubTotal());
                 pstmtVenda.setString(9, c.getValorTotal());
                 pstmtVenda.setString(10, c.getValorEmEspecie());
-                pstmtVenda.setString(11, c.getVezesCartao());
+                pstmtVenda.setString(11, c.getVezesCartao());*/
                 int IdVenda = pstmtVenda.executeUpdate(sqlVenda, PreparedStatement.RETURN_GENERATED_KEYS);
 
                 System.out.println("ID VENDA!!!!!!!!:" + IdVenda);
