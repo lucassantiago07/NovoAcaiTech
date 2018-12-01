@@ -26,12 +26,10 @@ public class listaClienteComFiltro extends HttpServlet {
 
         request.setAttribute("listaComFiltro", listaComFiltro);
 
-        //response.sendRedirect("./view/listaCliente.jsp");
         RequestDispatcher requestDispatcher;
         requestDispatcher = request.getRequestDispatcher("/view/listaCliente.jsp");
         requestDispatcher.forward(request, response);
 
-        // request.getRequestDispatcher("./view/listaCliente.jsp").forward(request, response);
     }
 
 }

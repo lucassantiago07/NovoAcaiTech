@@ -1,8 +1,7 @@
-console.log("JS CARRINHO ACIONADO!");
 
 GetCellValues();
 
-var Estoque    = document.getElementById("tablecarrinho").rows[1].cells[2].innerHTML;
+var Estoque = document.getElementById("tablecarrinho").rows[1].cells[2].innerHTML;
 var Quantidade = document.getElementById("tablecarrinho").rows[1].cells[3].innerHTML;
 
 
@@ -63,3 +62,4 @@ function setaValorTotal(valordodesconto)
 function per(num, amount) {
     return num * amount / 100;
 }
+

@@ -9,6 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 @WebServlet(name = "getClienteParaVenda", urlPatterns = {"/getClienteParaVenda"})
 public class getClienteParaVenda extends HttpServlet {
@@ -27,9 +28,10 @@ public class getClienteParaVenda extends HttpServlet {
             request.setAttribute("retorno", "clientenaocadastrado");
             request.setAttribute("retornoMensagem", "Não existe cliente para o CPF informado!");
         } else {
-            request.setAttribute("nomeCliente", cliente.getNome());
-            request.setAttribute("cpfCliente", cliente.getCpf());
-            request.setAttribute("celularCliente", cliente.getCelular());
+            HttpSession session = request.getSession();
+            session.setAttribute("nomeCliente", cliente.getNome());
+            session.setAttribute("cpfCliente", cliente.getCpf());
+            session.setAttribute("celularCliente", cliente.getCelular());
         }
 
         //response.sendRedirect("./view/listaCliente.jsp");
