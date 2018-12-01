@@ -246,21 +246,26 @@ VALUES      ('SANTOS LIMA',
 CREATE TABLE lojadegames.venda 
   ( 
      id               BIGINT NOT NULL auto_increment, 
-     id_cliente       INT NOT NULL, 
-     data_da_venda    TIMESTAMP NULL, 
-     subtotal      VARCHAR(100) NOT NULL, 
-     valortotal       VARCHAR(100) NOT NULL, 
-     desconto       VARCHAR(100) NOT NULL, 
-     filial   VARCHAR(100) NOT NULL,
+    bandeira      VARCHAR(100)  NULL,
+datadavenda      TIMESTAMP,
+desconto      VARCHAR(100)  NULL,
+filial      VARCHAR(100)  NULL,
+idcliente      VARCHAR(100)  NULL,
+idvendedor      VARCHAR(100)  NULL,
+numerocomprovante      VARCHAR(100)  NULL,
+subtotal      VARCHAR(100)  NULL,
+valortotal      VARCHAR(100)  NULL,
+valoremespecie      VARCHAR(100)  NULL,
+vezescartao      VARCHAR(100)  NULL,
      CONSTRAINT pk_tbvenda PRIMARY KEY(id) 
   ); 
 
 CREATE TABLE lojadegames.produtos_da_venda 
   ( 
      id             BIGINT NOT NULL auto_increment, 
-     nome_produto   VARCHAR(100) NOT NULL, 
-     quantidade     INT NOT NULL, 
-     id_venda INT NOT NULL, 
+     nome_produto   VARCHAR(100) NULL, 
+     quantidade     INT  NULL, 
+     id_venda INT NULL, 
      preco_unitario VARCHAR(100) NULL,
      CONSTRAINT pk_tbprodutosdavenda PRIMARY KEY(id) 
   ); 

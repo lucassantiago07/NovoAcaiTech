@@ -15,6 +15,7 @@ public class VendaData {
     private String vezesCartao;
     private String numeroComprovante;
     private String bandeira;
+    private String valorParcela;
     private String valorEmEspecie;
     private Timestamp DataDaVenda;
     private ArrayList<ProdutoData> listaDeProtudosDaVenda;
@@ -62,6 +63,20 @@ public class VendaData {
     }
 
     /**
+     * @return the Filial
+     */
+    public String getFilial() {
+        return Filial;
+    }
+
+    /**
+     * @param Filial the Filial to set
+     */
+    public void setFilial(String Filial) {
+        this.Filial = Filial;
+    }
+
+    /**
      * @return the valorTotal
      */
     public String getValorTotal() {
@@ -101,52 +116,6 @@ public class VendaData {
      */
     public void setDesconto(String desconto) {
         this.desconto = desconto;
-    }
-
-    /**
-     * @return the DataDaVenda
-     */
-    public Timestamp getDataDaVenda() {
-        return DataDaVenda;
-    }
-
-    /**
-     * @param DataDaVenda the DataDaVenda to set
-     */
-    public void setDataDaVenda(Timestamp DataDaVenda) {
-        this.DataDaVenda = DataDaVenda;
-    }
-
-    /**
-     * @return the listaDeProtudosDaVenda
-     */
-    public ArrayList<ProdutoData> getListaDeProtudosDaVenda() {
-        return listaDeProtudosDaVenda;
-    }
-
-    /**
-     * @param listaDeProtudosDaVenda the listaDeProtudosDaVenda to set
-     */
-    public void setListaDeProtudosDaVenda(ArrayList<ProdutoData> listaDeProtudosDaVenda) {
-        this.listaDeProtudosDaVenda = listaDeProtudosDaVenda;
-    }
-
-    /**
-     * @return the Filial
-     */
-    public String getFilial() {
-        return Filial;
-    }
-
-    /**
-     * @param Filial the Filial to set
-     */
-    public void setFilial(String Filial) {
-        this.Filial = Filial;
-    }
-
-    public void setFilial(Object attribute) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     /**
@@ -205,4 +174,47 @@ public class VendaData {
         this.valorEmEspecie = valorEmEspecie;
     }
 
+    /**
+     * @return the DataDaVenda
+     */
+    public Timestamp getDataDaVenda() {
+        return DataDaVenda;
+    }
+
+    /**
+     * @param DataDaVenda the DataDaVenda to set
+     */
+    public void setDataDaVenda(Timestamp DataDaVenda) {
+        this.DataDaVenda = DataDaVenda;
+    }
+
+    /**
+     * @return the listaDeProtudosDaVenda
+     */
+    public ArrayList<ProdutoData> getListaDeProtudosDaVenda() {
+        return listaDeProtudosDaVenda;
+    }
+
+    /**
+     * @param listaDeProtudosDaVenda the listaDeProtudosDaVenda to set
+     */
+    public void setListaDeProtudosDaVenda(ArrayList<ProdutoData> listaDeProtudosDaVenda) {
+        this.listaDeProtudosDaVenda = listaDeProtudosDaVenda;
+    }
+
+    /**
+     * @return the valorParcela
+     */
+    public String getValorParcela() {
+        return valorParcela;
+    }
+
+    /**
+     * @param valorParcela the valorParcela to set
+     */
+    public void setValorParcela(String valorParcela) {
+        this.valorParcela = valorParcela;
+    }
+
+   
 }

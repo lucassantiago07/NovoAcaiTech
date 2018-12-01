@@ -108,7 +108,7 @@
                                     <div class="input-group-text">R$</div>
                                 </div>
                             </div>   
-                            <span id="avisovalor" style="color:red"><b>Valor em especie maior que o valor de compra!</b></span>
+                            <span id="avisovalor" style="color:red"><b>Valor em especie maior que o valor: Sub Total / Restante!</b></span>
                         </div>
 
                         <div class="col-8 corpodebotoesfinais">
@@ -144,6 +144,9 @@
                     </div>
                     <div class="modal-body">
                         ${retornoMensagem}     
+                    </div>
+                    <div class="modal-body" id="avisodevedor" style="visibility: hidden;">
+                        Ainda há saldo para ser quitado (SubTotal / Restante)!
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>

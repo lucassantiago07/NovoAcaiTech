@@ -16,31 +16,28 @@ public class VendaDAO {
     public boolean cadastraVenda(VendaData c) {
         boolean deuCerto = false;
 
-        /*
-        System.out.println(c.getDataDaVenda());
-        System.out.println(c.getDesconto());       
-        System.out.println(c.getIdCliente());
-        System.out.println(c.getIdVendedor());
-        System.out.println(c.getListaDeProtudosDaVenda());
-        System.out.println(c.getSubTotal());
-        System.out.println(c.getValorTotal());
-         */
         if (true) {
 
             try {
 
                 Connection connection = new ConnectionFactory().getConnection();
 
-                String sqlVenda = "INSERT INTO `venda`(`id_cliente`, `data_da_venda`, `valortotal`,`filial`,`subtotal`) VALUES (?,?,?,?,?)";
+                String sqlVenda = "INSERT INTO `venda`(`bandeira`, `datadavenda`, `desconto`, `filial`, `idcliente`, `idvendedor`, `numerocomprovante`, `subtotal`, `valortotal`, `valoremespecie`, `vezescartao`) VALUES  (?,?,?,?,?,?,?,?,?,?,?)";
                 PreparedStatement pstmtVenda = connection.prepareStatement(sqlVenda);
-                pstmtVenda.setString(1, c.getIdCliente());
+                pstmtVenda.setString(1, c.getBandeira());
                 pstmtVenda.setTimestamp(2, c.getDataDaVenda());
-                pstmtVenda.setString(3, c.getValorTotal());
+                pstmtVenda.setString(3, c.getDesconto());
                 pstmtVenda.setString(4, c.getFilial());
-                pstmtVenda.setString(5, c.getSubTotal());
+                pstmtVenda.setString(5, c.getIdCliente());
+                pstmtVenda.setString(6, c.getIdVendedor());
+                pstmtVenda.setString(7, c.getNumeroComprovante());
+                pstmtVenda.setString(8, c.getSubTotal());
+                pstmtVenda.setString(9, c.getValorTotal());
+                pstmtVenda.setString(10, c.getValorEmEspecie());
+                pstmtVenda.setString(11, c.getVezesCartao());
                 int IdVenda = pstmtVenda.executeUpdate(sqlVenda, PreparedStatement.RETURN_GENERATED_KEYS);
 
-                System.out.println("ID VENDA:" + IdVenda);
+                System.out.println("ID VENDA!!!!!!!!:" + IdVenda);
 
                 for (ProdutoData p : c.getListaDeProtudosDaVenda()) {
 

@@ -26,6 +26,7 @@ public class finalizarVenda extends HttpServlet {
         String numeroComprovante = request.getParameter("numeroComprovante");
         String bandeira = request.getParameter("bandeira");
         String valorEmEspecie = request.getParameter("valorEmEspecie");
+         String valorParcela = request.getParameter("valorParcela");
 
         // Infomações definidas no carrinho
         String valorTotal = (String) session.getAttribute("valorTotal");
@@ -33,13 +34,13 @@ public class finalizarVenda extends HttpServlet {
         String Desconto = (String) session.getAttribute("Desconto");
 
         // Id Funcionario
-        String IdFuncionario = (String) session.getAttribute("getId");
+        String IdFuncionario = String.valueOf((Integer) session.getAttribute("getId"));
 
         // Id Filial 
-        String getFilial = (String) session.getAttribute("getFilial");
+        String getFilial = String.valueOf((Integer) session.getAttribute("getFilial"));
 
         // Id Cliente
-        String idCliente = (String) session.getAttribute("idCliente");
+        String idCliente = String.valueOf((Integer)session.getAttribute("idCliente"));
         
         // Lista de produtos
         ArrayList<ProdutoData> listaProdutos = (ArrayList<ProdutoData>) session.getAttribute("listaProdutos");
@@ -61,8 +62,21 @@ public class finalizarVenda extends HttpServlet {
         v.setValorTotal(valorTotal);
         v.setVezesCartao(vezesCartao);
         
+        System.out.println(v.getBandeira());
+        System.out.println(v.getDataDaVenda());
+        System.out.println(v.getDesconto());
+        System.out.println(v.getFilial());
+        System.out.println(v.getIdCliente());
+        System.out.println(v.getIdVendedor());
+        System.out.println(v.getListaDeProtudosDaVenda());
+        System.out.println(v.getNumeroComprovante());
+        System.out.println(v.getSubTotal());
+        System.out.println(v.getValorEmEspecie());
+        System.out.println(v.getValorTotal());
+        System.out.println(v.getVezesCartao());
+        
         VendaDAO dao = new VendaDAO();
-        dao.cadastraVenda(v);
+       dao.cadastraVenda(v);
 
     }
 }

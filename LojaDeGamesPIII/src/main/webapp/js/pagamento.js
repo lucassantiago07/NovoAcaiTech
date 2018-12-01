@@ -41,16 +41,13 @@ $("[type='number']").click(function () {
 
 $('body').on('change', '#valorEmEspecie', function () {
 
-    valorTotal = $("#valorTotal").val();
+    valorTotal = $("#valorTotalDaCompraSemAlterar").val();
 
     valorTotal = Math.round(valorTotal);
 
     valorEmEspecie = $(this).val();
 
     valorEmEspecie = Math.round(valorEmEspecie);
-
-    console.log(valorEmEspecie);
-    console.log(valorTotal);
 
     if (valorTotal < valorEmEspecie)
     {
@@ -59,8 +56,23 @@ $('body').on('change', '#valorEmEspecie', function () {
     } else
     {
         $("#avisovalor").css('visibility', 'hidden');
-        $(".btnFinalizarImprimir").prop("disabled", false);
+        $(".btnFinalizarImprimir").prop("disabled", false);      
+        
         $(".valorTotal").val(valorTotal - valorEmEspecie);
+
+
+        retornocheckbox = $("#cartao").is(':checked');
+        
+        if (retornocheckbox ==true)
+        {
+            valorTotal = $(".valorTotal").val();
+
+            qtdVezes = $("[type='number']").val();
+
+            valorParcela = valorTotal / qtdVezes;
+
+            $("#valorParcela").val(valorParcela);
+       }
     }
 
 });
@@ -129,7 +141,16 @@ $('body').on('click', '#dinheiro', function () {
 
 });
 
-$(".btnFinalizarImprimir").keypress(function (evt) {
+$(".btnFinalizarImprimir").click(function (evt) {
     
+    subtotal = $(".valorTotal").val();
     
+    if (subtotal > 0)
+    {         
+        evt.preventDefault();
+        $("#myModal").modal();
+        $("#avisodevedor").css('visibility', 'visible');
+        $(".valorTotal").css('color','red');
+    }
+
 });
