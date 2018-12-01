@@ -8,6 +8,7 @@ public class VendaData {
     private String id;
     private String idCliente;
     private String idVendedor;
+    private String Filial;
     private String valorTotal;
     private String subTotal;
     private String desconto;
@@ -124,6 +125,24 @@ public class VendaData {
      */
     public void setListaDeProtudosDaVenda(ArrayList<ProdutoData> listaDeProtudosDaVenda) {
         this.listaDeProtudosDaVenda = listaDeProtudosDaVenda;
+    }
+
+    /**
+     * @return the Filial
+     */
+    public String getFilial() {
+        return Filial;
+    }
+
+    /**
+     * @param Filial the Filial to set
+     */
+    public void setFilial(String Filial) {
+        this.Filial = Filial;
+    }
+
+    public void setFilial(Object attribute) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
 }

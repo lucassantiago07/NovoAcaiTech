@@ -52,7 +52,7 @@ public class FuncionarioDAO {
             String sql = "SELECT * FROM `Funcionario` WHERE USUARIO = '" + nome + "' AND SENHA = '" + senha + "'";
             ResultSet rs = stmt.executeQuery(sql);
             
-            System.out.println(sql);
+           
 
             while (rs.next()) {
                 f.setId(rs.getInt("ID"));

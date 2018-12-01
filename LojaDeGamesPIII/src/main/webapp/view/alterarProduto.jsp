@@ -144,7 +144,11 @@
                     <label>Descrição</label>
                     <input class="form-control" id="descricao" name="descricao" maxlength="40" value="${produto.descricao}"></input>
                 </div>
-
+                
+                <button type="button" class="btn btn-primary" style="background-color: gray;">                    
+                    <a href="${pageContext.request.contextPath}/view/index.jsp" style="color:white;">Voltar</a>                       
+                </button>
+                
                 <button type="submit" class="btn btn-primary">Enviar</button>
             </form>
 

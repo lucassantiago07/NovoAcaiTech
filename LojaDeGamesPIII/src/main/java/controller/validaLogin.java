@@ -28,8 +28,8 @@ public class validaLogin extends HttpServlet {
         SimpleDateFormat formatador = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
         String dataAtual = formatador.format(data);
         
-        System.out.println(request.getParameter("usuario"));
-        System.out.println(request.getParameter("senha"));
+        //System.out.println(request.getParameter("usuario"));
+        //System.out.println(request.getParameter("senha"));
 
         if ((request.getParameter("usuario") != null) || (request.getParameter("senha") != null)) {
 
@@ -37,7 +37,7 @@ public class validaLogin extends HttpServlet {
 
             FuncionarioData f = fdao.verificaLogin(request.getParameter("usuario"), request.getParameter("senha"));
             
-            System.out.println(f.getNome());
+            //System.out.println(f.getNome());
 
             if (f.getNome() != null) {
                 retorno = "/view/index.jsp";

@@ -16,27 +16,29 @@ public class VendaDAO {
     public boolean cadastraVenda(VendaData c) {
         boolean deuCerto = false;
 
+        /*
         System.out.println(c.getDataDaVenda());
-        System.out.println(c.getDesconto());
-        //System.out.println(c.getId());
+        System.out.println(c.getDesconto());       
         System.out.println(c.getIdCliente());
         System.out.println(c.getIdVendedor());
-        //System.out.println(c.getListaDeProtudosDaVenda());
+        System.out.println(c.getListaDeProtudosDaVenda());
         System.out.println(c.getSubTotal());
         System.out.println(c.getValorTotal());
+         */
+        if (true) {
 
-        if (false) {
-            System.out.println("entrou");
             try {
 
                 Connection connection = new ConnectionFactory().getConnection();
 
-                String sqlVenda = "INSERT INTO `venda`(`id_cliente`, `data_da_venda`, `valortotal`) VALUES (?,?,?,?)";
+                String sqlVenda = "INSERT INTO `venda`(`id_cliente`, `data_da_venda`, `valortotal`,`filial`,`subtotal`) VALUES (?,?,?,?,?)";
                 PreparedStatement pstmtVenda = connection.prepareStatement(sqlVenda);
                 pstmtVenda.setString(1, c.getIdCliente());
                 pstmtVenda.setTimestamp(2, c.getDataDaVenda());
                 pstmtVenda.setString(3, c.getValorTotal());
-                int IdVenda = pstmtVenda.executeUpdate(sqlVenda, pstmtVenda.RETURN_GENERATED_KEYS);
+                pstmtVenda.setString(4, c.getFilial());
+                pstmtVenda.setString(5, c.getSubTotal());
+                int IdVenda = pstmtVenda.executeUpdate(sqlVenda, PreparedStatement.RETURN_GENERATED_KEYS);
 
                 System.out.println("ID VENDA:" + IdVenda);
 

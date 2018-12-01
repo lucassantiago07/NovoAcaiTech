@@ -1,18 +1,11 @@
 package controller;
 
-import dao.FuncionarioDAO;
 import dao.VendaDAO;
-import data.FuncionarioData;
 import data.ProdutoData;
-import data.ProdutosDaVendaData;
 import data.VendaData;
 import java.io.IOException;
-import java.sql.SQLException;
 import java.sql.Timestamp;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -28,15 +21,15 @@ public class preparaPagamento extends HttpServlet {
 
         HttpSession session = request.getSession();
         VendaData venda = new VendaData();
-        
+
         // Identificação do vendedor
-        String IdVendedor = (String) session.getAttribute("getId");
-        venda.setIdVendedor(IdVendedor);
-        
+        int IdVendedor = (Integer) session.getAttribute("getId");
+        venda.setIdVendedor(String.valueOf(IdVendedor));
+
         // Data hora atual da venda
         Timestamp DataDaVenda = new Timestamp(System.currentTimeMillis());
         venda.setDataDaVenda(DataDaVenda);
-        
+
         // Recupera o array aonde foram salvos os produtos;
         venda.setListaDeProtudosDaVenda((ArrayList<ProdutoData>) session.getAttribute("listaProdutos"));
 
@@ -44,13 +37,16 @@ public class preparaPagamento extends HttpServlet {
         venda.setValorTotal(valorTotal);
 
         String subTotal = request.getParameter("subTotal");
-        venda.setValorTotal(subTotal);        
+        venda.setSubTotal(subTotal);
 
         String Desconto = request.getParameter("Desconto");
         venda.setDesconto(Desconto);
 
-        String idCliente = (String) session.getAttribute("idCliente");
-        venda.setIdCliente(idCliente);
+        int idCliente = (Integer) session.getAttribute("idCliente");
+        venda.setIdCliente(String.valueOf(idCliente));
+
+        venda.setFilial((String) session.getAttribute("getFilial"));
+
         /*
         System.out.println(valortotal);
         

@@ -110,7 +110,9 @@
                     <input type="text" class="form-control" id="celular" name="celular" onkeypress="return isNumberKey(event)" maxlength="11" required></input>
                 </div>
 
-
+                <button type="button" class="btn btn-primary" style="background-color: gray;">                    
+                    <a href="${pageContext.request.contextPath}/view/index.jsp" style="color:white;">Voltar</a>                       
+                </button>
                 <button type="submit" class="btn btn-primary">Enviar</button>
             </form>
 

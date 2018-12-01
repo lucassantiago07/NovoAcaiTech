@@ -248,7 +248,10 @@ CREATE TABLE lojadegames.venda
      id               BIGINT NOT NULL auto_increment, 
      id_cliente       INT NOT NULL, 
      data_da_venda    TIMESTAMP NULL, 
-     valortotal       INT NOT NULL, 
+     subtotal      VARCHAR(100) NOT NULL, 
+     valortotal       VARCHAR(100) NOT NULL, 
+     desconto       VARCHAR(100) NOT NULL, 
+     filial   VARCHAR(100) NOT NULL,
      CONSTRAINT pk_tbvenda PRIMARY KEY(id) 
   ); 
 
