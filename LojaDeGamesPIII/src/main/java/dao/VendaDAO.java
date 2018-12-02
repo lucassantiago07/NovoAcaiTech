@@ -2,7 +2,6 @@ package dao;
 
 import connection.ConnectionFactory;
 import data.ProdutoData;
-import data.ProdutosDaVendaData;
 import data.VendaData;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -13,80 +12,84 @@ import java.util.ArrayList;
 
 public class VendaDAO {
 
-    public boolean cadastraVenda(VendaData c) {
+    public boolean cadastraVenda(VendaData c) throws SQLException, ClassNotFoundException {
+
         boolean deuCerto = false;
 
-        if (true) {
+        Connection connection = new ConnectionFactory().getConnection();
 
-            try {
+        String[] returnId = {"BATCHID"};
 
-                Connection connection = new ConnectionFactory().getConnection();
+        String sqlVenda = "INSERT INTO\n"
+                + "  `venda` (\n"
+                + "    `bandeira`,\n"
+                + "    `datadavenda`,\n"
+                + "    `desconto`,\n"
+                + "    `filial`,\n"
+                + "    `idcliente`,\n"
+                + "    `idvendedor`,\n"
+                + "    `numerocomprovante`,\n"
+                + "    `subtotal`,\n"
+                + "    `valortotal`,\n"
+                + "    `valoremespecie`,\n"
+                + "    `vezescartao`\n"
+                + "  )\n"
+                + "VALUES\n"
+                + "  ('" + c.getBandeira() + "',"
+                + "'" + c.getDataDaVenda() + "', "
+                + "'" + c.getDesconto() + "', "
+                + "'" + c.getFilial() + "', "
+                + "'" + c.getIdCliente() + "', "
+                + "'" + c.getIdVendedor() + "', "
+                + "'" + c.getNumeroComprovante() + "', "
+                + "'" + c.getSubTotal() + "', "
+                + "'" + c.getValorTotal() + "', "
+                + "'" + c.getValorEmEspecie() + "', "
+                + "'" + c.getVezesCartao() + "')";
 
-                String sqlVenda = "INSERT INTO\n"
-                        + "  `venda` (\n"
-                        + "    `bandeira`,\n"
-                        + "    `datadavenda`,\n"
-                        + "    `desconto`,\n"
-                        + "    `filial`,\n"
-                        + "    `idcliente`,\n"
-                        + "    `idvendedor`,\n"
-                        + "    `numerocomprovante`,\n"
-                        + "    `subtotal`,\n"
-                        + "    `valortotal`,\n"
-                        + "    `valoremespecie`,\n"
-                        + "    `vezescartao`\n"
-                        + "  )\n"
-                        + "VALUES\n"
-                        + "  ('" + c.getBandeira() + "',"
-                        + "'" + c.getDataDaVenda() + "', "
-                        + "'" + c.getDesconto() + "', "
-                        + "'" + c.getFilial() + "', "
-                        + "'" + c.getIdCliente() + "', "
-                        + "'" + c.getIdVendedor() + "', "
-                        + "'" + c.getNumeroComprovante() + "', "
-                        + "'" + c.getSubTotal() + "', "
-                        + "'" + c.getValorTotal() + "', "
-                        + "'" + c.getValorEmEspecie() + "', "
-                        + "'" + c.getVezesCartao() + "')";
+        PreparedStatement statement = connection.prepareStatement(sqlVenda, returnId);
 
-                System.out.println(sqlVenda);
-                PreparedStatement pstmtVenda = connection.prepareStatement(sqlVenda);
-                /* pstmtVenda.setString(1, c.getBandeira());
-                pstmtVenda.setTimestamp(2, c.getDataDaVenda());
-                pstmtVenda.setString(3, c.getDesconto());
-                pstmtVenda.setString(4, c.getFilial());
-                pstmtVenda.setString(5, c.getIdCliente());
-                pstmtVenda.setString(6, c.getIdVendedor());
-                pstmtVenda.setString(7, c.getNumeroComprovante());
-                pstmtVenda.setString(8, c.getSubTotal());
-                pstmtVenda.setString(9, c.getValorTotal());
-                pstmtVenda.setString(10, c.getValorEmEspecie());
-                pstmtVenda.setString(11, c.getVezesCartao());*/
-                int IdVenda = pstmtVenda.executeUpdate(sqlVenda, PreparedStatement.RETURN_GENERATED_KEYS);
+        int affectedRows = statement.executeUpdate();
 
-                System.out.println("ID VENDA!!!!!!!!:" + IdVenda);
+        int IdVenda = 0;
 
-                for (ProdutoData p : c.getListaDeProtudosDaVenda()) {
-
-                    String sqlVendaProdutos = "INSERT INTO `produtos_da_venda`(`nome_produto`,`quantidade`, `preco_unitario`,`id_venda`) VALUES (?,?,?,?)";
-                    PreparedStatement pstmtVendaProdutos = connection.prepareStatement(sqlVendaProdutos);
-                    pstmtVendaProdutos.setString(1, p.getNome());
-                    pstmtVendaProdutos.setInt(2, p.getQtdCarrinho());
-                    pstmtVendaProdutos.setInt(3, p.getPrecoDeVenda());
-                    pstmtVendaProdutos.setInt(4, IdVenda);
-                    pstmtVendaProdutos.executeUpdate();
-
-                }
-
-                connection.close();
-
-            } catch (SQLException | ClassNotFoundException ex) {
-                System.out.println("Erro no banco de dados cadastraVenda: " + ex);
-                deuCerto = false;
-            }
-            return deuCerto;
+        if (affectedRows == 0) {
+            throw new SQLException("Fail");
         }
-        return false;
+
+        try (ResultSet rs = statement.getGeneratedKeys()) {
+            if (rs.next()) {
+                System.out.println(rs.getInt(1));
+                IdVenda = rs.getInt(1);
+            }
+            rs.close();
+
+        }
+
+        try {
+
+            System.out.println("ID VENDA!!!!!!!!:" + IdVenda);
+
+            for (ProdutoData p : c.getListaDeProtudosDaVenda()) {
+
+                String sqlVendaProdutos = "INSERT INTO `produtos_da_venda`(`nome_produto`,`quantidade`, `preco_unitario`,`id_venda`) VALUES (?,?,?,?)";
+                PreparedStatement pstmtVendaProdutos = connection.prepareStatement(sqlVendaProdutos);
+                pstmtVendaProdutos.setString(1, p.getNome());
+                pstmtVendaProdutos.setInt(2, p.getQtdCarrinho());
+                pstmtVendaProdutos.setInt(3, p.getPrecoDeVenda());
+                pstmtVendaProdutos.setInt(4, IdVenda);
+                pstmtVendaProdutos.executeUpdate();
+                deuCerto = true;
+
+            }
+
+            connection.close();
+
+        } catch (SQLException ex) {
+            System.out.println("Erro no banco de dados cadastraVenda: " + ex);
+            deuCerto = false;
+        }
+        return deuCerto;
     }
 
     public ArrayList<VendaData> getVendas() {
@@ -136,16 +139,16 @@ public class VendaDAO {
         VendaData c = new VendaData();
         try {
 
-            Connection connection = new ConnectionFactory().getConnection();
-            Statement stmt = connection.createStatement();
-            ResultSet rs = stmt.executeQuery("SELECT * FROM `Venda` WHERE ID = " + id + "");
+            try (Connection connection = new ConnectionFactory().getConnection()) {
+                Statement stmt = connection.createStatement();
+                ResultSet rs = stmt.executeQuery("SELECT * FROM `Venda` WHERE ID = " + id + "");
 
-            while (rs.next()) {
+                while (rs.next()) {
 
-                c.setId(rs.getString("ID"));
+                    c.setId(rs.getString("ID"));
 
+                }
             }
-            connection.close();
         } catch (SQLException | ClassNotFoundException e) {
             System.out.println("Erro no banco de dados getVendaById:" + e);
         }

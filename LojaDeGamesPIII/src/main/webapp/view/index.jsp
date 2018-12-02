@@ -96,7 +96,7 @@
             <c:redirect url = "/expulsarDaPaginaSemLogar"/>
         </c:if>
         <!-- temporario -->
-        
+
         <meta charset="UTF-8">
         <title>AcaiTech Sistema - Index</title>
         <link type="text/css" href="${pageContext.request.contextPath}/css/bootstrap.css" rel="stylesheet" />
@@ -233,6 +233,15 @@
                         <div class="overbox">
                             <div class="title overtext"> Carrinho </div>
                             <div class="tagline overtext"> Para alterar, excluir ou verificar infos clique aqui. </div>
+                        </div>
+                    </div>
+                </a>
+                <a href="${pageContext.request.contextPath}/view/relatorio.jsp">
+                    <div class="box" style="background-color:khaki;">
+                        <img src="${pageContext.request.contextPath}/img/relatorio.png" style="width:50%;margin-left: 25%;margin-top: 15%;">
+                        <div class="overbox">
+                            <div class="title overtext"> Relatorio </div>
+                            <div class="tagline overtext"> Para verificar infos clique aqui. </div>
                         </div>
                     </div>
                 </a>

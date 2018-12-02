@@ -10,7 +10,7 @@
         </c:if>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta charset="UTF-8">
-        <title>AcaiTech Sistema - Carrinho</title>
+        <title>AcaiTech Sistema - Relatorio</title>
         <link type="text/css" href="${pageContext.request.contextPath}/css/bootstrap.css" rel="stylesheet" />
         <script src="${pageContext.request.contextPath}/js/jquery-3.3.1.js"></script>
         <script src="${pageContext.request.contextPath}/js/bootstrap.js"></script>
@@ -60,68 +60,13 @@
         </div>
         <nav class="navbar navbar-light separadorcarrocel">
         </nav>
-        <form method="POST" action="${pageContext.request.contextPath}/finalizarVenda">
-            <div class="container">
-                <div class="row">
-                    <div class="col-8 titulocorpopagamento">
-                        <h3> Pagamento </h3>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-12 corpopagamento">
-                        <div class="col-8 corpovalortotal">
-                            <h4>Total:</h4>
-                            <input type="text" id="valorTotalDaCompraSemAlterar"  class="valorTotalDaCompraSemAlterar form-control" name="valorTotalDaCompraSemAlterar" value="${valorTotal}" style="visibility: visible;" readonly="readonly"></input>
+        <div class="container">
+            <div class="row">
 
-                            <h6 style="margin-top: 1%;"> Sub Total / Restante </h6>
-                            <input type="text" id="valorTotal"  class="valorTotal form-control" name="valorTotal" value="${valorTotal}" style="visibility: visible;" readonly="readonly"></input>
+                <h3> Página de relatorios </h3>
 
-                        </div>
-
-                        <div class="col-8 corpoopcaocartao">
-                            <input type="checkbox" id="cartao" name="cartao" value="Pagamento em cartao">Pagamento em cartão<br>
-                            <label>Parcelamento (Em até 12X):</label>
-                            <div class="input-group mb-2 vezesCartao">                              
-                                <input type="number" class="form-control " id="vezesCartao" name="vezesCartao" value="10" onkeypress="return isNumberKey(event)" max="12" ></input>
-                                <div class="input-group-prepend">
-                                    <div class="input-group-text">X</div>
-                                </div>
-                            </div>                            
-                            <label>Número do comprovante:</label>
-                            <input type="text" class="form-control" id="numeroComprovante" name="numeroComprovante" onkeypress="return isNumberKey(event)" maxlength="20"></input>
-                            <div class="form-group">
-                                <label>Bandeira</label>
-                                <select class="form-control" id="bandeira" name="bandeira" required>
-                                    <option value="VISA">VISA</option>
-                                    <option value="MASTERCARD">MASTERCARD</option>
-                                    <option value="OUTROS">OUTROS</option>
-                                </select>
-                            </div>
-                            <label>Valor parcela:</label>
-                            <input type="text" class="form-control" id="valorParcela" class="valorParcela" name="valorParcela" readonly="readonly"></input>
-                        </div>
-                        <div class="col-8 corpoopcaodinheiro">
-                            <input type="checkbox" id="dinheiro" name="dinheiro" value="Pagamento em dinheiro">Pagamento em dinheiro<br>
-                            <label>Valor em especie:</label>    
-
-                            <div class="input-group mb-2 valorEmEspecie">
-                                <input type="text" class="form-control " id="valorEmEspecie" class="valorEmEspecie" name="valorEmEspecie" onkeypress="return isNumberKey(event)"></input>
-                                <div class="input-group-prepend">
-                                    <div class="input-group-text">R$</div>
-                                </div>
-                            </div>   
-                            <span id="avisovalor" style="color:red"><b>Valor em especie maior que o valor: Sub Total / Restante!</b></span>
-                        </div>
-
-                        <div class="col-8 corpodebotoesfinais">
-                            <a href="${pageContext.request.contextPath}/view/destaques.jsp"><button type="button" class="btn btn-secondary btnCancelar" >Cancelar compra</button></a>
-                            <a href="${pageContext.request.contextPath}/view/carrinho.jsp"><button type="button" class="btn btn-secondary btnVoltaCarrinho" >Voltar ao carrinho</button></a>
-                            <a href="${pageContext.request.contextPath}/view/finalizacao.jsp"><button type="submit" class="btn btn-secondary btnFinalizarImprimir" >Imprimir recibo e finalizar</button></a>
-                        </div>                         
-                    </div>
-                </div>
             </div>
-        </form>
+        </div>
         <!-- Inicio Footer -->
         <footer class="rodape page-footer font-small blue">
             <div class="footer-copyright text-center py-3">© 2018 Copyright: [ ACAITECH SISTEMAS OPERACIONAIS LTDA 13.050.544/0001-00 ]
@@ -158,10 +103,10 @@
         </div>
         <c:if test="${not empty retorno}">
             <script type="text/javascript">
-                                    $("#myModal").modal();
-                                    $('#myModal').on('hidden.bs.modal', function () {
-                                        window.location.href = '${pageContext.request.contextPath}/view/pagamento.jsp'
-                                    })
+                $("#myModal").modal();
+                $('#myModal').on('hidden.bs.modal', function () {
+                    window.location.href = '${pageContext.request.contextPath}/view/pagamento.jsp'
+                })
             </script>
         </c:if>
     </body>
