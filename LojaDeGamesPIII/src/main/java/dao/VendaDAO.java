@@ -129,7 +129,7 @@ public class VendaDAO {
             }
             connection.close();
         } catch (SQLException | ClassNotFoundException e) {
-            System.out.println("Erro no banco de dados getVendaByNome: " + e);
+            System.out.println("Erro no banco de dados getVendaByData: " + e);
         }
 
         return listaVenda;
