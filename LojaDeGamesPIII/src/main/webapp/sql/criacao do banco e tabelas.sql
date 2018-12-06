@@ -219,7 +219,7 @@ CREATE TABLE lojadegames.funcionario
      cargo    VARCHAR(100) NULL, 
      endereco VARCHAR(100) NULL, 
      cep      VARCHAR(100) NULL, 
-     telefone INT NULL, 
+     telefone VARCHAR(100) NULL, 
      celular  VARCHAR(100) NULL, 
      usuario  VARCHAR(100) NULL, 
      senha    VARCHAR(100) NULL, 

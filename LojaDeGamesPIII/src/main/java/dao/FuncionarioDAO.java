@@ -27,8 +27,8 @@ public class FuncionarioDAO {
             pstmtFuncionario.setString(6, f.getCep());
             pstmtFuncionario.setString(7, f.getTelefone());
             pstmtFuncionario.setString(8, f.getCelular());
-            pstmtFuncionario.setString(9, f.getCpf());
-            pstmtFuncionario.setString(10, f.getCpf());
+            pstmtFuncionario.setString(9, f.getUsuario());
+            pstmtFuncionario.setString(10, f.getSenha());
             int deuCertoSQL = pstmtFuncionario.executeUpdate();
 
             if (deuCertoSQL == 1) {
@@ -51,8 +51,6 @@ public class FuncionarioDAO {
             Statement stmt = connection.createStatement();
             String sql = "SELECT * FROM `Funcionario` WHERE USUARIO = '" + nome + "' AND SENHA = '" + senha + "'";
             ResultSet rs = stmt.executeQuery(sql);
-            
-           
 
             while (rs.next()) {
                 f.setId(rs.getInt("ID"));
