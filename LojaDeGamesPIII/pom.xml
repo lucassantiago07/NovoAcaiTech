@@ -16,24 +16,24 @@
     
     
     
-        <developers>
+    <developers>
         <developer>
             <id>1</id>
             <name> Angelo</name>
         </developer>
-                <developer>
+        <developer>
             <id>2</id>
             <name> Murilo </name>
         </developer>
-                <developer>
+        <developer>
             <id>3</id>
             <name> Marcos </name>
         </developer>
-                <developer>
+        <developer>
             <id>4</id>
             <name> Lucas </name>
         </developer>
-                <developer>
+        <developer>
             <id>5</id>
             <name>Fernando </name>
         </developer>
@@ -95,6 +95,11 @@
             <artifactId>javaee-web-api</artifactId>
             <version>7.0</version>
             <type>jar</type>
+        </dependency>
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>5.1.6</version>
         </dependency>
     </dependencies>
 </project>

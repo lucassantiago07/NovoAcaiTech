@@ -21,7 +21,7 @@ public class alterarFuncionario extends HttpServlet {
 
         c.setId(Integer.parseInt(request.getParameter("id")));
         c.setNome(request.getParameter("nomeFuncionario"));
-        c.setFilial(Integer.parseInt(request.getParameter("filial")));
+        c.setFilial(request.getParameter("filial"));
         c.setCargo(request.getParameter("filial"));
         c.setCpf(request.getParameter("cpfFuncionario"));
         c.setEndereco(request.getParameter("enderecoFuncionario"));

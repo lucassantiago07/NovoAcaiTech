@@ -2,22 +2,22 @@ package data;
 
 public class ProdutosDaVendaData {
 
-    private Integer id;
+    private String id;
     private String nomeProduto;
-    private Integer quantidade;
-    private Integer precoUnitario;
+    private String quantidade;
+    private String precoUnitario;
 
     /**
      * @return the id
      */
-    public Integer getId() {
+    public String getId() {
         return id;
     }
 
     /**
      * @param id the id to set
      */
-    public void setId(Integer id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -38,29 +38,30 @@ public class ProdutosDaVendaData {
     /**
      * @return the quantidade
      */
-    public Integer getQuantidade() {
+    public String getQuantidade() {
         return quantidade;
     }
 
     /**
      * @param quantidade the quantidade to set
      */
-    public void setQuantidade(Integer quantidade) {
+    public void setQuantidade(String quantidade) {
         this.quantidade = quantidade;
     }
 
     /**
      * @return the precoUnitario
      */
-    public Integer getPrecoUnitario() {
+    public String getPrecoUnitario() {
         return precoUnitario;
     }
 
     /**
      * @param precoUnitario the precoUnitario to set
      */
-    public void setPrecoUnitario(Integer precoUnitario) {
+    public void setPrecoUnitario(String precoUnitario) {
         this.precoUnitario = precoUnitario;
     }
 
+    
 }

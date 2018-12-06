@@ -5,7 +5,7 @@ public class FuncionarioData {
     private Integer id;
     private String nome;
     private String cpf;
-    private Integer filial;
+    private String filial;
     private String cargo;
     private String endereco;
     private String cep;
@@ -57,14 +57,14 @@ public class FuncionarioData {
     /**
      * @return the filial
      */
-    public Integer getFilial() {
+    public String getFilial() {
         return filial;
     }
 
     /**
      * @param filial the filial to set
      */
-    public void setFilial(Integer filial) {
+    public void setFilial(String filial) {
         this.filial = filial;
     }
 

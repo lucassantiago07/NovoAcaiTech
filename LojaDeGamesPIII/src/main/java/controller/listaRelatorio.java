@@ -10,11 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/**
- *
- * @author Coutinho's
- */
-@WebServlet(name = "listaRelatorio", urlPatterns = {"/Relatorio"})
+@WebServlet(name = "listaRelatorio", urlPatterns = {"/listaRelatorio"})
 public class listaRelatorio extends HttpServlet {
 
     @Override
@@ -23,9 +19,9 @@ public class listaRelatorio extends HttpServlet {
         
         VendaDAO relatorio = new VendaDAO();
 
-        List<VendaData> lista = relatorio.getVendas();
+        List<VendaData> listaSemFiltro = relatorio.getVendas();
 
-        request.setAttribute("relatorio", lista);
+        request.setAttribute("listaSemFiltro", listaSemFiltro);
     }
 
 }

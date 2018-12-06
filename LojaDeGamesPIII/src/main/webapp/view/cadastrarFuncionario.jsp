@@ -90,21 +90,20 @@
                 <div class="form-group">
                     <label>Filial</label>
                     <select class="form-control" id="filial" name="filial" required>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
+                        <option value="Campina Grande">Campina Grande</option>
+                        <option value="São Paulo">São Paulo</option>
+                        <option value="Joinville">Joinville</option>
+                        <option value="Brasília">Brasília</option>
                     </select>
                 </div>
                 <div class="form-group">
                     <label>Cargo</label>
                     <select class="form-control" id="cargo" name="cargo" required>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
+                        <option value="Vendedor">Vendedor</option>
+                        <option value="Diretor">Diretor</option>
+                        <option value="Auxiliar de RH">Auxiliar de RH</option>
+                        <option value="Auxiliar de Estoque">Auxiliar de Estoque</option>
+                        <option value="Auxiliar de BackOffice">Auxiliar de BackOffice</option>
                     </select>
                 </div>
                 <div class="form-group">

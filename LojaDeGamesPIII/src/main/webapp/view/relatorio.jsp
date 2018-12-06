@@ -8,6 +8,7 @@
         <c:if test="${empty sessionScope.getNome}">
             <c:redirect url = "/expulsarDaPaginaSemLogar"/>
         </c:if>
+        <jsp:include page="/listaRelatorio" />
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta charset="UTF-8">
         <title>AcaiTech Sistema - Relatorio</title>
@@ -62,9 +63,75 @@
         </nav>
         <div class="container">
             <div class="row">
-        <!-- Fim do Carrocel-->
                 <h3> Página de relatorios </h3>
+            </div>
 
+            <div class="row">
+                <!-- Fim do Carrocel-->
+
+                <div class="corpotabela">
+                    <div class="">
+                        <table class="table table-sm">
+                            <thead>
+                                <tr>
+                                    <th scope="col">ID</th>
+                                    <th scope="col">Tipo de venda</th>
+                                    <th scope="col">Bandeira</th>
+                                    <th scope="col">Data da Venda</th>
+                                    <th scope="col">Filial</th>
+                                    <th scope="col">Cliente</th>
+                                    <th scope="col">Vendedor</th>
+                                    <th scope="col">Número Comprovante</th>
+                                    <th scope="col">Parcelamento (Vezes)</th>
+                                    <th scope="col">SubTotal</th>
+                                    <th scope="col">% Desconto</th>
+                                    <th scope="col">Valor Pago Em Especie</th>
+                                    <th scope="col">Valor Total</th>
+                                    <th scope="col">Produtos</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+
+
+                                <c:if test="${not empty listaSemFiltro}">
+                                    <c:forEach var="Venda" items="${listaSemFiltro}">
+                                        <tr class="">
+
+                                            <td>${Venda.id}</td> 
+
+                                            <c:if test="${not empty Venda.bandeira && not empty Venda.valorEmEspecie}">
+                                                <td>Venda com cartão e dinheiro</td> 
+                                            </c:if>
+
+                                            <c:if test="${empty Venda.valorEmEspecie}">
+                                                <td>Venda em cartão</td> 
+                                            </c:if>
+
+                                            <c:if test="${empty Venda.bandeira}">
+                                                <td>Venda em dinheiro</td> 
+                                            </c:if>
+
+
+                                            <td>${Venda.bandeira}</td>
+                                            <td>${Venda.dataDaVenda}</td>
+                                            <td>${Venda.filial}</td>
+                                            <td>${Venda.idCliente}</td>
+                                            <td>${Venda.idVendedor}</td>
+                                            <td>${Venda.numeroComprovante}</td>
+                                            <td>${Venda.vezesCartao}</td>
+                                            <td>${Venda.subTotal}</td>
+                                            <td>${Venda.desconto}%</td>
+                                            <td>${Venda.valorEmEspecie}</td>
+                                            <td>${Venda.valorTotal}</td>
+                                            <td><a href="${pageContext.request.contextPath}/capturaProdutosDaVenda?idVenda=${Venda.id}">Visualizar Produtos</a></td>
+                                        </c:forEach>
+                                    </c:if>
+
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
             </div>
         </div>
         <!-- Inicio Footer -->
@@ -90,10 +157,28 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        ${retornoMensagem}     
-                    </div>
-                    <div class="modal-body" id="avisodevedor" style="visibility: hidden;">
-                        Ainda há saldo para ser quitado (SubTotal / Restante)!
+                        <table class="table table-sm">
+                            <thead>
+                                <tr>
+                                    <th scope="col">ID</th>
+                                    <th scope="col">ID</th>
+                                    <th scope="col">ID</th>
+                                    <th scope="col">ID</th>
+                                    <th scope="col">ID</th>                                    
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <c:if test="${not empty listaDeProdutosDaCompra}">
+                                    <c:forEach var="Produto" items="${listaDeProdutosDaCompra}">
+                                        <tr class="">
+                                            <td>${Produto.id}</td> 
+                                            <td>${Produto.id}</td> 
+                                            <td>${Produto.id}</td> 
+                                            <td>${Produto.id}</td> 
+                                        </c:forEach>
+                                    </c:if>
+                            </tbody>
+                        </table>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
@@ -101,11 +186,11 @@
                 </div>
             </div>
         </div>
-        <c:if test="${not empty retorno}">
+        <c:if test="${not empty abrirParaExibirProdutos}">
             <script type="text/javascript">
                 $("#myModal").modal();
                 $('#myModal').on('hidden.bs.modal', function () {
-                    window.location.href = '${pageContext.request.contextPath}/view/pagamento.jsp'
+                    window.location.href = '${pageContext.request.contextPath}/view/relatorio.jsp'
                 })
             </script>
         </c:if>

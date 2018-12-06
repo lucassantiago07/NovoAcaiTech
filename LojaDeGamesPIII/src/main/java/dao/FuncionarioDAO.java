@@ -21,7 +21,7 @@ public class FuncionarioDAO {
             PreparedStatement pstmtFuncionario = connection.prepareStatement(sqlFuncionario);
             pstmtFuncionario.setString(1, f.getNome());
             pstmtFuncionario.setString(2, f.getCpf());
-            pstmtFuncionario.setInt(3, f.getFilial());
+            pstmtFuncionario.setString(3, f.getFilial());
             pstmtFuncionario.setString(4, f.getCargo());
             pstmtFuncionario.setString(5, f.getEndereco());
             pstmtFuncionario.setString(6, f.getCep());
@@ -61,7 +61,7 @@ public class FuncionarioDAO {
                 f.setCep(rs.getString("CEP"));
                 f.setCpf(rs.getString("CPF"));
                 f.setCargo(rs.getString("CARGO"));
-                f.setFilial(Integer.parseInt(rs.getString("FILIAL")));
+                f.setFilial(rs.getString("FILIAL"));
                 f.setEndereco(rs.getString("ENDERECO"));
                 f.setTelefone(rs.getString("TELEFONE"));
             }
@@ -82,7 +82,7 @@ public class FuncionarioDAO {
             PreparedStatement pstmtFuncionario = connection.prepareStatement(sqlFuncionario);
             pstmtFuncionario.setString(1, f.getNome());
             pstmtFuncionario.setString(2, f.getCpf());
-            pstmtFuncionario.setInt(3, f.getFilial());
+            pstmtFuncionario.setString(3, f.getFilial());
             pstmtFuncionario.setString(4, f.getCargo());
             pstmtFuncionario.setString(5, f.getEndereco());
             pstmtFuncionario.setString(6, f.getCep());
@@ -118,7 +118,7 @@ public class FuncionarioDAO {
                 f.setCep(rs.getString("CEP"));
                 f.setCpf(rs.getString("CPF"));
                 f.setCargo(rs.getString("CARGO"));
-                f.setFilial(Integer.parseInt(rs.getString("FILIAL")));
+                f.setFilial(rs.getString("FILIAL"));
                 f.setEndereco(rs.getString("ENDERECO"));
                 f.setTelefone(rs.getString("TELEFONE"));
                 listaFuncionario.add(f);
@@ -147,7 +147,7 @@ public class FuncionarioDAO {
                 f.setCep(rs.getString("CEP"));
                 f.setCpf(rs.getString("CPF"));
                 f.setCargo(rs.getString("CARGO"));
-                f.setFilial(Integer.parseInt(rs.getString("FILIAL")));
+                f.setFilial(rs.getString("FILIAL"));
                 f.setEndereco(rs.getString("ENDERECO"));
                 f.setTelefone(rs.getString("TELEFONE"));
                 listaFuncionario.add(f);
@@ -178,7 +178,7 @@ public class FuncionarioDAO {
                 f.setCep(rs.getString("CEP"));
                 f.setCpf(rs.getString("CPF"));
                 f.setCargo(rs.getString("CARGO"));
-                f.setFilial(Integer.parseInt(rs.getString("FILIAL")));
+                f.setFilial(rs.getString("FILIAL"));
                 f.setEndereco(rs.getString("ENDERECO"));
                 f.setTelefone(rs.getString("TELEFONE"));
 

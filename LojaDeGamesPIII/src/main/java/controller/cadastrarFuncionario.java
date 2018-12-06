@@ -31,7 +31,7 @@ public class cadastrarFuncionario extends HttpServlet {
 
         r.setCargo(request.getParameter("cargo"));
 
-        r.setFilial(Integer.parseInt(request.getParameter("filial")));
+        r.setFilial(request.getParameter("filial"));
 
         FuncionarioDAO dao = new FuncionarioDAO();
 
