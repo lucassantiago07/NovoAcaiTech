@@ -124,6 +124,16 @@
                     <input type="text" class="form-control" id="celular" name="celular" onkeypress="return isNumberKey(event)" maxlength="11" required></input>
                 </div>
 
+                <div class="form-group">
+                    <label>Usuario para acesso ao sistema</label>
+                    <input type="text" class="form-control" id="usuario" name="usuario" required></input>
+                </div>
+
+                <div class="form-group">
+                    <label>Senha para acesso ao sistema</label>
+                    <input type="password" class="form-control" id="senha" name="senha"  required></input>
+                </div>
+
                 <button type="button" class="btn btn-primary" style="background-color: gray;">                    
                     <a href="${pageContext.request.contextPath}/view/index.jsp" style="color:white;">Voltar</a>                       
                 </button>

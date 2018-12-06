@@ -108,6 +108,8 @@ public class VendaDAO {
                 c.setValorTotal(rs.getString("VALORTOTAL"));
                 c.setValorEmEspecie(rs.getString("VALOREMESPECIE"));
                 c.setVezesCartao(rs.getString("VEZESCARTAO"));
+
+                c.setBandeira(rs.getString("BANDEIRA"));
                 listaVenda.add(c);
 
             }
@@ -129,18 +131,26 @@ public class VendaDAO {
             while (rs.next()) {
                 VendaData c = new VendaData();
                 c.setId(rs.getString("ID"));
-                c.setBandeira(rs.getString("BANDEIRA"));
+
                 c.setDataDaVenda(Timestamp.valueOf(rs.getString("DATADAVENDA")));
                 c.setDesconto(rs.getString("DESCONTO"));
                 c.setFilial(rs.getString("FILIAL"));
-                c.setIdCliente(rs.getString("IDCLIENTE"));
-                c.setIdVendedor(rs.getString("IDVENDEDOR"));
+
+                ClienteDAO daoCliente = new ClienteDAO();
+                ClienteData cliente = daoCliente.getClienteById(Integer.parseInt(rs.getString("IDCLIENTE")));
+                c.setIdCliente(cliente.getNome());
+
+                FuncionarioDAO daoFuncionario = new FuncionarioDAO();
+                FuncionarioData funcionario = daoFuncionario.getFuncionarioById(Integer.parseInt(rs.getString("IDVENDEDOR")));
+                c.setIdVendedor(funcionario.getNome());
+
                 c.setNumeroComprovante(rs.getString("NUMEROCOMPROVANTE"));
                 c.setSubTotal(rs.getString("SUBTOTAL"));
                 c.setValorTotal(rs.getString("VALORTOTAL"));
                 c.setValorEmEspecie(rs.getString("VALOREMESPECIE"));
                 c.setVezesCartao(rs.getString("VEZESCARTAO"));
 
+                c.setBandeira(rs.getString("BANDEIRA"));
                 listaVenda.add(c);
 
             }
@@ -161,18 +171,28 @@ public class VendaDAO {
                 ResultSet rs = stmt.executeQuery("SELECT * FROM `Venda` WHERE ID = " + id + "");
 
                 while (rs.next()) {
+
                     c.setId(rs.getString("ID"));
-                    c.setBandeira(rs.getString("BANDEIRA"));
+
                     c.setDataDaVenda(Timestamp.valueOf(rs.getString("DATADAVENDA")));
                     c.setDesconto(rs.getString("DESCONTO"));
                     c.setFilial(rs.getString("FILIAL"));
-                    c.setIdCliente(rs.getString("IDCLIENTE"));
-                    c.setIdVendedor(rs.getString("IDVENDEDOR"));
+
+                    ClienteDAO daoCliente = new ClienteDAO();
+                    ClienteData cliente = daoCliente.getClienteById(Integer.parseInt(rs.getString("IDCLIENTE")));
+                    c.setIdCliente(cliente.getNome());
+
+                    FuncionarioDAO daoFuncionario = new FuncionarioDAO();
+                    FuncionarioData funcionario = daoFuncionario.getFuncionarioById(Integer.parseInt(rs.getString("IDVENDEDOR")));
+                    c.setIdVendedor(funcionario.getNome());
+
                     c.setNumeroComprovante(rs.getString("NUMEROCOMPROVANTE"));
                     c.setSubTotal(rs.getString("SUBTOTAL"));
                     c.setValorTotal(rs.getString("VALORTOTAL"));
                     c.setValorEmEspecie(rs.getString("VALOREMESPECIE"));
                     c.setVezesCartao(rs.getString("VEZESCARTAO"));
+
+                    c.setBandeira(rs.getString("BANDEIRA"));
 
                 }
             }

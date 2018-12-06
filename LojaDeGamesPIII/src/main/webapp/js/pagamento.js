@@ -56,14 +56,14 @@ $('body').on('change', '#valorEmEspecie', function () {
     } else
     {
         $("#avisovalor").css('visibility', 'hidden');
-        $(".btnFinalizarImprimir").prop("disabled", false);      
-        
+        $(".btnFinalizarImprimir").prop("disabled", false);
+
         $(".valorTotal").val(valorTotal - valorEmEspecie);
 
 
         retornocheckbox = $("#cartao").is(':checked');
-        
-        if (retornocheckbox ==true)
+
+        if (retornocheckbox == true)
         {
             valorTotal = $(".valorTotal").val();
 
@@ -72,7 +72,7 @@ $('body').on('change', '#valorEmEspecie', function () {
             valorParcela = valorTotal / qtdVezes;
 
             $("#valorParcela").val(valorParcela);
-       }
+        }
     }
 
 });
@@ -143,14 +143,19 @@ $('body').on('click', '#dinheiro', function () {
 
 $(".btnFinalizarImprimir").click(function (evt) {
     
+    console.log("imprimir")
+
+    console.log($('#cartao').is(':checked'));
     subtotal = $(".valorTotal").val();
     
-    if (subtotal > 0)
-    {         
+    retornocheckbox = $('#cartao').is(':checked');
+
+    if (subtotal > 0 && retornocheckbox == false)
+    {
         evt.preventDefault();
         $("#myModal").modal();
         $("#avisodevedor").css('visibility', 'visible');
-        $(".valorTotal").css('color','red');
+        $(".valorTotal").css('color', 'red');
     }
 
 });

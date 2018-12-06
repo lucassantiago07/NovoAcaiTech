@@ -103,22 +103,8 @@
                                     <c:if test="${not empty listaSemFiltro}">
                                         <c:forEach var="Venda" items="${listaSemFiltro}">
                                             <tr class="">
-
                                                 <td>${Venda.id}</td> 
-
-                                                <c:if test="${not empty Venda.bandeira && not empty Venda.valorEmEspecie}">
-                                                    <td>Venda com cartão e dinheiro</td> 
-                                                </c:if>
-
-                                                <c:if test="${empty Venda.valorEmEspecie}">
-                                                    <td>Venda em cartão</td> 
-                                                </c:if>
-
-                                                <c:if test="${empty Venda.bandeira}">
-                                                    <td>Venda em dinheiro</td> 
-                                                </c:if>
-
-
+                                                <td>#</td> 
                                                 <td>${Venda.bandeira}</td>
                                                 <td>${Venda.dataDaVenda}</td>
                                                 <td>${Venda.filial}</td>

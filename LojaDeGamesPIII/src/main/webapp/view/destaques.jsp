@@ -63,7 +63,7 @@
                 <input name="jogo" class=" form-control mr-sm-2 " type="search" placeholder="Digite o nome do jogo,fornecedor, ano de lançamento, plataforma, ..etc" aria-label="Search" style="width:90%">
                 <button type="submit" class="btn btn-light">Buscar</button>
             </form></br>
-            <b></b><div class="col-12 removedordefiltro" style="visibility:hidden;text-align: center;color:white;font-size: 0.5em;margin-top: 1%;"><a href="${pageContext.request.contextPath}/view/destaques.jsp" style="text-align: center;color:white;">Remover Filtro</a></div>
+            <b></b><div class="col-12 removedordefiltro" style="visibility:hidden;text-align: center;color:white;font-size: 1em;margin-top: 1%;"><a href="${pageContext.request.contextPath}/view/destaques.jsp" style="text-align: center;color:white;">Remover Filtro</a></div>
         </nav>
         <!-- Fim Busca Jogos -->
         <div class=" corpodeprodutos container">
