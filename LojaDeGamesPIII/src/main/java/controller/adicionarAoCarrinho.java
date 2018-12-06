@@ -39,7 +39,8 @@ public class adicionarAoCarrinho extends HttpServlet {
 
                 boolean produtoExisteNaLista = false;
 
-                int posicaoArray = 0;
+                int posicaoArray = 0;            
+                
 
                 // Percorre a lista para verificar se o produto já existe
                 for (ProdutoData produtosDaLista : listaProdutos) {

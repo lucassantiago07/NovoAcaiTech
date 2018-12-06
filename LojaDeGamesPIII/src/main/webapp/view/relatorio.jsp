@@ -62,7 +62,7 @@
         <nav class="navbar navbar-light separadorcarrocel">
         </nav>
         <div class="container">
-            <div class="row">
+            <div class="row" style="margin-top: 2%;">
                 <h3> Página de relatorios </h3>
             </div>
 
@@ -71,65 +71,73 @@
 
                 <div class="corpotabela">
                     <div class="">
-                        <table class="table table-sm">
-                            <thead>
-                                <tr>
-                                    <th scope="col">ID</th>
-                                    <th scope="col">Tipo de venda</th>
-                                    <th scope="col">Bandeira</th>
-                                    <th scope="col">Data da Venda</th>
-                                    <th scope="col">Filial</th>
-                                    <th scope="col">Cliente</th>
-                                    <th scope="col">Vendedor</th>
-                                    <th scope="col">Número Comprovante</th>
-                                    <th scope="col">Parcelamento (Vezes)</th>
-                                    <th scope="col">SubTotal</th>
-                                    <th scope="col">% Desconto</th>
-                                    <th scope="col">Valor Pago Em Especie</th>
-                                    <th scope="col">Valor Total</th>
-                                    <th scope="col">Produtos</th>
-                                </tr>
-                            </thead>
-                            <tbody>
+                        <!-- Verifica se tem vendas retornadas -->
+                        <c:if test="${empty listaSemFiltro && empty listaComFiltro}">
+                            Não há vendas realizadas.
+                        </c:if>
+                        <!-- Se não retornou vazio abre tabela -->
+                        <c:if test="${not empty listaSemFiltro || not empty listaComFiltro}">
+
+                            <table class="table table-sm">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">ID</th>
+                                        <th scope="col">Tipo de venda</th>
+                                        <th scope="col">Bandeira</th>
+                                        <th scope="col">Data da Venda</th>
+                                        <th scope="col">Filial</th>
+                                        <th scope="col">Cliente</th>
+                                        <th scope="col">Vendedor</th>
+                                        <th scope="col">Número Comprovante</th>
+                                        <th scope="col">Parcelamento (Vezes)</th>
+                                        <th scope="col">SubTotal</th>
+                                        <th scope="col">% Desconto</th>
+                                        <th scope="col">Valor Pago Em Especie</th>
+                                        <th scope="col">Valor Total</th>
+                                        <th scope="col">Produtos</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
 
 
-                                <c:if test="${not empty listaSemFiltro}">
-                                    <c:forEach var="Venda" items="${listaSemFiltro}">
-                                        <tr class="">
+                                    <c:if test="${not empty listaSemFiltro}">
+                                        <c:forEach var="Venda" items="${listaSemFiltro}">
+                                            <tr class="">
 
-                                            <td>${Venda.id}</td> 
+                                                <td>${Venda.id}</td> 
 
-                                            <c:if test="${not empty Venda.bandeira && not empty Venda.valorEmEspecie}">
-                                                <td>Venda com cartão e dinheiro</td> 
-                                            </c:if>
+                                                <c:if test="${not empty Venda.bandeira && not empty Venda.valorEmEspecie}">
+                                                    <td>Venda com cartão e dinheiro</td> 
+                                                </c:if>
 
-                                            <c:if test="${empty Venda.valorEmEspecie}">
-                                                <td>Venda em cartão</td> 
-                                            </c:if>
+                                                <c:if test="${empty Venda.valorEmEspecie}">
+                                                    <td>Venda em cartão</td> 
+                                                </c:if>
 
-                                            <c:if test="${empty Venda.bandeira}">
-                                                <td>Venda em dinheiro</td> 
-                                            </c:if>
-
-
-                                            <td>${Venda.bandeira}</td>
-                                            <td>${Venda.dataDaVenda}</td>
-                                            <td>${Venda.filial}</td>
-                                            <td>${Venda.idCliente}</td>
-                                            <td>${Venda.idVendedor}</td>
-                                            <td>${Venda.numeroComprovante}</td>
-                                            <td>${Venda.vezesCartao}</td>
-                                            <td>${Venda.subTotal}</td>
-                                            <td>${Venda.desconto}%</td>
-                                            <td>${Venda.valorEmEspecie}</td>
-                                            <td>${Venda.valorTotal}</td>
-                                            <td><a href="${pageContext.request.contextPath}/capturaProdutosDaVenda?idVenda=${Venda.id}">Visualizar Produtos</a></td>
-                                        </c:forEach>
-                                    </c:if>
+                                                <c:if test="${empty Venda.bandeira}">
+                                                    <td>Venda em dinheiro</td> 
+                                                </c:if>
 
 
-                            </tbody>
-                        </table>
+                                                <td>${Venda.bandeira}</td>
+                                                <td>${Venda.dataDaVenda}</td>
+                                                <td>${Venda.filial}</td>
+                                                <td>${Venda.idCliente}</td>
+                                                <td>${Venda.idVendedor}</td>
+                                                <td>${Venda.numeroComprovante}</td>
+                                                <td>${Venda.vezesCartao}</td>
+                                                <td>${Venda.subTotal}</td>
+                                                <td>${Venda.desconto}%</td>
+                                                <td>${Venda.valorEmEspecie}</td>
+                                                <td>${Venda.valorTotal}</td>
+                                                <td><a href="${pageContext.request.contextPath}/capturaProdutosDaVenda?idVenda=${Venda.id}">Visualizar Produtos</a></td>
+                                            </c:forEach>
+                                        </c:if>
+
+
+                                </tbody>
+                            </table>
+                        </c:if>
                     </div>
                 </div>
             </div>

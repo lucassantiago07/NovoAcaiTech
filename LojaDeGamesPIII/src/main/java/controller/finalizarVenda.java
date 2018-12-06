@@ -41,7 +41,7 @@ public class finalizarVenda extends HttpServlet {
             String IdFuncionario = String.valueOf((Integer) session.getAttribute("getId"));
 
             // Id Filial
-            String getFilial = String.valueOf((Integer) session.getAttribute("getFilial"));
+            String getFilial = String.valueOf(session.getAttribute("getFilial"));
 
             // Id Cliente
             String idCliente = String.valueOf((Integer) session.getAttribute("idCliente"));
@@ -95,6 +95,8 @@ public class finalizarVenda extends HttpServlet {
                 session.setAttribute("listaProdutos", null);
 
                 MensagemDeRetorno = "Parabéns Sr(a) " + session.getAttribute("getNome") + ", sua venda foi realizada com sucesso!";
+                ArrayList<ProdutoData> listaProdutosNova = new ArrayList<>();
+                session.setAttribute("listaProdutos", listaProdutosNova);
             } else {
                 MensagemDeRetorno = "Houve um erro ao realizar a venda.";
             }
