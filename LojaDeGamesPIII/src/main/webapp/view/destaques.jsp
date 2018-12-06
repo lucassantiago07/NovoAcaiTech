@@ -18,7 +18,7 @@
         <!-- Inicio Menu -->
         <nav class="navbar navbar-light bg-light">
             <div class="corpoimagem">
-                <a href="index.jsp"><img  src="${pageContext.request.contextPath}/img/logo.png"  class="imagemlogo"></a>
+                <a href="${pageContext.request.contextPath}/view/index.jsp"><img  src="${pageContext.request.contextPath}/img/logo.png"  class="imagemlogo"></a>
             </div>
             <div class="informacoessobrefuncionario">
                 <span class="nomedofuncionario">${sessionScope.getNome}</span> ●
@@ -59,10 +59,11 @@
         <!-- Fim Carrocel -->
         <!-- Inicio Busca Jogos -->
         <nav class="buscar navbar navbar-light" style="background-color: purple;">
-            <form class="form-inline buscajogos">
-                <input class=" form-control mr-sm-2 " type="search" placeholder="Digite o nome do jogo,fornecedor, ano de lançamento, plataforma, ..etc" aria-label="Search" style="width:90%">
+            <form class="form-inline buscajogos" method="post" action="${pageContext.request.contextPath}/capturaPorBusca">
+                <input name="jogo" class=" form-control mr-sm-2 " type="search" placeholder="Digite o nome do jogo,fornecedor, ano de lançamento, plataforma, ..etc" aria-label="Search" style="width:90%">
                 <button type="submit" class="btn btn-light">Buscar</button>
-            </form>
+            </form></br>
+            <b></b><div class="col-12 removedordefiltro" style="visibility:hidden;text-align: center;color:white;font-size: 0.5em;margin-top: 1%;"><a href="${pageContext.request.contextPath}/view/destaques.jsp" style="text-align: center;color:white;">Remover Filtro</a></div>
         </nav>
         <!-- Fim Busca Jogos -->
         <div class=" corpodeprodutos container">
@@ -82,10 +83,10 @@
                                 </a>
                                 <p style="color:black;" class="card-text descricoes">${produto.descricao}</p>
                                 <p class="card-text">  
-                                    
-                                    <h5>
-                                        R$: ${produto.precoDeVenda}
-                                    </h5>
+
+                                <h5>
+                                    R$: ${produto.precoDeVenda}
+                                </h5>
                                 </p>
                                 Categoria:
                                 <c:if test="${produto.categoria == 1}">
@@ -129,5 +130,11 @@
         <link type="text/css" href="${pageContext.request.contextPath}/css/destaques.css" rel="stylesheet" />
         <link type="text/css" href="${pageContext.request.contextPath}/css/menu.css" rel="stylesheet" />
         <script src="${pageContext.request.contextPath}/js/gradiente.js"></script>
+
+        <c:if test="${not empty filtro}">
+            <script type="text/javascript">
+                $(".removedordefiltro").css('visibility', 'visible')
+            </script>
+        </c:if>  
     </body>
 </html>

@@ -21,7 +21,7 @@
         <!-- Inicio Menu -->
         <nav class="navbar navbar-light bg-light">
             <div class="corpoimagem">
-                <a href="index.jsp"><img  src="${pageContext.request.contextPath}/img/logo.png"  class="imagemlogo"></a>
+                <a href="${pageContext.request.contextPath}/view/index.jsp"><img  src="${pageContext.request.contextPath}/img/logo.png"  class="imagemlogo"></a>
             </div>
             <div class="informacoessobrefuncionario">
                 <span class="nomedofuncionario">${sessionScope.getNome}</span> ●
@@ -169,10 +169,10 @@
                             <thead>
                                 <tr>
                                     <th scope="col">ID</th>
-                                    <th scope="col">ID</th>
-                                    <th scope="col">ID</th>
-                                    <th scope="col">ID</th>
-                                    <th scope="col">ID</th>                                    
+                                    <th scope="col">Nome Produto</th>
+                                    <th scope="col">Quantidade</th>
+                                    <th scope="col">Preço de Custo</th>
+                                    <th scope="col">Preço Total</th>                                  
                                 </tr>
                             </thead>
                             <tbody>
@@ -180,9 +180,10 @@
                                     <c:forEach var="Produto" items="${listaDeProdutosDaCompra}">
                                         <tr class="">
                                             <td>${Produto.id}</td> 
-                                            <td>${Produto.id}</td> 
-                                            <td>${Produto.id}</td> 
-                                            <td>${Produto.id}</td> 
+                                            <td>${Produto.nomeProduto}</td> 
+                                            <td>${Produto.quantidade}</td> 
+                                            <td>${Produto.precoUnitario}</td> 
+                                            <td>${Produto.precoUnitario * Produto.quantidade}</td> 
                                         </c:forEach>
                                     </c:if>
                             </tbody>

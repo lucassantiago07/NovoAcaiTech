@@ -1,8 +1,4 @@
-<%-- 
-   Document   : alterarProduto
-   Created on : 16/10/2018, 09:22:17
-   Author     : angelo.xavier
---%>
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -25,7 +21,7 @@
     <!-- Inicio Menu -->
     <nav class="navbar navbar-light bg-light">
         <div class="corpoimagem">
-            <a href="index.jsp"><img  src="${pageContext.request.contextPath}/img/logo.png"  class="imagemlogo"></a>
+            <a href="${pageContext.request.contextPath}/view/index.jsp"><img  src="${pageContext.request.contextPath}/img/logo.png"  class="imagemlogo"></a>
         </div>
         <div class="informacoessobrefuncionario">
             <span class="nomedofuncionario">${sessionScope.getNome}</span> ●

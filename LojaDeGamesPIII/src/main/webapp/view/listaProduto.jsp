@@ -22,7 +22,7 @@
         <!-- Inicio Menu -->
         <nav class="navbar navbar-light bg-light">
             <div class="corpoimagem">
-                <a href="index.jsp"><img  src="${pageContext.request.contextPath}/img/logo.png"  class="imagemlogo"></a>
+                <a href="${pageContext.request.contextPath}/view/index.jsp"><img  src="${pageContext.request.contextPath}/img/logo.png"  class="imagemlogo"></a>
             </div>
 
 
@@ -229,7 +229,7 @@
             <script type="text/javascript">
                             $("#myModal").modal();
                             $('#myModal').on('hidden.bs.modal', function () {
-                                window.location.href = '${pageContext.request.contextPath}/view/listaCliente.jsp'
+                                window.location.href = '${pageContext.request.contextPath}/view/listaProduto.jsp'
                             })
             </script>
         </c:if> 

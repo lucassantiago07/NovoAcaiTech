@@ -107,7 +107,7 @@
         <!-- Inicio Menu -->
         <nav class="navbar navbar-light bg-light">
             <div class="corpoimagem">
-                <img href="index.jsp" src="${pageContext.request.contextPath}/img/logo.png"  class="imagemlogo">
+                <img href="${pageContext.request.contextPath}/view/index.jsp" src="${pageContext.request.contextPath}/img/logo.png"  class="imagemlogo">
             </div>
             <div class="informacoessobrefuncionario">
                 <span class="nomedofuncionario">${sessionScope.getNome}</span> ●

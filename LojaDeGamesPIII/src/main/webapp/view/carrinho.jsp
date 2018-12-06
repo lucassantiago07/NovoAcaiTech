@@ -15,58 +15,62 @@
         <script src="${pageContext.request.contextPath}/js/bootstrap.js"></script>
         <script src="${pageContext.request.contextPath}/js/validanumero.js"></script>
     </head>
-    <body>
-        <!-- Inicio Menu -->
-        <nav class="navbar navbar-light bg-light">
-            <div class="corpoimagem">
-                <a href="index.jsp"><img  src="${pageContext.request.contextPath}/img/logo.png"  class="imagemlogo"></a>
-            </div>
-            <div class="informacoessobrefuncionario">
-                <span class="nomedofuncionario">${sessionScope.getNome}</span> ●
-                <span class="filialfuncionario">${sessionScope.getFilial}</span>  ●
-                <span class="cargofuncionario">${sessionScope.getCargo}</span>  ●
-                <span class="datafuncionario">${sessionScope.getData}</span>  
-            </div>
-            <form action="${pageContext.request.contextPath}/sairLogin" method="post">
-                <a style="color:white;" href="${pageContext.request.contextPath}/view/carrinho.jsp">
-                    <button type="button" class="btn btn-primary" >Carrinho</button>
-                </a>
-                <button type="submit" class="btn btn-primary btnSair">Sair</button>
-            </form>
-        </nav>
-        <!-- Fim Menu -->
-        <!-- Inicio Carrocel -->
-        <div id="carouselExampleControls" class="carousel slide" data-ride="carousel" data-interval="2500">
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <img class="d-block w-100" src="${pageContext.request.contextPath}/img/aviso1.jpg" alt="First slide">
-                </div>
-                <div class="carousel-item">
-                    <img class="d-block w-100" src="${pageContext.request.contextPath}/img/aviso2.jpg" alt="Second slide">
-                </div>
-                <div class="carousel-item" >
-                    <img class="d-block w-100" src="${pageContext.request.contextPath}/img/aviso3.jpg" alt="Third slide">
-                </div>
-            </div>
-            <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="sr-only">Previous</span>
-            </a>
-            <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="sr-only">Next</span>
-            </a>
+
+    <!-- Inicio Menu -->
+    <nav class="navbar navbar-light bg-light">
+        <div class="corpoimagem">
+            <a href="${pageContext.request.contextPath}/view/index.jsp"><img  src="${pageContext.request.contextPath}/img/logo.png"  class="imagemlogo"></a>
         </div>
-        <!-- Fim Carrocel -->
-        <!-- Inicio Separador -->
-        <nav class="navbar navbar-light separadorcarrocel">
-        </nav>
-        <!-- Fim Separador -->
-        <!-- Inicio Corpo De Campo -->
-        <form method="POST" action="${pageContext.request.contextPath}/roteamentoPagamentoXBuscaCliente">
-            <div class="container corpodecampos">
-                <h3>Carrinho</h3>
-                <h6 class="avisodecarrinho" style="margin-top: 2%"></h6>
+        <div class="informacoessobrefuncionario">
+            <span class="nomedofuncionario">${sessionScope.getNome}</span> ●
+            <span class="filialfuncionario">${sessionScope.getFilial}</span>  ●
+            <span class="cargofuncionario">${sessionScope.getCargo}</span>  ●
+            <span class="datafuncionario">${sessionScope.getData}</span>  
+        </div>
+        <form action="${pageContext.request.contextPath}/sairLogin" method="post">
+            <a style="color:white;" href="${pageContext.request.contextPath}/view/carrinho.jsp">
+                <button type="button" class="btn btn-primary" >Carrinho</button>
+            </a>
+            <button type="submit" class="btn btn-primary btnSair">Sair</button>
+        </form>
+    </nav>
+    <!-- Fim Menu -->
+    <!-- Inicio Carrocel -->
+    <div id="carouselExampleControls" class="carousel slide" data-ride="carousel" data-interval="2500">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img class="d-block w-100" src="${pageContext.request.contextPath}/img/aviso1.jpg" alt="First slide">
+            </div>
+            <div class="carousel-item">
+                <img class="d-block w-100" src="${pageContext.request.contextPath}/img/aviso2.jpg" alt="Second slide">
+            </div>
+            <div class="carousel-item" >
+                <img class="d-block w-100" src="${pageContext.request.contextPath}/img/aviso3.jpg" alt="Third slide">
+            </div>
+        </div>
+        <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+    <!-- Fim Carrocel -->
+    <!-- Inicio Separador -->
+    <nav class="navbar navbar-light separadorcarrocel">
+    </nav>
+    <!-- Fim Separador -->
+    <!-- Inicio Corpo De Campo -->
+
+
+    <form method="POST" action="${pageContext.request.contextPath}/roteamentoPagamentoXBuscaCliente">
+        <div class="container corpodecampos">
+            <h3>Carrinho</h3>
+            <h6 class="avisodecarrinho" style="margin-top: 2%"></h6>
+            <a id="linkparadestaques" href="${pageContext.request.contextPath}/view/destaques.jsp" style="visibility: hidden;">Ir a lista de produtos..</a>
+            <c:if test="${not empty listaProdutos}">
                 <table class="table table-sm" id="tablecarrinho">
                     <thead>
                         <tr>
@@ -139,19 +143,20 @@
                         <div class="informacoessobrepreco">
                             <label style="margin-top: 2%">SubTotal: </label>  
                             <input type="text"  pattern="([0-9]|[0-9]|[0-9])" class="form-control form-control-sm"  name="subTotal" id="subtotal" readonly="readonly"></input>
-                            
+
                             <label style="margin-top: 2%">Desconto: </label>  
                             <input type="number" pattern="([0-9]|[0-9]|[0-9])" class="form-control form-control-sm"   name="Desconto" id="desconto"  value="2" maxlength="2" max="20"></input>
-                           
+
                             <label style="margin-top: 2%">Valor total: </label>  
                             <input type="text"  pattern="([0-9]|[0-9]|[0-9])" class="form-control form-control-sm"   name="valorTotal" id="valortotal" readonly="readonly"></input>
-                            
+
                             <button type="submit"  name="controledeChamadas" value="irPagaPagamento" class="btn btn-primary btnGeral btnFinalizar" data-toggle="tooltip" data-placement="bottom" title="Pagamento seguir ao pagamento, escolha seu produto e pesquisa um cliente.">Ir para pagamento</button>
                         </div>
                     </div>
-                </div>
-        </form>
-    </div>
+                </c:if>
+            </div>
+        </div>
+    </form>
     <!-- Inicio Footer -->
     <footer class="rodape page-footer font-small blue">
         <div class="footer-copyright text-center py-3">© 2018 Copyright: [ ACAITECH SISTEMAS OPERACIONAIS LTDA 13.050.544/0001-00 ]
@@ -192,10 +197,9 @@
     <c:if test="${empty listaProdutos}">
         <script type="text/javascript">
             $(".avisodecarrinho").text("Não existem produtos adicionados ao carrinho.");
-            $(".btnFinalizar").attr("disabled", "disabled");
-            cpfCliente
+            $("#linkparadestaques").css("visibility", "visible");
         </script>
-    </c:if>
+    </c:if>   
     <c:if test="${empty cpfCliente}">
         <script type="text/javascript">
             $(".btnFinalizar").attr("disabled", "disabled");
@@ -210,5 +214,5 @@
             })
         </script>
     </c:if>
-</body>
+
 </html>
