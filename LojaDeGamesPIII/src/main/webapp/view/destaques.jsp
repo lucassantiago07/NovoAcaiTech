@@ -16,8 +16,65 @@
         <!-- Inicio Menu -->
         <nav class="navbar navbar-light bg-light">
             <div class="corpoimagem">
-                <a href="${pageContext.request.contextPath}/view/index.jsp"><img  src="${pageContext.request.contextPath}/img/logo.png"  class="imagemlogo"></a>
+                <a href="${pageContext.request.contextPath}/view/destaques.jsp"><img  src="${pageContext.request.contextPath}/img/logo.png"  class="imagemlogo"></a>
             </div>
+            
+             <div class="menu-desktop">
+						<ul class="main-menu">
+							<li class="active-menu">
+								<a href="destaques.jsp">Home</a>
+								
+							</li>
+                                                        
+                                                                         												
+						</ul>
+				</div>
+            
+            <div class="menu-desktop">
+						<ul class="main-menu">
+							                                                        
+                                                        <li>
+                                                                <a href="institucional.jsp">Institucional</a>
+                                                        </li>
+
+                     												
+						</ul>
+				</div>
+            
+             <div class="menu-desktop">
+						<ul class="main-menu">
+							                                                        
+                                                        <li>
+                                                                <a href="listaProduto.jsp">Gerenciamento de Produtos</a>
+                                                        </li>
+
+                     												
+						</ul>
+				</div>
+            
+             <div class="menu-desktop">
+						<ul class="main-menu">
+							                                                        
+                                                        <li>
+                                                                <a href="relatorio.jsp">Relatórios</a>
+                                                        </li>
+
+                     												
+						</ul>
+				</div>
+            
+             <div class="menu-desktop">
+						<ul class="main-menu">
+							                                                        
+                                                        <li>
+                                                                <a href="listaCliente.jsp">Meus Dados</a>
+                                                        </li>
+
+                     												
+						</ul>
+				</div>
+            
+            
             
             <form action="${pageContext.request.contextPath}/sairLogin" method="post">
                 
@@ -64,10 +121,8 @@
             <b></b><div class="col-12 removedordefiltro" style="visibility:hidden;text-align: center;color:white;font-size: 1em;margin-top: 1%;"><a href="${pageContext.request.contextPath}/view/destaques.jsp" style="text-align: center;color:white;">Remover Filtro</a></div>
         </nav>
         <!-- Fim Busca Jogos -->
-        <div class=" corpodeprodutos container">
-            <div class="destaque">
-                <img src="${pageContext.request.contextPath}/img/destaque.png"  class="imagemdestaque">
-            </div>
+        <div class=" corpodeprodutos container"><br>
+           
             <div class="row">
                 <c:if test="${ not empty lista}">
                     <c:forEach var="produto" items="${lista}">

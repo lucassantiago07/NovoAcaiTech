@@ -110,6 +110,9 @@
                 <img href="${pageContext.request.contextPath}/view/index.jsp" src="${pageContext.request.contextPath}/img/logo.png"  class="imagemlogo">
             </div>
             <div class="informacoessobrefuncionario">
+                <a href="">Home</a>
+                 <a href="">Institucional</a>
+                  <a href="">Home</a>
                 <span class="nomedofuncionario">${sessionScope.getNome}</span> ●
                 <span class="filialfuncionario">${sessionScope.getFilial}</span>  ●
                 <span class="cargofuncionario">${sessionScope.getCargo}</span>  ●
