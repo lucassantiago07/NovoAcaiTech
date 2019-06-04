@@ -40,7 +40,7 @@ public class validaLogin extends HttpServlet {
             //System.out.println(f.getNome());
 
             if (f.getNome() != null) {
-                retorno = "/view/index.jsp";
+                retorno = "/view/destaques.jsp";
                 HttpSession session = request.getSession();
                 session.setAttribute("getCargo", f.getCargo());
                 session.setAttribute("getCelular", f.getCelular());
@@ -52,8 +52,10 @@ public class validaLogin extends HttpServlet {
                 session.setAttribute("getNome", f.getNome());
                 session.setAttribute("getTelefone", f.getTelefone());
                 session.setAttribute("getData", dataAtual);
+                
                 nome = f.getNome();
                 deuCerto = true;
+                
             }
         }
 

@@ -75,20 +75,12 @@
             <script type="text/javascript">
                 $("#myModal").modal();
                 $('#myModal').on('hidden.bs.modal', function () {
-                    window.location.href = '${pageContext.request.contextPath}/view/index.jsp'
+                    window.location.href = '${pageContext.request.contextPath}/view/destaques.jsp'
                 })
             </script>
         </c:if> 
 
-        <c:if test="${retorno == 'expulsar'}">
-
-            <script type="text/javascript">
-                $("#myModal").modal();
-                $('#myModal').on('hidden.bs.modal', function () {
-                    window.location.href = '${pageContext.request.contextPath}'
-                })
-            </script>
-        </c:if> 
+        
 
 
         <!--  Quando clica em sair ele ajusta para apontar para pagina de login -->

@@ -80,7 +80,7 @@
             <form action="${pageContext.request.contextPath}/sairLogin" method="post">
                 
                  <a style="color:white;" href="${pageContext.request.contextPath}/view/cadastrarCliente.jsp">
-                    <button type="button" class="btn btn-primary" >Login</button>
+                    <button type="button" class="btn btn-primary" >Faça cadastro ou Login</button>
                 </a>
                 
                 <a style="color:white;" href="${pageContext.request.contextPath}/view/carrinho.jsp">

@@ -4,9 +4,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <c:if test="${empty sessionScope.getNome}">
-            <c:redirect url = "/expulsarDaPaginaSemLogar"/>
-        </c:if>
+        
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>AcaiTech Sistema - Cadastrar Cliente</title>
         <link type="text/css" href="${pageContext.request.contextPath}/css/bootstrap.css" rel="stylesheet" />
@@ -34,10 +32,16 @@
             </div>
 
             <form action="${pageContext.request.contextPath}/sairLogin" method="post">
+                
+                
                 <a style="color:white;" href="${pageContext.request.contextPath}/view/carrinho.jsp">
-                    <button type="button" class="btn btn-primary" >Carrinho</button>
+                    <button type="button" class="btn btn-primary" >Já possui cadastro? Faça login</button>
                 </a>
-                <button type="submit" class="btn btn-primary btnSair">Sair</button>
+                    
+                    <a style="color:white;" href="${pageContext.request.contextPath}/view/logar.jsp">
+                    <button type="submit" class="btn btn-primary btnSair">Sair</button>
+                    </a>
+                
             </form>
         </nav>
         <!-- Fim Menu -->
@@ -111,7 +115,7 @@
                 </div>
 
                 <button type="button" class="btn btn-primary" style="background-color: gray;">                    
-                    <a href="${pageContext.request.contextPath}/view/index.jsp" style="color:white;">Voltar</a>                       
+                    <a href="${pageContext.request.contextPath}/view/destaques.jsp" style="color:white;">Voltar</a>                       
                 </button>
                 <button type="submit" class="btn btn-primary">Enviar</button>
             </form>
