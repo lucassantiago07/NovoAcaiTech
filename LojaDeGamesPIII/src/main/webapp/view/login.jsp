@@ -30,7 +30,10 @@
                             <input type="password" class="form-control" id="exampleInputPassword1" placeholder="" name="senha">
                         </div>
                         <button type="submit" class="btn btn-primary">Entrar</button>
-
+                            
+                        <a style="color:white;" href="${pageContext.request.contextPath}/view/cadastrarCliente.jsp">
+                    <button type="button" class="btn btn-primary" >Cliente novo? Cadastrar</button>
+                        </a>
 
                     </div>
 

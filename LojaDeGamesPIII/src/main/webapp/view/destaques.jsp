@@ -18,13 +18,13 @@
             <div class="corpoimagem">
                 <a href="${pageContext.request.contextPath}/view/index.jsp"><img  src="${pageContext.request.contextPath}/img/logo.png"  class="imagemlogo"></a>
             </div>
-            <div class="informacoessobrefuncionario">
-                <span class="nomedofuncionario">${sessionScope.getNome}</span> ●
-                <span class="filialfuncionario">${sessionScope.getFilial}</span>  ●
-                <span class="cargofuncionario">${sessionScope.getCargo}</span>  ●
-                <span class="datafuncionario">${sessionScope.getData}</span>  
-            </div>
+            
             <form action="${pageContext.request.contextPath}/sairLogin" method="post">
+                
+                 <a style="color:white;" href="${pageContext.request.contextPath}/view/cadastrarCliente.jsp">
+                    <button type="button" class="btn btn-primary" >Login</button>
+                </a>
+                
                 <a style="color:white;" href="${pageContext.request.contextPath}/view/carrinho.jsp">
                     <button type="button" class="btn btn-primary" >Carrinho</button>
                 </a>
