@@ -14,6 +14,7 @@
     </head>
     <body>
         <!-- Inicio Menu -->
+        
         <nav class="navbar navbar-light bg-light">
             <div class="corpoimagem">
                 <a href="${pageContext.request.contextPath}/view/destaques.jsp"><img  src="${pageContext.request.contextPath}/img/logo.png"  class="imagemlogo"></a>
@@ -88,6 +89,8 @@
                 <button type="submit" class="btn btn-primary btnSair">Sair</button>
             </form>
         </nav>
+                   
+                    
         <!-- Fim Menu -->
         <!-- Inicio Carrocel -->
         <div id="carouselExampleControls" class="carousel slide" data-ride="carousel" data-interval="2500">

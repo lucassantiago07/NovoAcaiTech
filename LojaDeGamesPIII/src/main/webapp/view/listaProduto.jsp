@@ -22,48 +22,48 @@
         <!-- Inicio Menu -->
         <nav class="navbar navbar-light bg-light">
             <div class="corpoimagem">
-                <a href="${pageContext.request.contextPath}/view/index.jsp"><img  src="${pageContext.request.contextPath}/img/logo.png"  class="imagemlogo"></a>
+                <a href="${pageContext.request.contextPath}/view/destaques.jsp"><img  src="${pageContext.request.contextPath}/img/logo.png"  class="imagemlogo"></a>
             </div>
+            
+             <div class="menu-desktop">
+						<ul class="main-menu">
+							<li class="active-menu">
+								<a href="destaques.jsp">Home</a>
+								
+							</li>
+                                                        
+                                                                         												
+						</ul>
+				</div>
+            
+         
+            
+      
+            
+             <div class="menu-desktop">
+						<ul class="main-menu">
+							                                                        
+                                                        <li>
+                                                                <a href="relatorio.jsp">Relatórios</a>
+                                                        </li>
 
-
-            <div class="informacoessobrefuncionario">
-                <span class="nomedofuncionario">${sessionScope.getNome}</span> ●
-                <span class="filialfuncionario">${sessionScope.getFilial}</span>  ●
-                <span class="cargofuncionario">${sessionScope.getCargo}</span>  ●
-                <span class="datafuncionario">${sessionScope.getData}</span>  
-            </div>
-
+                     												
+						</ul>
+				</div>
+            
+             
+            
+            
+            
             <form action="${pageContext.request.contextPath}/sairLogin" method="post">
-                <a style="color:white;" href="${pageContext.request.contextPath}/view/carrinho.jsp">
-                    <button type="button" class="btn btn-primary" ><img  src="${pageContext.request.contextPath}/img/carrinho.png"  style="width: 25px;"> Carrinho</button>
-                </a>
                 <button type="submit" class="btn btn-primary btnSair">Sair</button>
             </form>
-
         </nav>
+                   
+                    
         <!-- Fim Menu -->
         <!-- Inicio Carrocel -->
-        <div id="carouselExampleControls" class="carousel slide" data-ride="carousel" data-interval="2500">
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <img class="d-block w-100" src="${pageContext.request.contextPath}/img/aviso1.jpg" alt="First slide">
-                </div>
-                <div class="carousel-item">
-                    <img class="d-block w-100" src="${pageContext.request.contextPath}/img/aviso2.jpg" alt="Second slide">
-                </div>
-                <div class="carousel-item" >
-                    <img class="d-block w-100" src="${pageContext.request.contextPath}/img/aviso3.jpg" alt="Third slide">
-                </div>
-            </div>
-            <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="sr-only">Previous</span>
-            </a>
-            <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="sr-only">Next</span>
-            </a>
-        </div>
+        
         <!-- Fim Carrocel -->
         <!-- Inicio Separador -->
         <nav class="navbar navbar-light separadorcarrocel">
@@ -73,8 +73,8 @@
         <div class="container corpodecampos">
             <form name="formularioBusca" id="formularioBusca" action="${pageContext.request.contextPath}/listaProdutoComFiltro" method="get">
                 <div class="row">
-                    <h3>Estoque Atual</h3>
-                    <input class=" form-control mr-sm-2 descricaoProduto" name="descricaoProduto"  type="search" placeholder="Digite o nome do jogo,fornecedor, ano de lançamento, plataforma, ..etc" aria-label="Search" style="width:90%">
+                    <h3>Pesquisar Produto</h3>
+                    <input class=" form-control mr-sm-2 descricaoProduto" name="descricaoProduto"  type="search" placeholder="Pesquise o produto desejado" aria-label="Search" style="width:90%">
                     <button type="submit" class="btn btn-light">Buscar</button>
                 </div>
             </form>
@@ -192,11 +192,11 @@
             </div>
 
 
-        </div>
+        </div><br><br><br>
         <!-- Inicio Footer -->
         <footer class="rodape page-footer font-small blue">
             <div class="footer-copyright text-center py-3">© 2018 Copyright: [ ACAITECH SISTEMAS OPERACIONAIS LTDA 13.050.544/0001-00 ]
-                <a class="suporte" href="#"> Solicitar Suporte  <img class="imagemsuporte" src="${pageContext.request.contextPath}/img/suporte.png"></a>
+                
             </div>
         </footer>
         <!-- Fim Footer -->
