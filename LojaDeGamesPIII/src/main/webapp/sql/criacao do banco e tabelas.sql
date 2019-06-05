@@ -189,8 +189,13 @@ CREATE TABLE lojadegames.cliente
      email    VARCHAR(100) NULL, 
      endereco VARCHAR(100) NULL, 
      cep      INT NULL, 
+     numeroend varchar (20) NOT NULL,
+     complemento VARCHAR (50),
+     cidade varchar (15) NOT NULL,
+     estado VARCHAR (02) NOT NULL,
      telefone VARCHAR(100) NULL, 
      celular  VARCHAR(100) NULL, 
+     senha VARCHAR (25) NOT NULL,
      CONSTRAINT pk_tbcliente PRIMARY KEY(id) 
   ); 
 

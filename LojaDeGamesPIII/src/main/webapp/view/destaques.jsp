@@ -39,7 +39,7 @@
 						<ul class="main-menu">
 							                                                        
                                                         <li>
-                                                                <a href="institucional.jsp">Institucional</a>
+                                                                <a href="view/institucional.jsp">Institucional</a>
                                                         </li>
 
                      												
