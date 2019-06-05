@@ -134,7 +134,7 @@
             
             <form action="${pageContext.request.contextPath}/sairLogin" method="post">
                 
-                 <a style="color:white;" href="${pageContext.request.contextPath}/view/cadastrarCliente.jsp">
+                 <a style="color:white;" href="${pageContext.request.contextPath}/view/login.jsp">
                     <button type="button" class="btn btn-primary" >Login</button>
                 </a>
                 
