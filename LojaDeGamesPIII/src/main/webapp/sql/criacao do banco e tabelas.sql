@@ -196,7 +196,6 @@ CREATE TABLE lojadegames.cliente
      senha VARCHAR (25) NOT NULL,
      CONSTRAINT pk_tbcliente PRIMARY KEY(id) 
   ); 
-drop table cliente;
 
              
  INSERT INTO `cliente` 

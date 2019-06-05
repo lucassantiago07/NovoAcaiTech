@@ -21,7 +21,7 @@
     <!-- Inicio Menu -->
     <nav class="navbar navbar-light bg-light">
         <div class="corpoimagem">
-            <a href="${pageContext.request.contextPath}/view/index.jsp"><img  src="${pageContext.request.contextPath}/img/logo.png"  class="imagemlogo"></a>
+            <a href="${pageContext.request.contextPath}/view/destaques.jsp"><img  src="${pageContext.request.contextPath}/img/logo.png"  class="imagemlogo"></a>
         </div>
 
 
