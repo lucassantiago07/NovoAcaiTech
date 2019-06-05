@@ -85,28 +85,49 @@
 
             <h3>Preencha o formulário abaixo</h3>
 
+            
             <form name="formularioCliente" id="formularioCliente" action="${pageContext.request.contextPath}/cadastrarCliente" method="post">
 
                 <div class="form-group">
                     <label>Nome</label>
                     <input class="form-control" id="nomeCliente" name="nomeCliente" maxlength="50" required></input>
                 </div>
-                <div class="form-group">
-                    <label>Email</label>
-                    <input class="form-control" id="emailCliente" name="emailCliente" maxlength="50" required></input>
-                </div>
+               
                 <div class="form-group">
                     <label>CPF</label>
                     <input type="text" class="form-control" id="cpfCliente" name="cpfCliente" onkeypress="return isNumberKey(event)" maxlength="11" required></input>
                 </div>
-                <div class="form-group">
-                    <label>Endereço</label>
-                    <input class="form-control" id="endereco" name="endereco" maxlength="50" required></input>
-                </div>
+                
                 <div class="form-group">
                     <label>CEP</label>
                     <input type="text" class="form-control" id="cepCliente" name="cepCliente" onkeypress="return isNumberKey(event)" maxlength="8" required></input>
                 </div>
+                
+                <div class="form-group">
+                    <label>Endereço</label>
+                    <input class="form-control" id="endereco" name="endereco" maxlength="50" required></input>
+                </div>
+                
+                <div class="form-group">
+                    <label>Número: </label>
+                    <input class="form-control" id="endereco" name="numeroenderecoCliente" maxlength="50" required></input>
+                </div>
+               
+                <div class="form-group">
+                    <label>Complemento</label>
+                    <input class="form-control" id="endereco" name="complementoCliente" maxlength="50" required></input>
+                </div>
+                
+                <div class="form-group">
+                    <label>Cidade</label>
+                    <input class="form-control" id="endereco" name="cidadeCliente" maxlength="50" required></input>
+                </div>
+                
+                <div class="form-group">
+                    <label>Estado</label>
+                    <input class="form-control" id="endereco" name="estadoCliente" maxlength="50" required></input>
+                </div>
+
                 <div class="form-group">
                     <label>Telefone</label>
                     <input type="text" class="form-control" id="telefone" name="telefone" onkeypress="return isNumberKey(event)" maxlength="11" required></input>
@@ -116,12 +137,23 @@
                     <label>Celular</label>
                     <input type="text" class="form-control" id="celular" name="celular" onkeypress="return isNumberKey(event)" maxlength="11" required></input>
                 </div>
+                
+                <div class="form-group">
+                    <label>Email</label>
+                    <input class="form-control" id="emailCliente" name="emailCliente" maxlength="50" required></input>
+                </div>
+                
+                <div class="form-group">
+                    <label>Senha</label>
+                    <input type="password" class="form-control" id="senhaCliente" name="senhaCliente" maxlength="50" required></input>
+                </div>
 
                 <button type="button" class="btn btn-primary" style="background-color: gray;">                    
                     <a href="${pageContext.request.contextPath}/view/destaques.jsp" style="color:white;">Voltar</a>                       
                 </button>
                 <button type="submit" class="btn btn-primary">Enviar</button>
             </form>
+        
 
 
         </div>

@@ -16,7 +16,10 @@ public class cadastrarCliente extends HttpServlet {
             throws ServletException, IOException {
 
         ClienteData p = new ClienteData();
-
+        
+        
+        
+        
         p.setNome(request.getParameter("nomeCliente"));
 
         p.setEmail(request.getParameter("emailCliente"));
@@ -26,11 +29,24 @@ public class cadastrarCliente extends HttpServlet {
         p.setEndereco(request.getParameter("endereco"));
 
         p.setCep(request.getParameter("cepCliente"));
+        
+        p.setNumerodoendereco(request.getParameter("numeroenderecoCliente"));
 
         p.setTelefone(request.getParameter("telefone"));
 
         p.setCelular(request.getParameter("celular"));
+        
+        p.setComplemento(request.getParameter("complementoCliente"));
+        
+        p.setCidade(request.getParameter("cidadeCliente"));
+        
+        p.setEstado(request.getParameter("estadoCliente"));
+        
+        p.setSenha(request.getParameter("senhaCliente"));
 
+        
+        
+        
         ClienteDAO dao = new ClienteDAO();
 
         boolean deuCerto = dao.cadastraCliente(p);

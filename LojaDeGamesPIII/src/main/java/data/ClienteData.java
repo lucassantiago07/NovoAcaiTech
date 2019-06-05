@@ -2,14 +2,19 @@ package data;
 
 public class ClienteData {
 
-    private String cpf;
-    private String endereco;
-    private String nome;
-    private String email;
-    private String telefone;
     private Integer id;
-    private String celular;
+    private String nome;
+    private String cpf;
+    private String email;
+    private String endereco;
     private String cep;
+    private String numerodoendereco;
+    private String complemento;
+    private String cidade;
+    private String estado;
+    private String telefone;
+    private String celular;
+    private String senha;
 
     /**
      * @return the cpf
@@ -123,4 +128,49 @@ public class ClienteData {
         this.cep = cep;
     }
 
+    public String getNumerodoendereco() {
+        return numerodoendereco;
+    }
+
+    public void setNumerodoendereco(String numerodoendereco) {
+        this.numerodoendereco = numerodoendereco;
+    }
+
+    public String getComplemento() {
+        return complemento;
+    }
+
+    public void setComplemento(String complemento) {
+        this.complemento = complemento;
+    }
+
+    public String getCidade() {
+        return cidade;
+    }
+
+    public void setCidade(String cidade) {
+        this.cidade = cidade;
+    }
+
+    public String getEstado() {
+        return estado;
+    }
+
+    public void setEstado(String estado) {
+        this.estado = estado;
+    }
+
+    public String getSenha() {
+        return senha;
+    }
+
+    public void setSenha(String senha) {
+        this.senha = senha;
+    }
+
+    
+    
 }
+
+
+

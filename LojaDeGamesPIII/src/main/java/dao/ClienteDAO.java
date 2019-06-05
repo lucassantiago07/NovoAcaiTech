@@ -11,20 +11,25 @@ import java.util.ArrayList;
 
 public class ClienteDAO {
 
-    public boolean cadastraCliente(ClienteData c) {
+     public boolean cadastraCliente(ClienteData c) {
         boolean deuCerto = false;
         try {
             Connection connection = new ConnectionFactory().getConnection();
 
-            String sqlCliente = "INSERT INTO `cliente`(`nome`, `cpf`, `email`, `endereco`, `cep`, `telefone`, `celular`) VALUES (?,?,?,?,?,?,?)";
+            String sqlCliente = "INSERT INTO `cliente`(`nome`, `cpf`, `email`, `endereco`, `cep`,`numeroend`, `complemento`,`cidade`, `estado`, `telefone`, `celular`,`senha` ) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)";
             PreparedStatement pstmtCliente = connection.prepareStatement(sqlCliente);
             pstmtCliente.setString(1, c.getNome());
             pstmtCliente.setString(2, c.getCpf());
             pstmtCliente.setString(3, c.getEmail());
             pstmtCliente.setString(4, c.getEndereco());
             pstmtCliente.setString(5, c.getCep());
-            pstmtCliente.setString(6, c.getTelefone());
-            pstmtCliente.setString(7, c.getCelular());
+            pstmtCliente.setString(6, c.getNumerodoendereco());
+            pstmtCliente.setString(7, c.getComplemento());
+            pstmtCliente.setString(8, c.getCidade());
+            pstmtCliente.setString(9, c.getEstado());
+            pstmtCliente.setString(10, c.getTelefone());
+            pstmtCliente.setString(11, c.getCelular());
+            pstmtCliente.setString(12, c.getSenha());
             int deuCertoSQL = pstmtCliente.executeUpdate();
 
             if (deuCertoSQL == 1) {
