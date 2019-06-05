@@ -1,6 +1,8 @@
 package controller;
 
+import dao.ClienteDAO;
 import dao.FuncionarioDAO;
+import data.ClienteData;
 import data.FuncionarioData;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
@@ -31,29 +33,45 @@ public class validaLogin extends HttpServlet {
         //System.out.println(request.getParameter("usuario"));
         //System.out.println(request.getParameter("senha"));
 
-        if ((request.getParameter("usuario") != null) || (request.getParameter("senha") != null)) {
+        if ((request.getParameter("email") != null) || (request.getParameter("senha") != null)) {
 
-            FuncionarioDAO fdao = new FuncionarioDAO();
-
-            FuncionarioData f = fdao.verificaLogin(request.getParameter("usuario"), request.getParameter("senha"));
             
-            //System.out.println(f.getNome());
+            
+            
+            
+            ClienteDAO novadaodocliente = new ClienteDAO();
+            //FuncionarioDAO fdao = new FuncionarioDAO();
 
-            if (f.getNome() != null) {
+            
+            ClienteData novocliente = novadaodocliente.verificaLogin(request.getParameter("email"), request.getParameter("senha"));
+            //FuncionarioData f = fdao.verificaLogin(request.getParameter("usuario"), request.getParameter("senha"));
+            
+            
+            
+            
+            
+            
+            //-- Já estava aqui -- System.out.println(f.getNome());
+
+            if (novocliente.getNome() != null) {
                 retorno = "/view/login.jsp";
                 HttpSession session = request.getSession();
-                session.setAttribute("getCargo", f.getCargo());
-                session.setAttribute("getCelular", f.getCelular());
-                session.setAttribute("getCep", f.getCep());
-                session.setAttribute("getCpf", f.getCpf());
-                session.setAttribute("getEndereco", f.getEndereco());
-                session.setAttribute("getFilial", f.getFilial());
-                session.setAttribute("getId", f.getId());
-                session.setAttribute("getNome", f.getNome());
-                session.setAttribute("getTelefone", f.getTelefone());
+                session.setAttribute("getId", novocliente.getId());
+                session.setAttribute("getNome", novocliente.getNome());
+                session.setAttribute("getCpf", novocliente.getCpf());
+                session.setAttribute("getEmail", novocliente.getEmail());
+                session.setAttribute("getEndereco", novocliente.getEndereco());
+                session.setAttribute("getCep", novocliente.getCep());
+                session.setAttribute("getnumerodoendereco", novocliente.getNumerodoendereco());
+                session.setAttribute("getComplemento", novocliente.getComplemento());
+                session.setAttribute("getCidade", novocliente.getCidade());
+                session.setAttribute("getEstado", novocliente.getEstado());
+                session.setAttribute("getTelefone", novocliente.getTelefone());
+                session.setAttribute("getCelular", novocliente.getCelular());
+                session.setAttribute("getSenha", novocliente.getSenha());
                 session.setAttribute("getData", dataAtual);
-                session.setAttribute("getUsuario", f.getUsuario());
-                nome = f.getNome();
+ 
+                nome = novocliente.getNome();
                 deuCerto = true;
                 
             }

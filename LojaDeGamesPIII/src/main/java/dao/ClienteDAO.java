@@ -214,5 +214,50 @@ public class ClienteDAO {
         return deuCerto;
 
     }
+    
+    
+    public ClienteData verificaLogin(String email, String senha) {
+        ClienteData novocliente  = new ClienteData();
+        /// F novocliente 
+        try {
+
+            Connection connection = new ConnectionFactory().getConnection();
+            Statement stmt = connection.createStatement();
+            String sql = "SELECT * FROM `cliente` WHERE email = '" + email + "' AND SENHA = '" + senha + "'";
+            ResultSet rs = stmt.executeQuery(sql);
+
+                while (rs.next()) {
+                novocliente.setId(rs.getInt("ID"));
+                novocliente.setNome(rs.getString("NOME"));
+                novocliente.setCpf(rs.getString("CPF"));
+                novocliente.setEmail(rs.getString("EMAIL"));
+                novocliente.setEndereco(rs.getString("ENDERECO"));
+                novocliente.setCep(rs.getString("CEP"));
+                novocliente.setNumerodoendereco(rs.getString("NUMEROEND"));
+                novocliente.setComplemento(rs.getString("COMPLEMENTO"));
+                novocliente.setCidade(rs.getString("CIDADE"));
+                novocliente.setEstado(rs.getString("ESTADO"));
+                novocliente.setTelefone(rs.getString("TELEFONE"));
+                novocliente.setCelular(rs.getString("CELULAR"));
+                novocliente.setSenha(rs.getString("SENHA"));
+                
+                
+                
+              
+            }
+            connection.close();
+        } catch (SQLException | ClassNotFoundException e) {
+            System.out.println("Erro no banco de dados verificaLogin:" + e);
+        }
+
+        return novocliente;
+    }
+    
+    
+    
+    
+    
+    
+    
 
 }
