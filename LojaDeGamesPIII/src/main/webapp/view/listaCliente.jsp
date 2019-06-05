@@ -20,58 +20,69 @@
     <body>
         <!-- Inicio Menu -->
         <nav class="navbar navbar-light bg-light">
-            <div class="corpoimagem">
-                <a href="${pageContext.request.contextPath}/view/index.jsp"><img  src="${pageContext.request.contextPath}/img/logo.png"  class="imagemlogo"></a>
-            </div>
+                <div class="corpoimagem">
+                    <a href="${pageContext.request.contextPath}/view/destaques.jsp"><img  src="${pageContext.request.contextPath}/img/logo.png"  class="imagemlogo"></a>
+                </div>
 
-            <div class="informacoessobrefuncionario">
-                <span class="nomedofuncionario">${sessionScope.getNome}</span> ●
-                <span class="filialfuncionario">${sessionScope.getFilial}</span>  ●
-                <span class="cargofuncionario">${sessionScope.getCargo}</span>  ●
-                <span class="datafuncionario">${sessionScope.getData}</span>  
-            </div>
 
-            <form action="${pageContext.request.contextPath}/sairLogin" method="post">
-                <a style="color:white;" href="${pageContext.request.contextPath}/view/carrinho.jsp">
-                    <button type="button" class="btn btn-primary" >Carrinho</button>
-                </a>
-                <button type="submit" class="btn btn-primary btnSair">Sair</button>
-            </form>
 
-        </nav>
+                <div class="menu-desktop">
+                    <ul class="main-menu">
+
+                        <li>
+                            <a style="margin-right: 100px" href="institucional.jsp">Institucional</a>
+                        </li>
+
+
+                    </ul>
+                </div>
+
+                <div class="menu-desktop">
+                    <ul class="main-menu">
+
+                        <li>
+                            <a href="${pageContext.request.contextPath}/view/alterarCliente.jsp?idCliente=${Cliente.id}">Meus Dados</a>
+                        </li>
+
+
+                    </ul>
+                </div>
+                
+                 <div class="menu-desktop">
+                    <ul class="main-menu">
+
+                        <li>
+                            <a href="listaCliente.jsp">Meus Pedidos</a>
+                        </li>
+
+
+                    </ul>
+                </div>
+                <form action="${pageContext.request.contextPath}/sairLogin" method="post">
+
+                    <a style="color:white;" href="${pageContext.request.contextPath}/view/login.jsp">
+                        <button type="button" class="btn btn-primary" >Login</button>
+                    </a>
+
+                    <a style="color:white;" href="${pageContext.request.contextPath}/view/carrinho.jsp">
+                        <button type="button" class="btn btn-primary" >Carrinho</button>
+                    </a>
+
+                </form>
+            </nav>
         <!-- Fim Menu -->
         <!-- Inicio Carrocel -->
-        <div id="carouselExampleControls" class="carousel slide" data-ride="carousel" data-interval="2500">
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <img class="d-block w-100" src="${pageContext.request.contextPath}/img/aviso1.jpg" alt="First slide">
-                </div>
-                <div class="carousel-item">
-                    <img class="d-block w-100" src="${pageContext.request.contextPath}/img/aviso2.jpg" alt="Second slide">
-                </div>
-                <div class="carousel-item" >
-                    <img class="d-block w-100" src="${pageContext.request.contextPath}/img/aviso3.jpg" alt="Third slide">
-                </div>
-            </div>
-            <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="sr-only">Previous</span>
-            </a>
-            <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="sr-only">Next</span>
-            </a>
-        </div>
+        
         <!-- Fim Carrocel -->
         <!-- Inicio Separador -->
         <nav class="navbar navbar-light separadorcarrocel">
         </nav>
         <!-- Fim Separador -->
         <!-- inicio Busca jogos estoque -->
-        <div class="container corpodecampos">
+        <div style="margin-left: 80px" class="container corpodecampos">
             <form name="formularioBusca" id="formularioBusca" action="${pageContext.request.contextPath}/listaClienteComFiltro" method="get">
                 <div class="row">
-                    <h3>Clientes cadastrados</h3>
+                    <h3>Meus pedidos</h3>
                     <input class=" form-control mr-sm-2 descricaoCliente" name="nome"  type="search" placeholder="Digite o nome do cliente" aria-label="Search" style="width:90%">
                     <button type="submit" class="btn btn-light">Buscar</button>
                 </div>
@@ -84,15 +95,11 @@
                     <thead>
                         <tr>
                             <th scope="col">ID</th>
-                            <th scope="col">Nome</th>
-                            <th scope="col">CPF</th>
-                            <th scope="col">Email</th>
-                            <th scope="col">CEP</th>
-                            <th scope="col">Telefone</th>
-                            <th scope="col">Celular</th>
-                            <th scope="col">Editar</th>
-                            <th scope="col">Excluir</th>
-                        </tr>
+                            <th scope="col">Produto</th>
+                            <th scope="col">Quantidade</th>
+                            <th scope="col">Valor</th>
+                            <th scope="col">Status</th>
+                         </tr>
                     </thead>
                     <tbody>
                         <!-- Lista para itens com filtros -->
@@ -103,11 +110,10 @@
                                     <td>${Cliente.nome}</td>
                                     <td>${Cliente.cpf}</td>
                                     <td>${Cliente.email}</td>
-                                    <td>${Cliente.cep}</td>
-                                    <td>${Cliente.telefone}</td>
-                                    <td>${Cliente.celular}</td>
+                                    
+                                    
                                     <td><a href="${pageContext.request.contextPath}/view/alterarCliente.jsp?idCliente=${Cliente.id}">Editar</a></td>
-                                    <td><a href="${pageContext.request.contextPath}/excluirCliente?idCliente=${Cliente.id}">Excluir</a></td></tr>
+                                    
                                 </c:forEach>
 
 
@@ -121,19 +127,17 @@
                                     <td>${Cliente.nome}</td>
                                     <td>${Cliente.cpf}</td>
                                     <td>${Cliente.email}</td>
-
-                                    <td>${Cliente.cep}</td>
-                                    <td>${Cliente.telefone}</td>
-                                    <td>${Cliente.celular}</td>
+                                    
+                                    
                                     <td><a href="${pageContext.request.contextPath}/view/alterarCliente.jsp?idCliente=${Cliente.id}">Editar</a></td>
-                                    <td><a href="${pageContext.request.contextPath}/excluirCliente?idCliente=${Cliente.id}">Excluir</a></td></tr>
+                                    
                                 </c:forEach>
                             </c:if>
                         <!-- Fim Lista para itens sem filtros -->
                     </tbody>
                 </table>
                 <div class="row">
-                    <button type="submit" class="btn btn-primary btnCadastrar" onclick="window.location.href = '${pageContext.request.contextPath}/view/cadastrarCliente.jsp'">Cadastrar um novo Cliente</button>
+                    
                     <c:if test="${not empty listaComFiltro}">
                         <button type="submit" class="btn btn-primary btnVoltar" onclick="window.location.href = '${pageContext.request.contextPath}/view/listaCliente.jsp'">Voltar</button>
 
@@ -142,11 +146,11 @@
             </div>
 
 
-        </div>
+        </div><br><br><br><br>
         <!-- Inicio Footer -->
         <footer class="rodape page-footer font-small blue">
             <div class="footer-copyright text-center py-3">© 2018 Copyright: [ ACAITECH SISTEMAS OPERACIONAIS LTDA 13.050.544/0001-00 ]
-                <a class="suporte" href="#"> Solicitar Suporte  <img class="imagemsuporte" src="${pageContext.request.contextPath}/img/suporte.png"></a>
+               
             </div>
         </footer>
         <!-- Fim Footer -->

@@ -58,20 +58,17 @@
             <form action="${pageContext.request.contextPath}/sairLogin" method="post">
                 <button type="submit" class="btn btn-primary btnSair">Sair</button>
             </form>
-        </nav><br><br>
+        </nav>
                    
                     
         <!-- Fim Menu -->
      <nav class="navbar navbar-light separadorcarrocel">
-        </nav>
-        <div class="container">
-            <div class="row"></div>
-            
-        </div>
+     </nav>
+        
        
         
         <!-- inicio Busca jogos estoque -->
-        <div class="container corpodecampos">
+        <div style="margin-left: 80px" class="container corpodecampos">
             <form name="formularioBusca" id="formularioBusca" action="${pageContext.request.contextPath}/listaProdutoComFiltro" method="get">
                 <div class="row">
                     <h3>Pesquisar Produto</h3>
@@ -79,7 +76,7 @@
                     <button type="submit" class="btn btn-light">Buscar</button>
                 </div>
             </form>
-        </div><br><br>
+        </div>
         <!-- fim Busca jogos estoque-->
         <div class="corpotabela">
             <div class="">
@@ -94,8 +91,6 @@
                             <th scope="col">Categoria</th>
                             <th scope="col">Lançamento</th>
                             <th scope="col">Qtd de estoque</th>
-                            <th scope="col">Data de Cadastro</th>
-                            <th scope="col">Add. Carrinho</th>
                             <th scope="col">Editar</th>
                             <th scope="col">Excluir</th>
                         </tr>
@@ -133,7 +128,7 @@
                                     </c:if>
                                     <td>${produto.anoLancamento}</td>
                                     <td>${produto.estoque}</td>                                
-                                    <td>${produto.dataCadastro}</td>
+                                    
 
                                     <td><a href="${pageContext.request.contextPath}/adicionarAoCarrinho?idProduto=${produto.id}">Add. Carrinho</a></td>
                                     <td><a href="${pageContext.request.contextPath}/view/alterarProduto.jsp?idProduto=${produto.id}">Editar</a></td>
@@ -174,8 +169,7 @@
 
                                     <td>${produto.anoLancamento}</td>
                                     <td>${produto.estoque}</td>                                
-                                    <td>${produto.dataCadastro}</td>
-                                    <td><a href="${pageContext.request.contextPath}/adicionarAoCarrinho?idProduto=${produto.id}">Add. Carrinho</a></td>
+                                                                        
                                     <td><a href="${pageContext.request.contextPath}/view/alterarProduto.jsp?idProduto=${produto.id}">Editar</a></td>
                                     <td><a href="${pageContext.request.contextPath}/excluirProduto?idProduto=${produto.id}">Excluir</a></td></tr>
                                 </c:forEach>
@@ -193,7 +187,7 @@
             </div>
 
 
-        </div><br><br><br>
+        </div><br><br><br><br><br>
         <!-- Inicio Footer -->
         <footer class="rodape page-footer font-small blue">
             <div class="footer-copyright text-center py-3">© 2018 Copyright: [ ACAITECH SISTEMAS OPERACIONAIS LTDA 13.050.544/0001-00 ]

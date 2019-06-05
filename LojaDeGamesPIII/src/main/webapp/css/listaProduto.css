@@ -1,105 +1,77 @@
-.btnCarrinho
+.btnSair
 {
     background-color:purple;
-    width:10%;
 }
-.imagemcarrinho
+.btnProdutos
 {
-    width:25%;
+    float:right;
+    margin-left:35%;
 }
-.buscajogos
+.btnClientes
 {
-    width:80%;
-    margin-left:10%;
+    float:left;
+    margin-right:35%;
+}
+.btnClientes,.btnProdutos
+{
     margin-top:1%;
 }
-.buscagames
+.navbarbotoes
 {
-    margin-left:20%;
-    margin-top:2%;
-
-}
-.destaque
-{
-
-    width:60%;
-    margin-left:18%;
-}
-.imagemestrela
-{
-    width:10%;
-}
-.imagemdestaque
-{
-    width:100%;
-}
-.imagecard
-{
-    width:50%;
-}
-.card
-{
-    margin-left:0.5%;
-    margin-top:1%;
-    width: 19%;
-}
-
-.suporte
-{
-
-}
-.corpodeprodutos
-{
+    background-color:purple;
     margin-bottom:2%;
 }
-
-.dropdown
+.buscajogoscorpo
 {
-    margin-left:15%;
-}
-.itemdelista
-{
-    margin-left:4%;
-}
-.plataforma
-{
+    width:60%;
     margin-left:20%;
+    margin-bottom:3%;
+    margin-top:3%;
 }
-.categoriadojogo,.anodelancamento
+.btnCadastrar
 {
-    margin-left:4%;
+    margin-bottom: 2%;
+    margin-top: 2%;
+    background-color: purple;
+    color:white;
+    float:right;
 }
-.filtros
+.corpodecampos
 {
-    background-color:purple;
-    padding-bottom:8px;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    overflow-x:auto;
 }
-.descricoes {
-    max-width: 25ch;
+.separadorcarrocel
+{
+    background-color: purple;
+}
+.descricaoProduto
+{
+    width: 80%;
+}
+
+td{
+
+    white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    white-space: nowrap;
 }
-.addCarrinhoDiv
+.btnVoltar
 {
-    background-color: #0056b3;
-    text-align: center;
-    border: 0.5px solid purple;
-    border-radius: 10px;
+
+    margin-bottom: 2%;
+    margin-top: 2%;
+    background-color: blue;
     color:white;
+    float:left;
+    margin-left:2%;
+
 }
-.imagemstar
+.corpotabela
 {
-    width: 40px;
-}
-.imagemrs
-{
-     width: 25px;
-}
-.addCarrinhoDiv
-{
-    padding-top: 1%;
-    padding-bottom: 1%;
+    width: 90%;
+    margin:auto;
 }
 
 .container-menu-desktop {
@@ -113,3 +85,28 @@
 }
 
 
+.menu-desktop {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: ruby-base;
+  align-items: baseline;
+  height: 80%;
+}
+
+.main-menu {
+  list-style-type: none;
+  margin: 0;
+
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  align-items: center;
+}
+
+.main-menu > li.active-menu > a {
+  color: #6c7ae0;
+}
