@@ -17,6 +17,8 @@
     <body>
         <!-- Inicio Menu -->
         
+        <c:if test= "${sessionScope.getUsuario == 'santos'}">
+
         <nav class="navbar navbar-light bg-light">
             <div class="corpoimagem">
                 <a href="${pageContext.request.contextPath}/view/destaques.jsp"><img  src="${pageContext.request.contextPath}/img/logo.png"  class="imagemlogo"></a>
@@ -25,7 +27,7 @@
              <div class="menu-desktop">
 						<ul class="main-menu">
 							<li class="active-menu">
-								<a href="destaques.jsp">Home</a>
+                                                            <a id="idhomejsp" href="destaques.jsp">Home</a>
 								
 							</li>
                                                         
@@ -81,25 +83,73 @@
             
             <form action="${pageContext.request.contextPath}/sairLogin" method="post">
                 
-                 <a style="color:white;" href="${pageContext.request.contextPath}/view/login.jsp">
-                    <button type="button" class="btn btn-primary" >Login</button>
+                 <a style="color:white;" href="${pageContext.request.contextPath}/view/cadastrarCliente.jsp">
+                    <button type="button" class="btn btn-primary" >Faça cadastro ou Login</button>
                 </a>
                 
-                    <c:if test="${empty sessionScope.getNome}">
-                        <a style="color:white;" href="${pageContext.request.contextPath}/view/login.jsp">
-                            <button type="button" class="btn btn-primary" >Carrinho</button>
-                        </a>
-                    </c:if>
-                 <c:if test="${sessionScope.getNome != null}">
-                    <a style="color:white;" href="${pageContext.request.contextPath}/view/carrinho.jsp">
-                        <button type="button" class="btn btn-primary" >Carrinho</button>
-                    </a>
-                 </c:if>
-                    
-                
+                <a style="color:white;" href="${pageContext.request.contextPath}/view/carrinho.jsp">
+                    <button type="button" class="btn btn-primary" >Carrinho</button>
+                </a>
                 <button type="submit" class="btn btn-primary btnSair">Sair</button>
             </form>
         </nav>
+           </c:if>
+
+           <c:if test= "${sessionScope.getUsuario != 'santos'}">
+
+            <nav class="navbar navbar-light bg-light">
+            <div class="corpoimagem">
+                <a href="${pageContext.request.contextPath}/view/destaques.jsp"><img  src="${pageContext.request.contextPath}/img/logo.png"  class="imagemlogo"></a>
+            </div>
+            
+             
+            
+            <div class="menu-desktop">
+						<ul class="main-menu">
+							                                                        
+                                                        <li>
+                                                                <a href="institucional.jsp">Institucional</a>
+                                                        </li>
+
+                     												
+						</ul>
+				</div>
+            
+             
+            
+             
+            
+             <div class="menu-desktop">
+						<ul class="main-menu">
+							                                                        
+                                                        <li>
+                                                                <a href="listaCliente.jsp">Meus Dados</a>
+                                                        </li>
+
+                     												
+						</ul>
+				</div>
+            
+            
+            
+            <form action="${pageContext.request.contextPath}/sairLogin" method="post">
+                
+                 <a style="color:white;" href="${pageContext.request.contextPath}/view/cadastrarCliente.jsp">
+                    <button type="button" class="btn btn-primary" >Login</button>
+                </a>
+                
+                <a style="color:white;" href="${pageContext.request.contextPath}/view/carrinho.jsp">
+                    <button type="button" class="btn btn-primary" >Carrinho</button>
+                </a>
+                <button type="submit" class="btn btn-primary btnSair">Sair</button>
+            </form>
+        </nav>
+                 
+                 
+                 
+                 
+             </c:if>
+       
                    
                     
         <!-- Fim Menu -->

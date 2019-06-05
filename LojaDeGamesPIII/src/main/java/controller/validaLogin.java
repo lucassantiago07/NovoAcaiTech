@@ -52,7 +52,7 @@ public class validaLogin extends HttpServlet {
                 session.setAttribute("getNome", f.getNome());
                 session.setAttribute("getTelefone", f.getTelefone());
                 session.setAttribute("getData", dataAtual);
-                
+                session.setAttribute("getUsuario", f.getUsuario());
                 nome = f.getNome();
                 deuCerto = true;
                 
@@ -64,6 +64,7 @@ public class validaLogin extends HttpServlet {
         if (deuCerto == true) {
             MensagemDeRetorno = "Seja bem vindo(a) " + nome + "! " + dataAtual + "";
         } else {
+            retorno = "/view/login.jsp";
             MensagemDeRetorno = "Não foi possível efetuar o login.";
         }
         request.setAttribute("retornoMensagem", MensagemDeRetorno);

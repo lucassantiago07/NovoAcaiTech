@@ -29,6 +29,7 @@ public class sairLogin extends HttpServlet {
         session.setAttribute("cpfCliente", null);
         session.setAttribute("nomeCliente", null);
         session.setAttribute("celularCliente", null);
+        session.setAttribute("getUsuario", null);
         request.setAttribute("sairLogin", "sairLogin");
         request.getServletContext().getRequestDispatcher("/view/login.jsp").forward(request, response);
 

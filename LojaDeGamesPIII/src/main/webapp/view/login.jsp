@@ -22,7 +22,7 @@
                     <div class="corpologin" style="margin-top:17%;">
 
                         <div class="form-group">
-                            <label for="exampleInputEmail1">Úsuario</label>
+                            <label for="exampleInputEmail1">Usuario</label>
                             <input type="text" class="form-control" id="" aria-describedby="emailHelp" placeholder="" name="usuario">
                         </div>
                         <div class="form-group">

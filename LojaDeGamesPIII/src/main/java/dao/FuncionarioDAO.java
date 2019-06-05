@@ -62,6 +62,7 @@ public class FuncionarioDAO {
                 f.setFilial(rs.getString("FILIAL"));
                 f.setEndereco(rs.getString("ENDERECO"));
                 f.setTelefone(rs.getString("TELEFONE"));
+                f.setUsuario(rs.getString("USUARIO"));
             }
             connection.close();
         } catch (SQLException | ClassNotFoundException e) {
