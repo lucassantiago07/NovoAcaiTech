@@ -22,12 +22,12 @@
                     <div class="corpologin" style="margin-top:17%;">
 
                         <div class="form-group">
-                            <label for="exampleInputEmail1">Usuario</label>
-                            <input type="text" class="form-control" id="" aria-describedby="emailHelp" placeholder="" name="usuario">
+                            <label for="exampleInputEmail1">Cliente: </label>
+                            <input type="text" class="form-control" id="" aria-describedby="emailHelp" placeholder="Digite o seu e-mail" name="email">
                         </div>
                         <div class="form-group">
-                            <label for="exampleInputPassword1">Senha</label>
-                            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="" name="senha">
+                            <label for="exampleInputPassword1">Senha: </label>
+                            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Digite a senha" name="senha">
                         </div>
                         <button type="submit" class="btn btn-primary">Entrar</button>
                             
