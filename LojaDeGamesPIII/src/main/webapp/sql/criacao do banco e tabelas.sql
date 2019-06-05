@@ -1,5 +1,3 @@
-DROP DATABASE lojadegames; 
-
 CREATE DATABASE lojadegames; 
 
 USE lojadegames; 
@@ -198,22 +196,57 @@ CREATE TABLE lojadegames.cliente
      senha VARCHAR (25) NOT NULL,
      CONSTRAINT pk_tbcliente PRIMARY KEY(id) 
   ); 
+drop table cliente;
 
-INSERT INTO `cliente` 
+             
+ INSERT INTO `cliente` 
             (`nome`, 
              `cpf`, 
              `email`, 
              `endereco`, 
              `cep`, 
              `telefone`, 
-             `celular`) 
-VALUES      ('Benevenuto Daciolo Fonseca dos Santos', 
+             `celular`,
+             `senha`,
+             `cidade`,
+             `estado`,
+             `numeroend`) 
+VALUES      ('teste', 
              '42888041832', 
-             'daciolo@gmail.com', 
+             'a', 
              'Rua Hugo DAntola, 95 - Lapa de Baixo - São Paulo', 
              05762221, 
              '1158621242', 
-             '11964549502'); 
+             '11964549502',
+             'b',
+             'c',
+             'd',
+             'e');
+             
+              INSERT INTO `cliente` 
+            (`nome`, 
+             `cpf`, 
+             `email`, 
+             `endereco`, 
+             `cep`, 
+             `telefone`, 
+             `celular`,
+             `senha`,
+             `cidade`,
+             `estado`,
+             `numeroend`) 
+VALUES      ('admin', 
+             '42888041853', 
+             'santos', 
+             'Rua Augusta', 
+             05762255, 
+             '1158621666', 
+             '11964549566',
+             'liquido',
+             'gasoso',
+             'rj',
+             '69');
+             
 
 CREATE TABLE lojadegames.funcionario 
   ( 

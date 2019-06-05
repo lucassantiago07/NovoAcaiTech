@@ -17,7 +17,7 @@
     <body>
         <!-- Inicio Menu -->
         
-        <c:if test= "${sessionScope.getUsuario == 'santos'}">
+        <c:if test= "${sessionScope.getEmail == 'santos'}">
 
         <nav class="navbar navbar-light bg-light">
             <div class="corpoimagem">
@@ -95,7 +95,7 @@
         </nav>
            </c:if>
 
-           <c:if test= "${sessionScope.getUsuario != 'santos'}">
+           <c:if test= "${sessionScope.getEmail != 'santos'}">
 
             <nav class="navbar navbar-light bg-light">
             <div class="corpoimagem">
