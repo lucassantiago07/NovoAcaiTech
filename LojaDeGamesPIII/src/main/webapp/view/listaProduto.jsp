@@ -58,17 +58,18 @@
             <form action="${pageContext.request.contextPath}/sairLogin" method="post">
                 <button type="submit" class="btn btn-primary btnSair">Sair</button>
             </form>
-        </nav>
+        </nav><br><br>
                    
                     
         <!-- Fim Menu -->
-        <!-- Inicio Carrocel -->
-        
-        <!-- Fim Carrocel -->
-        <!-- Inicio Separador -->
-        <nav class="navbar navbar-light separadorcarrocel">
+     <nav class="navbar navbar-light separadorcarrocel">
         </nav>
-        <!-- Fim Separador -->
+        <div class="container">
+            <div class="row"></div>
+            
+        </div>
+       
+        
         <!-- inicio Busca jogos estoque -->
         <div class="container corpodecampos">
             <form name="formularioBusca" id="formularioBusca" action="${pageContext.request.contextPath}/listaProdutoComFiltro" method="get">
@@ -78,7 +79,7 @@
                     <button type="submit" class="btn btn-light">Buscar</button>
                 </div>
             </form>
-        </div>
+        </div><br><br>
         <!-- fim Busca jogos estoque-->
         <div class="corpotabela">
             <div class="">

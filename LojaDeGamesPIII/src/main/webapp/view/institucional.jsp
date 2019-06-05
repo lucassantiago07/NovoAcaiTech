@@ -16,7 +16,7 @@
         <!-- Inicio Menu -->
         <nav class="navbar navbar-light bg-light">
             <div class="corpoimagem">
-                <a href="${pageContext.request.contextPath}/view/index.jsp"><img  src="${pageContext.request.contextPath}/img/logo.png"  class="imagemlogo"></a>
+                <a href="${pageContext.request.contextPath}/view/destaques.jsp"><img  src="${pageContext.request.contextPath}/img/logo.png"  class="imagemlogo"></a>
             </div>
             
              <div class="menu-desktop">
@@ -45,7 +45,7 @@
 						<ul class="main-menu">
 							                                                        
                                                         <li>
-                                                                <a href="/mavenproject1/institucional.jsp">Gerenciamento de Produtos</a>
+                                                                <a href="listaProduto.jsp">Gerenciamento de Produtos</a>
                                                         </li>
 
                      												
@@ -56,7 +56,7 @@
 						<ul class="main-menu">
 							                                                        
                                                         <li>
-                                                                <a href="/mavenproject1/institucional.jsp">Relatórios</a>
+                                                                <a href="relatorio.jsp">Relatórios</a>
                                                         </li>
 
                      												
@@ -67,7 +67,7 @@
 						<ul class="main-menu">
 							                                                        
                                                         <li>
-                                                                <a href="/mavenproject1/institucional.jsp">Meus Dados</a>
+                                                                <a href="cadastrarCliente.jsp">Meus Dados</a>
                                                         </li>
 
                      												
