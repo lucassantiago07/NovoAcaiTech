@@ -92,9 +92,7 @@
             ga('send', 'pageview');
 
         </script>
-        <c:if test="${empty sessionScope.getNome}">
-            <c:redirect url = "/expulsarDaPaginaSemLogar"/>
-        </c:if>
+        
         <!-- temporario -->
 
         <meta charset="UTF-8">
@@ -105,26 +103,92 @@
     </head>
     <body>
         <!-- Inicio Menu -->
+        
         <nav class="navbar navbar-light bg-light">
             <div class="corpoimagem">
-                <img href="${pageContext.request.contextPath}/view/destaques.jsp" src="${pageContext.request.contextPath}/img/logo.png"  class="imagemlogo">
+                <a href="${pageContext.request.contextPath}/view/destaques.jsp"><img  src="${pageContext.request.contextPath}/img/logo.png"  class="imagemlogo"></a>
             </div>
-            <div class="informacoessobrefuncionario">
-                <a href="">Home</a>
-                 <a href="">Institucional</a>
-                  <a href="">Home</a>
-                <span class="nomedofuncionario">${sessionScope.getNome}</span> ●
-                <span class="filialfuncionario">${sessionScope.getFilial}</span>  ●
-                <span class="cargofuncionario">${sessionScope.getCargo}</span>  ●
-                <span class="datafuncionario">${sessionScope.getData}</span>  
-            </div>
+            
+             <div class="menu-desktop">
+						<ul class="main-menu">
+							<li class="active-menu">
+								<a href="destaques.jsp">Home</a>
+								
+							</li>
+                                                        
+                                                                         												
+						</ul>
+				</div>
+            
+            <div class="menu-desktop">
+						<ul class="main-menu">
+							                                                        
+                                                        <li>
+                                                                <a href="institucional.jsp">Institucional</a>
+                                                        </li>
+
+                     												
+						</ul>
+				</div>
+            
+             <div class="menu-desktop">
+						<ul class="main-menu">
+							                                                        
+                                                        <li>
+                                                                <a href="listaProduto.jsp">Gerenciamento de Produtos</a>
+                                                        </li>
+
+                     												
+						</ul>
+				</div>
+            
+             <div class="menu-desktop">
+						<ul class="main-menu">
+							                                                        
+                                                        <li>
+                                                                <a href="relatorio.jsp">Relatórios</a>
+                                                        </li>
+
+                     												
+						</ul>
+				</div>
+            
+             <div class="menu-desktop">
+						<ul class="main-menu">
+							                                                        
+                                                        <li>
+                                                                <a href="listaCliente.jsp">Meus Dados</a>
+                                                        </li>
+
+                     												
+						</ul>
+				</div>
+            
+            
+            
             <form action="${pageContext.request.contextPath}/sairLogin" method="post">
-                <a style="color:white;" href="${pageContext.request.contextPath}/view/carrinho.jsp">
-                    <button type="button" class="btn btn-primary" >Carrinho</button>
+                
+                 <a style="color:white;" href="${pageContext.request.contextPath}/view/cadastrarCliente.jsp">
+                    <button type="button" class="btn btn-primary" >Faça cadastro ou Login</button>
                 </a>
+                
+                    <c:if test="${empty sessionScope.getNome}">
+                        <a style="color:white;" href="${pageContext.request.contextPath}/view/login.jsp">
+                            <button type="button" class="btn btn-primary" >Carrinho</button>
+                        </a>
+                    </c:if>
+                 <c:if test="${sessionScope.getNome != null}">
+                    <a style="color:white;" href="${pageContext.request.contextPath}/view/carrinho.jsp">
+                        <button type="button" class="btn btn-primary" >Carrinho</button>
+                    </a>
+                 </c:if>
+                    
+                
                 <button type="submit" class="btn btn-primary btnSair">Sair</button>
             </form>
         </nav>
+                   
+                    
         <!-- Fim Menu -->
         <!-- Inicio Carrocel -->
         <div id="carouselExampleControls" class="carousel slide" data-ride="carousel" data-interval="2500">
@@ -148,145 +212,91 @@
                 <span class="sr-only">Next</span>
             </a>
         </div>
-        <!-- Inicio Separador -->
-        <nav class="navbar navbar-light separadorcarrocel">
+        <!-- Fim Carrocel -->
+        <!-- Inicio Busca Jogos -->
+        <nav class="buscar navbar navbar-light" style="background-color: purple;">
+            <form class="form-inline buscajogos" method="post" action="${pageContext.request.contextPath}/capturaPorBusca">
+                <input name="jogo" class=" form-control mr-sm-2 " type="search" placeholder="Digite o nome do jogo,fornecedor, ano de lançamento, plataforma, ..etc" aria-label="Search" style="width:90%">
+                <button type="submit" class="btn btn-light">Buscar</button>
+            </form></br>
+            <b></b><div class="col-12 removedordefiltro" style="visibility:hidden;text-align: center;color:white;font-size: 1em;margin-top: 1%;"><a href="${pageContext.request.contextPath}/view/destaques.jsp" style="text-align: center;color:white;">Remover Filtro</a></div>
         </nav>
-        <!-- Fim Separador -->
-        <div class="container corpodeopcoesmenusbemvindo">
-            <h3>Bem vindo Sr(a): ${sessionScope.getNome}</h3>
-            <h6><i>Opções disponiveis:</i></h6>
-        </div>
-        <div class="container corpodeopcoesmenus">
+        <!-- Fim Busca Jogos -->
+        <div class=" corpodeprodutos container"><br>
+           
             <div class="row">
-                <a href="${pageContext.request.contextPath}/view/destaques.jsp">
-                    <div class="box" style="background-color:black;">
-                        <img src="${pageContext.request.contextPath}/img/destaques.png" style="width:100%;margin-left: 2%;margin-top: 8%;">
-                        <div class="overbox">
-                            <div class="title overtext"> Destaques </div>
-                            <div class="tagline overtext"> ... </div>
-                        </div>
-                    </div>
-                </a>
-                <a href="${pageContext.request.contextPath}/view/cadastrarProduto.jsp">
-                    <div class="box" style="background-color:red;">
-                        <img src="${pageContext.request.contextPath}/img/cadastrarProduto.png" style="width:50%;margin-left: 25%;margin-top: 15%;">
-                        <div class="overbox">
-                            <div class="title overtext"> Cadastrar um produto </div>
-                            <div class="tagline overtext"> Para realizar um cadastro clique aqui. </div>
-                        </div>
-                    </div>
-                </a>
-                <a href="${pageContext.request.contextPath}/view/listaProduto.jsp">
-                    <div class="box" style="background-color:yellow;">
-                        <img src="${pageContext.request.contextPath}/img/listaProduto.png" style="width:50%;margin-left: 25%;margin-top: 15%;">
-                        <div class="overbox">
-                            <div class="title overtext"> Gerenciar Produtos </div>
-                            <div class="tagline overtext"> Para alterar, excluir ou verificar infos clique aqui. </div>
-                        </div>
-                    </div>
-                </a>
+                <c:if test="${ not empty lista}">
+                    <c:forEach var="produto" items="${lista}">
+                        <div class="card">
+                            <a href="${pageContext.request.contextPath}/view/exibeProduto.jsp?idProduto=?${produto.id}">
+                                <img class="card-img-top" src="${pageContext.request.contextPath}/img/${produto.categoria}.png">
+                            </a>
+                            <div class="card-body">
+                                <a href="${pageContext.request.contextPath}/view/exibeProduto.jsp?idProduto=?${produto.id}">
+                                    <h5 class="card-title">${produto.nome}</h5>
+                                </a>
+                                <p style="color:black;" class="card-text descricoes">${produto.descricao}</p>
+                                <p class="card-text">  
 
-            </div>
-            <div class="row">
-                <a href="${pageContext.request.contextPath}/view/cadastrarCliente.jsp">
-                    <div class="box" style="background-color:orange;">
-                        <img src="${pageContext.request.contextPath}/img/cadastrarCliente.png" style="width:50%;margin-left: 25%;margin-top: 15%;">
-                        <div class="overbox">
-                            <div class="title overtext"> Cadastrar um Cliente </div>
-                            <div class="tagline overtext"> Para realizar um cadastro clique aqui. </div>
+                                <h5>
+                                    R$: ${produto.precoDeVenda}
+                                </h5>
+                                </p>
+                                Categoria:
+                                <c:if test="${produto.categoria == 1}">
+                                    <p>Ação</p>
+                                </c:if>
+                                <c:if test="${produto.categoria == 2}">
+                                    <p>Corrida</p>
+                                </c:if>
+                                <c:if test="${produto.categoria == 3}">
+                                    <p>Tiro</p>
+                                </c:if>
+                                <c:if test="${produto.categoria == 4}">
+                                    <p>RPG</p>
+                                </c:if>
+                                <c:if test="${produto.categoria == 5}">
+                                    <p>Estratégia</p>
+                                </c:if>
+                                <c:if test="${produto.categoria == ''}">
+                                    <p>Não encontrado</p>
+                                </c:if>
+                                <div class="addCarrinhoDiv">    
+                                    <img  src="${pageContext.request.contextPath}/img/carrinho.png"  class="imagemstar">
+                                    <a style="color:white;" href="${pageContext.request.contextPath}/adicionarAoCarrinho?idProduto=${produto.id}">Add. Carrinho</a> 
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                </a>
-
-
-                <a href="${pageContext.request.contextPath}/view/listaCliente.jsp">
-                    <div class="box" style="background-color:lawngreen;">
-                        <img src="${pageContext.request.contextPath}/img/listaCliente.png" style="width:50%;margin-left: 25%;margin-top: 15%;">
-                        <div class="overbox">
-                            <div class="title overtext"> Gerenciar Cliente </div>
-                            <div class="tagline overtext"> Para alterar, excluir ou verificar infos clique aqui. </div>
-                        </div>
-                    </div>
-                </a>
-                <a href="${pageContext.request.contextPath}/view/cadastrarFuncionario.jsp">
-                    <div class="box" style="background-color:purple;">
-                        <img src="${pageContext.request.contextPath}/img/cadastrarFuncionario.png" style="width:50%;margin-left: 25%;margin-top: 15%;">
-                        <div class="overbox">
-                            <div class="title overtext"> Cadastrar um funcionario </div>
-                            <div class="tagline overtext"> Para realizar um cadastro clique aqui. </div>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <div class="row">
-                <a href="${pageContext.request.contextPath}/view/listaFuncionario.jsp">
-                    <div class="box" style="background-color:aqua;">
-                        <img src="${pageContext.request.contextPath}/img/listaFuncionario.png" style="width:50%;margin-left: 25%;margin-top: 15%;">
-                        <div class="overbox">
-                            <div class="title overtext"> Gerenciar Funcionario </div>
-                            <div class="tagline overtext"> Para alterar, excluir ou verificar infos clique aqui. </div>
-                        </div>
-                    </div>
-                </a>
-
-
-                <a href="${pageContext.request.contextPath}/view/carrinho.jsp">
-                    <div class="box" style="background-color:royalblue;">
-                        <img src="${pageContext.request.contextPath}/img/carrinho.png" style="width:50%;margin-left: 25%;margin-top: 15%;">
-                        <div class="overbox">
-                            <div class="title overtext"> Carrinho </div>
-                            <div class="tagline overtext"> Para alterar, excluir ou verificar infos clique aqui. </div>
-                        </div>
-                    </div>
-                </a>
-                <a href="${pageContext.request.contextPath}/view/relatorio.jsp">
-                    <div class="box" style="background-color:khaki;">
-                        <img src="${pageContext.request.contextPath}/img/relatorio.png" style="width:50%;margin-left: 25%;margin-top: 15%;">
-                        <div class="overbox">
-                            <div class="title overtext"> Relatorio </div>
-                            <div class="tagline overtext"> Para verificar infos clique aqui. </div>
-                        </div>
-                    </div>
-                </a>
+                    </c:forEach>
+                </c:if>
             </div>
         </div>
-        <!-- inicio Footer -->
+        <!-- Footer -->
         <footer class="rodape page-footer font-small blue">
+            <!-- Copyright -->
             <div class="footer-copyright text-center py-3">© 2018 Copyright: [ ACAITECH SISTEMAS OPERACIONAIS LTDA 13.050.544/0001-00 ]
                 <a class="suporte" href="#"> Solicitar Suporte  <img class="imagemsuporte" src="${pageContext.request.contextPath}/img/suporte.png"></a>
             </div>
+            <!-- Copyright -->
         </footer>
-        <!-- Fim Footer -->
+        <!-- Footer -->
         <link type="text/css" href="${pageContext.request.contextPath}/css/script.css" rel="stylesheet" />
-        <link type="text/css" href="${pageContext.request.contextPath}/css/index.css" rel="stylesheet" />
+        <link type="text/css" href="${pageContext.request.contextPath}/css/destaques.css" rel="stylesheet" />
         <link type="text/css" href="${pageContext.request.contextPath}/css/menu.css" rel="stylesheet" />
         <script src="${pageContext.request.contextPath}/js/gradiente.js"></script>
-        <!-- Modal -->
-        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel"><img src="${pageContext.request.contextPath}/img/logo.png"  class="imagemlogomodal" style="width:20%;"> </h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        ${retornoMensagem}
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!--  Captura a variavel de retorno e abre modal-->
-        <c:if test="${not empty retorno}">
+
+        <c:if test="${not empty filtro}">
             <script type="text/javascript">
-            $("#myModal").modal();
-            $('#myModal').on('hidden.bs.modal', function () {
-                window.location.href = '${pageContext.request.contextPath}/view/index.jsp'
-            })
+                $(".removedordefiltro").css('visibility', 'visible')
             </script>
-        </c:if>
+        </c:if>  
+            
+            <c:if test="${not empty retorno}">
+            <script type="text/javascript">
+                        $("#myModal").modal();
+                        $('#myModal').on('hidden.bs.modal', function () {
+                            window.location.href = '${pageContext.request.contextPath}/view/destaques.jsp'
+                        })
+            </script>
+        </c:if> 
     </body>

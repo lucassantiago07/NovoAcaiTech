@@ -1,6 +1,11 @@
+.btnCadastro2
+{
+    background-color: darkorange;
+}
+
 .btnSair
 {
-	background-color:purple;
+	background-color: darkorange;
 }
 .btnProdutos
 {
@@ -18,7 +23,7 @@
 }
 .navbarbotoes
 {
-	background-color:purple;
+	background-color: #e0a800;
 	margin-bottom:2%;
 }
 .buscajogoscorpo
@@ -32,7 +37,7 @@
 {
     margin-bottom: 2%;
     margin-top: 2%;
-    background-color: purple;
+    background-color: darkorange;
     color:white;
     float:right;
 }
@@ -44,5 +49,5 @@
 }
 .separadorcarrocel
 {
-    background-color: purple;
+    background-color: #007bff;
 }

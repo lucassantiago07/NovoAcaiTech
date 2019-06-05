@@ -20,22 +20,23 @@
         <!-- Inicio Menu -->
         <nav class="navbar navbar-light bg-light">
             <div class="corpoimagem">
-                <a href="${pageContext.request.contextPath}/view/index.jsp"><img  src="${pageContext.request.contextPath}/img/logo.png"  class="imagemlogo"></a>
+                <a href="${pageContext.request.contextPath}/view/destaques.jsp"><img  src="${pageContext.request.contextPath}/img/logo.png"  class="imagemlogo"></a>
             </div>
 
-
+<!-- Inicio Menu 
             <div class="informacoessobrefuncionario">
                 <span class="nomedofuncionario">${sessionScope.getNome}</span> ●
                 <span class="filialfuncionario">${sessionScope.getFilial}</span>  ●
                 <span class="cargofuncionario">${sessionScope.getCargo}</span>  ●
                 <span class="datafuncionario">${sessionScope.getData}</span>  
             </div>
+-->
 
             <form action="${pageContext.request.contextPath}/sairLogin" method="post">
                 
                 
-                <a style="color:white;" href="${pageContext.request.contextPath}/view/carrinho.jsp">
-                    <button type="button" class="btn btn-primary" >Já possui cadastro? Faça login</button>
+                <a style="color:white;" href="${pageContext.request.contextPath}/view/login.jsp">
+                    <button type="button" class="btn btn-primary btnCadastro2" >Já possui cadastro? Faça login</button>
                 </a>
                     
                     <a style="color:white;" href="${pageContext.request.contextPath}/view/logar.jsp">
@@ -47,7 +48,7 @@
         <!-- Fim Menu -->
 
 
-        <!-- Inicio Carrocel -->
+        <!-- Inicio Carrocel 
         <div id="carouselExampleControls" class="carousel slide" data-ride="carousel" data-interval="2500">
             <div class="carousel-inner">
                 <div class="carousel-item active">
@@ -69,6 +70,8 @@
                 <span class="sr-only">Next</span>
             </a>
         </div>
+                
+                -->
         <!-- Fim Carrocel -->
 
         <!-- Inicio Separador -->
@@ -80,7 +83,7 @@
         <!-- Inicio Corpo De Campo -->
         <div class="container corpodecampos">
 
-            <h3>Cadastrar Cliente</h3>
+            <h3>Preencha o formulário abaixo</h3>
 
             <form name="formularioCliente" id="formularioCliente" action="${pageContext.request.contextPath}/cadastrarCliente" method="post">
 
@@ -127,8 +130,7 @@
 
         <!-- Inicio Footer -->
         <footer class="rodape page-footer font-small blue">
-            <div class="footer-copyright text-center py-3">© 2018 Copyright: [ ACAITECH SISTEMAS OPERACIONAIS LTDA 13.050.544/0001-00 ]
-                <a class="suporte" href="#"> Solicitar Suporte  <img class="imagemsuporte" src="${pageContext.request.contextPath}/img/suporte.png"></a>
+            <div class="footer-copyright text-center py-3">© 2018 Copyright: [ ACAITECH SISTEMAS OPERACIONAIS LTDA 13.050.544/0001-00 ]            
             </div>
         </footer>
         <!-- Fim Footer -->

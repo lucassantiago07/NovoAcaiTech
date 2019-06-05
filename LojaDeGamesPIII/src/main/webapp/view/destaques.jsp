@@ -5,6 +5,8 @@
 <html>
     <head>
         
+        
+        
         <jsp:include page="/listaProduto" />
         <meta charset="UTF-8">
         <title>AcaiTech Sistema - Destaques</title>
@@ -79,13 +81,22 @@
             
             <form action="${pageContext.request.contextPath}/sairLogin" method="post">
                 
-                 <a style="color:white;" href="${pageContext.request.contextPath}/view/cadastrarCliente.jsp">
-                    <button type="button" class="btn btn-primary" >Faça cadastro ou Login</button>
+                 <a style="color:white;" href="${pageContext.request.contextPath}/view/login.jsp">
+                    <button type="button" class="btn btn-primary" >Login</button>
                 </a>
                 
-                <a style="color:white;" href="${pageContext.request.contextPath}/view/carrinho.jsp">
-                    <button type="button" class="btn btn-primary" >Carrinho</button>
-                </a>
+                    <c:if test="${empty sessionScope.getNome}">
+                        <a style="color:white;" href="${pageContext.request.contextPath}/view/login.jsp">
+                            <button type="button" class="btn btn-primary" >Carrinho</button>
+                        </a>
+                    </c:if>
+                 <c:if test="${sessionScope.getNome != null}">
+                    <a style="color:white;" href="${pageContext.request.contextPath}/view/carrinho.jsp">
+                        <button type="button" class="btn btn-primary" >Carrinho</button>
+                    </a>
+                 </c:if>
+                    
+                
                 <button type="submit" class="btn btn-primary btnSair">Sair</button>
             </form>
         </nav>
@@ -192,5 +203,16 @@
                 $(".removedordefiltro").css('visibility', 'visible')
             </script>
         </c:if>  
+            
+            <c:if test="${not empty retorno}">
+            <script type="text/javascript">
+                        $("#myModal").modal();
+                        $('#myModal').on('hidden.bs.modal', function () {
+                            window.location.href = '${pageContext.request.contextPath}/view/destaques.jsp'
+                        })
+            </script>
+        </c:if> 
+            
+            
     </body>
 </html>

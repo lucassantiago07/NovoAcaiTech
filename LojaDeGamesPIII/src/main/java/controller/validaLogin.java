@@ -18,7 +18,7 @@ public class validaLogin extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        String retorno = "/view/login.jsp";
+        String retorno = "/view/destaques.jsp";
 
         boolean deuCerto = false;
         String nome = null;
@@ -40,7 +40,7 @@ public class validaLogin extends HttpServlet {
             //System.out.println(f.getNome());
 
             if (f.getNome() != null) {
-                retorno = "/view/destaques.jsp";
+                retorno = "/view/login.jsp";
                 HttpSession session = request.getSession();
                 session.setAttribute("getCargo", f.getCargo());
                 session.setAttribute("getCelular", f.getCelular());
