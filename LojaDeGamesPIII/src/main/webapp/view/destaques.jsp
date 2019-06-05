@@ -225,13 +225,13 @@
                                     <p>Não encontrado</p>
                                 </c:if>
                                 <div class="addCarrinhoDiv">
-                                <c:if test="${not empty sessionScope.getUsuario}">    
+                                <c:if test="${not empty sessionScope.getEmail}">    
                                     
                                     <img  src="${pageContext.request.contextPath}/img/carrinho.png"  class="imagemstar">
                                     <a style="color:white;" href="${pageContext.request.contextPath}/adicionarAoCarrinho?idProduto=${produto.id}">Add. Carrinho</a> 
                                 
                                 </c:if>
-                                <c:if test="${empty sessionScope.getUsuario}">
+                                <c:if test="${empty sessionScope.getEmail}">
                                     <img  src="${pageContext.request.contextPath}/img/carrinho.png"  class="imagemstar">
                                     <a style="color:white;" href="${pageContext.request.contextPath}/view/login.jsp">Add. Carrinho</a>
                                 </c:if>  
