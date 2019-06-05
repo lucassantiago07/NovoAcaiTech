@@ -27,21 +27,12 @@ public class finalizarVenda extends HttpServlet {
 
             // Informações recebidas pela página
             String vezesCartao = request.getParameter("vezesCartao");
-            String numeroComprovante = request.getParameter("numeroComprovante");
             String bandeira = request.getParameter("bandeira");
-            String valorEmEspecie = request.getParameter("valorEmEspecie");
             String valorParcela = request.getParameter("valorParcela");
 
             // Infomações definidas no carrinho
             String valorTotal = (String) session.getAttribute("valorTotal");
             String subTotal = (String) session.getAttribute("subTotal");
-            String Desconto = (String) session.getAttribute("Desconto");
-
-            // Id Funcionario
-            String IdFuncionario = String.valueOf((Integer) session.getAttribute("getId"));
-
-            // Id Filial
-            String getFilial = String.valueOf(session.getAttribute("getFilial"));
 
             // Id Cliente
             String idCliente = String.valueOf((Integer) session.getAttribute("idCliente"));
@@ -55,14 +46,9 @@ public class finalizarVenda extends HttpServlet {
             VendaData v = new VendaData();
             v.setBandeira(bandeira);
             v.setDataDaVenda(DataDaVenda);
-            v.setDesconto(Desconto);
-            v.setFilial(getFilial);
             v.setIdCliente(idCliente);
-            v.setIdVendedor(IdFuncionario);
             v.setListaDeProtudosDaVenda(listaProdutos);
-            v.setNumeroComprovante(numeroComprovante);
             v.setSubTotal(subTotal);
-            v.setValorEmEspecie(valorEmEspecie);
             v.setValorTotal(valorTotal);
             v.setVezesCartao(vezesCartao);
 
@@ -101,7 +87,7 @@ public class finalizarVenda extends HttpServlet {
                 MensagemDeRetorno = "Houve um erro ao realizar a venda.";
             }
             request.setAttribute("retornoMensagem", MensagemDeRetorno);
-            request.getRequestDispatcher("view/index.jsp").forward(request, response);
+            request.getRequestDispatcher("view/destaques.jsp").forward(request, response);
 
         } catch (SQLException | ClassNotFoundException ex) {
             System.out.println("Erro Servlet finalizarVEnda");

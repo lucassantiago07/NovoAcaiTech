@@ -19,12 +19,6 @@
         <div class="corpoimagem">
             <a href="${pageContext.request.contextPath}/view/index.jsp"><img  src="${pageContext.request.contextPath}/img/logo.png"  class="imagemlogo"></a>
         </div>
-        <div class="informacoessobrefuncionario">
-            <span class="nomedofuncionario">${sessionScope.getNome}</span> ●
-            <span class="filialfuncionario">${sessionScope.getFilial}</span>  ●
-            <span class="cargofuncionario">${sessionScope.getCargo}</span>  ●
-            <span class="datafuncionario">${sessionScope.getData}</span>  
-        </div>
         <form action="${pageContext.request.contextPath}/sairLogin" method="post">
             <a style="color:white;" href="${pageContext.request.contextPath}/view/carrinho.jsp">
                 <button type="button" class="btn btn-primary" >Carrinho</button>
@@ -34,27 +28,6 @@
     </nav>
     <!-- Fim Menu -->
     <!-- Inicio Carrocel -->
-    <div id="carouselExampleControls" class="carousel slide" data-ride="carousel" data-interval="2500">
-        <div class="carousel-inner">
-            <div class="carousel-item active">
-                <img class="d-block w-100" src="${pageContext.request.contextPath}/img/aviso1.jpg" alt="First slide">
-            </div>
-            <div class="carousel-item">
-                <img class="d-block w-100" src="${pageContext.request.contextPath}/img/aviso2.jpg" alt="Second slide">
-            </div>
-            <div class="carousel-item" >
-                <img class="d-block w-100" src="${pageContext.request.contextPath}/img/aviso3.jpg" alt="Third slide">
-            </div>
-        </div>
-        <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="sr-only">Previous</span>
-        </a>
-        <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="sr-only">Next</span>
-        </a>
-    </div>
     <!-- Fim Carrocel -->
     <!-- Inicio Separador -->
     <nav class="navbar navbar-light separadorcarrocel">
@@ -114,6 +87,7 @@
                     </tbody>
                 </table>
                 <div class="row">
+                    <!--
                     <div class="col-4">
                         <div class="informacoesdocliente">
                             <label style="margin-top: 2%">Nome do cliente: </label>  
@@ -125,28 +99,15 @@
                             <button type="button" class="btn btn-primary btnContinuar"> <a href="${pageContext.request.contextPath}/view/destaques.jsp" style="color:white">Continuar comprando</a> </button>
                         </div>
                     </div>
-                    <div class="col-4">
+                    -->
+                    <div class="col-10">
                         <div class="informacoessobrepreco">
-                            <label style="margin-top: 2%">CPF do Cliente: </label>  
-                            <br />
-                            <form action="${pageContext.request.contextPath}/getClienteParaVenda" method="post">
-                                <input type="text"  class="form-control form-control-sm" name="cpfCliente" maxlength="11" value="${sessionScope.cpfCliente}" onkeypress="return isNumberKey(event)" required></input>
-                                <button type="submit" name="controledeChamadas" value="buscarCliente" class="btn btn-primary btnGeral">Buscar Cliente</button></br>
-                                <a style="margin-top: 2%;" href="${pageContext.request.contextPath}/view/cadastrarCliente.jsp"><i>Trata-se de um cliente novo</i></a>
-                            </form>
-                            <br />
-                        </div>
-                    </div>
-                    <div class="col-4">
-                        <div class="informacoessobrepreco">
-                            <label style="margin-top: 2%">SubTotal: </label>  
+                           <! <label style="margin-top: 2%">Total: </label>  
                             <input type="text"  pattern="([0-9]|[0-9]|[0-9])" class="form-control form-control-sm"  name="subTotal" id="subtotal" readonly="readonly"></input>
 
-                            <label style="margin-top: 2%">Desconto: </label>  
-                            <input type="number" pattern="([0-9]|[0-9]|[0-9])" class="form-control form-control-sm"   name="Desconto" id="desconto"  value="2" maxlength="2" max="20"></input>
+                            <input type="hidden" pattern="([0-9]|[0-9]|[0-9])" class="form-control form-control-sm"   name="Desconto" id="desconto"  value="0" maxlength="2" max="20"></input>
 
-                            <label style="margin-top: 2%">Valor total: </label>  
-                            <input type="text"  pattern="([0-9]|[0-9]|[0-9])" class="form-control form-control-sm"   name="valorTotal" id="valortotal" readonly="readonly"></input>
+                            <input type="hidden"  pattern="([0-9]|[0-9]|[0-9])" class="form-control form-control-sm"   name="valorTotal" id="valortotal" readonly="readonly"></input>
 
                             <button type="submit"  name="controledeChamadas" value="irPagaPagamento" class="btn btn-primary btnGeral btnFinalizar" data-toggle="tooltip" data-placement="bottom" title="Pagamento seguir ao pagamento, escolha seu produto e pesquisa um cliente.">Ir para pagamento</button>
                         </div>
@@ -198,11 +159,6 @@
             $("#linkparadestaques").css("visibility", "visible");
         </script>
     </c:if>   
-    <c:if test="${empty cpfCliente}">
-        <script type="text/javascript">
-            $(".btnFinalizar").attr("disabled", "disabled");
-        </script>
-    </c:if>
     <!--  Captura a variavel de retorno e abre modal-->
     <c:if test="${not empty retorno}">
         <script type="text/javascript">

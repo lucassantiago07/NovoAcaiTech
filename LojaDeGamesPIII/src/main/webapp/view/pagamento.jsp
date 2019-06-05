@@ -4,10 +4,6 @@
 <!DOCTYPE html>
 <html>
     <head>
-
-        <c:if test="${empty sessionScope.getNome}">
-            <c:redirect url = "/expulsarDaPaginaSemLogar"/>
-        </c:if>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta charset="UTF-8">
         <title>AcaiTech Sistema - Carrinho</title>
@@ -101,15 +97,7 @@
                             <input type="text" class="form-control" id="valorParcela" class="valorParcela" name="valorParcela" readonly="readonly"></input>
                         </div>
                         <div class="col-8 corpoopcaodinheiro">
-                            <input type="checkbox" id="dinheiro" name="dinheiro" value="Pagamento em dinheiro">Pagamento em dinheiro<br>
-                            <label>Valor em especie:</label>    
-
-                            <div class="input-group mb-2 valorEmEspecie">
-                                <input type="text" class="form-control " id="valorEmEspecie" class="valorEmEspecie" name="valorEmEspecie" onkeypress="return isNumberKey(event)"></input>
-                                <div class="input-group-prepend">
-                                    <div class="input-group-text">R$</div>
-                                </div>
-                            </div>   
+                            <input type="checkbox" id="boleto" name="boleto" value="Pagamento em boleto">Pagamento em Boleto<br>
                             <span id="avisovalor" style="color:red"><b>Valor em especie maior que o valor: Sub Total / Restante!</b></span>
                         </div>
 
