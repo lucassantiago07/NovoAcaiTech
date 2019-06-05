@@ -83,8 +83,8 @@
             
             <form action="${pageContext.request.contextPath}/sairLogin" method="post">
                 
-                 <a style="color:white;" href="${pageContext.request.contextPath}/view/cadastrarCliente.jsp">
-                    <button type="button" class="btn btn-primary" >Faça cadastro ou Login</button>
+                 <a style="color:white;" href="/view/login.jsp">
+                    <button type="button" class="btn btn-primary" >Login</button>
                 </a>
                 
                 <a style="color:white;" href="${pageContext.request.contextPath}/view/carrinho.jsp">
@@ -224,9 +224,17 @@
                                 <c:if test="${produto.categoria == ''}">
                                     <p>Não encontrado</p>
                                 </c:if>
-                                <div class="addCarrinhoDiv">    
+                                <div class="addCarrinhoDiv">
+                                <c:if test="${not empty sessionScope.getUsuario}">    
+                                    
                                     <img  src="${pageContext.request.contextPath}/img/carrinho.png"  class="imagemstar">
                                     <a style="color:white;" href="${pageContext.request.contextPath}/adicionarAoCarrinho?idProduto=${produto.id}">Add. Carrinho</a> 
+                                
+                                </c:if>
+                                <c:if test="${empty sessionScope.getUsuario}">
+                                    <img  src="${pageContext.request.contextPath}/img/carrinho.png"  class="imagemstar">
+                                    <a style="color:white;" href="${pageContext.request.contextPath}/view/login.jsp">Add. Carrinho</a>
+                                </c:if>  
                                 </div>
                             </div>
                         </div>
@@ -238,7 +246,7 @@
         <footer class="rodape page-footer font-small blue">
             <!-- Copyright -->
             <div class="footer-copyright text-center py-3">© 2018 Copyright: [ ACAITECH SISTEMAS OPERACIONAIS LTDA 13.050.544/0001-00 ]
-                <a class="suporte" href="#"> Solicitar Suporte  <img class="imagemsuporte" src="${pageContext.request.contextPath}/img/suporte.png"></a>
+                
             </div>
             <!-- Copyright -->
         </footer>
