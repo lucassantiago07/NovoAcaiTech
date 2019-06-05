@@ -119,7 +119,7 @@
     <!-- Inicio Footer -->
     <footer class="rodape page-footer font-small blue">
         <div class="footer-copyright text-center py-3">© 2018 Copyright: [ ACAITECH SISTEMAS OPERACIONAIS LTDA 13.050.544/0001-00 ]
-            <a class="suporte" href="#"> Solicitar Suporte  <img class="imagemsuporte" src="${pageContext.request.contextPath}/img/suporte.png"></a>
+            
         </div>
     </footer>
     <!-- Fim Footer -->

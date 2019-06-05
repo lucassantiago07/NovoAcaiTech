@@ -113,28 +113,3 @@
 }
 
 
-.menu-desktop {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -moz-box;
-  display: -ms-flexbox;
-  display: ruby-base;
-  align-items: baseline;
-  height: 80%;
-}
-
-.main-menu {
-  list-style-type: none;
-  margin: 0;
-
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -moz-box;
-  display: -ms-flexbox;
-  display: flex;
-  align-items: center;
-}
-
-.main-menu > li.active-menu > a {
-  color: #6c7ae0;
-}
