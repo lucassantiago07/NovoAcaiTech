@@ -244,7 +244,7 @@
                                 <h5>
                                     R$: ${produto.precoDeVenda}
                                 </h5>
-                                </p>
+                                
                                 Categoria:
                                 <c:if test="${produto.categoria == 1}">
                                     <p>Ação</p>
