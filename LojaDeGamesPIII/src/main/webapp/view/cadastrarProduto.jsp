@@ -20,50 +20,73 @@
 
     <!-- Inicio Menu -->
     <nav class="navbar navbar-light bg-light">
-        <div class="corpoimagem">
-            <a href="${pageContext.request.contextPath}/view/index.jsp"><img  src="${pageContext.request.contextPath}/img/logo.png"  class="imagemlogo"></a>
-        </div>
-        <div class="informacoessobrefuncionario">
-            <span class="nomedofuncionario">${sessionScope.getNome}</span> ●
-            <span class="filialfuncionario">${sessionScope.getFilial}</span>  ●
-            <span class="cargofuncionario">${sessionScope.getCargo}</span>  ●
-            <span class="datafuncionario">${sessionScope.getData}</span>  
-        </div>
+                <div class="corpoimagem">
+                    <a href="${pageContext.request.contextPath}/view/destaques.jsp"><img  src="${pageContext.request.contextPath}/img/logo.png"  class="imagemlogo"></a>
+                </div>
 
-        <form action="${pageContext.request.contextPath}/sairLogin" method="post">
-            <a style="color:white;" href="${pageContext.request.contextPath}/view/carrinho.jsp">
-                <button type="button" class="btn btn-primary" >Carrinho</button>
-            </a>
-            <button type="submit" class="btn btn-primary btnSair">Sair</button>
-        </form>
+                <div class="menu-desktop">
+                    <ul class="main-menu">
+                        <li class="active-menu">
+                            <a id="idhomejsp" href="destaques.jsp">Home</a>
+
+                        </li>
 
 
-    </nav>
+                    </ul>
+                </div>
+
+                <div class="menu-desktop">
+                    <ul class="main-menu">
+
+                        <li>
+                            <a href="institucional.jsp">Institucional</a>
+                        </li>
+
+
+                    </ul>
+                </div>
+
+                <div class="menu-desktop">
+                    <ul class="main-menu">
+
+                        <li>
+                            <a href="listaProduto.jsp">Gerenciamento de Produtos</a>
+                        </li>
+
+
+                    </ul>
+                </div>
+
+                <div class="menu-desktop">
+                    <ul class="main-menu">
+
+                        <li>
+                            <a href="relatorio.jsp">Relatórios</a>
+                        </li>
+
+
+                    </ul>
+                </div>
+
+                <a style="color:white;" href="/view/login.jsp">
+                    <button type="button" class="btn btn-primary" >Login</button>
+                </a>
+
+                <a style="color:white;" href="${pageContext.request.contextPath}/view/carrinho.jsp">
+                    <button type="button" class="btn btn-primary" >Carrinho</button>
+                </a>
+
+                <form action="${pageContext.request.contextPath}/view/login.jsp" method="post">
+
+
+                    <button type="submit" class="btn btn-primary btnSair">Sair</button>
+                </form>
+            </nav>
     <!-- Fim Menu -->
 
     <body>
         <!-- Inicio Carrocel -->
-        <div id="carouselExampleControls" class="carousel slide" data-ride="carousel" data-interval="2500">
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <img class="d-block w-100" src="${pageContext.request.contextPath}/img/aviso1.jpg" alt="First slide">
-                </div>
-                <div class="carousel-item">
-                    <img class="d-block w-100" src="${pageContext.request.contextPath}/img/aviso2.jpg" alt="Second slide">
-                </div>
-                <div class="carousel-item" >
-                    <img class="d-block w-100" src="${pageContext.request.contextPath}/img/aviso3.jpg" alt="Third slide">
-                </div>
-            </div>
-            <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="sr-only">Previous</span>
-            </a>
-            <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="sr-only">Next</span>
-            </a>
-        </div>
+      
         <!-- Fim Carrocel -->
 
         <!-- Inicio Separador -->
@@ -115,17 +138,18 @@
                     <input type="text" class="form-control" id="anolancamento" name="anolancamento" onkeypress="return isNumberKey(event)" maxlength="5" required></input>
                 </div>
                 <div class="form-group">
-                    <label>Categoria</label>
+                    <label>Imagem</label>
                     <select class="form-control" id="categoria" name="categoria" required>
-                        <option value="1">GTA 5 </option>
+                        <option value="1">GTA 5</option>
                         <option value="2">FIFA 19</option>
                         <option value="3">Homem-Aranha</option>
                         <option value="4">Sekiro</option>
                         <option value="5">Console PS4</option>
+                        <option value="6">Console Xbox One S</option>
                         <option value="7">Crash Bandicoot Remastered</option>
                         <option value="8">Red Dead Redemption II</option>
-                        <option value="9">Dragon Ball FighterZ</option>
-                        
+                        <option value="9">Dragon Ball FighterZ</option>                      
+                        <option value="10">Forza Motorsport 7</option>
                         
                     </select>
                 </div>

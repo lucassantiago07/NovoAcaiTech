@@ -87,10 +87,9 @@
                             <th scope="col">Produto</th>
                             <th scope="col">Preço De Venda</th>
                             <th scope="col">Preço De Custo</th>
-                            <th scope="col">Fornecedor</th>
-                            <th scope="col">Categoria</th>
+                            <th scope="col">Desenvolvedor</th>                           
                             <th scope="col">Lançamento</th>
-                            <th scope="col">Qtd de estoque</th>
+                            <th scope="col">Estoque</th>
                             <th scope="col">Editar</th>
                             <th scope="col">Excluir</th>
                         </tr>
@@ -108,24 +107,7 @@
 
 
 
-                                    <c:if test="${produto.categoria == 1}">
-                                        <td>Ação</td>
-                                    </c:if>
-                                    <c:if test="${produto.categoria == 2}">
-                                        <td>Corrida</td>
-                                    </c:if>
-                                    <c:if test="${produto.categoria == 3}">
-                                        <td>Tiro</td>
-                                    </c:if>
-                                    <c:if test="${produto.categoria == 4}">
-                                        <td>RPG</td>
-                                    </c:if>
-                                    <c:if test="${produto.categoria == 5}">
-                                        <td>Estratégia</td>
-                                    </c:if>
-                                    <c:if test="${produto.categoria == ''}">
-                                        <td>Não encontrado</td>
-                                    </c:if>
+                                   
                                     <td>${produto.anoLancamento}</td>
                                     <td>${produto.estoque}</td>                                
                                     
@@ -147,25 +129,11 @@
                                     <td>${produto.precoDeVenda}</td>
                                     <td>${produto.precoDeCusto}</td>
                                     <td>${produto.fornecedor}</td>
-
-                                    <c:if test="${produto.categoria == 1}">
-                                        <td>Ação</td>
-                                    </c:if>
-                                    <c:if test="${produto.categoria == 2}">
-                                        <td>Corrida</td>
-                                    </c:if>
-                                    <c:if test="${produto.categoria == 3}">
-                                        <td>Tiro</td>
-                                    </c:if>
-                                    <c:if test="${produto.categoria == 4}">
-                                        <td>RPG</td>
-                                    </c:if>
-                                    <c:if test="${produto.categoria == 5}">
-                                        <td>Estratégia</td>
-                                    </c:if>
-                                    <c:if test="${produto.categoria == ''}">
-                                        <td>Não encontrado</td>
-                                    </c:if>
+                                    
+                                    
+                                    
+                                    
+                                   
 
                                     <td>${produto.anoLancamento}</td>
                                     <td>${produto.estoque}</td>                                
