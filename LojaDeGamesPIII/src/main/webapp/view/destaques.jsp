@@ -237,15 +237,54 @@
                             <div class="card-body">
                                 
                                     <h5 class="card-title">${produto.nome}</h5>
-                               
                                 
+                                <p style="color:black;" class="card-text descricoes">${produto.descricao}</p>
                                 <p class="card-text">  
 
                                 <h5>
                                     R$: ${produto.precoDeVenda}
                                 </h5>
                                 
-                               
+                                Categoria:
+                                <c:if test="${produto.categoria == 1}">
+                                    <p>GTA 5</p>
+                                </c:if>
+                                    
+                                <c:if test="${produto.categoria == 2}">
+                                    <p>FIFA 19</p>
+                                </c:if>
+                                    
+                                <c:if test="${produto.categoria == 3}">
+                                    <p>Homem-Aranha</p>
+                                </c:if>
+                                    
+                                <c:if test="${produto.categoria == 4}">
+                                    <p>Sekiro</p>
+                                </c:if>
+                                    
+                                <c:if test="${produto.categoria == 5}">
+                                    <p>Console PS4</p>
+                                </c:if>
+                                   
+                                <c:if test="${produto.categoria == 6}">
+                                    <p>Console Xbox One S</p>
+                                </c:if> 
+                                    
+                                <c:if test="${produto.categoria == 7}">
+                                    <p>Crash Bandicoot Remastered</p>
+                                </c:if>
+                                
+                                <c:if test="${produto.categoria == 8}">
+                                    <p>Red Dead Redemption II</p>
+                                </c:if>
+                                    
+                                <c:if test="${produto.categoria == 9}">
+                                    <p>Dragon Ball FighterZ</p>
+                                </c:if>
+                                    
+                                <c:if test="${produto.categoria == ''}">
+                                    <p>Não encontrado</p>
+                                </c:if>
                                 <div class="addCarrinhoDiv">
                                     <c:if test="${not empty sessionScope.getEmail}">    
 

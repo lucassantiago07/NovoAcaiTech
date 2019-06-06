@@ -45,8 +45,7 @@
         
         <script src="js/jquery-3.3.1.js"></script>
         <script src="js/bootstrap.js"></script>
-        <script src="js/background-video.js"></script>
-        <link type="text/css" href="css/background-video.css" rel="stylesheet" />      
+            
         <link type="text/css" href="css/bootstrap.css" rel="stylesheet" />
         <link type="text/css" href="css/script.css" rel="stylesheet" />
         <link type="text/css" href="css/login.css" rel="stylesheet" />

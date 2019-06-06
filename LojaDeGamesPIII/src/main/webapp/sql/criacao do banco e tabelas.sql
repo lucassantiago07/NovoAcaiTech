@@ -1,5 +1,6 @@
 
 
+
 CREATE DATABASE lojadegames; 
 
 USE lojadegames; 
@@ -135,6 +136,119 @@ VALUES      ('Sekiro™: Shadows Die Twice',
 2019, 
 32, 
 NULL); 
+
+INSERT INTO `produto` 
+            (`nome`, 
+             `categoria`, 
+             `plataforma`, 
+             `fornecedor`, 
+             `descricao`, 
+             `preco_compra`, 
+             `preco_venda`, 
+             `ano_lancamento`, 
+             `estoque`, 
+             `dt_cadastro`) 
+VALUES      ('Console Xbox One S', 
+             6, 
+             'Xbox', 
+             'microsoft', 
+'Nova geração de console da microsoft'
+             , 
+1000, 
+1200, 
+2013, 
+32, 
+NULL); 
+
+
+INSERT INTO `produto` 
+            (`nome`, 
+             `categoria`, 
+             `plataforma`, 
+             `fornecedor`, 
+             `descricao`, 
+             `preco_compra`, 
+             `preco_venda`, 
+             `ano_lancamento`, 
+             `estoque`, 
+             `dt_cadastro`) 
+VALUES      ('Crash Bandicoot', 
+             7, 
+             'PS4', 
+             'Activision', 
+'Novo Crash', 
+50, 
+100, 
+2016, 
+22, 
+NULL); 
+
+INSERT INTO `produto` 
+            (`nome`, 
+             `categoria`, 
+             `plataforma`, 
+             `fornecedor`, 
+             `descricao`, 
+             `preco_compra`, 
+             `preco_venda`, 
+             `ano_lancamento`, 
+             `estoque`, 
+             `dt_cadastro`) 
+VALUES      ('Red Dead Redemption 2 dragon ball fighterz', 
+             8, 
+             'PS4', 
+             'EA', 
+'Red Dead Redemption II é um jogo eletrônico de ação-aventura western desenvolvido pela Rockstar Studios e publicado pela Rockstar Games. ', 
+75, 
+150, 
+2018, 
+50, 
+NULL);
+
+INSERT INTO `produto` 
+            (`nome`, 
+             `categoria`, 
+             `plataforma`, 
+             `fornecedor`, 
+             `descricao`, 
+             `preco_compra`, 
+             `preco_venda`, 
+             `ano_lancamento`, 
+             `estoque`, 
+             `dt_cadastro`) 
+VALUES      ('Dragon Ball Fighterz', 
+             9, 
+             'Xbox', 
+             'Bandai Namco Entertainment ', 
+'Dragon Ball FighterZ é um jogo da franquia Dragon Ball, desenvolvido pela Arc System Works é publicado pela Bandai Namco Entertainment para PlayStation 4, Xbox One e Microsoft Windows via Steam.', 
+50, 
+75, 
+2017, 
+10, 
+NULL);  
+
+INSERT INTO `produto` 
+            (`nome`, 
+             `categoria`, 
+             `plataforma`, 
+             `fornecedor`, 
+             `descricao`, 
+             `preco_compra`, 
+             `preco_venda`, 
+             `ano_lancamento`, 
+             `estoque`, 
+             `dt_cadastro`) 
+VALUES      ('Forza Motorsport 7', 
+             10, 
+             'Xbox', 
+             'Xbox', 
+'Forza Motorsport 7 é um jogo de corrida desenvolvido pela Turn 10 Studios e publicado pela Microsoft Studios, servindo como o décimo jogo da franquia na série Forza, o sétimo na série principal', 
+50, 
+90, 
+2018, 
+15, 
+NULL);
+
 
 CREATE TABLE lojadegames.cliente 
   ( 
