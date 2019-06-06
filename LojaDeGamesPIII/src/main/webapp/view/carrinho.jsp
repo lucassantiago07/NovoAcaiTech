@@ -142,11 +142,6 @@
                 </div>
                 <div class="modal-body">
                     ${retornoMensagem}<br>
-                    Deseja cadastrar um cliente?
-                    <div class="container corpobtnCadastrarCliente">
-                        <button type="button" class="btn btn-primary btnCadastrarCliente" onclick="window.location.href = '${pageContext.request.contextPath}/view/cadastrarCliente.jsp'">Sim</button>
-                        <button type="button" class="btn btn-primary btnCadastrarCliente" onclick="window.location.href = '${pageContext.request.contextPath}/view/carrinho.jsp'">Não</button>
-                    </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>

@@ -1,16 +1,12 @@
 package controller;
 
-import dao.ClienteDAO;
 import dao.VendaDAO;
-import data.ClienteData;
 import data.ProdutoData;
 import data.VendaData;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -31,6 +27,7 @@ public class finalizarVenda extends HttpServlet {
             String vezesCartao = request.getParameter("vezesCartao");
             String bandeira = request.getParameter("bandeira");
             String valorParcela = request.getParameter("valorParcela");
+            String valorEmEspecie = request.getParameter("valorTotalBoleto");
 
             // Infomações definidas no carrinho
             String valorTotal = (String) session.getAttribute("valorTotal");
@@ -53,6 +50,7 @@ public class finalizarVenda extends HttpServlet {
             v.setSubTotal(subTotal);
             v.setValorTotal(valorTotal);
             v.setVezesCartao(vezesCartao);
+            v.setValorEmEspecie(valorEmEspecie);
 
             /*
             System.out.println(v.getBandeira());
@@ -82,7 +80,7 @@ public class finalizarVenda extends HttpServlet {
                 MensagemDeRetorno = "Houve um erro ao realizar a venda.";
             }
             request.setAttribute("retornoMensagem", MensagemDeRetorno);
-            request.getRequestDispatcher("/view/destaques.jsp").forward(request, response);
+            request.getServletContext().getRequestDispatcher("/view/carrinho.jsp").forward(request, response);
 
         } catch (SQLException | ClassNotFoundException ex) {
             System.out.println("Erro Servlet finalizarVEnda");

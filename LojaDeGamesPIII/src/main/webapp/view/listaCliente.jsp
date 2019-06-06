@@ -91,51 +91,59 @@
         <!-- fim Busca jogos estoque-->
         <div class="corpotabela">
             <div class="">
-                <table class="table table-sm">
-                    <thead>
-                        <tr>
-                            <th scope="col">ID</th>
-                            <th scope="col">Produto</th>
-                            <th scope="col">Quantidade</th>
-                            <th scope="col">Valor</th>
-                            <th scope="col">Status</th>
-                         </tr>
-                    </thead>
-                    <tbody>
-                        <!-- Lista para itens com filtros -->
-                        <c:if test="${not empty listaComFiltro}">
-                            <c:forEach var="Cliente" items="${listaComFiltro}">
-                                <tr class="">
-                                    <td>${Cliente.id}</td>
-                                    <td>${Cliente.nome}</td>
-                                    <td>${Cliente.cpf}</td>
-                                    <td>${Cliente.email}</td>
-                                    
-                                    
-                                    <td><a href="${pageContext.request.contextPath}/view/alterarCliente.jsp?idCliente=${Cliente.id}">Editar</a></td>
-                                    
-                                </c:forEach>
-
-
+               <!-- Verifica se tem vendas retornadas -->
+                        <c:if test="${empty listaSemFiltro && empty listaComFiltro}">
+                            Não há vendas realizadas.
                         </c:if>
-                        <!-- Fim Lista para itens com filtros -->
-                        <!-- Lista para itens sem filtros -->
-                        <c:if test="${empty listaComFiltro and not empty lista}">
-                            <c:forEach var="Cliente" items="${lista}">
-                                <tr class="">
-                                    <td>${Cliente.id}</td>
-                                    <td>${Cliente.nome}</td>
-                                    <td>${Cliente.cpf}</td>
-                                    <td>${Cliente.email}</td>
-                                    
-                                    
-                                    <td><a href="${pageContext.request.contextPath}/view/alterarCliente.jsp?idCliente=${Cliente.id}">Editar</a></td>
-                                    
-                                </c:forEach>
-                            </c:if>
-                        <!-- Fim Lista para itens sem filtros -->
-                    </tbody>
-                </table>
+                        <!-- Se não retornou vazio abre tabela -->
+                        <c:if test="${not empty listaSemFiltro || not empty listaComFiltro}">
+
+                            <table class="table table-sm">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">ID</th>
+                                        <th scope="col">Tipo de venda</th>
+                                        <th scope="col">Bandeira</th>
+                                        <th scope="col">Data da Venda</th>
+                                        <th scope="col">Filial</th>
+                                        <th scope="col">Cliente</th>
+                                        <th scope="col">Vendedor</th>
+                                        <th scope="col">Número Comprovante</th>
+                                        <th scope="col">Parcelamento (Vezes)</th>
+                                        <th scope="col">SubTotal</th>
+                                        <th scope="col">% Desconto</th>
+                                        <th scope="col">Valor Pago Em Especie</th>
+                                        <th scope="col">Valor Total</th>
+                                        <th scope="col">Produtos</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+
+
+                                    <c:if test="${not empty listaSemFiltro}">
+                                        <c:forEach var="Venda" items="${listaSemFiltro}">
+                                            <tr class="">
+                                                <td>${Venda.id}</td> 
+                                                <td>#</td> 
+                                                <td>${Venda.bandeira}</td>
+                                                <td>${Venda.dataDaVenda}</td>
+                                                <td>${Venda.filial}</td>
+                                                <td>${Venda.idCliente}</td>
+                                                <td>${Venda.idVendedor}</td>
+                                                <td>${Venda.numeroComprovante}</td>
+                                                <td>${Venda.vezesCartao}</td>
+                                                <td>${Venda.subTotal}</td>
+                                                <td>${Venda.desconto}%</td>
+                                                <td>${Venda.valorEmEspecie}</td>
+                                                <td>${Venda.valorTotal}</td>
+                                                <td><a href="${pageContext.request.contextPath}/capturaProdutosDaVenda?idVenda=${Venda.id}">Visualizar Produtos</a></td>
+                                            </c:forEach>
+                                        </c:if>
+
+
+                                </tbody>
+                            </table>
+                        </c:if>
                 <div class="row">
                     
                     <c:if test="${not empty listaComFiltro}">
@@ -146,7 +154,7 @@
             </div>
 
 
-        </div><br><br><br><br>
+        </div><br><br><br><br><br><br><br><br>
         <!-- Inicio Footer -->
         <footer class="rodape page-footer font-small blue">
             <div class="footer-copyright text-center py-3">© 2018 Copyright: [ ACAITECH SISTEMAS OPERACIONAIS LTDA 13.050.544/0001-00 ]

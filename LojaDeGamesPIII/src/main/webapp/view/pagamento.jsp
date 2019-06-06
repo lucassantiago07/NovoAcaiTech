@@ -73,7 +73,7 @@
                         </div>
                         <div class="col-8 corpoopcaodinheiro">
                             <input type="checkbox" id="boleto" name="boleto" value="Pagamento em boleto">Pagamento em Boleto<br>
-                            <span id="avisovalor" style="color:red"><b>Valor em especie maior que o valor: Sub Total / Restante!</b></span>
+                            <input type="text" id="valorTotalBoleto"  class="valorTotalBoleto form-control" name="valorTotalBoleto" value="${valorTotal}" style="visibility: visible;" readonly="readonly"></input>
                         </div>
 
                         <div class="col-8 corpodebotoesfinais">
