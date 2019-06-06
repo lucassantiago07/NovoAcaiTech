@@ -54,17 +54,7 @@
 						</ul>
 				</div>
             
-             <div class="menu-desktop">
-						<ul class="main-menu">
-							                                                        
-                                                        <li>
-                                                                <a href="relatorio.jsp">Relatórios</a>
-                                                        </li>
-
-                     												
-						</ul>
-				</div>
-            
+                         
              <div class="menu-desktop">
 						<ul class="main-menu">
 							                                                        
