@@ -140,6 +140,7 @@
                 <div class="form-group">
                     <label>Imagem</label>
                     <select class="form-control" id="categoria" name="categoria" required>
+                        
                         <option value="1">GTA 5</option>
                         <option value="2">FIFA 19</option>
                         <option value="3">Homem-Aranha</option>
