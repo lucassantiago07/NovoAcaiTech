@@ -117,11 +117,12 @@
                 <div class="form-group">
                     <label>Categoria</label>
                     <select class="form-control" id="categoria" name="categoria" required>
-                        <option value="1">GTA 5 </option>
+                        <option value="1">GTA 5</option>
                         <option value="2">FIFA 19</option>
                         <option value="3">Homem-Aranha</option>
                         <option value="4">Sekiro</option>
                         <option value="5">Console PS4</option>
+                        <option value="6">Console Xbox One S</option>
                         <option value="7">Crash Bandicoot Remastered</option>
                         <option value="8">Red Dead Redemption II</option>
                         <option value="9">Dragon Ball FighterZ</option>

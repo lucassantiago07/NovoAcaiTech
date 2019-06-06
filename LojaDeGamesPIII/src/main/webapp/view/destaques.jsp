@@ -247,20 +247,41 @@
                                 
                                 Categoria:
                                 <c:if test="${produto.categoria == 1}">
-                                    <p>Ação</p>
+                                    <p>GTA 5</p>
                                 </c:if>
+                                    
                                 <c:if test="${produto.categoria == 2}">
-                                    <p>Corrida</p>
+                                    <p>FIFA 19</p>
                                 </c:if>
+                                    
                                 <c:if test="${produto.categoria == 3}">
-                                    <p>Tiro</p>
+                                    <p>Homem-Aranha</p>
                                 </c:if>
+                                    
                                 <c:if test="${produto.categoria == 4}">
-                                    <p>RPG</p>
+                                    <p>Sekiro</p>
                                 </c:if>
+                                    
                                 <c:if test="${produto.categoria == 5}">
-                                    <p>Estratégia</p>
+                                    <p>Console PS4</p>
                                 </c:if>
+                                   
+                                <c:if test="${produto.categoria == 6}">
+                                    <p>Console Xbox One S</p>
+                                </c:if> 
+                                    
+                                <c:if test="${produto.categoria == 7}">
+                                    <p>Crash Bandicoot Remastered</p>
+                                </c:if>
+                                
+                                <c:if test="${produto.categoria == 8}">
+                                    <p>Red Dead Redemption II</p>
+                                </c:if>
+                                    
+                                <c:if test="${produto.categoria == 9}">
+                                    <p>Dragon Ball FighterZ</p>
+                                </c:if>
+                                    
                                 <c:if test="${produto.categoria == ''}">
                                     <p>Não encontrado</p>
                                 </c:if>
