@@ -25,17 +25,7 @@
                 <a href="${pageContext.request.contextPath}/view/destaques.jsp"><img  src="${pageContext.request.contextPath}/img/logo.png"  class="imagemlogo"></a>
             </div>
             
-             <div class="menu-desktop">
-						<ul class="main-menu">
-							<li class="active-menu">
-								<a href="destaques.jsp">Home</a>
-								
-							</li>
-                                                        
-                                                                         												
-						</ul>
-				</div>
-            
+                         
          
              
             
