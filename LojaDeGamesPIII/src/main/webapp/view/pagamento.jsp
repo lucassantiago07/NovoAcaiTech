@@ -122,7 +122,7 @@
             <script type="text/javascript">
                                     $("#myModal").modal();
                                     $('#myModal').on('hidden.bs.modal', function () {
-                                        window.location.href = '${pageContext.request.contextPath}/view/pagamento.jsp'
+                                        window.location.href = '${pageContext.request.contextPath}/view/destaques.jsp'
                                     })
             </script>
         </c:if>

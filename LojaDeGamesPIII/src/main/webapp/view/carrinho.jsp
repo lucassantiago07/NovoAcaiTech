@@ -17,12 +17,10 @@
     <!-- Inicio Menu -->
     <nav class="navbar navbar-light bg-light">
         <div class="corpoimagem">
-            <a href="${pageContext.request.contextPath}/view/index.jsp"><img  src="${pageContext.request.contextPath}/img/logo.png"  class="imagemlogo"></a>
+            <a href="${pageContext.request.contextPath}/view/destaques.jsp"><img  src="${pageContext.request.contextPath}/img/logo.png"  class="imagemlogo"></a>
         </div>
         <form action="${pageContext.request.contextPath}/sairLogin" method="post">
-            <a style="color:white;" href="${pageContext.request.contextPath}/view/carrinho.jsp">
-                <button type="button" class="btn btn-primary" >Carrinho</button>
-            </a>
+            
             <button type="submit" class="btn btn-primary btnSair">Sair</button>
         </form>
     </nav>
@@ -96,26 +94,30 @@
                             <input type="text" class="form-control form-control-sm cpfCliente"   value="${sessionScope.cpfCliente}" readonly="readonly"></input>
                             <label style="margin-top: 2%">Contato: </label>  
                             <input type="text" class="form-control form-control-sm celularCliente"   value="${sessionScope.celularCliente}"  readonly="readonly"></input>
-                            <button type="button" class="btn btn-primary btnContinuar"> <a href="${pageContext.request.contextPath}/view/destaques.jsp" style="color:white">Continuar comprando</a> </button>
+                            
+                    
                         </div>
                     </div>
-                    -->
-                    <div class="col-10">
+                     --> 
+                  
+                    <div class="col-12">
                         <div class="informacoessobrepreco">
-                           <! <label style="margin-top: 2%">Total: </label>  
+                            <label style="margin-top: 2%">Total: </label>  
                             <input type="text"  pattern="([0-9]|[0-9]|[0-9])" class="form-control form-control-sm"  name="subTotal" id="subtotal" readonly="readonly"></input>
 
                             <input type="hidden" pattern="([0-9]|[0-9]|[0-9])" class="form-control form-control-sm"   name="Desconto" id="desconto"  value="0" maxlength="2" max="20"></input>
 
                             <input type="hidden"  pattern="([0-9]|[0-9]|[0-9])" class="form-control form-control-sm"   name="valorTotal" id="valortotal" readonly="readonly"></input>
-
+                            <button type="button" class="btn btn-primary btnContinuar"> <a href="${pageContext.request.contextPath}/view/destaques.jsp" style="color:white">Continuar comprando</a> </button><br>
                             <button type="submit"  name="controledeChamadas" value="irPagaPagamento" class="btn btn-primary btnGeral btnFinalizar" data-toggle="tooltip" data-placement="bottom" title="Pagamento seguir ao pagamento, escolha seu produto e pesquisa um cliente.">Ir para pagamento</button>
+                           
                         </div>
+                        
                     </div>
                 </c:if>
             </div>
         </div>
-    </form>
+    </form><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
     <!-- Inicio Footer -->
     <footer class="rodape page-footer font-small blue">
         <div class="footer-copyright text-center py-3">© 2018 Copyright: [ ACAITECH SISTEMAS OPERACIONAIS LTDA 13.050.544/0001-00 ]

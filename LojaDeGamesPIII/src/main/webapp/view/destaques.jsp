@@ -4,9 +4,9 @@
 <!DOCTYPE html>
 <html>
     <head>
-        
-        
-        
+
+
+
         <jsp:include page="/listaProduto" />
         <meta charset="UTF-8">
         <title>AcaiTech Sistema - Destaques</title>
@@ -16,142 +16,182 @@
     </head>
     <body>
         <!-- Inicio Menu -->
-        
+
         <c:if test= "${sessionScope.getEmail == 'santos'}">
 
-        <nav class="navbar navbar-light bg-light">
-            <div class="corpoimagem">
-                <a href="${pageContext.request.contextPath}/view/destaques.jsp"><img  src="${pageContext.request.contextPath}/img/logo.png"  class="imagemlogo"></a>
-            </div>
-            
-             <div class="menu-desktop">
-						<ul class="main-menu">
-							<li class="active-menu">
-                                                            <a id="idhomejsp" href="destaques.jsp">Home</a>
-								
-							</li>
-                                                        
-                                                                         												
-						</ul>
-				</div>
-            
-            <div class="menu-desktop">
-						<ul class="main-menu">
-							                                                        
-                                                        <li>
-                                                                <a href="view/institucional.jsp">Institucional</a>
-                                                        </li>
+            <nav class="navbar navbar-light bg-light">
+                <div class="corpoimagem">
+                    <a href="${pageContext.request.contextPath}/view/destaques.jsp"><img  src="${pageContext.request.contextPath}/img/logo.png"  class="imagemlogo"></a>
+                </div>
 
-                     												
-						</ul>
-				</div>
-            
-             <div class="menu-desktop">
-						<ul class="main-menu">
-							                                                        
-                                                        <li>
-                                                                <a href="listaProduto.jsp">Gerenciamento de Produtos</a>
-                                                        </li>
+                <div class="menu-desktop">
+                    <ul class="main-menu">
+                        <li class="active-menu">
+                            <a id="idhomejsp" href="destaques.jsp">Home</a>
 
-                     												
-						</ul>
-				</div>
-            
-             <div class="menu-desktop">
-						<ul class="main-menu">
-							                                                        
-                                                        <li>
-                                                                <a href="relatorio.jsp">Relatórios</a>
-                                                        </li>
+                        </li>
 
-                     												
-						</ul>
-				</div>
-            
-             <div class="menu-desktop">
-						<ul class="main-menu">
-							                                                        
-                                                        <li>
-                                                                <a href="listaCliente.jsp">Meus Dados</a>
-                                                        </li>
 
-                     												
-						</ul>
-				</div>
-            
-            
-            
-            <form action="${pageContext.request.contextPath}/sairLogin" method="post">
-                
-                 <a style="color:white;" href="/view/login.jsp">
+                    </ul>
+                </div>
+
+                <div class="menu-desktop">
+                    <ul class="main-menu">
+
+                        <li>
+                            <a href="institucional.jsp">Institucional</a>
+                        </li>
+
+
+                    </ul>
+                </div>
+
+                <div class="menu-desktop">
+                    <ul class="main-menu">
+
+                        <li>
+                            <a href="listaProduto.jsp">Gerenciamento de Produtos</a>
+                        </li>
+
+
+                    </ul>
+                </div>
+
+                <div class="menu-desktop">
+                    <ul class="main-menu">
+
+                        <li>
+                            <a href="relatorio.jsp">Relatórios</a>
+                        </li>
+
+
+                    </ul>
+                </div>
+
+                <a style="color:white;" href="/view/login.jsp">
                     <button type="button" class="btn btn-primary" >Login</button>
                 </a>
-                
+
                 <a style="color:white;" href="${pageContext.request.contextPath}/view/carrinho.jsp">
                     <button type="button" class="btn btn-primary" >Carrinho</button>
                 </a>
-                <button type="submit" class="btn btn-primary btnSair">Sair</button>
-            </form>
-        </nav>
-           </c:if>
 
-           <c:if test= "${sessionScope.getEmail != 'santos'}">
+                <form action="${pageContext.request.contextPath}/sairLogin" method="post">
+
+
+                    <button type="submit" class="btn btn-primary btnSair">Sair</button>
+                </form>
+            </nav>
+        </c:if>
+
+        <c:if test= "${sessionScope.getEmail == 'a'}">
 
             <nav class="navbar navbar-light bg-light">
-            <div class="corpoimagem">
-                <a href="${pageContext.request.contextPath}/view/destaques.jsp"><img  src="${pageContext.request.contextPath}/img/logo.png"  class="imagemlogo"></a>
-            </div>
-            
-             
-            
-            <div class="menu-desktop">
-						<ul class="main-menu">
-							                                                        
-                                                        <li>
-                                                                <a href="institucional.jsp">Institucional</a>
-                                                        </li>
+                <div class="corpoimagem">
+                    <a href="${pageContext.request.contextPath}/view/destaques.jsp"><img  src="${pageContext.request.contextPath}/img/logo.png"  class="imagemlogo"></a>
+                </div>
 
-                     												
-						</ul>
-				</div>
-            
-             
-            
-             
-            
-             <div class="menu-desktop">
-						<ul class="main-menu">
-							                                                        
-                                                        <li>
-                                                                <a href="listaCliente.jsp">Meus Dados</a>
-                                                        </li>
 
-                     												
-						</ul>
-				</div>
-            
-            
-            
-            <form action="${pageContext.request.contextPath}/sairLogin" method="post">
-                
-                 <a style="color:white;" href="${pageContext.request.contextPath}/view/login.jsp">
-                    <button type="button" class="btn btn-primary" >Login</button>
-                </a>
-                
-                <a style="color:white;" href="${pageContext.request.contextPath}/view/carrinho.jsp">
-                    <button type="button" class="btn btn-primary" >Carrinho</button>
-                </a>
-                <button type="submit" class="btn btn-primary btnSair">Sair</button>
-            </form>
-        </nav>
-                 
-                 
-                 
-                 
-             </c:if>
-       
-                   
+
+                <div class="menu-desktop">
+                    <ul class="main-menu">
+
+                        <li>
+                            <a style="margin-right: 100px" href="institucional.jsp">Institucional</a>
+                        </li>
+
+
+                    </ul>
+                </div>
+
+                <div class="menu-desktop">
+                    <ul class="main-menu">
+
+                        <li>
+                            <a href="${pageContext.request.contextPath}/view/alterarCliente.jsp?idCliente=${Cliente.id}">Meus Dados</a>
+                        </li>
+
+
+                    </ul>
+                </div>
+
+                <div class="menu-desktop">
+                    <ul class="main-menu">
+
+                        <li>
+                            <a href="listaCliente.jsp">Meus Pedidos</a>
+                        </li>
+
+
+                    </ul>
+                </div>
+                        
+                        <a style="color:white;" href="${pageContext.request.contextPath}/view/login.jsp">
+                        <button type="button" class="btn btn-primary" >Login</button>
+                    </a>
+
+                    <a style="color:white;" href="${pageContext.request.contextPath}/view/carrinho.jsp">
+                        <button type="button" class="btn btn-primary" >Carrinho</button>
+                        
+                    </a>
+                        
+                <form action="${pageContext.request.contextPath}/view/login.jsp" method="post">
+
                     
+                        
+                        <button type="submit" class="btn btn-primary btnSair">Sair</button>
+
+                </form>
+            </nav>
+
+
+
+
+        </c:if>
+
+        <c:if test= "${empty sessionScope.getEmail}">
+
+            <nav class="navbar navbar-light bg-light">
+                <div class="corpoimagem">
+                    <a href="${pageContext.request.contextPath}/view/destaques.jsp"><img  src="${pageContext.request.contextPath}/img/logo.png"  class="imagemlogo"></a>
+                </div>
+
+
+
+                <div class="menu-desktop">
+                    <ul class="main-menu">
+
+                        <li>
+                            <a style="margin-right: 1000px" href="institucional.jsp">Institucional</a>
+                        </li>
+
+
+                    </ul>
+                </div>
+
+
+                <form action="${pageContext.request.contextPath}/sairLogin" method="post">
+
+                    <a style="color:white;" href="${pageContext.request.contextPath}/view/login.jsp">
+                        <button type="button" class="btn btn-primary" >Login</button>
+                    </a>
+
+                    <a style="color:white;" href="${pageContext.request.contextPath}/view/carrinho.jsp">
+                        <button type="button" class="btn btn-primary" >Carrinho</button>
+
+                    </a>
+
+                </form>
+            </nav>
+
+
+
+
+        </c:if>
+
+
+
+
         <!-- Fim Menu -->
         <!-- Inicio Carrocel -->
         <div id="carouselExampleControls" class="carousel slide" data-ride="carousel" data-interval="2500">
@@ -186,7 +226,7 @@
         </nav>
         <!-- Fim Busca Jogos -->
         <div class=" corpodeprodutos container"><br>
-           
+
             <div class="row">
                 <c:if test="${ not empty lista}">
                     <c:forEach var="produto" items="${lista}">
@@ -225,16 +265,16 @@
                                     <p>Não encontrado</p>
                                 </c:if>
                                 <div class="addCarrinhoDiv">
-                                <c:if test="${not empty sessionScope.getEmail}">    
-                                    
-                                    <img  src="${pageContext.request.contextPath}/img/carrinho.png"  class="imagemstar">
-                                    <a style="color:white;" href="${pageContext.request.contextPath}/adicionarAoCarrinho?idProduto=${produto.id}">Add. Carrinho</a> 
-                                
-                                </c:if>
-                                <c:if test="${empty sessionScope.getEmail}">
-                                    <img  src="${pageContext.request.contextPath}/img/carrinho.png"  class="imagemstar">
-                                    <a style="color:white;" href="${pageContext.request.contextPath}/view/login.jsp">Add. Carrinho</a>
-                                </c:if>  
+                                    <c:if test="${not empty sessionScope.getEmail}">    
+
+                                        <img  src="${pageContext.request.contextPath}/img/carrinho.png"  class="imagemstar">
+                                        <a style="color:white;" href="${pageContext.request.contextPath}/adicionarAoCarrinho?idProduto=${produto.id}">Add. Carrinho</a> 
+
+                                    </c:if>
+                                    <c:if test="${empty sessionScope.getEmail}">
+                                        <img  src="${pageContext.request.contextPath}/img/carrinho.png"  class="imagemstar">
+                                        <a style="color:white;" href="${pageContext.request.contextPath}/view/login.jsp">Add. Carrinho</a>
+                                    </c:if>  
                                 </div>
                             </div>
                         </div>
@@ -246,7 +286,7 @@
         <footer class="rodape page-footer font-small blue">
             <!-- Copyright -->
             <div class="footer-copyright text-center py-3">© 2018 Copyright: [ ACAITECH SISTEMAS OPERACIONAIS LTDA 13.050.544/0001-00 ]
-                
+
             </div>
             <!-- Copyright -->
         </footer>
@@ -261,16 +301,16 @@
                 $(".removedordefiltro").css('visibility', 'visible')
             </script>
         </c:if>  
-            
-            <c:if test="${not empty retorno}">
+
+        <c:if test="${not empty retorno}">
             <script type="text/javascript">
-                        $("#myModal").modal();
-                        $('#myModal').on('hidden.bs.modal', function () {
-                            window.location.href = '${pageContext.request.contextPath}/view/destaques.jsp'
-                        })
+                $("#myModal").modal();
+                $('#myModal').on('hidden.bs.modal', function () {
+                    window.location.href = '${pageContext.request.contextPath}/view/destaques.jsp'
+                })
             </script>
         </c:if> 
-            
-            
+
+
     </body>
 </html>

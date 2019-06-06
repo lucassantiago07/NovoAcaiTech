@@ -23,50 +23,83 @@
     </head>
     <!-- Inicio Menu -->
     <nav class="navbar navbar-light bg-light">
-        <div class="corpoimagem">
-            <a href="${pageContext.request.contextPath}/view/index.jsp"><img  src="${pageContext.request.contextPath}/img/logo.png"  class="imagemlogo"></a>
-        </div>
+                <div class="corpoimagem">
+                    <a href="${pageContext.request.contextPath}/view/destaques.jsp"><img  src="${pageContext.request.contextPath}/img/logo.png"  class="imagemlogo"></a>
+                </div>
+
+                <div class="menu-desktop">
+                    <ul class="main-menu">
+                        <li class="active-menu">
+                            <a id="idhomejsp" href="destaques.jsp">Home</a>
+
+                        </li>
 
 
-        <div class="informacoessobrefuncionario">
-            <span class="nomedofuncionario">${sessionScope.getNome}</span> ●
-            <span class="filialfuncionario">${sessionScope.getFilial}</span>  ●
-            <span class="cargofuncionario">${sessionScope.getCargo}</span>  ●
-            <span class="datafuncionario">${sessionScope.getData}</span>  
-        </div>
+                    </ul>
+                </div>
 
-        <form action="${pageContext.request.contextPath}/sairLogin" method="post">
-            <a style="color:white;" href="${pageContext.request.contextPath}/view/carrinho.jsp">
-                <button type="button" class="btn btn-primary" >Carrinho</button>
-            </a>
-            <button type="submit" class="btn btn-primary btnSair">Sair</button>
-        </form>
+                <div class="menu-desktop">
+                    <ul class="main-menu">
 
-    </nav>
+                        <li>
+                            <a href="institucional.jsp">Institucional</a>
+                        </li>
+
+
+                    </ul>
+                </div>
+
+                <div class="menu-desktop">
+                    <ul class="main-menu">
+
+                        <li>
+                            <a href="listaProduto.jsp">Gerenciamento de Produtos</a>
+                        </li>
+
+
+                    </ul>
+                </div>
+
+                <div class="menu-desktop">
+                    <ul class="main-menu">
+
+                        <li>
+                            <a href="relatorio.jsp">Relatórios</a>
+                        </li>
+
+
+                    </ul>
+                </div>
+
+                <div class="menu-desktop">
+                    <ul class="main-menu">
+
+                        <li>
+                            <a href="listaCliente.jsp">Meus Dados</a>
+                        </li>
+
+
+                    </ul>
+                </div>
+
+
+
+                <form action="${pageContext.request.contextPath}/sairLogin" method="post">
+
+                    <a style="color:white;" href="/view/login.jsp">
+                        <button type="button" class="btn btn-primary" >Login</button>
+                    </a>
+
+                    <a style="color:white;" href="${pageContext.request.contextPath}/view/carrinho.jsp">
+                        <button type="button" class="btn btn-primary" >Carrinho</button>
+                    </a>
+                    <button type="submit" class="btn btn-primary btnSair">Sair</button>
+                </form>
+            </nav>
     <!-- Fim Menu -->
     <body>
         <!-- Inicio Carrocel -->
-        <div id="carouselExampleControls" class="carousel slide" data-ride="carousel" data-interval="2500">
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <img class="d-block w-100" src="${pageContext.request.contextPath}/img/aviso1.jpg" alt="First slide">
-                </div>
-                <div class="carousel-item">
-                    <img class="d-block w-100" src="${pageContext.request.contextPath}/img/aviso2.jpg" alt="Second slide">
-                </div>
-                <div class="carousel-item" >
-                    <img class="d-block w-100" src="${pageContext.request.contextPath}/img/aviso3.jpg" alt="Third slide">
-                </div>
-            </div>
-            <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="sr-only">Previous</span>
-            </a>
-            <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="sr-only">Next</span>
-            </a>
-        </div>
+        
         <!-- Fim Carrocel -->
 
         <!-- Inicio Separador -->
@@ -161,7 +194,7 @@
         <!-- Inicio Footer -->
         <footer class="rodape page-footer font-small blue">
             <div class="footer-copyright text-center py-3">© 2018 Copyright: [ ACAITECH SISTEMAS OPERACIONAIS LTDA 13.050.544/0001-00 ]
-                <a class="suporte" href="#"> Solicitar Suporte  <img class="imagemsuporte" src="${pageContext.request.contextPath}/img/suporte.png"></a>
+            
             </div>
         </footer>
         <!-- Fim Footer -->
