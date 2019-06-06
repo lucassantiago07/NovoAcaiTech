@@ -217,7 +217,7 @@
         </div>
         <!-- Fim Carrocel -->
         <!-- Inicio Busca Jogos -->
-        <nav class="buscar navbar navbar-light" style="background-color: purple;">
+        <nav class="buscar navbar navbar-light" style="background-color: black;">
             <form class="form-inline buscajogos" method="post" action="${pageContext.request.contextPath}/capturaPorBusca">
                 <input name="jogo" class=" form-control mr-sm-2 " type="search" placeholder="Digite o nome do jogo,fornecedor, ano de lançamento, plataforma, ..etc" aria-label="Search" style="width:90%">
                 <button type="submit" class="btn btn-light">Buscar</button>
@@ -231,60 +231,21 @@
                 <c:if test="${ not empty lista}">
                     <c:forEach var="produto" items="${lista}">
                         <div class="card">
-                            <a href="${pageContext.request.contextPath}/view/exibeProduto.jsp?idProduto=?${produto.id}">
+                            
                                 <img class="card-img-top" src="${pageContext.request.contextPath}/img/${produto.categoria}.png">
-                            </a>
+                            
                             <div class="card-body">
-                                <a href="${pageContext.request.contextPath}/view/exibeProduto.jsp?idProduto=?${produto.id}">
+                                
                                     <h5 class="card-title">${produto.nome}</h5>
-                                </a>
-                                <p style="color:black;" class="card-text descricoes">${produto.descricao}</p>
+                               
+                                
                                 <p class="card-text">  
 
                                 <h5>
                                     R$: ${produto.precoDeVenda}
                                 </h5>
                                 
-                                Categoria:
-                                <c:if test="${produto.categoria == 1}">
-                                    <p>GTA 5</p>
-                                </c:if>
-                                    
-                                <c:if test="${produto.categoria == 2}">
-                                    <p>FIFA 19</p>
-                                </c:if>
-                                    
-                                <c:if test="${produto.categoria == 3}">
-                                    <p>Homem-Aranha</p>
-                                </c:if>
-                                    
-                                <c:if test="${produto.categoria == 4}">
-                                    <p>Sekiro</p>
-                                </c:if>
-                                    
-                                <c:if test="${produto.categoria == 5}">
-                                    <p>Console PS4</p>
-                                </c:if>
-                                   
-                                <c:if test="${produto.categoria == 6}">
-                                    <p>Console Xbox One S</p>
-                                </c:if> 
-                                    
-                                <c:if test="${produto.categoria == 7}">
-                                    <p>Crash Bandicoot Remastered</p>
-                                </c:if>
-                                
-                                <c:if test="${produto.categoria == 8}">
-                                    <p>Red Dead Redemption II</p>
-                                </c:if>
-                                    
-                                <c:if test="${produto.categoria == 9}">
-                                    <p>Dragon Ball FighterZ</p>
-                                </c:if>
-                                    
-                                <c:if test="${produto.categoria == ''}">
-                                    <p>Não encontrado</p>
-                                </c:if>
+                               
                                 <div class="addCarrinhoDiv">
                                     <c:if test="${not empty sessionScope.getEmail}">    
 
