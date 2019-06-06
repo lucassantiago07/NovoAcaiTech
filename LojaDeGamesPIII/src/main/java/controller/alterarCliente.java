@@ -27,6 +27,7 @@ public class alterarCliente extends HttpServlet {
         c.setCep(request.getParameter("cepCliente"));
         c.setTelefone(request.getParameter("telefoneCliente"));
         c.setCelular(request.getParameter("celularCliente"));
+        c.setSenha(request.getParameter("senhaCliente"));
 
         boolean deuCerto = dao.alterarCliente(c);
 

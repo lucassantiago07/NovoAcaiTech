@@ -57,16 +57,7 @@
                     </ul>
                 </div>
 
-                <div class="menu-desktop">
-                    <ul class="main-menu">
-
-                        <li>
-                            <a href="relatorio.jsp">Relatórios</a>
-                        </li>
-
-
-                    </ul>
-                </div>
+               
 
                 <a style="color:white;" href="/view/login.jsp">
                     <button type="button" class="btn btn-primary" >Login</button>
@@ -84,7 +75,7 @@
             </nav>
         </c:if>
 
-        <c:if test= "${sessionScope.getEmail == 'a'}">
+        <c:if test= "${sessionScope.getEmail != 'santos' && not empty sessionScope.getEmail}">
 
             <nav class="navbar navbar-light bg-light">
                 <div class="corpoimagem">
@@ -108,23 +99,13 @@
                     <ul class="main-menu">
 
                         <li>
-                            <a href="${pageContext.request.contextPath}/view/alterarCliente.jsp?idCliente=${Cliente.id}">Meus Dados</a>
+                            <a href="${pageContext.request.contextPath}/view/alterarCliente.jsp?idCliente=${sessionScope.getId}">Meus Dados</a>
                         </li>
 
 
                     </ul>
                 </div>
 
-                <div class="menu-desktop">
-                    <ul class="main-menu">
-
-                        <li>
-                            <a href="listaCliente.jsp">Meus Pedidos</a>
-                        </li>
-
-
-                    </ul>
-                </div>
                         
                         <a style="color:white;" href="${pageContext.request.contextPath}/view/login.jsp">
                         <button type="button" class="btn btn-primary" >Login</button>

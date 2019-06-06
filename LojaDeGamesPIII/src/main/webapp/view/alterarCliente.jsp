@@ -24,15 +24,6 @@
             <a href="${pageContext.request.contextPath}/view/destaques.jsp"><img  src="${pageContext.request.contextPath}/img/logo.png"  class="imagemlogo"></a>
         </div>
 
-
-        <div class="informacoessobrefuncionario">
-            <span class="nomedofuncionario">${sessionScope.getNome}</span> ●
-            <span class="filialfuncionario">${sessionScope.getFilial}</span>  ●
-            <span class="cargofuncionario">${sessionScope.getCargo}</span>  ●
-            <span class="datafuncionario">${sessionScope.getData}</span>  
-
-        </div>
-
         <form action="${pageContext.request.contextPath}/sairLogin" method="post">
             <a style="color:white;" href="${pageContext.request.contextPath}/view/carrinho.jsp">
                 <button type="button" class="btn btn-primary" >Carrinho</button>
@@ -43,27 +34,7 @@
     <!-- Fim Menu -->
     <body>
         <!-- Inicio Carrocel -->
-        <div id="carouselExampleControls" class="carousel slide" data-ride="carousel" data-interval="2500">
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <img class="d-block w-100" src="${pageContext.request.contextPath}/img/aviso1.jpg" alt="First slide">
-                </div>
-                <div class="carousel-item">
-                    <img class="d-block w-100" src="${pageContext.request.contextPath}/img/aviso2.jpg" alt="Second slide">
-                </div>
-                <div class="carousel-item" >
-                    <img class="d-block w-100" src="${pageContext.request.contextPath}/img/aviso3.jpg" alt="Third slide">
-                </div>
-            </div>
-            <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="sr-only">Previous</span>
-            </a>
-            <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="sr-only">Next</span>
-            </a>
-        </div>
+      
         <!-- Fim Carrocel -->
 
         <!-- Inicio Separador -->
@@ -73,11 +44,10 @@
         <!-- Fim Separador -->
         <!-- Inicio Corpo De Campo -->
         <div class="container corpodecampos">
-            <h3>Alterar Cliente</h3>
+            <h3>Alterar Dados</h3>
             <form name="formularioCliente" id="formularioCliente" action="${pageContext.request.contextPath}/alterarCliente" method="post">
                 <div class="form-group">
-                    <label>Identificador do Cliente</label>
-                    <input class="form-control" id="id" name="id" value="${cliente.id}" readonly="readonly"></input>
+                    <input type="hidden"class="form-control" id="id" name="id" value="${cliente.id}" readonly="readonly"></input>
                 </div>
 
                 <div class="form-group">
@@ -109,6 +79,11 @@
                     <label>Celular</label>
                     <input type="text" class="form-control" id="celularCliente" name="celularCliente" value="${cliente.celular}" onkeypress="return isNumberKey(event)" maxlength="11" required></input>
                 </div>
+                <div class="form-group">
+                    <label>Senha</label>
+                    <input type="text" class="form-control" id="senhaCliente" name="senhaCliente" value="${cliente.senha}" required></input>
+                </div>
+                
 
                 <button type="button" class="btn btn-primary" style="background-color: gray;">                    
                     <a href="${pageContext.request.contextPath}/view/index.jsp" style="color:white;">Voltar</a>                       

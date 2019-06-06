@@ -52,7 +52,7 @@ public class ClienteDAO {
         try {
             Connection connection = new ConnectionFactory().getConnection();
 
-            String sqlCliente = "UPDATE `cliente` SET `nome`=?, `cpf`=?, `email`=?, `endereco`=?, `cep`=?, `telefone`=?, `celular`=? WHERE `id`=?";
+            String sqlCliente = "UPDATE `cliente` SET `nome`=?, `cpf`=?, `email`=?, `endereco`=?, `cep`=?, `telefone`=?, `celular`=?, `senha`=? WHERE `id`=?";
             PreparedStatement pstmtCliente = connection.prepareStatement(sqlCliente);
             pstmtCliente.setString(1, c.getNome());
             pstmtCliente.setString(2, c.getCpf());
@@ -61,7 +61,8 @@ public class ClienteDAO {
             pstmtCliente.setString(5, c.getCep());
             pstmtCliente.setString(6, c.getTelefone());
             pstmtCliente.setString(7, c.getCelular());
-            pstmtCliente.setInt(8, c.getId());
+            pstmtCliente.setString(8, c.getSenha());
+            pstmtCliente.setInt(9, c.getId());
             int deuCertoSQL = pstmtCliente.executeUpdate();
 
             if (deuCertoSQL == 1) {
@@ -182,6 +183,7 @@ public class ClienteDAO {
                 c.setEmail(rs.getString("EMAIL"));
                 c.setEndereco(rs.getString("ENDERECO"));
                 c.setTelefone(rs.getString("TELEFONE"));
+                c.setSenha(rs.getString("SENHA"));
 
             }
             connection.close();
