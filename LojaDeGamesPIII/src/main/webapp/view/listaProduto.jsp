@@ -114,7 +114,7 @@
 
                                     <td><a href="${pageContext.request.contextPath}/adicionarAoCarrinho?idProduto=${produto.id}">Add. Carrinho</a></td>
                                     <td><a href="${pageContext.request.contextPath}/view/alterarProduto.jsp?idProduto=${produto.id}">Editar</a></td>
-                                    <td><a href="${pageContext.request.contextPath}/excluirProduto?idProduto=${produto.id}">Excluir</a></td></tr>
+                                    <td><a href="${pageContext.request.contextPath}/view/alterarProduto.jsp?idProduto=${produto.id}">Excluir</a></td></tr>
                                 </c:forEach>
 
 
@@ -129,12 +129,6 @@
                                     <td>${produto.precoDeVenda}</td>
                                     <td>${produto.precoDeCusto}</td>
                                     <td>${produto.fornecedor}</td>
-                                    
-                                    
-                                    
-                                    
-                                   
-
                                     <td>${produto.anoLancamento}</td>
                                     <td>${produto.estoque}</td>                                
                                                                         

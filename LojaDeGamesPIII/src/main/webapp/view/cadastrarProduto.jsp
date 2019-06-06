@@ -150,6 +150,8 @@
                         <option value="8">Red Dead Redemption II</option>
                         <option value="9">Dragon Ball FighterZ</option>                      
                         <option value="10">Forza Motorsport 7</option>
+                        <option value="11">Dead by Daylight</option>
+                        <option value="12">Far Cry 5 </option>
                         
                     </select>
                 </div>
