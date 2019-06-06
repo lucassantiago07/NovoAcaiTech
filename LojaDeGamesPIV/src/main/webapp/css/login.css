@@ -1,0 +1,43 @@
+#form_login {
+    left: 50%;
+    top: 50%;
+    position: absolute;
+    -webkit-transform: translate3d(-50%, -50%, 0);
+    -moz-transform: translate3d(-50%, -50%, 0);
+    transform: translate3d(-50%, -50%, 0);
+	
+	
+}
+.corpologin
+{
+	background-color:#CDC9C9;
+	padding:5%;
+	opacity: 0.92;
+	border-radius: 20px 0px 20px 0px;
+	-moz-border-radius: 20px 0px 20px 0px;
+	-webkit-border-radius: 20px 0px 20px 0px;
+	border: 1px solid purple;
+	
+}
+.corpoimagem
+{
+    left: 58%;
+    top: 17%;
+    position: absolute;
+    -webkit-transform: translate3d(-50%, -50%, 0);
+    -moz-transform: translate3d(-50%, -50%, 0);
+    transform: translate3d(-50%, -50%, 0);
+}
+.imagemlogo
+{
+	width:70%;
+}
+.btn
+{
+	background-color:black;
+	
+}
+label
+{
+	color:purple;
+}

@@ -1,0 +1,48 @@
+.btnSair
+{
+	background-color:purple;
+}
+.btnProdutos
+{
+	float:right;
+	margin-left:35%;
+}
+.btnClientes
+{
+	float:left;
+	margin-right:35%;
+}
+.btnClientes,.btnProdutos
+{
+	margin-top:1%;
+}
+.navbarbotoes
+{
+	background-color:purple;
+	margin-bottom:2%;
+}
+.buscajogoscorpo
+{
+	width:60%;
+	margin-left:20%;
+	margin-bottom:3%;
+	margin-top:3%;
+}
+.btnCadastrar
+{
+    margin-bottom: 2%;
+    margin-top: 2%;
+    background-color: purple;
+    color:white;
+    float:right;
+}
+.corpodecampos
+{
+ width: 70%;
+ margin-top: 2%;
+ margin-bottom: 2%;
+}
+.separadorcarrocel
+{
+    background-color: black;
+}
