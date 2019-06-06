@@ -31,6 +31,7 @@
         <nav class="navbar navbar-light separadorcarrocel">
         </nav>
         <form method="POST" action="${pageContext.request.contextPath}/finalizarVenda">
+            <input type="hidden" id="idCliente" name="idCliente" value="${sessionScope.getId}"/>
             <div class="container">
                 <div class="row">
                     <div class="col-8 titulocorpopagamento">
@@ -52,7 +53,7 @@
                             <input type="checkbox" id="cartao" name="cartao" value="Pagamento em cartao">Pagamento em cartão<br>
                             <label>Parcelamento (Em até 12X):</label>
                             <div class="input-group mb-2 vezesCartao">                              
-                                <input type="number" class="form-control " id="vezesCartao" name="vezesCartao" value="10" onkeypress="return isNumberKey(event)" max="12" ></input>
+                                <input type="number" class="form-control " id="vezesCartao" name="vezesCartao" value="1" min="1" onkeypress="return isNumberKey(event)" max="12" ></input>
                                 <div class="input-group-prepend">
                                     <div class="input-group-text">X</div>
                                 </div>

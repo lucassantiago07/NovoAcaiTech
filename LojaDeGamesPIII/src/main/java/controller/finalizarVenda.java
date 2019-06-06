@@ -1,6 +1,8 @@
 package controller;
 
+import dao.ClienteDAO;
 import dao.VendaDAO;
+import data.ClienteData;
 import data.ProdutoData;
 import data.VendaData;
 import java.io.IOException;
@@ -33,9 +35,9 @@ public class finalizarVenda extends HttpServlet {
             // Infomações definidas no carrinho
             String valorTotal = (String) session.getAttribute("valorTotal");
             String subTotal = (String) session.getAttribute("subTotal");
-
-            // Id Cliente
-            String idCliente = String.valueOf((Integer) session.getAttribute("idCliente"));
+            
+            //Cliente
+            String idCliente = request.getParameter("idCliente");
 
             // Lista de produtos
             ArrayList<ProdutoData> listaProdutos = (ArrayList<ProdutoData>) session.getAttribute("listaProdutos");
@@ -73,13 +75,6 @@ public class finalizarVenda extends HttpServlet {
             String MensagemDeRetorno = null;
 
             if (cadastraVenda == true) {
-
-                session.setAttribute("idCliente", null);
-                session.setAttribute("nomeCliente", null);
-                session.setAttribute("cpfCliente", null);
-                session.setAttribute("celularCliente", null);
-                session.setAttribute("listaProdutos", null);
-
                 MensagemDeRetorno = "Parabéns Sr(a) " + session.getAttribute("getNome") + ", sua venda foi realizada com sucesso!";
                 ArrayList<ProdutoData> listaProdutosNova = new ArrayList<>();
                 session.setAttribute("listaProdutos", listaProdutosNova);
@@ -87,7 +82,7 @@ public class finalizarVenda extends HttpServlet {
                 MensagemDeRetorno = "Houve um erro ao realizar a venda.";
             }
             request.setAttribute("retornoMensagem", MensagemDeRetorno);
-            request.getRequestDispatcher("view/destaques.jsp").forward(request, response);
+            request.getRequestDispatcher("/view/destaques.jsp").forward(request, response);
 
         } catch (SQLException | ClassNotFoundException ex) {
             System.out.println("Erro Servlet finalizarVEnda");

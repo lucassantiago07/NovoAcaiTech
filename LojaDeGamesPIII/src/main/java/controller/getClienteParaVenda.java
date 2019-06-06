@@ -18,27 +18,21 @@ public class getClienteParaVenda extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        String cpfCliente = request.getParameter("cpfCliente");
+        Integer idCliente = Integer.parseInt(request.getParameter("idCliente"));
 
         ClienteDAO Clientes = new ClienteDAO();
 
-        ClienteData cliente = Clientes.getClienteByCpf(cpfCliente);
-
-        if (cliente.getCpf() == null) {
-            request.setAttribute("retorno", "clientenaocadastrado");
-            request.setAttribute("retornoMensagem", "Não existe cliente para o CPF informado!");
-        } else {
+        ClienteData cliente = Clientes.getClienteById(idCliente);
             HttpSession session = request.getSession();
             session.setAttribute("idCliente", cliente.getId());
             session.setAttribute("nomeCliente", cliente.getNome());
             session.setAttribute("cpfCliente", cliente.getCpf());
             session.setAttribute("celularCliente", cliente.getCelular());
-        }
 
         //response.sendRedirect("./view/listaCliente.jsp");
-        RequestDispatcher requestDispatcher;
-        requestDispatcher = request.getRequestDispatcher("/view/carrinho.jsp");
-        requestDispatcher.forward(request, response);
+//        RequestDispatcher requestDispatcher;
+//        requestDispatcher = request.getRequestDispatcher("/view/carrinho.jsp");
+//        requestDispatcher.forward(request, response);
 
         // request.getRequestDispatcher("./view/listaCliente.jsp").forward(request, response);
     }

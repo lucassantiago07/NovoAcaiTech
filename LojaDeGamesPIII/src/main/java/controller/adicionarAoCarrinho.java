@@ -86,6 +86,7 @@ public class adicionarAoCarrinho extends HttpServlet {
 
                 // Salva as alterações
                 session.setAttribute("listaProdutos", listaProdutos);
+                
 
                 // Indica qual pagina deve voltar
                 // String retorno = "/view/carrinho.jsp";
