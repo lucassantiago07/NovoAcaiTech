@@ -1,3 +1,5 @@
+
+
 CREATE DATABASE lojadegames; 
 
 USE lojadegames; 
@@ -29,38 +31,15 @@ INSERT INTO `produto`
              `ano_lancamento`, 
              `estoque`, 
              `dt_cadastro`) 
-VALUES      ('Tomb Raider II', 
+VALUES      ('Grand Theft Auto V', 
              1, 
-             'PS1', 
-             'Tomb Raider USA', 
-'É o segundo jogo de computador e videogames da série Tomb Raider. Foi desenvolvido pela Core Design e publicado pela Eidos Interactive, e originalmente lançado para PC e Playstation em 1997'
+             'PS4', 
+             'Rockstar North', 
+'GTA 5 é um jogo de mundo aberto.'
              , 
-30, 
-58, 
-1997, 
-3, 
-NULL); 
-
-INSERT INTO `produto` 
-            (`nome`, 
-             `categoria`, 
-             `plataforma`, 
-             `fornecedor`, 
-             `descricao`, 
-             `preco_compra`, 
-             `preco_venda`, 
-             `ano_lancamento`, 
-             `estoque`, 
-             `dt_cadastro`) 
-VALUES      ('Need for Speed: Most Wanted', 
-             2, 
-             'XBOX', 
-             'Electronic Arts', 
-'É um jogo eletrônico de corrida desenvolvido pela Criterion Games e publicado pela Electronic Arts.'
-             , 
-250, 
-365, 
-2012, 
+50, 
+100, 
+2013, 
 10, 
 NULL); 
 
@@ -75,17 +54,18 @@ INSERT INTO `produto`
              `ano_lancamento`, 
              `estoque`, 
              `dt_cadastro`) 
-VALUES      ('Midnight Club', 
+VALUES      ('FIFA 19', 
              2, 
-             'XBOX', 
+             'PS4', 
              'Electronic Arts', 
-'É um jogo de corrida desenvolvido pela Rockstar San Diego no ano de 2003 e publicado pela Rockstar Games. O jogo é semelhante ao Midtown Madness feito pela Angel Studios, com foco de corridas no mundo urbano aberto.'
+'FIFA 19 é um simulador de futebol.'
              , 
-97, 
-154, 
-2009, 
-2, 
+100, 
+150, 
+2018, 
+10, 
 NULL); 
+
 
 INSERT INTO `produto` 
             (`nome`, 
@@ -98,16 +78,16 @@ INSERT INTO `produto`
              `ano_lancamento`, 
              `estoque`, 
              `dt_cadastro`) 
-VALUES      ('Grand Theft Auto: San Andreas', 
+VALUES      ('Console Playstation 4 Slim', 
              5, 
-             'PS2', 
-             'Michael Hunter Games', 
-'é um jogo eletrônico de ação-aventura desenvolvido pela Rockstar North e publicado pela Rockstar Games.' 
+             'PS4', 
+             'Sony', 
+'PS4 Slim com um controle' 
              , 
-24, 
-61, 
-2004, 
-9, 
+1500, 
+1800, 
+2013, 
+15, 
 NULL); 
 
 INSERT INTO `produto` 
@@ -121,17 +101,17 @@ INSERT INTO `produto`
              `ano_lancamento`, 
              `estoque`, 
              `dt_cadastro`) 
-VALUES      ('Call of Duty 3', 
+VALUES      ('Spider-Man', 
              3, 
-             'PS2', 
-             'Joel Goldsmith Games', 
-'É o terceiro título da série Call of Duty, desenvolvido pela Treyarch, disponível para Xbox 360, PlayStation 2, PlayStation 3, PlayStation Portable, Xbox e Nintendo Wii.'
-             , 
+             'PS4', 
+             'Insomniac Games', 
+'Marvels Spider-Man é um jogo eletrônico de ação-aventura baseado no super-herói Homem-Aranha da Marvel Comics.', 
 80, 
 129, 
-2006, 
-12, 
+2018, 
+20, 
 NULL); 
+
 
 INSERT INTO `produto` 
             (`nome`, 
@@ -144,38 +124,15 @@ INSERT INTO `produto`
              `ano_lancamento`, 
              `estoque`, 
              `dt_cadastro`) 
-VALUES      ('Counter-Strike: Global Offensive', 
-             3, 
-             'PC', 
-             'Brasil Games', 
-'É um jogo online desenvolvido pela Valve Corporation e pela Hidden Path Entertainment, sendo uma sequência de Counter-Strike: Source. É o quarto título principal da franquia.' 
-             , 
-21, 
-40, 
-2012, 
-42, 
-NULL); 
-
-INSERT INTO `produto` 
-            (`nome`, 
-             `categoria`, 
-             `plataforma`, 
-             `fornecedor`, 
-             `descricao`, 
-             `preco_compra`, 
-             `preco_venda`, 
-             `ano_lancamento`, 
-             `estoque`, 
-             `dt_cadastro`) 
-VALUES      ('World of Warcraft', 
+VALUES      ('Sekiro™: Shadows Die Twice', 
              4, 
-             'PC', 
-             'Warcraft Games STR', 
-'É um jogo on-line, da produtora Blizzard lançado em 2004. O jogo se passa no mundo fantástico de Azeroth, introduzido no primeiro jogo da série, Warcraft: Orcs & Humans em 1994.'
+             'PS4', 
+             'FromSoftware', 
+'Sekiro: Shadows Die Twice é um jogo eletrônico de ação-aventura desenvolvido pela FromSoftware e publicado pela Activision.'
              , 
 70, 
-134, 
-2004, 
+150, 
+2019, 
 32, 
 NULL); 
 

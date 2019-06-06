@@ -117,11 +117,16 @@
                 <div class="form-group">
                     <label>Categoria</label>
                     <select class="form-control" id="categoria" name="categoria" required>
-                        <option value="1">Ação</option>
-                        <option value="2">Corrida</option>
-                        <option value="3">Tiro</option>
-                        <option value="4">RPG</option>
-                        <option value="5">Estratégia</option>
+                        <option value="1">GTA 5 </option>
+                        <option value="2">FIFA 19</option>
+                        <option value="3">Homem-Aranha</option>
+                        <option value="4">Sekiro</option>
+                        <option value="5">Console PS4</option>
+                        <option value="7">Crash Bandicoot Remastered</option>
+                        <option value="8">Red Dead Redemption II</option>
+                        <option value="9">Dragon Ball FighterZ</option>
+                        
+                        
                     </select>
                 </div>
                 <div class="form-group">
