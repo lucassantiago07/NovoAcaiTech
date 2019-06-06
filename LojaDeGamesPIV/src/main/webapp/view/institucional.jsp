@@ -54,18 +54,6 @@
 						</ul>
 				</div>
             
-                         
-             <div class="menu-desktop">
-						<ul class="main-menu">
-							                                                        
-                                                        <li>
-                                                                <a href="listaCliente.jsp">Meus Dados</a>
-                                                        </li>
-
-                     												
-						</ul>
-				</div>
-            
             
             
             <form action="${pageContext.request.contextPath}/sairLogin" method="post">
