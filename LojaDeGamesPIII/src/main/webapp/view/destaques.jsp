@@ -68,22 +68,23 @@
                     </ul>
                 </div>
 
-                
+                <a style="color:white;" href="/view/login.jsp">
+                    <button type="button" class="btn btn-primary" >Login</button>
+                </a>
+
+                <a style="color:white;" href="${pageContext.request.contextPath}/view/carrinho.jsp">
+                    <button type="button" class="btn btn-primary" >Carrinho</button>
+                </a>
+
                 <form action="${pageContext.request.contextPath}/sairLogin" method="post">
 
-                    <a style="color:white;" href="/view/login.jsp">
-                        <button type="button" class="btn btn-primary" >Login</button>
-                    </a>
 
-                    <a style="color:white;" href="${pageContext.request.contextPath}/view/carrinho.jsp">
-                        <button type="button" class="btn btn-primary" >Carrinho</button>
-                    </a>
                     <button type="submit" class="btn btn-primary btnSair">Sair</button>
                 </form>
             </nav>
         </c:if>
 
-        <c:if test= "${sessionScope.getEmail != 'santos'}">
+        <c:if test= "${sessionScope.getEmail == 'a'}">
 
             <nav class="navbar navbar-light bg-light">
                 <div class="corpoimagem">
@@ -113,8 +114,8 @@
 
                     </ul>
                 </div>
-                
-                 <div class="menu-desktop">
+
+                <div class="menu-desktop">
                     <ul class="main-menu">
 
                         <li>
@@ -124,6 +125,51 @@
 
                     </ul>
                 </div>
+                        
+                        <a style="color:white;" href="${pageContext.request.contextPath}/view/login.jsp">
+                        <button type="button" class="btn btn-primary" >Login</button>
+                    </a>
+
+                    <a style="color:white;" href="${pageContext.request.contextPath}/view/carrinho.jsp">
+                        <button type="button" class="btn btn-primary" >Carrinho</button>
+                        
+                    </a>
+                        
+                <form action="${pageContext.request.contextPath}/view/login.jsp" method="post">
+
+                    
+                        
+                        <button type="submit" class="btn btn-primary btnSair">Sair</button>
+
+                </form>
+            </nav>
+
+
+
+
+        </c:if>
+
+        <c:if test= "${empty sessionScope.getEmail}">
+
+            <nav class="navbar navbar-light bg-light">
+                <div class="corpoimagem">
+                    <a href="${pageContext.request.contextPath}/view/destaques.jsp"><img  src="${pageContext.request.contextPath}/img/logo.png"  class="imagemlogo"></a>
+                </div>
+
+
+
+                <div class="menu-desktop">
+                    <ul class="main-menu">
+
+                        <li>
+                            <a style="margin-right: 1000px" href="institucional.jsp">Institucional</a>
+                        </li>
+
+
+                    </ul>
+                </div>
+
+
                 <form action="${pageContext.request.contextPath}/sairLogin" method="post">
 
                     <a style="color:white;" href="${pageContext.request.contextPath}/view/login.jsp">
@@ -132,7 +178,7 @@
 
                     <a style="color:white;" href="${pageContext.request.contextPath}/view/carrinho.jsp">
                         <button type="button" class="btn btn-primary" >Carrinho</button>
-                        <button type="submit" class="btn btn-primary btnSair">Sair</button>
+
                     </a>
 
                 </form>
@@ -142,6 +188,7 @@
 
 
         </c:if>
+
 
 
 

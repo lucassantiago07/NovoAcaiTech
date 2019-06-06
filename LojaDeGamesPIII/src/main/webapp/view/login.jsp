@@ -41,6 +41,8 @@
 
             </div>
         </div>
+        
+        
         <script src="js/jquery-3.3.1.js"></script>
         <script src="js/bootstrap.js"></script>
         <script src="js/background-video.js"></script>
@@ -49,7 +51,7 @@
         <link type="text/css" href="css/script.css" rel="stylesheet" />
         <link type="text/css" href="css/login.css" rel="stylesheet" />
 
-
+     
         <!-- Modal -->
         <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
