@@ -197,13 +197,13 @@
         <div id="carouselExampleControls" class="carousel slide" data-ride="carousel" data-interval="2500">
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img class="d-block w-100" src="${pageContext.request.contextPath}/img/slide1.jpg" alt="First slide">
+                    <img class="d-block w-100" src="${pageContext.request.contextPath}/img/slide1.png" alt="First slide">
                 </div>
                 <div class="carousel-item">
-                    <img class="d-block w-100" src="${pageContext.request.contextPath}/img/slide2.jpg" alt="Second slide">
+                    <img class="d-block w-100" src="${pageContext.request.contextPath}/img/slide4.jpg" alt="Second slide">
                 </div>
                 <div class="carousel-item" >
-                    <img class="d-block w-100" src="${pageContext.request.contextPath}/img/slide3.jpg" alt="Third slide">
+                    <img class="d-block w-100" src="${pageContext.request.contextPath}/img/slide5.jpg" alt="Third slide">
                 </div>
             </div>
             <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
@@ -283,9 +283,9 @@
             </div>
         </div>
         <!-- Footer -->
-        <footer class="rodape page-footer font-small blue">
+        <footer class="rodape page-footer font-small blue" >
             <!-- Copyright -->
-            <div class="footer-copyright text-center py-3">© 2018 Copyright: [ ACAITECH SISTEMAS OPERACIONAIS LTDA 13.050.544/0001-00 ]
+            <div class="footer-copyright text-center py-3">© 2019 Copyright: [ ACAITECH SISTEMAS OPERACIONAIS LTDA 13.050.544/0001-00 ]
 
             </div>
             <!-- Copyright -->
