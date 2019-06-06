@@ -76,7 +76,7 @@
                     <button type="button" class="btn btn-primary" >Carrinho</button>
                 </a>
 
-                <form action="${pageContext.request.contextPath}/sairLogin" method="post">
+                <form action="${pageContext.request.contextPath}/view/login.jsp" method="post">
 
 
                     <button type="submit" class="btn btn-primary btnSair">Sair</button>
